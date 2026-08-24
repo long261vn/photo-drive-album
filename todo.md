@@ -35,3 +35,5 @@
 - [x] Thêm phân trang 5 album, làm nổi bật tìm kiếm/sắp xếp và rút gọn hàng album.
 - [x] Đảm bảo mọi thumbnail/cover hiển thị đầy đủ, không crop hoặc che ảnh.
 - [x] Kiểm thử không gian, căn chỉnh và responsive desktop/Galaxy S20.
+- [x] Loại bỏ mọi nội dung hồ sơ do giao diện tự chèn và chỉ hiển thị nguyên văn các trường được đồng bộ từ Google Tài liệu `info`.
+- [x] Kiểm thử lại profile với manifest Drive, đồng bộ GitHub Pages và xác nhận nội dung không bị diễn giải.

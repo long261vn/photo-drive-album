@@ -27,7 +27,6 @@ export default function Home() {
   const pageCount = Math.max(1, Math.ceil(filteredAlbums.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
   const pageAlbums = filteredAlbums.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
-  const hasEditorialBio = Boolean(profile.bio && /[\s.,;:!?]/.test(profile.bio));
 
   return <main className="archive-home">
     <header className="site-header">
@@ -38,7 +37,7 @@ export default function Home() {
       <div className="profile-cover"><img src={profile.cover} alt="Ảnh bìa thư viện" fetchPriority="high" /></div>
       <div className="profile-summary">
         <div className="profile-avatar"><img src={profile.avatar} alt={`Avatar ${profile.name}`} /></div>
-        <div className="profile-copy"><p className="profile-kicker">Lưu Trữ Hình Ảnh Phụng Vụ</p><h1>Thư Viện Hình Công Giáo</h1><p className="profile-byline">Phụ Trách Lưu Trữ: {profile.name}</p>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{hasEditorialBio && <p className="profile-bio">{profile.bio}</p>}</div>
+        <div className="profile-copy"><h1>{profile.name}</h1>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{profile.bio && <p className="profile-bio">{profile.bio}</p>}</div>
         <div className="profile-stats" aria-label="Thống Kê Thư Viện"><span><strong>{albums.length}</strong> Album</span><span><strong>{assetCount}</strong> Thiết Kế</span></div>
       </div>
     </section>

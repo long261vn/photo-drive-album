@@ -332,8 +332,6 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .profile-avatar { width: 76px; height: 76px; margin-top: -38px; border-width: 4px; box-shadow: 0 3px 12px rgba(32,38,41,0.12); }
 .profile-avatar img { object-fit: contain; }
 .profile-copy h1 { margin: 0 0 2px; font-size: clamp(27px, 5vw, 42px); }
-.profile-kicker { margin: 0 0 4px; color: var(--cobalt); font-size: 9px; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
-.profile-byline { margin: 0; color: var(--muted-ink); font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
 .profile-bio { margin-top: 7px; font-size: 12px; line-height: 1.55; }
 .profile-details { display: none; }
 .profile-stats { gap: 10px 16px; padding-top: 10px; font-size: 9px; }

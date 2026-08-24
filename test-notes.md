@@ -45,3 +45,7 @@ Cover editor mở được và hiển thị lớp hướng dẫn kéo ảnh. B�
 Trang chủ đã đổi nhận diện thành `Thư Viện Hình Công Giáo`; bỏ cover editor, nhãn Drive, ghi chú nguồn và footer phụ. Cover, avatar, thumbnail album và ảnh trong gallery dùng `object-fit: contain`, nên giữ đủ nội dung ảnh. Hàng Album chỉ giữ thumbnail, mùa/ngày, tên, số thiết kế và nút mở; mô tả dài đã được loại bỏ. Danh sách có tìm kiếm, sắp xếp và logic phân trang 5 album/trang. Đã kiểm tra desktop và 360×800; header mobile không còn va chạm với điều hướng.
 
 GitHub Pages đã được xác minh sau workflow triển khai thành công cho commit `624b4d8`: trang chủ tải bình thường, hiện nhận diện **Thư Viện Hình Công Giáo**, tiêu đề `Chúa Nhật Thứ … - Năm A`, cover/avatar/thumbnail từ Drive và footer `Long Nguyen © 2026`.
+
+## 2026-08-24 — Hồ sơ nguyên văn từ info
+
+Đã gỡ các dòng “Lưu Trữ Hình Ảnh Phụng Vụ”, “Phụ Trách Lưu Trữ” và tiêu đề hồ sơ cố định do giao diện chèn. Trang chủ hiện render trực tiếp `profile.name`, `profile.handle` và `profile.bio` từ manifest do Google Tài liệu `info` sinh ra; nội dung `Long Nguyen` và `abcdefg…` đã hiển thị đúng ở viewport 360×800.
