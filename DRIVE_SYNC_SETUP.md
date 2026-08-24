@@ -1,14 +1,10 @@
 # Thiết lập đồng bộ Google Drive
 
-Website dùng folder công khai `Website_LHN` với ID `1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw`. Hai folder con đang được nhận diện là `CN20_TN_A` và `CN21_TN_A`; script sẽ tự đổi chúng thành “Chúa Nhật thứ 20 Thường Niên — Năm A” và “Chúa Nhật thứ 21 Thường Niên — Năm A”.
+Website dùng folder công khai `Website_LHN` với ID `1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw`. Hai folder con đang được nhận diện là `CN20_TN_A` và `CN21_TN_A`; script sẽ tự đổi chúng thành “Chúa Nhật Thứ 20 Thường Niên - Năm A” và “Chúa Nhật Thứ 21 Thường Niên - Năm A”.
 
 ## Hồ sơ thư viện
 
 Trang chủ dùng thêm folder công khai `Website_LHN_Data` có ID `1EyZBWqmD1s74T_Aiekw3Y-tKguwdHwhQ`. Giữ nguyên `Avatar.png`, `Cover.png` và Google Tài liệu tên chính xác là `info`: avatar và cover được hiển thị ở phần hồ sơ; tài liệu có thể dùng các trường `Tên: ...`, `Giới thiệu: ...`, `Handle: ...`, rồi thêm các dòng thông tin ngắn khác bên dưới. Nội dung sẽ tự đổi sau lần đồng bộ kế tiếp.
-
-### Vị trí ảnh bìa
-
-Nút **Điều chỉnh ảnh bìa** trên trang chủ cho phép kéo ảnh giống Facebook. Bản điều chỉnh được lưu trên thiết bị đang thao tác. Để áp dụng cho mọi khách truy cập, chọn **Xuất cấu hình**, thay nội dung file `client/public/data/profile-settings.json` trong GitHub bằng file vừa tải xuống và commit thay đổi đó.
 
 Để workflow đọc được folder qua Drive API, cần tạo một API key trong Google Cloud Console của chính anh/chị. Trong project Google Cloud, hãy bật **Google Drive API**, tạo API key và giới hạn key theo API là “Google Drive API”. Vì website chỉ đọc folder đã chia sẻ công khai, không cần nhúng OAuth client secret vào frontend.
 

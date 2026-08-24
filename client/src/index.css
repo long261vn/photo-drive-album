@@ -75,7 +75,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .profile-shell { margin: 26px 0 60px; border: 1px solid var(--border); background: var(--paper); }
 .cover-repositioner { position: relative; }
 .profile-cover { height: 220px; overflow: hidden; background: var(--paper-deep); }
-.profile-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.profile-cover img { width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .cover-repositioner.is-editing .profile-cover { cursor: move; }
 .cover-repositioner__hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 9px; background: rgba(27, 50, 39, 0.4); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.03em; pointer-events: none; }
 .cover-repositioner__sliders { position: absolute; z-index: 3; left: 12px; bottom: 12px; display: grid; width: min(308px, calc(100% - 24px)); gap: 7px; padding: 10px; background: rgba(245,240,229,0.94); color: var(--ink); backdrop-filter: blur(8px); }
@@ -88,7 +88,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .cover-repositioner__actions button.is-primary { border-color: var(--cobalt); background: var(--cobalt); color: #fff; }
 .profile-summary { position: relative; display: grid; gap: 18px; padding: 0 18px 22px; }
 .profile-avatar { width: 112px; height: 112px; margin-top: -56px; overflow: hidden; border: 5px solid var(--paper); border-radius: 50%; background: var(--paper-deep); box-shadow: 0 4px 18px rgba(32,38,41,0.14); }
-.profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.profile-avatar img { width: 100%; height: 100%; object-fit: contain; }
 .profile-copy { max-width: 720px; }
 .profile-copy h1 { margin: 5px 0 4px; font-family: "Noto Serif", serif; font-size: clamp(32px, 6vw, 58px); font-weight: 600; letter-spacing: -0.055em; line-height: 1.08; overflow-wrap: anywhere; }
 .profile-handle { margin: 0; color: var(--cobalt); font-size: 12px; font-weight: 800; letter-spacing: 0.045em; }
@@ -111,7 +111,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .album-list__row { position: relative; display: grid; grid-template-columns: 82px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 116px; border-bottom: 1px solid var(--border); padding: 12px 0; transition: background 180ms var(--ease-out); }
 .album-list__row:hover { background: rgba(232,224,207,0.34); }
 .album-list__thumbnail { width: 82px; height: 82px; overflow: hidden; border: 0; padding: 0; background: var(--paper-deep); cursor: pointer; }
-.album-list__thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform 220ms var(--ease-out); }
+.album-list__thumbnail img { width: 100%; height: 100%; object-fit: contain; transition: transform 220ms var(--ease-out); }
 .album-list__thumbnail:hover img { transform: scale(1.045); }
 .album-list__index { position: absolute; top: 12px; left: 87px; color: var(--terracotta); font-size: 9px; font-weight: 800; letter-spacing: 0.12em; }
 .album-list__copy { min-width: 0; padding-top: 14px; }
@@ -150,7 +150,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .archive-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 42px 14px; align-items: start; }
 .album-card { position: relative; grid-column: span 12; min-width: 0; }
 .album-card__image { position: relative; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 0; padding: 0; background: #d7d1c5; cursor: pointer; }
-.album-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 280ms var(--ease-out); }
+.album-card__image img { width: 100%; height: 100%; object-fit: contain; transition: transform 280ms var(--ease-out); }
 .album-card__wash { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(31,69,168,0.02), rgba(0,0,0,0.28)); transition: opacity 180ms var(--ease-out); }
 .album-card__open { position: absolute; right: 12px; top: 12px; display: grid; width: 38px; height: 38px; place-items: center; background: var(--paper); color: var(--cobalt); opacity: 0; transform: translateY(5px); transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out); }
 .album-card__image:hover img { transform: scale(1.035); }
@@ -316,4 +316,72 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* Compact library refinement: dense, image-first, and restrained for a large Catholic archive. */
+.site-header, .album-page__header { min-height: 58px; }
+.brand-lockup { gap: 8px; font-size: 18px; letter-spacing: -0.03em; }
+.brand-symbol { width: 23px; height: 27px; flex-basis: 23px; }
+.brand-symbol::before { top: 4px; bottom: 4px; left: 9px; }
+.brand-symbol::after { top: 10px; left: 5px; width: 10px; }
+.header-jump { gap: 5px; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+.profile-shell { margin: 18px 0 32px; }
+.profile-cover { display: grid; height: 150px; place-items: center; background: var(--paper-deep); }
+.profile-cover img { width: 100%; height: 100%; object-fit: contain; }
+.profile-summary { gap: 10px; padding: 0 16px 16px; }
+.profile-avatar { width: 76px; height: 76px; margin-top: -38px; border-width: 4px; box-shadow: 0 3px 12px rgba(32,38,41,0.12); }
+.profile-avatar img { object-fit: contain; }
+.profile-copy h1 { margin: 0 0 2px; font-size: clamp(27px, 5vw, 42px); }
+.profile-kicker { margin: 0 0 4px; color: var(--cobalt); font-size: 9px; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
+.profile-byline { margin: 0; color: var(--muted-ink); font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.profile-bio { margin-top: 7px; font-size: 12px; line-height: 1.55; }
+.profile-details { display: none; }
+.profile-stats { gap: 10px 16px; padding-top: 10px; font-size: 9px; }
+.profile-stats strong { font-size: 15px; }
+.archive-toolbar--profile { margin-bottom: 12px; }
+.archive-toolbar__lede { display: none; }
+.archive-toolbar__controls { gap: 8px; }
+.archive-search, .archive-sort { min-height: 44px; border: 1px solid var(--border); background: #fbf8f2; box-shadow: 0 2px 8px rgba(32,38,41,0.04); }
+.archive-search { padding: 0 13px; }
+.archive-search:focus-within { border-color: var(--cobalt); box-shadow: 0 0 0 3px rgba(40,90,64,0.11); }
+.archive-sort { padding: 0 11px; }
+.album-list__row { grid-template-columns: 72px minmax(0, 1fr) auto; gap: 11px; min-height: 92px; padding: 10px 0; }
+.album-list__thumbnail { position: relative; display: grid; width: 72px; height: 72px; place-items: center; background: var(--paper-deep); }
+.album-list__thumbnail img { width: 100%; height: 100%; object-fit: contain; }
+.album-list__thumbnail::after { position: absolute; inset: 5px; border: 1px solid rgba(244, 240, 232, 0.92); border-right: 0; border-bottom: 0; content: ""; pointer-events: none; }
+.album-list__thumbnail:hover img { transform: none; opacity: 0.78; }
+.album-list__index { top: 10px; left: 78px; font-size: 8px; }
+.album-list__copy { padding-top: 10px; }
+.album-list__copy h3 { margin-top: 4px; font-size: 18px; line-height: 1.13; }
+.album-list__copy p { display: none !important; }
+.album-pagination { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 20px 0 34px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.album-pagination button { display: inline-flex; align-items: center; gap: 5px; min-height: 36px; border: 1px solid var(--border); padding: 0 10px; background: var(--paper); color: var(--cobalt); font-size: 10px; font-weight: 800; text-transform: uppercase; }
+.album-pagination button:disabled { cursor: not-allowed; opacity: 0.38; }
+.archive-note { display: none; }
+.site-footer { justify-content: flex-start; padding: 18px 0 26px; font-size: 9px; }
+.photo-tile:hover img { transform: none; }
+@media (min-width: 580px) {
+  .profile-cover { height: 200px; }
+  .profile-summary { grid-template-columns: 92px minmax(0, 1fr) auto; align-items: end; padding: 0 24px 20px; }
+  .profile-avatar { width: 92px; height: 92px; margin-top: -46px; }
+  .album-list__row { grid-template-columns: 112px minmax(0, 1fr) 66px 100px; gap: 16px; min-height: 110px; padding: 13px 0; }
+  .album-list__thumbnail { width: 112px; height: 82px; }
+  .album-list__index { top: 13px; left: 120px; }
+  .album-list__copy { padding-top: 11px; }
+  .album-list__copy h3 { font-size: 22px; }
+}
+@media (min-width: 850px) {
+  .profile-shell { margin-top: 22px; }
+  .profile-cover { height: 260px; }
+  .profile-summary { grid-template-columns: 112px minmax(0, 1fr) auto; padding: 0 30px 22px; }
+  .profile-avatar { width: 112px; height: 112px; margin-top: -56px; }
+  .album-list__row { grid-template-columns: 168px minmax(0, 1fr) 92px 118px; gap: 20px; min-height: 132px; padding: 16px 0; }
+  .album-list__thumbnail { width: 168px; height: 106px; }
+  .album-list__index { top: 16px; left: 178px; }
+  .album-list__copy { padding-top: 13px; }
+  .album-list__copy h3 { font-size: 26px; }
+}
+@media (max-width: 480px) {
+  .brand-lockup { font-size: 17px; }
+  .archive-home .header-jump { display: none; }
 }

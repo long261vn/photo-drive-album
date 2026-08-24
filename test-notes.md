@@ -39,3 +39,7 @@ Trang chủ đã dùng `Avatar.png` và `Cover.png` thật từ folder `Website_
 Giao diện mới hiển thị nút Điều chỉnh ảnh bìa trên cover và danh sách album có thumbnail, số thứ tự, metadata mùa/ngày, mô tả, số thiết kế, nút mở album, tìm kiếm cùng dropdown sắp xếp. Desktop và viewport 360×800 không có tràn ngang; trên mobile, list giữ thumbnail nhỏ, tên album dễ quét và nút mũi tên mở album.
 
 Cover editor mở được và hiển thị lớp hướng dẫn kéo ảnh. Bổ sung thêm hai thanh điều chỉnh Ngang/Dọc để thao tác reposition cũng dùng được với cảm ứng và bàn phím; người dùng có thể lưu tạm trên thiết bị hoặc xuất JSON để cập nhật cấu hình dùng chung.
+
+## 2026-08-24 — Thư Viện Hình Công Giáo tinh gọn
+
+Trang chủ đã đổi nhận diện thành `Thư Viện Hình Công Giáo`; bỏ cover editor, nhãn Drive, ghi chú nguồn và footer phụ. Cover, avatar, thumbnail album và ảnh trong gallery dùng `object-fit: contain`, nên giữ đủ nội dung ảnh. Hàng Album chỉ giữ thumbnail, mùa/ngày, tên, số thiết kế và nút mở; mô tả dài đã được loại bỏ. Danh sách có tìm kiếm, sắp xếp và logic phân trang 5 album/trang. Đã kiểm tra desktop và 360×800; header mobile không còn va chạm với điều hướng.

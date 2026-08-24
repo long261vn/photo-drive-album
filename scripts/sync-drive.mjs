@@ -31,7 +31,7 @@ const titleFromFileName = (name) => name.replace(/\.[^.]+$/, "").replace(/[_-]+/
 
 const titleFromFolderName = (name) => {
   const ordinaryMatch = name.match(/^CN\s*(\d{1,2})\s*[_-]?\s*TN\s*[_-]?\s*([ABC])$/i);
-  if (ordinaryMatch) return `Chúa Nhật thứ ${ordinaryMatch[1]} Thường Niên — Năm ${ordinaryMatch[2].toUpperCase()}`;
+  if (ordinaryMatch) return `Chúa Nhật Thứ ${ordinaryMatch[1]} Thường Niên - Năm ${ordinaryMatch[2].toUpperCase()}`;
   return titleFromFileName(name);
 };
 
@@ -81,9 +81,9 @@ function parseProfileInfo(text) {
     if (match) fields.set(toSlug(match[1]), match[2].trim());
   }
   const field = (...keys) => keys.map((key) => fields.get(toSlug(key))).find(Boolean) || "";
-  const name = field("Tên", "Name", "Tiêu đề", "Title", "Thư viện") || lines[0] || "Thư viện Phụng vụ";
+  const name = field("Tên", "Name", "Tiêu đề", "Title", "Thư viện") || lines[0] || "Thư Viện Hình Công Giáo";
   const handle = field("Tên ngắn", "Handle", "Website", "Đường dẫn");
-  const bio = field("Giới thiệu", "Mô tả", "Bio", "Description") || lines.slice(1).filter((line) => !line.match(/^([^:]{1,40}):\s*(.+)$/)).join("\n") || "Kho thiết kế Công giáo theo lịch phụng vụ.";
+  const bio = field("Giới thiệu", "Mô tả", "Bio", "Description") || lines.slice(1).filter((line) => !line.match(/^([^:]{1,40}):\s*(.+)$/)).join("\n") || "Thư viện hình ảnh theo lịch phụng vụ.";
   const details = lines.filter((line) => line !== name && line !== bio && !line.match(/^(Tên|Name|Tiêu đề|Title|Thư viện|Tên ngắn|Handle|Website|Đường dẫn|Giới thiệu|Mô tả|Bio|Description):/i)).slice(0, 4);
   return { name, handle, bio, details };
 }

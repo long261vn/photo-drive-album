@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ArrowLeft, CalendarDays, Download, Grid2X2, ImageIcon, List } from "lucide-react";
-import { findAlbum, type Photo } from "@/lib/albumData";
+import { findAlbum, formatAlbumTitle, type Photo } from "@/lib/albumData";
 import { Lightbox } from "@/components/Lightbox";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 
@@ -20,7 +20,7 @@ const galleryViews: Array<{ id: GalleryView; label: string; icon: typeof ImageIc
 export default function AlbumPage() {
   const [, params] = useRoute("/album/:slug");
   const [, setLocation] = useLocation();
-  const { albums, isLive } = useArchiveManifest();
+  const { albums } = useArchiveManifest();
   const album = findAlbum(albums, params?.slug ?? "");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [galleryView, setGalleryView] = useState<GalleryView>("grid");
@@ -32,8 +32,8 @@ export default function AlbumPage() {
 
   return (
     <main className="album-page">
-      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation("/")}><ArrowLeft size={18} strokeWidth={1.8} /> Tất cả thiết kế</button><span className="header-mark brand-symbol" aria-hidden="true" /><span className="header-note">{isLive ? "Google Drive" : "Lịch phụng vụ"}</span></header>
-      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{album.title}</h1><p className="album-intro__description">{album.description}</p><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{album.count} thiết kế</span></div></div>{album.photos[0] && <a className="album-intro__download" href={album.photos[0].downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải thiết kế bìa</a>}</section>
+      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation("/")}><ArrowLeft size={18} strokeWidth={1.8} /> Tất Cả Thiết Kế</button><span className="header-mark brand-symbol" aria-hidden="true" /></header>
+      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{album.count} Thiết Kế</span></div></div>{album.photos[0] && <a className="album-intro__download" href={album.photos[0].downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Thiết Kế Bìa</a>}</section>
       <section className="contact-sheet" aria-label={`Thiết kế trong ${album.title}`}>
         <div className="contact-sheet__rule">
           <span>Chọn một thiết kế để xem</span>
@@ -57,7 +57,7 @@ export default function AlbumPage() {
                   <img src={photo.src} alt={photo.title} loading="lazy" decoding="async" />
                 </button>
                 <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{photo.title}</strong><span>{photo.location} · {photo.date}</span></div>
-                <div className="photo-list__type"><span>{photo.mimeType?.replace("image/", "").toUpperCase() ?? "HÌNH ẢNH"}</span><span>Google Drive</span></div>
+                <div className="photo-list__type"><span>{photo.mimeType?.replace("image/", "").toUpperCase() ?? "HÌNH ẢNH"}</span><span>Tệp Thiết Kế</span></div>
                 <a href={photo.downloadUrl} target="_blank" rel="noreferrer" className="photo-list__download" aria-label={`Tải ${photo.title}`}><Download size={16} strokeWidth={1.8} /><span>Tải</span></a>
               </article>
             ))}
@@ -74,7 +74,7 @@ export default function AlbumPage() {
         )}
         {album.photos.length === 0 && <p className="empty-assets">Folder này chưa có ảnh thiết kế công khai.</p>}
       </section>
-      <footer className="album-page__footer"><span>Thư viện Phụng vụ © 2026</span><Link href="/">Mở bộ khác</Link></footer>
+      <footer className="album-page__footer"><span>Long Nguyen © 2026</span><Link href="/">Mở Album Khác</Link></footer>
       {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={album.photos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
     </main>
   );

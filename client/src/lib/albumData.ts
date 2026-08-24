@@ -42,7 +42,6 @@ export type ArchiveProfile = {
   details: string[];
   avatar: string;
   cover: string;
-  coverPosition?: { x: number; y: number };
 };
 
 const image = (id: string, width: number, quality = 86) =>
@@ -62,7 +61,7 @@ export const sampleAlbums: Album[] = [
   {
     id: "01",
     slug: "cn20-tn-a",
-    title: "Chúa Nhật thứ 20 Thường Niên — Năm A",
+    title: "Chúa Nhật Thứ 20 Thường Niên - Năm A",
     subtitle: "Mùa Thường Niên / Năm A",
     date: "08.2026",
     location: "Thiết kế phụng vụ",
@@ -79,7 +78,7 @@ export const sampleAlbums: Album[] = [
   {
     id: "02",
     slug: "cn21-tn-a",
-    title: "Chúa Nhật thứ 21 Thường Niên — Năm A",
+    title: "Chúa Nhật Thứ 21 Thường Niên - Năm A",
     subtitle: "Mùa Thường Niên / Năm A",
     date: "08.2026",
     location: "Thiết kế phụng vụ",
@@ -96,12 +95,16 @@ export const sampleAlbums: Album[] = [
 ];
 
 export const sampleProfile: ArchiveProfile = {
-  name: "Thư viện Phụng vụ",
-  handle: "Kho thiết kế Công giáo",
+  name: "Thư Viện Hình Công Giáo",
+  handle: "",
   bio: "Nơi lưu trữ các thiết kế truyền thông được sắp theo Chúa Nhật, mùa phụng vụ và nhịp sống của cộng đoàn.",
-  details: ["Thiết kế · Google Drive · Cập nhật tự động"],
+  details: ["Thiết Kế · Cập Nhật Tự Động"],
   avatar: "https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=320&q=88",
   cover: "https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1800&q=88",
 };
+
+export const formatAlbumTitle = (title: string) => title
+  .replace(/Chúa Nhật\s+thứ/gi, "Chúa Nhật Thứ")
+  .replace(/\s+—\s+/g, " - ");
 
 export const findAlbum = (albums: Album[], slug: string) => albums.find((album) => album.slug === slug);

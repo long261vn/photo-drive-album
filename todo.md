@@ -29,3 +29,9 @@
 - [x] Đổi đồng bộ profile từ `info.txt` sang Google Tài liệu `info`.
 - [x] Chuyển danh mục album sang danh sách gọn, có sắp xếp theo tên hoặc thời gian tạo folder.
 - [x] Tinh chỉnh hệ thống giao diện profile/danh sách và kiểm thử desktop/Galaxy S20.
+- [x] Tinh gọn header, profile và thay tên thương hiệu thành Thư Viện Hình Công Giáo.
+- [x] Loại bỏ nhãn, mô tả, chức năng cover editor và footer thừa theo yêu cầu.
+- [x] Chuẩn hóa tên album theo cách viết hoa Công giáo và gạch nối ngắn.
+- [x] Thêm phân trang 5 album, làm nổi bật tìm kiếm/sắp xếp và rút gọn hàng album.
+- [x] Đảm bảo mọi thumbnail/cover hiển thị đầy đủ, không crop hoặc che ảnh.
+- [x] Kiểm thử không gian, căn chỉnh và responsive desktop/Galaxy S20.

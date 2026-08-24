@@ -100,3 +100,8 @@ Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metad
 - Trang album được triển khai như một **contact sheet mở rộng**: mỗi khung ảnh luôn có số index, metadata ngắn và dấu canh khung thay vì chỉ là gallery đều cột.
 - Ảnh demo phải được đánh dấu là dữ liệu minh họa nhất quán; khi có Drive manifest, mỗi album sẽ hiển thị ảnh thật cùng một câu chuyện địa điểm của chủ website.
 - Archive Cobalt chỉ dẫn dắt các hành động chính, số index, trạng thái archive và điểm điều hướng quan trọng; các CTA chính không dùng ink nếu không có lý do biên tập.
+
+## Style Decisions
+
+- Trang chủ ưu tiên nhận diện **Thư Viện Hình Công Giáo** và ngôn ngữ lưu trữ phụng vụ; tên người phụ trách là thông tin thứ cấp.
+- Mỗi album kế thừa dấu mốc lưu trữ qua số chỉ mục, metadata viết hoa, đường kẻ mảnh và góc khung trên thumbnail, đồng thời giữ ảnh nguyên tỷ lệ theo yêu cầu không cắt xén.
