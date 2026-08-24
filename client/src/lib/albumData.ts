@@ -24,6 +24,7 @@ export type Album = {
   cover: string;
   accent: string;
   description: string;
+  createdAt?: string;
   photos: Photo[];
 };
 
@@ -41,6 +42,7 @@ export type ArchiveProfile = {
   details: string[];
   avatar: string;
   cover: string;
+  coverPosition?: { x: number; y: number };
 };
 
 const image = (id: string, width: number, quality = 86) =>

@@ -14,11 +14,15 @@ export function useArchiveManifest(): ArchiveState {
 
   useEffect(() => {
     let active = true;
-    fetch(`${import.meta.env.BASE_URL}data/albums.json`, { cache: "no-store" })
-      .then((response) => (response.ok ? response.json() : null))
-      .then((manifest: ArchiveManifest | null) => {
+    Promise.all([
+      fetch(`${import.meta.env.BASE_URL}data/albums.json`, { cache: "no-store" }).then((response) => (response.ok ? response.json() : null)),
+      fetch(`${import.meta.env.BASE_URL}data/profile-settings.json`, { cache: "no-store" }).then((response) => (response.ok ? response.json() : null)).catch(() => null),
+    ])
+      .then(([manifest, settings]: [ArchiveManifest | null, { coverPosition?: { x?: number; y?: number } } | null]) => {
         if (!active || !manifest || !Array.isArray(manifest.albums) || manifest.albums.length === 0) return;
-        setState({ albums: manifest.albums, profile: manifest.profile ?? sampleProfile, isLive: manifest.source.mode === "google-drive", isLoading: false });
+        const coverPosition = settings?.coverPosition;
+        const isValidPosition = Number.isFinite(coverPosition?.x) && Number.isFinite(coverPosition?.y);
+        setState({ albums: manifest.albums, profile: { ...(manifest.profile ?? sampleProfile), coverPosition: isValidPosition ? { x: Number(coverPosition?.x), y: Number(coverPosition?.y) } : sampleProfile.coverPosition ?? { x: 50, y: 50 } }, isLive: manifest.source.mode === "google-drive", isLoading: false });
       })
       .catch(() => undefined)
       .finally(() => { if (active) setState((current) => ({ ...current, isLoading: false })); });

@@ -73,8 +73,19 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 /* Profile archive: cover/avatar/info layout keeps a social-profile hierarchy while retaining the liturgical paper system. */
 .profile-shell { margin: 26px 0 60px; border: 1px solid var(--border); background: var(--paper); }
+.cover-repositioner { position: relative; }
 .profile-cover { height: 220px; overflow: hidden; background: var(--paper-deep); }
 .profile-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.cover-repositioner.is-editing .profile-cover { cursor: move; }
+.cover-repositioner__hint { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 9px; background: rgba(27, 50, 39, 0.4); color: #fff; font-size: 12px; font-weight: 800; letter-spacing: 0.03em; pointer-events: none; }
+.cover-repositioner__sliders { position: absolute; z-index: 3; left: 12px; bottom: 12px; display: grid; width: min(308px, calc(100% - 24px)); gap: 7px; padding: 10px; background: rgba(245,240,229,0.94); color: var(--ink); backdrop-filter: blur(8px); }
+.cover-repositioner__sliders label { display: grid; grid-template-columns: 37px minmax(0, 1fr) 31px; align-items: center; gap: 8px; font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+.cover-repositioner__sliders input { width: 100%; accent-color: var(--cobalt); }
+.cover-repositioner__sliders output { color: var(--muted-ink); font-variant-numeric: tabular-nums; text-align: right; }
+.cover-repositioner__actions { position: absolute; z-index: 2; right: 12px; bottom: 12px; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px; max-width: calc(100% - 24px); }
+.cover-repositioner__actions button { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; border: 1px solid rgba(255,255,255,0.48); padding: 0 10px; background: rgba(245,240,229,0.92); color: var(--ink); backdrop-filter: blur(8px); font-size: 9px; font-weight: 800; letter-spacing: 0.045em; text-transform: uppercase; transition: transform 160ms var(--ease-out), background 160ms var(--ease-out); }
+.cover-repositioner__actions button:hover { background: #fff; transform: translateY(-1px); }
+.cover-repositioner__actions button.is-primary { border-color: var(--cobalt); background: var(--cobalt); color: #fff; }
 .profile-summary { position: relative; display: grid; gap: 18px; padding: 0 18px 22px; }
 .profile-avatar { width: 112px; height: 112px; margin-top: -56px; overflow: hidden; border: 5px solid var(--paper); border-radius: 50%; background: var(--paper-deep); box-shadow: 0 4px 18px rgba(32,38,41,0.14); }
 .profile-avatar img { width: 100%; height: 100%; object-fit: cover; }
@@ -90,9 +101,30 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .profile-stats strong { color: var(--ink); font-size: 17px; letter-spacing: -0.04em; }
 .archive-toolbar--profile { margin-bottom: 24px; }
 .archive-toolbar__lede { max-width: 560px; margin: 11px 0 0; color: var(--muted-ink); font-size: 13px; line-height: 1.65; }
-.profile-album-grid { gap: 26px 14px; }
-.profile-album-grid .album-card { grid-column: span 12; }
-.profile-album-grid .album-card__body h2 { font-size: clamp(23px, 4vw, 31px); }
+.archive-toolbar__controls { display: grid; width: 100%; gap: 12px; }
+.archive-toolbar--profile .archive-search { width: 100%; }
+.archive-sort { position: relative; display: flex; align-items: center; gap: 10px; min-height: 42px; border-bottom: 1px solid var(--border); color: var(--muted-ink); }
+.archive-sort > span { flex: 0 0 auto; font-size: 9px; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; }
+.archive-sort select { width: 100%; appearance: none; border: 0; outline: 0; background: transparent; color: var(--ink); padding-right: 18px; font-family: "Noto Sans", sans-serif; font-size: 12px; font-weight: 700; text-align: right; }
+.archive-sort svg { position: absolute; right: 0; pointer-events: none; }
+.album-list { border-top: 1px solid var(--border); }
+.album-list__row { position: relative; display: grid; grid-template-columns: 82px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 116px; border-bottom: 1px solid var(--border); padding: 12px 0; transition: background 180ms var(--ease-out); }
+.album-list__row:hover { background: rgba(232,224,207,0.34); }
+.album-list__thumbnail { width: 82px; height: 82px; overflow: hidden; border: 0; padding: 0; background: var(--paper-deep); cursor: pointer; }
+.album-list__thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform 220ms var(--ease-out); }
+.album-list__thumbnail:hover img { transform: scale(1.045); }
+.album-list__index { position: absolute; top: 12px; left: 87px; color: var(--terracotta); font-size: 9px; font-weight: 800; letter-spacing: 0.12em; }
+.album-list__copy { min-width: 0; padding-top: 14px; }
+.album-list__meta { display: flex; flex-wrap: wrap; gap: 4px 12px; color: var(--muted-ink); font-size: 8px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.album-list__meta span { display: inline-flex; align-items: center; gap: 5px; }
+.album-list__copy h3 { margin: 6px 0 5px; font-family: "Noto Serif", serif; font-size: 20px; font-weight: 600; letter-spacing: -0.035em; line-height: 1.1; overflow-wrap: anywhere; }
+.album-list__copy p { display: none; margin: 0; color: var(--muted-ink); font-size: 12px; line-height: 1.55; }
+.album-list__stats { display: none; text-align: center; color: var(--cobalt); font-size: 11px; font-weight: 800; }
+.album-list__stats span:first-child { display: inline-flex; align-items: center; justify-content: center; gap: 5px; }
+.album-list__stats span:last-child { display: block; color: var(--muted-ink); font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; }
+.album-list__open { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid var(--border); background: transparent; color: var(--cobalt); cursor: pointer; transition: background 160ms var(--ease-out), color 160ms var(--ease-out); }
+.album-list__open:hover { background: var(--cobalt); color: #fff; }
+.album-list__open span { display: none; }
 
 .hero-section { position: relative; isolation: isolate; min-height: 570px; margin: 26px 0 72px; overflow: hidden; background: var(--paper-deep); }
 .hero-section__image { position: absolute; inset: 0; z-index: -2; background: url("https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=2200&q=88") center / cover no-repeat; }
@@ -229,8 +261,16 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .profile-summary { grid-template-columns: 132px minmax(0, 1fr); padding: 0 30px 28px; }
   .profile-avatar { width: 132px; height: 132px; margin-top: -66px; }
   .profile-stats { grid-column: 2; justify-content: flex-start; }
-  .profile-album-grid { gap: 34px 18px; }
-  .profile-album-grid .album-card { grid-column: span 6; }
+  .archive-toolbar__controls { grid-template-columns: minmax(0, 1fr) 220px; align-items: end; }
+  .album-list__row { grid-template-columns: 142px minmax(0, 1fr) 78px 110px; gap: 20px; min-height: 142px; padding: 16px 0; }
+  .album-list__thumbnail { width: 142px; height: 106px; }
+  .album-list__index { top: 16px; left: 150px; }
+  .album-list__copy { padding-top: 13px; }
+  .album-list__copy h3 { font-size: 25px; }
+  .album-list__copy p { display: -webkit-box; overflow: hidden; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  .album-list__stats { display: block; }
+  .album-list__open { display: inline-flex; width: auto; height: 38px; align-items: center; justify-content: center; gap: 7px; padding: 0 10px; }
+  .album-list__open span { display: inline; font-size: 9px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
   .album-intro { grid-template-columns: 1fr auto; align-items: end; }
   .album-intro__download { grid-column: 2; grid-row: 1; }
   .contact-sheet__rule { flex-direction: row; align-items: center; justify-content: space-between; }
@@ -256,9 +296,11 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .profile-summary { grid-template-columns: 154px minmax(0, 1fr) auto; align-items: end; padding: 0 42px 34px; }
   .profile-avatar { width: 154px; height: 154px; margin-top: -77px; }
   .profile-stats { grid-column: auto; justify-content: flex-end; padding-top: 0; border-top: 0; text-align: right; }
-  .profile-album-grid { gap: 38px 20px; }
-  .profile-album-grid .album-card { grid-column: span 4; }
-  .profile-album-grid .album-card__image { aspect-ratio: 1.28; }
+  .album-list__row { grid-template-columns: 190px minmax(0, 1fr) 104px 124px; gap: 26px; min-height: 166px; padding: 20px 0; }
+  .album-list__thumbnail { width: 190px; height: 126px; }
+  .album-list__index { top: 20px; left: 200px; }
+  .album-list__copy { padding-top: 16px; }
+  .album-list__copy h3 { font-size: 31px; }
   .album-card--0 { grid-column: 1 / span 7; }
   .album-card--1 { grid-column: 9 / span 4; margin-top: 128px; }
   .album-card--2 { grid-column: 3 / span 6; margin-top: 40px; }

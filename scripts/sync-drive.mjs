@@ -10,6 +10,7 @@ const PROFILE_FOLDER_ID = process.env.DRIVE_PROFILE_FOLDER_ID || "1EyZBWqmD1s74T
 const API_KEY = process.env.GOOGLE_DRIVE_API_KEY;
 const OUTPUT_FILE = resolve(process.cwd(), "client/public/data/albums.json");
 const FOLDER_MIME = "application/vnd.google-apps.folder";
+const GOOGLE_DOC_MIME = "application/vnd.google-apps.document";
 
 if (!API_KEY) {
   console.error("GOOGLE_DRIVE_API_KEY is required. Add it as a GitHub Actions secret before syncing.");
@@ -60,6 +61,16 @@ async function readTextFile(fileId) {
   const response = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${API_KEY}`);
   if (!response.ok) throw new Error(`Unable to read profile text (${response.status}): ${await response.text()}`);
   return response.text();
+}
+
+async function readProfileInfoFile(file) {
+  if (file.mimeType === GOOGLE_DOC_MIME) {
+    const params = new URLSearchParams({ mimeType: "text/plain", key: API_KEY });
+    const response = await fetch(`https://www.googleapis.com/drive/v3/files/${file.id}/export?${params}`);
+    if (!response.ok) throw new Error(`Unable to export Google Doc info (${response.status}): ${await response.text()}`);
+    return response.text();
+  }
+  return readTextFile(file.id);
 }
 
 function parseProfileInfo(text) {
@@ -118,8 +129,8 @@ async function sync() {
   const fileNamed = (name) => profileFiles.find((file) => file.name?.toLowerCase() === name.toLowerCase());
   const avatarFile = fileNamed("Avatar.png");
   const coverFile = fileNamed("Cover.png");
-  const infoFile = fileNamed("info.txt");
-  const parsedProfile = infoFile ? parseProfileInfo(await readTextFile(infoFile.id)) : parseProfileInfo("");
+  const infoFile = profileFiles.find((file) => file.name?.trim().toLowerCase() === "info" && file.mimeType === GOOGLE_DOC_MIME);
+  const parsedProfile = infoFile ? parseProfileInfo(await readProfileInfoFile(infoFile)) : parseProfileInfo("");
   const albums = await Promise.all(folders.map(async (folder, index) => {
     const files = (await listFiles(folder.id)).filter((file) => file.mimeType?.startsWith("image/"));
     const title = titleFromFolderName(folder.name);
@@ -132,6 +143,7 @@ async function sync() {
       subtitle: subtitleFromFolderName(folder.name),
       date: formatMonthYear(folder.modifiedTime || folder.createdTime),
       location: "Thiết kế phụng vụ",
+      createdAt: folder.createdTime,
       count: photos.length,
       cover: cover?.src || "",
       accent: "green",
@@ -147,6 +159,7 @@ async function sync() {
       ...parsedProfile,
       avatar: avatarFile ? thumbnailFor(avatarFile.id, 700) : "",
       cover: coverFile ? thumbnailFor(coverFile.id, 1800) : "",
+      infoSource: infoFile ? { id: infoFile.id, name: infoFile.name, modifiedAt: infoFile.modifiedTime } : null,
     },
     albums,
   };
