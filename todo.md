@@ -24,8 +24,8 @@
 - [x] Thiết kế lại trang chủ dạng profile có cover, avatar, thông tin và danh mục nhiều album.
 - [x] Mở rộng script đồng bộ để lấy metadata hồ sơ từ Google Drive.
 - [x] Kiểm thử giao diện profile trên desktop và Galaxy S20.
-- [ ] Xác minh Google Tài liệu tên `info` trong folder dữ liệu và khả năng đọc nội dung qua Drive API.
-- [ ] Thêm reposition cover cùng cơ chế lưu vị trí metadata độc lập với ảnh Drive.
-- [ ] Đổi đồng bộ profile từ `info.txt` sang Google Tài liệu `info`.
-- [ ] Chuyển danh mục album sang danh sách gọn, có sắp xếp theo tên hoặc thời gian tạo folder.
-- [ ] Tinh chỉnh hệ thống giao diện profile/danh sách và kiểm thử desktop/Galaxy S20.
+- [x] Xác minh Google Tài liệu tên `info` trong folder dữ liệu và khả năng đọc nội dung qua Drive API.
+- [x] Thêm reposition cover cùng cơ chế lưu vị trí metadata độc lập với ảnh Drive.
+- [x] Đổi đồng bộ profile từ `info.txt` sang Google Tài liệu `info`.
+- [x] Chuyển danh mục album sang danh sách gọn, có sắp xếp theo tên hoặc thời gian tạo folder.
+- [x] Tinh chỉnh hệ thống giao diện profile/danh sách và kiểm thử desktop/Galaxy S20.
