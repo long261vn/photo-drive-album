@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T07:30:05.378Z",
+  "generatedAt": "2026-08-24T07:48:19.680Z",
   "source": {
     "rootFolderId": "1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw",
     "rootFolderName": "Website_LHN",
@@ -7,12 +7,17 @@
     "mode": "google-drive"
   },
   "profile": {
-    "name": "Thư viện Phụng vụ",
+    "name": "Long Nguyen",
     "handle": "",
-    "bio": "Kho thiết kế Công giáo theo lịch phụng vụ.",
+    "bio": "abcdefgabcdefgabcdefgabcdefg",
     "details": [],
     "avatar": "https://drive.google.com/thumbnail?id=17eLg1nJEv29PWSzwUAqMH_OWCjSYZmXT&sz=w700",
-    "cover": "https://drive.google.com/thumbnail?id=1RpKeNmR75emXvFPOR4GSgpe_rVBNVsIQ&sz=w1800"
+    "cover": "https://drive.google.com/thumbnail?id=1RpKeNmR75emXvFPOR4GSgpe_rVBNVsIQ&sz=w1800",
+    "infoSource": {
+      "id": "1dUwrUI6TIpeVQbppX2MZ5xD4XyGJPp2awOeeqM7ISnM",
+      "name": "info",
+      "modifiedAt": "2026-08-24T07:36:35.087Z"
+    }
   },
   "albums": [
     {
@@ -22,6 +27,7 @@
       "subtitle": "Mùa Thường Niên / Năm A",
       "date": "08.2026",
       "location": "Thiết kế phụng vụ",
+      "createdAt": "2026-08-24T05:47:54.626Z",
       "count": 9,
       "cover": "https://drive.google.com/thumbnail?id=1nSQqHvcNk3fmYfRe3L_fR-Zqh9blKcTJ&sz=w1600",
       "accent": "green",
@@ -126,6 +132,7 @@
       "subtitle": "Mùa Thường Niên / Năm A",
       "date": "08.2026",
       "location": "Thiết kế phụng vụ",
+      "createdAt": "2026-08-24T05:47:59.324Z",
       "count": 11,
       "cover": "https://drive.google.com/thumbnail?id=1oojkUS0Hpq64PC-O55svzbBqrByjiHMv&sz=w1600",
       "accent": "green",
