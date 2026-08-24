@@ -14,7 +14,7 @@ export function useArchiveManifest(): ArchiveState {
 
   useEffect(() => {
     let active = true;
-    fetch("/data/albums.json", { cache: "no-store" })
+    fetch(`${import.meta.env.BASE_URL}data/albums.json`, { cache: "no-store" })
       .then((response) => (response.ok ? response.json() : null))
       .then((manifest: ArchiveManifest | null) => {
         if (!active || !manifest || !Array.isArray(manifest.albums) || manifest.albums.length === 0) return;

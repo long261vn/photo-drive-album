@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main className="archive-home">
       <header className="site-header">
-        <button className="brand-lockup" type="button" onClick={() => setLocation("/")} aria-label="Về trang chủ Thư viện Phụng vụ"><img src="/manus-storage/liturgical-logo_d82d1f4f.png" alt="" /><span>Thư viện Phụng vụ</span></button>
+        <button className="brand-lockup" type="button" onClick={() => setLocation("/")} aria-label="Về trang chủ Thư viện Phụng vụ"><span className="brand-symbol" aria-hidden="true" /><span>Thư viện Phụng vụ</span></button>
         <div className="site-header__right"><span className={`sync-badge${isLive ? " is-live" : ""}`}><i /> {isLive ? "Drive đã đồng bộ" : "Chờ Drive đồng bộ"}</span><a href="#albums" className="header-jump">Duyệt thư viện <ArrowDownRight size={16} strokeWidth={1.8} /></a></div>
       </header>
 

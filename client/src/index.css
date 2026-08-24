@@ -61,14 +61,18 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .archive-home, .album-page { width: min(1480px, 100%); margin: 0 auto; padding: 0 16px; }
 .site-header, .album-page__header { display: flex; align-items: center; justify-content: space-between; min-height: 82px; border-bottom: 1px solid var(--border); }
 .brand-lockup { display: inline-flex; align-items: center; gap: 10px; padding: 6px 0; border: 0; background: transparent; cursor: pointer; font-family: "Noto Serif", Georgia, serif; font-size: 22px; font-weight: 600; letter-spacing: -0.035em; }
-.brand-lockup img, .header-mark { width: 32px; height: 32px; object-fit: contain; }
+.brand-symbol { position: relative; display: inline-block; width: 27px; height: 31px; flex: 0 0 27px; border: 2px solid var(--cobalt); border-radius: 1px 1px 8px 1px; }
+.brand-symbol::before, .brand-symbol::after { content: ""; position: absolute; background: var(--cobalt); }
+.brand-symbol::before { top: 5px; bottom: 5px; left: 11px; width: 2px; }
+.brand-symbol::after { top: 11px; left: 6px; width: 12px; height: 2px; }
+.header-mark { width: 27px; height: 31px; }
 .site-header__right { display: flex; align-items: center; gap: 14px; }
 .sync-badge { display: none; align-items: center; gap: 7px; color: var(--muted-ink); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
 .sync-badge i { width: 7px; height: 7px; border-radius: 50%; background: #4f856c; box-shadow: 0 0 0 3px rgba(79, 133, 108, 0.13); }
 .header-jump { display: inline-flex; align-items: center; gap: 6px; color: var(--cobalt); font-size: 12px; font-weight: 800; letter-spacing: 0.04em; }
 
 .hero-section { position: relative; isolation: isolate; min-height: 570px; margin: 26px 0 72px; overflow: hidden; background: var(--paper-deep); }
-.hero-section__image { position: absolute; inset: 0; z-index: -2; background: url("/manus-storage/liturgical-hero_75644b09.jpg") center / cover no-repeat; }
+.hero-section__image { position: absolute; inset: 0; z-index: -2; background: url("https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=2200&q=88") center / cover no-repeat; }
 .hero-section::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(245,240,229,0.985) 0%, rgba(245,240,229,0.89) 37%, rgba(245,240,229,0.13) 78%); }
 .hero-section__copy { display: flex; flex-direction: column; align-items: flex-start; width: min(635px, 100%); padding: 52px 22px 58px; }
 .hero-section h1 { max-width: 680px; margin: 17px 0 21px; font-family: "Noto Serif", Georgia, serif; font-size: clamp(41px, 7.3vw, 91px); font-weight: 600; letter-spacing: -0.06em; line-height: 0.98; }
