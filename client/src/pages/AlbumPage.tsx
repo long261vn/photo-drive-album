@@ -23,7 +23,7 @@ export default function AlbumPage() {
   const { albums, isLive } = useArchiveManifest();
   const album = findAlbum(albums, params?.slug ?? "");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-  const [galleryView, setGalleryView] = useState<GalleryView>("large");
+  const [galleryView, setGalleryView] = useState<GalleryView>("grid");
 
   if (!album) return <main className="not-found-page"><p className="eyebrow">Không tìm thấy</p><h1>Bộ thiết kế này chưa có trong thư viện.</h1><Link href="/" className="text-link">Quay về danh mục</Link></main>;
 

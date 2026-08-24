@@ -18,3 +18,9 @@
 - [x] Thêm chế độ xem ảnh lớn, lưới ảnh nhỏ và danh sách chi tiết.
 - [x] Điều chỉnh ảnh để hiển thị đủ tỷ lệ, không dùng crop cắt xén.
 - [x] Kiểm thử công tắc chế độ xem trên desktop và Galaxy S20.
+- [ ] Xác minh folder Drive `1EyZBWqmD1s74T_Aiekw3Y-tKguwdHwhQ` có Avatar.png, Cover.png và info.txt.
+- [ ] Chuẩn hóa typography toàn website sang font Unicode tiếng Việt.
+- [ ] Đặt chế độ lưới ảnh làm mặc định cho trang album.
+- [ ] Thiết kế lại trang chủ dạng profile có cover, avatar, thông tin và danh mục nhiều album.
+- [ ] Mở rộng script đồng bộ để lấy metadata hồ sơ từ Google Drive.
+- [ ] Kiểm thử giao diện profile trên desktop và Galaxy S20.

@@ -6,6 +6,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const ROOT_FOLDER_ID = process.env.DRIVE_ROOT_FOLDER_ID || "1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw";
+const PROFILE_FOLDER_ID = process.env.DRIVE_PROFILE_FOLDER_ID || "1EyZBWqmD1s74T_Aiekw3Y-tKguwdHwhQ";
 const API_KEY = process.env.GOOGLE_DRIVE_API_KEY;
 const OUTPUT_FILE = resolve(process.cwd(), "client/public/data/albums.json");
 const FOLDER_MIME = "application/vnd.google-apps.folder";
@@ -53,6 +54,29 @@ const orientationFrom = (metadata = {}) => {
   return width > height ? "landscape" : "portrait";
 };
 
+const thumbnailFor = (fileId, width = 1600) => `https://drive.google.com/thumbnail?id=${fileId}&sz=w${width}`;
+
+async function readTextFile(fileId) {
+  const response = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${API_KEY}`);
+  if (!response.ok) throw new Error(`Unable to read profile text (${response.status}): ${await response.text()}`);
+  return response.text();
+}
+
+function parseProfileInfo(text) {
+  const lines = text.replace(/^\uFEFF/, "").split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+  const fields = new Map();
+  for (const line of lines) {
+    const match = line.match(/^([^:]{1,40}):\s*(.+)$/);
+    if (match) fields.set(toSlug(match[1]), match[2].trim());
+  }
+  const field = (...keys) => keys.map((key) => fields.get(toSlug(key))).find(Boolean) || "";
+  const name = field("Tên", "Name", "Tiêu đề", "Title", "Thư viện") || lines[0] || "Thư viện Phụng vụ";
+  const handle = field("Tên ngắn", "Handle", "Website", "Đường dẫn");
+  const bio = field("Giới thiệu", "Mô tả", "Bio", "Description") || lines.slice(1).filter((line) => !line.match(/^([^:]{1,40}):\s*(.+)$/)).join("\n") || "Kho thiết kế Công giáo theo lịch phụng vụ.";
+  const details = lines.filter((line) => line !== name && line !== bio && !line.match(/^(Tên|Name|Tiêu đề|Title|Thư viện|Tên ngắn|Handle|Website|Đường dẫn|Giới thiệu|Mô tả|Bio|Description):/i)).slice(0, 4);
+  return { name, handle, bio, details };
+}
+
 async function listFiles(parentId, onlyFolders = false) {
   const files = [];
   let pageToken = "";
@@ -90,6 +114,12 @@ function photoFromDriveFile(file, folderTitle) {
 
 async function sync() {
   const folders = await listFiles(ROOT_FOLDER_ID, true);
+  const profileFiles = await listFiles(PROFILE_FOLDER_ID);
+  const fileNamed = (name) => profileFiles.find((file) => file.name?.toLowerCase() === name.toLowerCase());
+  const avatarFile = fileNamed("Avatar.png");
+  const coverFile = fileNamed("Cover.png");
+  const infoFile = fileNamed("info.txt");
+  const parsedProfile = infoFile ? parseProfileInfo(await readTextFile(infoFile.id)) : parseProfileInfo("");
   const albums = await Promise.all(folders.map(async (folder, index) => {
     const files = (await listFiles(folder.id)).filter((file) => file.mimeType?.startsWith("image/"));
     const title = titleFromFolderName(folder.name);
@@ -112,7 +142,12 @@ async function sync() {
 
   const manifest = {
     generatedAt: new Date().toISOString(),
-    source: { rootFolderId: ROOT_FOLDER_ID, rootFolderName: "Website_LHN", mode: "google-drive" },
+    source: { rootFolderId: ROOT_FOLDER_ID, rootFolderName: "Website_LHN", profileFolderId: PROFILE_FOLDER_ID, mode: "google-drive" },
+    profile: {
+      ...parsedProfile,
+      avatar: avatarFile ? thumbnailFor(avatarFile.id, 700) : "",
+      cover: coverFile ? thumbnailFor(coverFile.id, 1800) : "",
+    },
     albums,
   };
   await mkdir(dirname(OUTPUT_FILE), { recursive: true });

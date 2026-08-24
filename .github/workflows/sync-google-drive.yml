@@ -31,6 +31,7 @@ jobs:
         env:
           GOOGLE_DRIVE_API_KEY: ${{ secrets.GOOGLE_DRIVE_API_KEY }}
           DRIVE_ROOT_FOLDER_ID: 1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw
+          DRIVE_PROFILE_FOLDER_ID: 1EyZBWqmD1s74T_Aiekw3Y-tKguwdHwhQ
         run: node scripts/sync-drive.mjs
 
       - name: Commit manifest only when content changed

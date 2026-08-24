@@ -29,8 +29,18 @@ export type Album = {
 
 export type ArchiveManifest = {
   generatedAt: string | null;
-  source: { rootFolderId: string; rootFolderName?: string; mode: "sample" | "google-drive" };
+  source: { rootFolderId: string; rootFolderName?: string; profileFolderId?: string; mode: "sample" | "google-drive" };
   albums: Album[];
+  profile?: ArchiveProfile;
+};
+
+export type ArchiveProfile = {
+  name: string;
+  handle: string;
+  bio: string;
+  details: string[];
+  avatar: string;
+  cover: string;
 };
 
 const image = (id: string, width: number, quality = 86) =>
@@ -82,5 +92,14 @@ export const sampleAlbums: Album[] = [
     ],
   },
 ];
+
+export const sampleProfile: ArchiveProfile = {
+  name: "Thư viện Phụng vụ",
+  handle: "Kho thiết kế Công giáo",
+  bio: "Nơi lưu trữ các thiết kế truyền thông được sắp theo Chúa Nhật, mùa phụng vụ và nhịp sống của cộng đoàn.",
+  details: ["Thiết kế · Google Drive · Cập nhật tự động"],
+  avatar: "https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=320&q=88",
+  cover: "https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1800&q=88",
+};
 
 export const findAlbum = (albums: Album[], slug: string) => albums.find((album) => album.slug === slug);
