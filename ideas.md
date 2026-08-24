@@ -83,6 +83,18 @@ Logo là một **ký hiệu hai khung hình chồng lệch**, tạo bởi các �
 
 **Archive Cobalt — #1F45A8**
 
+## Điều chỉnh theo brief mới: Thư viện Phụng vụ
+
+Yêu cầu mới về kho thiết kế Công giáo thay thế định vị album ảnh cá nhân ban đầu. Website nay theo ngôn ngữ **Liturgical Design Archive**: vẫn giữ nền giấy, khoảng thở biên tập, contact sheet và metadata có trật tự; nhưng nội dung, biểu tượng, hình chủ đạo và bảng màu chuyển sang nhịp của lịch phụng vụ.
+
+Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metadata/nội dung nhằm hiển thị tiếng Việt có dấu đầy đủ. Forest green giữ vai trò màu điều hướng chính, burgundy là dấu nhấn hạn chế, còn violet/red/white chỉ xuất hiện trong ảnh thiết kế theo mùa phụng vụ. Logo dùng cửa sổ hình thánh giá tối giản, không dùng chữ.
+
+## Style Decisions
+
+- Website được định vị là thư viện thiết kế Công giáo; các album là những Chúa Nhật, mùa phụng vụ hoặc sự kiện mục vụ thay vì những kỷ niệm cá nhân.
+- Contact sheet, số thứ tự, nhãn metadata và hairline rules tiếp tục là cấu trúc xuyên suốt, để thư viện không trở thành một kho tệp thông thường.
+- Các ảnh hiển thị thật sẽ được đồng bộ từ Google Drive. Dữ liệu mẫu chỉ tồn tại như fallback khi GitHub Actions chưa có `GOOGLE_DRIVE_API_KEY`.
+
 ## Style Decisions
 
 - Trang album được triển khai như một **contact sheet mở rộng**: mỗi khung ảnh luôn có số index, metadata ngắn và dấu canh khung thay vì chỉ là gallery đều cột.
