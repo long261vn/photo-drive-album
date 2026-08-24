@@ -48,3 +48,4 @@
 - [x] Thêm thao tác nhấn giữ avatar 5 giây để mở lối tắt kín tới workflow Sync Google Drive albums trên GitHub.
 - [x] Loại bỏ các nhãn hiển thị Album Cha/Album Con nhưng giữ nguyên điều hướng folder lồng nhau.
 - [x] Thêm nút tải toàn bộ Album theo cơ chế tải gói ZIP từ Google Drive, kèm fallback an toàn nếu Drive không tạo được gói.
+- [ ] Thêm fallback GitHub Pages để URL Album chia sẻ trực tiếp không trả về 404.
