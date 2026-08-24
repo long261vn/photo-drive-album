@@ -43,3 +43,6 @@
 - [x] Tạo trang Album Cha liệt kê Album Con và giữ tương thích với Album phẳng hiện có.
 - [x] Kiểm thử, đồng bộ GitHub Pages và hướng dẫn quy ước folder lồng nhau.
 - [x] Bảo đảm workflow Sync Google Drive albums kích hoạt phát hành GitHub Pages khi manifest thay đổi.
+- [x] Chọn cơ chế an toàn để chỉ chủ website kích hoạt đồng bộ Google Drive từ giao diện.
+- [x] Thêm lối kích hoạt kín, xác thực quyền và phản hồi trạng thái đồng bộ sau khi được chủ website xác nhận phương án.
+- [x] Thêm thao tác nhấn giữ avatar 5 giây để mở lối tắt kín tới workflow Sync Google Drive albums trên GitHub.

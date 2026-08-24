@@ -55,3 +55,7 @@ GitHub Pages đã được xác minh sau workflow triển khai thành công cho 
 Đã thay manifest và script đồng bộ để nhận diện đệ quy folder lồng nhau: folder cấp một là Album Cha, folder nằm trong là Album Con; folder sâu hơn tiếp tục có thể mở thành trang Album riêng. Kiểm thử bằng manifest cục bộ với `Mùa Chay 2026` gồm hai Album Con và một ảnh trực tiếp: trang chủ mở Album Cha, Album Cha hiện hai card Album Con và gallery “Thiết Kế Đặt Trực Tiếp Trong Album Cha”, Album Con quay về đúng Album Cha và mở gallery/download riêng. Sau kiểm thử, manifest Drive thật đã được khôi phục.
 
 Workflow đồng bộ Drive đã được cập nhật: chỉ khi `albums.json` thay đổi, workflow sẽ checkout nhánh `main` mới nhất, build rồi triển khai GitHub Pages trong cùng lượt chạy. Điều này tránh việc manifest mới bị commit nhưng chưa xuất hiện ở website chia sẻ.
+
+## 2026-08-24 — Lối tắt đồng bộ bằng avatar
+
+Avatar giữ nguyên giao diện ở desktop và viewport Galaxy S20. Nhấn giữ pointer hoặc bàn phím trên Avatar trong 5 giây sẽ mở workflow `Sync Google Drive albums` trên GitHub; thả/di chuyển ra ngoài/hủy trước mốc 5 giây sẽ xóa timer. Khi đang giữ, vòng xanh phản hồi quanh Avatar; không có token GitHub hoặc quyền chạy workflow trong mã frontend.

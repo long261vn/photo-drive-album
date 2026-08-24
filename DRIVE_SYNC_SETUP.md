@@ -28,4 +28,10 @@ Sau khi tạo key, thêm vào repository GitHub tại **Settings → Secrets and
 
 Workflow chạy mỗi 30 phút, vào phút 17 và 47. GitHub Actions không nhận trực tiếp thông báo file thay đổi từ Google Drive vì Drive push notifications cần một webhook HTTPS luôn hoạt động; GitHub Pages là website tĩnh nên không có webhook receiver. Vì vậy, cập nhật sẽ xuất hiện trong vòng khoảng 30 phút sau khi thêm hoặc xóa ảnh, hoặc ngay khi anh/chị bấm **Run workflow**.
 
+## Lối tắt đồng bộ kín trên website
+
+Khi cần đồng bộ ngay, hãy vào trang chủ website và **nhấn giữ Avatar 5 giây**. Một vòng xanh sẽ hiện quanh Avatar trong lúc giữ. Khi đủ thời gian, website mở trang workflow `Sync Google Drive albums` của GitHub. Hãy đăng nhập đúng tài khoản GitHub của mình rồi bấm **Run workflow** để xác nhận chạy đồng bộ.
+
+Thả tay trước 5 giây sẽ hủy thao tác. Lối tắt này không lưu token hoặc mật khẩu trên website và không tự chạy workflow mà chưa có xác nhận trong GitHub.
+
 Ảnh và folder phải kế thừa quyền công khai phù hợp để khách truy cập không cần đăng nhập Google.
