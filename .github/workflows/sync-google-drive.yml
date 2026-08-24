@@ -16,6 +16,8 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    outputs:
+      manifest_changed: ${{ steps.commit_manifest.outputs.manifest_changed }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -35,9 +37,11 @@ jobs:
         run: node scripts/sync-drive.mjs
 
       - name: Commit manifest only when content changed
+        id: commit_manifest
         run: |
           if git diff --quiet -- client/public/data/albums.json; then
             echo "No manifest changes to commit."
+            echo "manifest_changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git config user.name "github-actions[bot]"
@@ -45,3 +49,47 @@ jobs:
           git add client/public/data/albums.json
           git commit -m "chore: sync Google Drive albums"
           git push
+          echo "manifest_changed=true" >> "$GITHUB_OUTPUT"
+
+  deploy-pages:
+    needs: sync
+    if: needs.sync.outputs.manifest_changed == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out latest main after manifest sync
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build GitHub Pages site from latest manifest
+        env:
+          GITHUB_PAGES: "true"
+        run: pnpm build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

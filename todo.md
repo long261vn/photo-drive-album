@@ -42,3 +42,4 @@
 - [x] Mở rộng manifest và sync Drive để nhận diện folder cấp một là Album Cha, folder cấp hai là Album Con.
 - [x] Tạo trang Album Cha liệt kê Album Con và giữ tương thích với Album phẳng hiện có.
 - [x] Kiểm thử, đồng bộ GitHub Pages và hướng dẫn quy ước folder lồng nhau.
+- [x] Bảo đảm workflow Sync Google Drive albums kích hoạt phát hành GitHub Pages khi manifest thay đổi.
