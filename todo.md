@@ -12,3 +12,5 @@
 - [x] Xác minh repository GitHub `long261vn/photo-drive-album` hiển thị cho đúng tài khoản người dùng: repository là private và thuộc tài khoản `long261vn`.
 - [ ] Kiểm tra kết quả lần chạy thủ công workflow `Sync Google Drive albums` và manifest ảnh thật.
 - [ ] Kiểm tra điều kiện GitHub Pages và tạo link chia sẻ website từ GitHub.
+- [x] Quét source và lịch sử Git để phát hiện API key, token hoặc credential trước khi public repository: không phát hiện giá trị secret theo các mẫu phổ biến; chỉ có tên biến và tham chiếu GitHub Secret.
+- [ ] Khắc phục lỗi 404 của đường link GitHub Pages và xác minh website chia sẻ hoạt động.
