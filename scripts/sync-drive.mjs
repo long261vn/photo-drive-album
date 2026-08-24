@@ -135,6 +135,7 @@ async function albumFromDriveFolder(folder, index, parent = null) {
   const entries = await listFiles(folder.id);
   const childFolders = entries.filter((file) => file.mimeType === FOLDER_MIME);
   const imageFiles = entries.filter((file) => file.mimeType?.startsWith("image/"));
+  const zipFile = entries.find((file) => file.mimeType === "application/zip" || /\.zip$/i.test(file.name ?? ""));
   const title = titleFromFolderName(folder.name);
   const slugSegment = toSlug(folder.name) || folder.id;
   const slug = parent ? `${parent.slug}--${slugSegment}` : slugSegment;
@@ -157,6 +158,7 @@ async function albumFromDriveFolder(folder, index, parent = null) {
     accent: "green",
     description: folder.description || `Album ${title}.`,
     photos,
+    ...(zipFile ? { downloadAll: { name: titleFromFileName(zipFile.name), url: `https://drive.google.com/uc?export=download&id=${zipFile.id}` } } : {}),
     ...(children.length ? { children } : {}),
   };
 }

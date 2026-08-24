@@ -59,3 +59,7 @@ Workflow đồng bộ Drive đã được cập nhật: chỉ khi `albums.json` 
 ## 2026-08-24 — Lối tắt đồng bộ bằng avatar
 
 Avatar giữ nguyên giao diện ở desktop và viewport Galaxy S20. Nhấn giữ pointer hoặc bàn phím trên Avatar trong 5 giây sẽ mở workflow `Sync Google Drive albums` trên GitHub; thả/di chuyển ra ngoài/hủy trước mốc 5 giây sẽ xóa timer. Khi đang giữ, vòng xanh phản hồi quanh Avatar; không có token GitHub hoặc quyền chạy workflow trong mã frontend.
+
+## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
+
+Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.

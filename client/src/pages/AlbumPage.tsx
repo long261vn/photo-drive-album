@@ -36,12 +36,12 @@ export default function AlbumPage() {
 
   return (
     <main className="album-page">
-      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay Về Album Cha" : "Tất Cả Thiết Kế"}</button><span className="header-mark brand-symbol" aria-hidden="true" /></header>
-      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{hasChildAlbums ? `${childAlbums.length} Album Con` : `${album.count} Thiết Kế`}</span></div></div>{album.photos[0] && <a className="album-intro__download" href={album.photos[0].downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Thiết Kế Bìa</a>}</section>
-      {hasChildAlbums && <section className="parent-album" aria-label={`Album Con trong ${album.title}`}><div className="parent-album__rule"><span>Album Con</span><span>{String(childAlbums.length).padStart(2, "0")} Bộ Sưu Tập</span></div><div className="archive-grid">{childAlbums.map((child, index) => <AlbumCard key={child.id} album={child} order={index} onOpen={(slug) => setLocation(`/album/${slug}`)} />)}</div></section>}
+      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay Lại" : "Tất Cả Thiết Kế"}</button><span className="header-mark brand-symbol" aria-hidden="true" /></header>
+      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{hasChildAlbums ? `${childAlbums.length} Bộ Sưu Tập` : `${album.count} Thiết Kế`}</span></div></div>{album.downloadAll && <a className="album-intro__download" href={album.downloadAll.url} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Toàn Bộ Album</a>}</section>
+      {hasChildAlbums && <section className="parent-album" aria-label={`Bộ sưu tập trong ${album.title}`}><div className="parent-album__rule"><span>Bộ Sưu Tập</span><span>{String(childAlbums.length).padStart(2, "0")} Mục</span></div><div className="archive-grid">{childAlbums.map((child, index) => <AlbumCard key={child.id} album={child} order={index} onOpen={(slug) => setLocation(`/album/${slug}`)} />)}</div></section>}
       {album.photos.length > 0 && <section className="contact-sheet" aria-label={`Thiết kế trong ${album.title}`}>
         <div className="contact-sheet__rule">
-          <span>{hasChildAlbums ? "Thiết Kế Đặt Trực Tiếp Trong Album Cha" : "Chọn một thiết kế để xem"}</span>
+          <span>{hasChildAlbums ? "Thiết Kế Trong Bộ Này" : "Chọn một thiết kế để xem"}</span>
           <div className="gallery-actions">
             <span>{String(album.photos.length).padStart(2, "0")} tệp đã lưu</span>
             <div className="gallery-view-switch" role="group" aria-label="Chế độ xem ảnh">
@@ -78,7 +78,7 @@ export default function AlbumPage() {
           </div>
         )}
       </section>}
-      {!hasChildAlbums && album.photos.length === 0 && <section className="contact-sheet"><p className="empty-assets">Folder này chưa có Album Con hoặc ảnh thiết kế công khai.</p></section>}
+      {!hasChildAlbums && album.photos.length === 0 && <section className="contact-sheet"><p className="empty-assets">Album này chưa có thiết kế công khai.</p></section>}
       <footer className="album-page__footer"><span>Long Nguyen © 2026</span><Link href="/">Mở Album Khác</Link></footer>
       {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={album.photos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
     </main>

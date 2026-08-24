@@ -13,6 +13,11 @@ export type Photo = {
   mimeType?: string;
 };
 
+export type AlbumDownload = {
+  name: string;
+  url: string;
+};
+
 export type Album = {
   id: string;
   slug: string;
@@ -28,6 +33,7 @@ export type Album = {
   createdAt?: string;
   photos: Photo[];
   children?: Album[];
+  downloadAll?: AlbumDownload;
 };
 
 export type ArchiveManifest = {

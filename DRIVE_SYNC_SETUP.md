@@ -2,21 +2,27 @@
 
 Website dùng folder công khai `Website_LHN` với ID `1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw`. Hai folder con đang được nhận diện là `CN20_TN_A` và `CN21_TN_A`; script sẽ tự đổi chúng thành “Chúa Nhật Thứ 20 Thường Niên - Năm A” và “Chúa Nhật Thứ 21 Thường Niên - Năm A”.
 
-## Album Cha và Album Con
+## Folder lồng nhau
 
-Mỗi folder trực tiếp trong `Website_LHN` là một **Album Cha**. Nếu Album Cha có folder nằm bên trong, các folder đó sẽ xuất hiện là **Album Con** trên website. Người xem mở Album Cha để chọn Album Con, rồi mở Album Con để xem và tải ảnh.
+Mỗi folder trực tiếp trong `Website_LHN` là một Album. Nếu trong Album có folder nằm bên trong, các folder đó sẽ hiện thành các bộ sưu tập ở trang Album. Người xem mở một bộ sưu tập để xem và tải ảnh.
 
 Ví dụ:
 
 ```text
 Website_LHN/
-└── Mùa Chay 2026/                 ← Album Cha
-    ├── Thứ Tư Lễ Tro/              ← Album Con, chứa ảnh
-    ├── Chúa Nhật I Mùa Chay/       ← Album Con, chứa ảnh
-    └── Chúa Nhật II Mùa Chay/      ← Album Con, chứa ảnh
+└── Mùa Chay 2026/                 ← Album
+    ├── Thứ Tư Lễ Tro/              ← Bộ sưu tập, chứa ảnh
+    ├── Chúa Nhật I Mùa Chay/       ← Bộ sưu tập, chứa ảnh
+    └── Chúa Nhật II Mùa Chay/      ← Bộ sưu tập, chứa ảnh
 ```
 
-Folder có thể lồng sâu hơn nếu cần; mỗi cấp sẽ là một trang Album riêng. Ảnh đặt trực tiếp trong Album Cha vẫn được giữ và hiện ở phần **Thiết Kế Đặt Trực Tiếp Trong Album Cha**, bên dưới danh sách Album Con. Để chọn ảnh bìa, đặt một ảnh trong folder đó có tên bắt đầu bằng `cover`, ví dụ `cover-mua-chay.jpg`; nếu không có, website dùng ảnh đầu tiên hoặc ảnh bìa của Album Con đầu tiên.
+Folder có thể lồng sâu hơn nếu cần; mỗi cấp sẽ là một trang Album riêng. Ảnh đặt trực tiếp trong folder vẫn được giữ và hiện ở phần **Thiết Kế Trong Bộ Này**, bên dưới danh sách bộ sưu tập. Để chọn ảnh bìa, đặt một ảnh trong folder đó có tên bắt đầu bằng `cover`, ví dụ `cover-mua-chay.jpg`; nếu không có, website dùng ảnh đầu tiên hoặc ảnh bìa của bộ sưu tập đầu tiên.
+
+## Tải Toàn Bộ Album
+
+Google Drive chỉ tạo gói ZIP khi tải folder qua giao diện Drive; API công khai của website chỉ tải trực tiếp từng tệp. Vì vậy, để có nút **Tải Toàn Bộ Album**, hãy tự nén các ảnh của bộ đó thành một file `.zip` và đặt file ZIP vào **cùng folder** với ảnh. Ví dụ: `mua-chay-2026.zip`.
+
+Lần đồng bộ kế tiếp sẽ nhận diện file ZIP, không hiển thị file này trong gallery ảnh và tự hiện nút **Tải Toàn Bộ Album** trên trang tương ứng. Nếu folder chưa có file `.zip`, nút sẽ không xuất hiện; người xem vẫn tải từng thiết kế như bình thường.
 
 ## Hồ sơ thư viện
 
