@@ -123,6 +123,44 @@ function photoFromDriveFile(file, folderTitle) {
   };
 }
 
+function totalAlbumCount(albums) {
+  return albums.reduce((total, album) => total + 1 + totalAlbumCount(album.children ?? []), 0);
+}
+
+function totalPhotoCount(albums) {
+  return albums.reduce((total, album) => total + album.photos.length + totalPhotoCount(album.children ?? []), 0);
+}
+
+async function albumFromDriveFolder(folder, index, parent = null) {
+  const entries = await listFiles(folder.id);
+  const childFolders = entries.filter((file) => file.mimeType === FOLDER_MIME);
+  const imageFiles = entries.filter((file) => file.mimeType?.startsWith("image/"));
+  const title = titleFromFolderName(folder.name);
+  const slugSegment = toSlug(folder.name) || folder.id;
+  const slug = parent ? `${parent.slug}--${slugSegment}` : slugSegment;
+  const id = parent ? `${parent.id}.${String(index + 1).padStart(2, "0")}` : String(index + 1).padStart(2, "0");
+  const photos = imageFiles.map((file) => photoFromDriveFile(file, title));
+  const children = await Promise.all(childFolders.map((childFolder, childIndex) => albumFromDriveFolder(childFolder, childIndex, { id, slug })));
+  const cover = photos.find((photo) => /^cover(?:\s|$)/i.test(photo.title)) ?? photos[0] ?? children.find((child) => child.cover);
+
+  return {
+    id,
+    slug,
+    ...(parent ? { parentSlug: parent.slug } : {}),
+    title,
+    subtitle: subtitleFromFolderName(folder.name),
+    date: formatMonthYear(folder.modifiedTime || folder.createdTime),
+    location: "Thiết kế phụng vụ",
+    createdAt: folder.createdTime,
+    count: photos.length + children.reduce((total, child) => total + child.count, 0),
+    cover: cover?.src || "",
+    accent: "green",
+    description: folder.description || `Album ${title}.`,
+    photos,
+    ...(children.length ? { children } : {}),
+  };
+}
+
 async function sync() {
   const folders = await listFiles(ROOT_FOLDER_ID, true);
   const profileFiles = await listFiles(PROFILE_FOLDER_ID);
@@ -131,26 +169,7 @@ async function sync() {
   const coverFile = fileNamed("Cover.png");
   const infoFile = profileFiles.find((file) => file.name?.trim().toLowerCase() === "info" && file.mimeType === GOOGLE_DOC_MIME);
   const parsedProfile = infoFile ? parseProfileInfo(await readProfileInfoFile(infoFile)) : parseProfileInfo("");
-  const albums = await Promise.all(folders.map(async (folder, index) => {
-    const files = (await listFiles(folder.id)).filter((file) => file.mimeType?.startsWith("image/"));
-    const title = titleFromFolderName(folder.name);
-    const photos = files.map((file) => photoFromDriveFile(file, title));
-    const cover = photos.find((photo) => /^cover(?:\s|$)/i.test(photo.title)) ?? photos[0];
-    return {
-      id: String(index + 1).padStart(2, "0"),
-      slug: toSlug(folder.name) || folder.id,
-      title,
-      subtitle: subtitleFromFolderName(folder.name),
-      date: formatMonthYear(folder.modifiedTime || folder.createdTime),
-      location: "Thiết kế phụng vụ",
-      createdAt: folder.createdTime,
-      count: photos.length,
-      cover: cover?.src || "",
-      accent: "green",
-      description: folder.description || `Bộ thiết kế ${title.toLocaleLowerCase("vi-VN")}.`,
-      photos,
-    };
-  }));
+  const albums = await Promise.all(folders.map((folder, index) => albumFromDriveFolder(folder, index)));
 
   const manifest = {
     generatedAt: new Date().toISOString(),
@@ -165,7 +184,7 @@ async function sync() {
   };
   await mkdir(dirname(OUTPUT_FILE), { recursive: true });
   await writeFile(OUTPUT_FILE, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
-  console.log(`Synced ${albums.length} folders and ${albums.reduce((total, album) => total + album.photos.length, 0)} image files.`);
+  console.log(`Synced ${totalAlbumCount(albums)} folders and ${totalPhotoCount(albums)} image files.`);
 }
 
 sync().catch((error) => { console.error(error); process.exit(1); });

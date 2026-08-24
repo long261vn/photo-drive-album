@@ -184,6 +184,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .album-intro__meta span { display: inline-flex; align-items: center; gap: 6px; }
 .album-intro__download { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; width: fit-content; padding: 0 15px; background: var(--cobalt); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.04em; transition: transform 160ms var(--ease-out), background 160ms var(--ease-out); }
 .album-intro__download:hover { background: #173888; transform: translateY(-2px); }
+.parent-album { padding: 30px 0 58px; border-bottom: 1px solid var(--border); }
+.parent-album__rule { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 25px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.parent-album__rule span:first-child { color: var(--cobalt); }
 .contact-sheet { padding: 28px 0 70px; }
 .contact-sheet__rule { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
 .gallery-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; }

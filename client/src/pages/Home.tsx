@@ -6,6 +6,7 @@ import { useLocation } from "wouter";
 import { ArrowDownRight, ChevronDown, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { AlbumList } from "@/components/AlbumList";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
+import { flattenAlbums } from "@/lib/albumData";
 
 const PAGE_SIZE = 5;
 
@@ -23,7 +24,7 @@ export default function Home() {
       const dateB = new Date(b.createdAt ?? 0).getTime();
       return sort === "created-desc" ? dateB - dateA : dateA - dateB;
     }), [albums, query, sort]);
-  const assetCount = useMemo(() => albums.reduce((total, album) => total + album.photos.length, 0), [albums]);
+  const assetCount = useMemo(() => flattenAlbums(albums).reduce((total, album) => total + album.photos.length, 0), [albums]);
   const pageCount = Math.max(1, Math.ceil(filteredAlbums.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
   const pageAlbums = filteredAlbums.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);

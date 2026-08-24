@@ -16,6 +16,7 @@ export type Photo = {
 export type Album = {
   id: string;
   slug: string;
+  parentSlug?: string;
   title: string;
   subtitle: string;
   date: string;
@@ -26,6 +27,7 @@ export type Album = {
   description: string;
   createdAt?: string;
   photos: Photo[];
+  children?: Album[];
 };
 
 export type ArchiveManifest = {
@@ -107,4 +109,6 @@ export const formatAlbumTitle = (title: string) => title
   .replace(/Chúa Nhật\s+thứ/gi, "Chúa Nhật Thứ")
   .replace(/\s+—\s+/g, " - ");
 
-export const findAlbum = (albums: Album[], slug: string) => albums.find((album) => album.slug === slug);
+export const flattenAlbums = (albums: Album[]): Album[] => albums.flatMap((album) => [album, ...flattenAlbums(album.children ?? [])]);
+
+export const findAlbum = (albums: Album[], slug: string) => flattenAlbums(albums).find((album) => album.slug === slug);

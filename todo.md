@@ -37,3 +37,8 @@
 - [x] Kiểm thử không gian, căn chỉnh và responsive desktop/Galaxy S20.
 - [x] Loại bỏ mọi nội dung hồ sơ do giao diện tự chèn và chỉ hiển thị nguyên văn các trường được đồng bộ từ Google Tài liệu `info`.
 - [x] Kiểm thử lại profile với manifest Drive, đồng bộ GitHub Pages và xác nhận nội dung không bị diễn giải.
+- [x] Đánh giá UX, cấu trúc dữ liệu và giới hạn hiệu năng hiện tại cho thư viện khoảng 2.000 thiết kế.
+- [x] Đối chiếu cách tổ chức Flickr cá nhân và lập danh sách ưu tiên cải tiến cho tìm kiếm, phân loại, tải xuống và xuất bản hằng tuần.
+- [x] Mở rộng manifest và sync Drive để nhận diện folder cấp một là Album Cha, folder cấp hai là Album Con.
+- [x] Tạo trang Album Cha liệt kê Album Con và giữ tương thích với Album phẳng hiện có.
+- [x] Kiểm thử, đồng bộ GitHub Pages và hướng dẫn quy ước folder lồng nhau.

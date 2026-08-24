@@ -49,3 +49,7 @@ GitHub Pages đã được xác minh sau workflow triển khai thành công cho 
 ## 2026-08-24 — Hồ sơ nguyên văn từ info
 
 Đã gỡ các dòng “Lưu Trữ Hình Ảnh Phụng Vụ”, “Phụ Trách Lưu Trữ” và tiêu đề hồ sơ cố định do giao diện chèn. Trang chủ hiện render trực tiếp `profile.name`, `profile.handle` và `profile.bio` từ manifest do Google Tài liệu `info` sinh ra; nội dung `Long Nguyen` và `abcdefg…` đã hiển thị đúng ở viewport 360×800.
+
+## 2026-08-24 — Album Cha và Album Con
+
+Đã thay manifest và script đồng bộ để nhận diện đệ quy folder lồng nhau: folder cấp một là Album Cha, folder nằm trong là Album Con; folder sâu hơn tiếp tục có thể mở thành trang Album riêng. Kiểm thử bằng manifest cục bộ với `Mùa Chay 2026` gồm hai Album Con và một ảnh trực tiếp: trang chủ mở Album Cha, Album Cha hiện hai card Album Con và gallery “Thiết Kế Đặt Trực Tiếp Trong Album Cha”, Album Con quay về đúng Album Cha và mở gallery/download riêng. Sau kiểm thử, manifest Drive thật đã được khôi phục.
