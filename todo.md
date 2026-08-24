@@ -9,3 +9,5 @@
 - [ ] Người dùng thêm `GOOGLE_DRIVE_API_KEY` vào GitHub Actions Secrets theo hướng dẫn.
 - [x] Tối ưu lazy loading ảnh, placeholder và chuyển cảnh lightbox.
 - [x] Kiểm thử desktop, 360px, lightbox và fallback khi chưa cấu hình Drive secret.
+- [x] Xác minh repository GitHub `long261vn/photo-drive-album` hiển thị cho đúng tài khoản người dùng: repository là private và thuộc tài khoản `long261vn`.
+- [ ] Kiểm tra kết quả lần chạy thủ công workflow `Sync Google Drive albums` và manifest ảnh thật.
