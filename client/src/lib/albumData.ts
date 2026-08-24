@@ -1,6 +1,6 @@
 /**
- * Data contract: Contemporary Editorial Archive.
- * Replace this demo data with the generated Google Drive manifest in the next integration phase.
+ * Design: Liturgical Design Archive.
+ * The production source is /data/albums.json, generated from Google Drive. These samples only protect the UI before the first sync.
  */
 export type Photo = {
   id: string;
@@ -10,6 +10,7 @@ export type Photo = {
   src: string;
   downloadUrl: string;
   orientation: "portrait" | "landscape" | "square";
+  mimeType?: string;
 };
 
 export type Album = {
@@ -26,154 +27,60 @@ export type Album = {
   photos: Photo[];
 };
 
+export type ArchiveManifest = {
+  generatedAt: string | null;
+  source: { rootFolderId: string; rootFolderName?: string; mode: "sample" | "google-drive" };
+  albums: Album[];
+};
+
 const image = (id: string, width: number, quality = 86) =>
   ["https://images", "unsplash", "com"].join(".") + `/${id}?auto=format&fit=crop&w=${width}&q=${quality}`;
 
-export const albums: Album[] = [
+const samplePhoto = (id: string, title: string, location: string, date: string, sourceId: string, orientation: Photo["orientation"]): Photo => ({
+  id,
+  title,
+  location,
+  date,
+  src: image(sourceId, 1600),
+  downloadUrl: image(sourceId, 2400, 95),
+  orientation,
+});
+
+export const sampleAlbums: Album[] = [
   {
     id: "01",
-    slug: "da-lat-2024",
-    title: "Những vùng cao, những ngày sương",
-    subtitle: "Tập mẫu / đường xa",
-    date: "11.2024",
-    location: "Kho ảnh minh họa",
-    count: 24,
-    cover: image("photo-1500534314209-a25ddb2bd429", 1500),
-    accent: "cobalt",
-    description:
-      "Một tập ảnh minh họa cho cấu trúc album. Khi folder Google Drive được kết nối, hình ảnh và metadata của bạn sẽ thay thế dữ liệu mẫu này.",
+    slug: "cn20-tn-a",
+    title: "Chúa Nhật thứ 20 Thường Niên — Năm A",
+    subtitle: "Mùa Thường Niên / Năm A",
+    date: "08.2026",
+    location: "Thiết kế phụng vụ",
+    count: 3,
+    cover: image("photo-1438032005730-c779502df39b", 1500),
+    accent: "green",
+    description: "Bộ thiết kế mẫu cho Chúa Nhật Thường Niên, dành cho truyền thông giáo xứ và các kênh mục vụ.",
     photos: [
-      {
-        id: "dl-01",
-        title: "Đường thông sau mưa",
-        location: "Đèo Prenn",
-        date: "14.11.2024",
-        src: image("photo-1500534314209-a25ddb2bd429", 1600),
-        downloadUrl: image("photo-1500534314209-a25ddb2bd429", 2400, 95),
-        orientation: "landscape",
-      },
-      {
-        id: "dl-02",
-        title: "Sương qua mái nhà",
-        location: "Đà Lạt",
-        date: "15.11.2024",
-        src: image("photo-1519681393784-d120267933ba", 1200),
-        downloadUrl: image("photo-1519681393784-d120267933ba", 2200, 95),
-        orientation: "portrait",
-      },
-      {
-        id: "dl-03",
-        title: "Hồ yên lúc sáu giờ",
-        location: "Tuyền Lâm",
-        date: "15.11.2024",
-        src: image("photo-1482192596544-9eb780fc7f66", 1400),
-        downloadUrl: image("photo-1482192596544-9eb780fc7f66", 2400, 95),
-        orientation: "landscape",
-      },
-      {
-        id: "dl-04",
-        title: "Một góc hiên nhỏ",
-        location: "Trại Mát",
-        date: "16.11.2024",
-        src: image("photo-1501785888041-af3ef285b470", 1200),
-        downloadUrl: image("photo-1501785888041-af3ef285b470", 2200, 95),
-        orientation: "portrait",
-      },
-      {
-        id: "dl-05",
-        title: "Màu xanh của rừng",
-        location: "Đèo Mimosa",
-        date: "16.11.2024",
-        src: image("photo-1454496522488-7a8e488e8606", 1400),
-        downloadUrl: image("photo-1454496522488-7a8e488e8606", 2400, 95),
-        orientation: "landscape",
-      },
+      samplePhoto("cn20-a-01", "Banner Lời Chúa", "Chúa Nhật XX Thường Niên", "08.2026", "photo-1504052434569-70ad5836ab65", "landscape"),
+      samplePhoto("cn20-a-02", "Lời nguyện đầu lễ", "Chúa Nhật XX Thường Niên", "08.2026", "photo-1444723121867-7a241cacace9", "portrait"),
+      samplePhoto("cn20-a-03", "Lịch cử hành", "Chúa Nhật XX Thường Niên", "08.2026", "photo-1466442929976-97f336a657be", "square"),
     ],
   },
   {
     id: "02",
-    slug: "nhung-bua-com",
-    title: "Những bữa cơm ở nhà",
-    subtitle: "Tập hai / thân thuộc",
-    date: "03.2025",
-    location: "Hồ Chí Minh, Việt Nam",
-    count: 18,
-    cover: image("photo-1547592180-85f173990554", 1500),
-    accent: "terracotta",
-    description:
-      "Những bàn tay đã quen với nhau, tiếng bát đũa và ánh nắng đi qua một bữa trưa không cần dịp đặc biệt.",
+    slug: "cn21-tn-a",
+    title: "Chúa Nhật thứ 21 Thường Niên — Năm A",
+    subtitle: "Mùa Thường Niên / Năm A",
+    date: "08.2026",
+    location: "Thiết kế phụng vụ",
+    count: 3,
+    cover: image("photo-1498623116890-37e912163d5d", 1500),
+    accent: "green",
+    description: "Một mẫu kho trình bày cách sắp xếp thiết kế theo từng Chúa Nhật trong chu kỳ phụng vụ.",
     photos: [
-      {
-        id: "nbc-01",
-        title: "Món rau đầu mùa",
-        location: "Bếp nhà",
-        date: "02.03.2025",
-        src: image("photo-1547592180-85f173990554", 1400),
-        downloadUrl: image("photo-1547592180-85f173990554", 2400, 95),
-        orientation: "landscape",
-      },
-      {
-        id: "nbc-02",
-        title: "Nắng trên khăn bàn",
-        location: "Bếp nhà",
-        date: "02.03.2025",
-        src: image("photo-1498837167922-ddd27525d352", 1200),
-        downloadUrl: image("photo-1498837167922-ddd27525d352", 2200, 95),
-        orientation: "portrait",
-      },
-      {
-        id: "nbc-03",
-        title: "Một phần cho người đến muộn",
-        location: "Bếp nhà",
-        date: "02.03.2025",
-        src: image("photo-1551218808-94e220e084d2", 1400),
-        downloadUrl: image("photo-1551218808-94e220e084d2", 2400, 95),
-        orientation: "landscape",
-      },
-    ],
-  },
-  {
-    id: "03",
-    slug: "bo-bien-2026",
-    title: "Bờ biển cuối mùa gió",
-    subtitle: "Tập ba / phía chân trời",
-    date: "02.2026",
-    location: "Bình Thuận, Việt Nam",
-    count: 16,
-    cover: image("photo-1500530855697-b586d89ba3ee", 1500),
-    accent: "slate",
-    description:
-      "Một buổi chiều nước rút rất chậm, khi mọi câu chuyện đều có thể để lại trên cát rồi chờ sóng mang đi.",
-    photos: [
-      {
-        id: "bb-01",
-        title: "Lúc thuyền về",
-        location: "Mũi Né",
-        date: "18.02.2026",
-        src: image("photo-1500530855697-b586d89ba3ee", 1400),
-        downloadUrl: image("photo-1500530855697-b586d89ba3ee", 2400, 95),
-        orientation: "landscape",
-      },
-      {
-        id: "bb-02",
-        title: "Gió ngang vai",
-        location: "Mũi Né",
-        date: "18.02.2026",
-        src: image("photo-1476673160081-cf065607f449", 1200),
-        downloadUrl: image("photo-1476673160081-cf065607f449", 2200, 95),
-        orientation: "portrait",
-      },
-      {
-        id: "bb-03",
-        title: "Một điểm xanh xa",
-        location: "Bình Thuận",
-        date: "19.02.2026",
-        src: image("photo-1464822759023-fed622ff2c3b", 1400),
-        downloadUrl: image("photo-1464822759023-fed622ff2c3b", 2400, 95),
-        orientation: "landscape",
-      },
+      samplePhoto("cn21-a-01", "Hành trình đức tin", "Chúa Nhật XXI Thường Niên", "08.2026", "photo-1473177104440-ffee2f376098", "landscape"),
+      samplePhoto("cn21-a-02", "Trích đoạn Tin Mừng", "Chúa Nhật XXI Thường Niên", "08.2026", "photo-1464822759023-fed622ff2c3b", "portrait"),
+      samplePhoto("cn21-a-03", "Thông báo mục vụ", "Chúa Nhật XXI Thường Niên", "08.2026", "photo-1519491050282-cf00c82424b4", "square"),
     ],
   },
 ];
 
-export const findAlbum = (slug: string) => albums.find((album) => album.slug === slug);
+export const findAlbum = (albums: Album[], slug: string) => albums.find((album) => album.slug === slug);

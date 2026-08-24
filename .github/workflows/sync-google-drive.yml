@@ -1,0 +1,46 @@
+name: Sync Google Drive albums
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Run at 17 and 47 minutes past each hour to avoid peak top-of-hour queues.
+    - cron: "17,47 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-google-drive-albums
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate album manifest from Google Drive
+        env:
+          GOOGLE_DRIVE_API_KEY: ${{ secrets.GOOGLE_DRIVE_API_KEY }}
+          DRIVE_ROOT_FOLDER_ID: 1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw
+        run: node scripts/sync-drive.mjs
+
+      - name: Commit manifest only when content changed
+        run: |
+          if git diff --quiet -- client/public/data/albums.json; then
+            echo "No manifest changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add client/public/data/albums.json
+          git commit -m "chore: sync Google Drive albums"
+          git push
