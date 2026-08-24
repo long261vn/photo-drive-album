@@ -8,4 +8,4 @@
 - [x] Tạo workflow GitHub Actions chạy theo lịch, có thể chạy thủ công và chỉ commit manifest khi nội dung thay đổi.
 - [ ] Người dùng thêm `GOOGLE_DRIVE_API_KEY` vào GitHub Actions Secrets theo hướng dẫn.
 - [x] Tối ưu lazy loading ảnh, placeholder và chuyển cảnh lightbox.
-- [ ] Kiểm thử desktop, 360px, lightbox và fallback khi chưa cấu hình Drive secret.
+- [x] Kiểm thử desktop, 360px, lightbox và fallback khi chưa cấu hình Drive secret.
