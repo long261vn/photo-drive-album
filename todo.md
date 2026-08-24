@@ -14,3 +14,7 @@
 - [ ] Kiểm tra điều kiện GitHub Pages và tạo link chia sẻ website từ GitHub.
 - [x] Quét source và lịch sử Git để phát hiện API key, token hoặc credential trước khi public repository: không phát hiện giá trị secret theo các mẫu phổ biến; chỉ có tên biến và tham chiếu GitHub Secret.
 - [x] Khắc phục lỗi 404 của đường link GitHub Pages và xác minh website chia sẻ hoạt động; link gốc có thể cần vài phút để hết cache HTML cũ.
+- [x] Phân tích album Flickr mẫu để xác định cách trình bày và chuyển chế độ xem.
+- [x] Thêm chế độ xem ảnh lớn, lưới ảnh nhỏ và danh sách chi tiết.
+- [x] Điều chỉnh ảnh để hiển thị đủ tỷ lệ, không dùng crop cắt xén.
+- [x] Kiểm thử công tắc chế độ xem trên desktop và Galaxy S20.
