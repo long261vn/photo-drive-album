@@ -1,24 +1,22 @@
 /**
- * Design: Compact Catholic image library. The homepage prioritizes a searchable, paginated album index; the avatar remains visually neutral while supporting a concealed owner shortcut.
+ * Design: Compact Catholic image library. The homepage prioritizes a searchable, paginated album index; the Avatar remains a profile image while the quiet footer carries the owner shortcut.
  */
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
 import { ArrowDownRight, ChevronDown, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { AlbumList } from "@/components/AlbumList";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { flattenAlbums } from "@/lib/albumData";
+import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
 
 const PAGE_SIZE = 5;
-const AVATAR_HOLD_DURATION_MS = 5_000;
-const SYNC_WORKFLOW_URL = "https://github.com/long261vn/photo-drive-album/actions/workflows/sync-google-drive.yml";
 
 export default function Home() {
   const [, setLocation] = useLocation();
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<"created-desc" | "created-asc" | "name">("created-desc");
   const [page, setPage] = useState(1);
-  const [isHoldingAvatar, setIsHoldingAvatar] = useState(false);
-  const avatarHoldTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const { isHolding, beginHold, cancelHold } = useSyncWorkflowShortcut();
   const { albums, profile } = useArchiveManifest();
   const filteredAlbums = useMemo(() => albums
     .filter((album) => `${album.title} ${album.subtitle}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
@@ -33,24 +31,6 @@ export default function Home() {
   const currentPage = Math.min(page, pageCount);
   const pageAlbums = filteredAlbums.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
-  const cancelAvatarHold = () => {
-    if (avatarHoldTimer.current) clearTimeout(avatarHoldTimer.current);
-    avatarHoldTimer.current = null;
-    setIsHoldingAvatar(false);
-  };
-
-  const beginAvatarHold = () => {
-    if (avatarHoldTimer.current) return;
-    setIsHoldingAvatar(true);
-    avatarHoldTimer.current = setTimeout(() => {
-      avatarHoldTimer.current = null;
-      setIsHoldingAvatar(false);
-      window.location.assign(SYNC_WORKFLOW_URL);
-    }, AVATAR_HOLD_DURATION_MS);
-  };
-
-  useEffect(() => cancelAvatarHold, []);
-
   return <main className="archive-home">
     <header className="site-header">
       <button className="brand-lockup" type="button" onClick={() => setLocation("/")} aria-label="Về trang chủ Thư Viện Hình Công Giáo"><span className="brand-symbol" aria-hidden="true" /><span>Thư Viện Hình Công Giáo</span></button>
@@ -59,7 +39,7 @@ export default function Home() {
     <section className="profile-shell" aria-label="Thông tin thư viện">
       <div className="profile-cover"><img src={profile.cover} alt="Ảnh bìa thư viện" fetchPriority="high" /></div>
       <div className="profile-summary">
-        <button className={`profile-avatar profile-avatar--sync-shortcut${isHoldingAvatar ? " is-holding" : ""}`} type="button" onPointerDown={(event) => { if (event.pointerType !== "mouse" || event.button === 0) beginAvatarHold(); }} onPointerUp={cancelAvatarHold} onPointerLeave={cancelAvatarHold} onPointerCancel={cancelAvatarHold} onContextMenu={(event) => { event.preventDefault(); cancelAvatarHold(); }} onKeyDown={(event) => { if (!event.repeat && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); beginAvatarHold(); } }} onKeyUp={cancelAvatarHold} aria-label={`Avatar ${profile.name}`}><img src={profile.avatar} alt="" /></button>
+        <div className="profile-avatar"><img src={profile.avatar} alt={`Avatar ${profile.name}`} /></div>
         <div className="profile-copy"><h1>{profile.name}</h1>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{profile.bio && <p className="profile-bio">{profile.bio}</p>}</div>
         <div className="profile-stats" aria-label="Thống Kê Thư Viện"><span><strong>{albums.length}</strong> Album</span><span><strong>{assetCount}</strong> Thiết Kế</span></div>
       </div>
@@ -73,6 +53,6 @@ export default function Home() {
     </section>
     <AlbumList albums={pageAlbums} startIndex={(currentPage - 1) * PAGE_SIZE} onOpen={(slug) => setLocation(`/album/${slug}`)} />
     {pageCount > 1 && <nav className="album-pagination" aria-label="Phân Trang Album"><button type="button" onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={currentPage === 1}><ChevronLeft size={16} /> Trước</button><span>Trang {currentPage} / {pageCount}</span><button type="button" onClick={() => setPage((current) => Math.min(pageCount, current + 1))} disabled={currentPage === pageCount}>Sau <ChevronRight size={16} /></button></nav>}
-    <footer className="site-footer"><span>Long Nguyen © 2026</span></footer>
+    <footer className="site-footer"><button className={`site-footer__sync-shortcut${isHolding ? " is-holding" : ""}`} type="button" onPointerDown={(event) => { if (event.pointerType !== "mouse" || event.button === 0) beginHold(); }} onPointerUp={cancelHold} onPointerLeave={cancelHold} onPointerCancel={cancelHold} onContextMenu={(event) => { event.preventDefault(); cancelHold(); }} onKeyDown={(event) => { if (!event.repeat && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); beginHold(); } }} onKeyUp={cancelHold} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>
   </main>;
 }
