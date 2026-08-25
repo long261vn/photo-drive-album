@@ -51,7 +51,7 @@ export default function Home() {
     }), [albums, sort]);
   const searchResults = useMemo(() => normalizedQuery ? searchArchive(albums, normalizedQuery, showBackgrounds) : [], [albums, normalizedQuery, showBackgrounds]);
   const isSearching = normalizedQuery.length > 0;
-  const assetCount = useMemo(() => flattenAlbums(albums).reduce((total, album) => total + album.photos.length, 0), [albums]);
+  const assetCount = useMemo(() => flattenAlbums(albums).reduce((total, album) => total + album.photos.filter((photo) => showBackgrounds || !photo.isBackground).length, 0), [albums, showBackgrounds]);
   const pageSize = isSearching ? SEARCH_PAGE_SIZE : PAGE_SIZE;
   const pageCount = Math.max(1, Math.ceil((isSearching ? searchResults.length : sortedAlbums.length) / pageSize));
   const currentPage = Math.min(page, pageCount);

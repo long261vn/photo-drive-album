@@ -102,6 +102,12 @@ Sau Sync `32807241144`, manifest không còn folder `PSD`/`Fonts` hay tệp `ima
 
 Tìm kiếm trang chủ bằng tên file `Mockup` trả về Album `Le Phong Thanh Elena Guerra` dù từ khóa không nằm trong tên Album, đồng thời giữ các Album khác có ảnh cùng tên. Ô tìm kiếm hiện gợi rõ “Tìm Album hoặc tên hình”.
 
+## 2026-08-25 — Background `_BG` và tìm kiếm sâu
+
+Sync `32809093170` hoàn tất với 1.321 ảnh được gắn `isBackground: true`. Kiểm tra Album `anre-phu-yen` xác nhận cover chuyển từ ảnh `LN BG` sang ảnh không phải Background `LN GX NamBan`. Album mặc định chỉ hiển thị 2/3 ảnh và nút **Hiện BG**; sau khi bấm, ảnh `LN BG` xuất hiện, số mục tăng thành 3 và nút đổi thành **Ẩn BG**.
+
+Tìm kiếm sâu `Hinh 50x70cm` trả về riêng Bộ Sưu Tập con `Hinh 50x70cm` và ảnh `Thanh Elena Guerra LN 50x70cm` bên trong nó. Mỗi kết quả hiển thị loại nội dung, Album nguồn và nút mở đúng Album/Bộ Sưu Tập.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.

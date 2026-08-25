@@ -37,6 +37,8 @@ export default function AlbumPage() {
   const parentAlbum = album.parentSlug ? findAlbum(albums, album.parentSlug) : undefined;
   const childAlbums = album.children ?? [];
   const visiblePhotos = album.photos.filter((photo) => showBackgrounds || !photo.isBackground);
+  const visibleAssetCount = (entry: Album): number => entry.photos.filter((photo) => showBackgrounds || !photo.isBackground).length + (entry.children ?? []).reduce((total, child) => total + visibleAssetCount(child), 0);
+  const visibleDesignCount = visibleAssetCount(album);
   const contentItems: AlbumContentItem[] = [
     ...childAlbums.map((child) => ({ kind: "collection" as const, album: child })),
     ...visiblePhotos.map((photo) => ({ kind: "photo" as const, photo })),
@@ -48,7 +50,7 @@ export default function AlbumPage() {
   return (
     <main className="album-page">
       <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay Lại" : "Tất Cả Thiết Kế"}</button>{albumAvatar ? <span className="album-page__avatar"><img src={albumAvatar} alt={`Avatar ${profile.name}`} /></span> : <span className="header-mark brand-symbol" aria-hidden="true" />}</header>
-      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{album.count} Thiết Kế</span>{childAlbums.length > 0 && <span>{childAlbums.length} Bộ Sưu Tập</span>}</div></div>{album.downloadAll && <a className="album-intro__download" href={album.downloadAll.url} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Toàn Bộ Album</a>}</section>
+      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} Thiết Kế</span>{childAlbums.length > 0 && <span>{childAlbums.length} Bộ Sưu Tập</span>}</div></div>{album.downloadAll && <a className="album-intro__download" href={album.downloadAll.url} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Toàn Bộ Album</a>}</section>
       {contentItems.length > 0 && <section className="contact-sheet" aria-label={`Nội dung trong ${album.title}`}>
         <div className="contact-sheet__rule">
           <span>Nội Dung Trong Album</span>
