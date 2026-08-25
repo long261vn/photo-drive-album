@@ -101,3 +101,7 @@
 - [x] Kiểm tra lại ảnh ngang và dọc trên desktop không còn khuất phía dưới.
 - [x] Tăng chiều cao ảnh bìa trang chủ ở breakpoint desktop.
 - [x] Kiểm tra ảnh bìa vẫn cân đối và không ảnh hưởng Galaxy S20.
+- [x] Điều chỉnh chiều cao ảnh bìa trang chủ desktop từ 365px về 340px.
+- [x] Rà soát toàn bộ luồng Album, Xem tất cả và trình xem ảnh trên desktop/Galaxy S20.
+- [x] Đánh giá nhận diện, bố cục, typography, tương tác, responsive, accessibility và hiệu năng.
+- [x] Soạn báo cáo ưu tiên cải tiến với khuyến nghị thực hiện cụ thể.

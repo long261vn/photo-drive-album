@@ -64,7 +64,7 @@ export default function Home() {
       <div className="profile-cover">{profileCover && <img src={profileCover} alt="Ảnh bìa thư viện" fetchPriority="high" />}</div>
       <div className="profile-summary">
         <div className="profile-avatar">{profileAvatar && <img src={profileAvatar} alt={`Avatar ${profile.name}`} />}</div>
-        <div className="profile-copy"><h1>{profile.name}</h1>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{profile.bio && <p className="profile-bio">{profile.bio}</p>}</div>
+        <div className="profile-copy"><h1>Thư Viện Hình Công Giáo</h1><p className="profile-copy__owner">{profile.name}</p>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{profile.bio && <p className="profile-bio">{profile.bio}</p>}</div>
         <div className="profile-stats" aria-label="Thống Kê Thư Viện"><span><strong>{albums.length}</strong> Album</span><span><strong>{assetCount}</strong> Thiết Kế</span></div>
       </div>
     </section>

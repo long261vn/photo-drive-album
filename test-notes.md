@@ -133,3 +133,9 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 ## 2026-08-24 — URL Album chia sẻ trực tiếp
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
+
+## 2026-08-25 — Cover 340px và đánh giá giao diện
+
+Cover trang chủ ở breakpoint desktop đã điều chỉnh từ 365px xuống đúng 340px. Tiêu đề nhận diện chính là `Thư Viện Hình Công Giáo`; `Long Nguyen` được giữ ở cấp phụ. Các trường handle/bio vẫn render nguyên văn từ manifest Google Drive, không bị giao diện thay thế hoặc diễn giải.
+
+Đã chụp kiểm tra trang chủ ở desktop 1280×720 và Galaxy S20 360×800 sau bản chỉnh cuối. Cover dùng `object-fit: contain`, ảnh không bị cắt; không có tràn ngang. Kiểm tra bổ sung Trang chủ, Xem Tất Cả và trang Album cho thấy luồng duyệt, bộ lọc Background, tìm kiếm, ảnh không crop và các placeholder thiếu URL vẫn ổn định. Console gần đây không có lỗi ứng dụng; network log không ghi nhận yêu cầu 4xx/5xx.
