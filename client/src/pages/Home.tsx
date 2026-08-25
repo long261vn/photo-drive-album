@@ -6,10 +6,20 @@ import { useLocation } from "wouter";
 import { ChevronDown, ChevronLeft, ChevronRight, Clock3, Search } from "lucide-react";
 import { AlbumList } from "@/components/AlbumList";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
-import { flattenAlbums } from "@/lib/albumData";
+import { flattenAlbums, type Album } from "@/lib/albumData";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
 
 const PAGE_SIZE = 5;
+
+const normalizeSearch = (value: string) => value
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLocaleLowerCase("vi");
+
+const searchAlbum = (album: Album, query: string): boolean => {
+  const ownContent = [album.title, album.subtitle, ...album.photos.map((photo) => photo.title)].join(" ");
+  return normalizeSearch(ownContent).includes(query) || (album.children ?? []).some((child) => searchAlbum(child, query));
+};
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -20,14 +30,15 @@ export default function Home() {
   const { albums, profile } = useArchiveManifest();
   const profileCover = profile.cover?.trim();
   const profileAvatar = profile.avatar?.trim();
+  const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query]);
   const filteredAlbums = useMemo(() => albums
-    .filter((album) => `${album.title} ${album.subtitle}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
+    .filter((album) => !normalizedQuery || searchAlbum(album, normalizedQuery))
     .sort((a, b) => {
       if (sort === "name") return a.title.localeCompare(b.title, "vi");
       const dateA = new Date(a.createdAt ?? 0).getTime();
       const dateB = new Date(b.createdAt ?? 0).getTime();
       return sort === "created-desc" ? dateB - dateA : dateA - dateB;
-    }), [albums, query, sort]);
+    }), [albums, normalizedQuery, sort]);
   const assetCount = useMemo(() => flattenAlbums(albums).reduce((total, album) => total + album.photos.length, 0), [albums]);
   const pageCount = Math.max(1, Math.ceil(filteredAlbums.length / PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
@@ -45,7 +56,7 @@ export default function Home() {
     <section className="archive-toolbar archive-toolbar--profile" id="albums">
       <div><p className="eyebrow">Danh Mục</p><h2>Album</h2><button className="archive-timeline-link" type="button" onClick={() => setLocation("/timeline")}><Clock3 size={15} strokeWidth={1.8} /> Xem Dòng Thời Gian</button></div>
       <div className="archive-toolbar__controls">
-        <label className="archive-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm Album</span><input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Tìm Album" /></label>
+        <label className="archive-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm Album hoặc tên hình</span><input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Tìm Album hoặc tên hình" /></label>
         <label className="archive-sort"><span>Sắp Xếp</span><select value={sort} onChange={(event) => { setSort(event.target.value as typeof sort); setPage(1); }}><option value="created-desc">Mới Nhất</option><option value="created-asc">Cũ Nhất</option><option value="name">Tên A - Z</option></select><ChevronDown size={15} strokeWidth={1.8} /></label>
       </div>
     </section>

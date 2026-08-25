@@ -1,5 +1,5 @@
 /* Design: Liturgical Design Archive — Vietnamese Unicode typography, parchment ground, liturgical green and restrained sacred editorial rhythm. */
-/* Design: Liturgical Design Archive — warm paper, forest green, compact editorial rhythm. Home begins directly with the owner's cover; Album headers use the owner's Avatar as the private maker's mark, while the Timeline reads as a tactile chronological contact sheet. */
+/* Design: Liturgical Design Archive — warm paper, forest green, compact editorial rhythm. Home begins directly with the owner's cover; Album headers use the owner's Avatar as the private maker's mark, while each Album browses photos and nested collections as one ordered Drive-like library. */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -242,8 +242,17 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .photo-list__metadata > span:last-child { overflow: hidden; color: var(--muted-ink); font-size: 8px; font-weight: 800; letter-spacing: 0.07em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
 .photo-list__type { display: none; gap: 4px; color: var(--muted-ink); text-align: right; }
 .photo-list__download { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--border); color: var(--ink); transition: background 160ms var(--ease-out), color 160ms var(--ease-out); }
-.photo-list__download:hover { background: var(--cobalt); color: #fff; }
+.photo-list__download:hover, .photo-list__open:hover { background: var(--cobalt); color: #fff; }
 .photo-list__download span { display: none; }
+.photo-tile--collection { cursor: pointer; }
+.photo-tile--collection .photo-tile__media { background: linear-gradient(135deg, rgba(40,90,64,0.18), rgba(232,224,207,0.88)); }
+.photo-tile--collection img { opacity: 0.9; }
+.collection-tile__badge { position: absolute; top: 8px; right: 8px; display: inline-flex; align-items: center; gap: 5px; padding: 5px 6px; background: rgba(245,240,229,0.94); color: var(--cobalt); box-shadow: 0 2px 8px rgba(32,38,41,0.12); font-size: 8px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+.photo-list__row--collection { background: rgba(226,232,223,0.18); }
+.photo-list__preview--collection { position: relative; }
+.collection-folder-icon { position: absolute; top: 5px; right: 5px; padding: 3px; background: rgba(245,240,229,0.92); color: var(--cobalt); }
+.photo-list__open { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--border); padding: 0; background: transparent; color: var(--ink); cursor: pointer; transition: background 160ms var(--ease-out), color 160ms var(--ease-out); }
+.photo-list__open span { display: none; }
 .timeline-hero { display: grid; gap: 13px; padding: 26px 0 22px; border-bottom: 1px solid var(--border); }
 .timeline-hero__copy { max-width: 760px; }
 .timeline-hero h1, .timeline-empty h1 { margin: 4px 0 8px; font-family: "Noto Serif", serif; font-size: clamp(39px, 7vw, 76px); font-weight: 600; letter-spacing: -0.065em; line-height: 0.98; }
@@ -335,7 +344,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .photo-list__preview { width: 118px; height: 94px; }
   .photo-list__type { display: grid; }
   .photo-list__download { width: auto; height: 36px; padding: 0 10px; }
-  .photo-list__download span { display: inline; font-size: 9px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .photo-list__download, .photo-list__open { width: auto; height: 36px; padding: 0 10px; }
+  .photo-list__download span, .photo-list__open span { display: inline; font-size: 9px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
   .lightbox__footer p { display: block; }
 }
 

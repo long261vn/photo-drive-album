@@ -31,6 +31,14 @@ Website_LHN/
 
 Folder có thể lồng sâu hơn nếu cần; mỗi cấp sẽ là một trang Album riêng. Ảnh đặt trực tiếp trong folder vẫn được giữ và hiện ở phần **Thiết Kế Trong Bộ Này**, bên dưới danh sách bộ sưu tập. Để chọn ảnh bìa, đặt một ảnh trong folder đó có tên bắt đầu bằng `cover`, ví dụ `cover-mua-chay.jpg`; nếu không có, website dùng ảnh đầu tiên hoặc ảnh bìa của bộ sưu tập đầu tiên.
 
+## Ảnh bìa và nội dung được hiển thị
+
+Mỗi folder được chọn cover theo thứ tự rõ ràng: **(1)** ảnh có tên bắt đầu bằng `cover`, **(2)** ảnh đầu tiên nằm trực tiếp trong folder, **(3)** cover của Bộ Sưu Tập con đầu tiên có ảnh. Vì vậy folder mẹ không cần đặt lại ảnh nếu chỉ dùng để nhóm các Bộ Sưu Tập.
+
+Website chỉ đưa **ảnh có thể xem** vào gallery. Tệp PSD, AI, EPS, XCF, các tệp thiết kế nguồn và các tệp không phải ảnh không xuất hiện ở gallery, Timeline hay kết quả tìm kiếm. Folder có tên công việc như `PSD`, `AI`, `Fonts`, `File Thiet Ke`, `Source`, `Layers` hoặc `PDF layers` cũng được bỏ qua cùng toàn bộ nội dung của chúng.
+
+Trong mỗi Album, ảnh và Bộ Sưu Tập con được sắp chung theo thứ tự Drive: Bộ Sưu Tập trước, rồi ảnh trực tiếp trong Album. Ba chế độ **Xem Lớn**, **Lưới** và **Danh Sách** đều hiển thị nhất quán cả hai loại; Bộ Sưu Tập có nhãn folder và bấm vào sẽ mở trang bên trong.
+
 ## Tải Toàn Bộ Album
 
 Google Drive chỉ tạo gói ZIP khi tải folder qua giao diện Drive; API công khai của website chỉ tải trực tiếp từng tệp. Vì vậy, để có nút **Tải Toàn Bộ Album**, hãy tự nén các ảnh của bộ đó thành một file `.zip` và đặt file ZIP vào **cùng folder** với ảnh. Ví dụ: `mua-chay-2026.zip`.

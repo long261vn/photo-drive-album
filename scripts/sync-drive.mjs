@@ -11,6 +11,8 @@ const API_KEY = process.env.GOOGLE_DRIVE_API_KEY;
 const OUTPUT_FILE = resolve(process.cwd(), "client/public/data/albums.json");
 const FOLDER_MIME = "application/vnd.google-apps.folder";
 const GOOGLE_DOC_MIME = "application/vnd.google-apps.document";
+const NON_GALLERY_IMAGE_MIME = /(photoshop|psd|xcf|illustrator|postscript|eps)/i;
+const WORK_FOLDER_SEGMENTS = new Set(["psd", "ai", "font", "fonts", "file-thiet-ke", "files-thiet-ke", "file-design", "design-files", "source", "nguon", "layers", "pdf-layers"]);
 
 if (!API_KEY) {
   console.error("GOOGLE_DRIVE_API_KEY is required. Add it as a GitHub Actions secret before syncing.");
@@ -18,7 +20,7 @@ if (!API_KEY) {
 }
 
 if (!ROOT_FOLDER_ID || !PROFILE_FOLDER_ID) {
-  console.error("DRIVE_ROOT_FOLDER_ID and DRIVE_PROFILE_FOLDER_ID are required. Set them as GitHub Actions Variables before syncing.");
+  console.error("DRIVE_ROOT_FOLDER_ID and DRIVE_PROFILE_FOLDER_ID are required. Set them as GitHub Actions secrets before syncing.");
   process.exit(1);
 }
 
@@ -33,6 +35,13 @@ const toSlug = (value) => value
   .replace(/(^-|-$)/g, "");
 
 const titleFromFileName = (name) => name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+
+const isWorkFolder = (folderName = "") => {
+  const normalized = toSlug(folderName);
+  return [...WORK_FOLDER_SEGMENTS].some((segment) => normalized === segment || normalized.startsWith(`${segment}-`) || normalized.endsWith(`-${segment}`) || normalized.includes(`-${segment}-`));
+};
+
+const isGalleryImage = (file) => Boolean(file.mimeType?.startsWith("image/")) && !NON_GALLERY_IMAGE_MIME.test(file.mimeType);
 
 const titleFromFolderName = (name) => {
   const ordinaryMatch = name.match(/^CN\s*(\d{1,2})\s*[_-]?\s*TN\s*[_-]?\s*([ABC])$/i);
@@ -140,16 +149,19 @@ function totalPhotoCount(albums) {
 
 async function albumFromDriveFolder(folder, index, parent = null) {
   const entries = await listFiles(folder.id);
-  const childFolders = entries.filter((file) => file.mimeType === FOLDER_MIME);
-  const imageFiles = entries.filter((file) => file.mimeType?.startsWith("image/"));
+  const childFolders = entries.filter((file) => file.mimeType === FOLDER_MIME && !isWorkFolder(file.name));
+  const imageFiles = entries.filter(isGalleryImage);
   const zipFile = entries.find((file) => file.mimeType === "application/zip" || /\.zip$/i.test(file.name ?? ""));
   const title = titleFromFolderName(folder.name);
   const slugSegment = toSlug(folder.name) || folder.id;
   const slug = parent ? `${parent.slug}--${slugSegment}` : slugSegment;
   const id = parent ? `${parent.id}.${String(index + 1).padStart(2, "0")}` : String(index + 1).padStart(2, "0");
   const photos = imageFiles.map((file) => photoFromDriveFile(file, title));
-  const children = await Promise.all(childFolders.map((childFolder, childIndex) => albumFromDriveFolder(childFolder, childIndex, { id, slug })));
-  const cover = photos.find((photo) => /^cover(?:\s|$)/i.test(photo.title)) ?? photos[0] ?? children.find((child) => child.cover);
+  const childCandidates = await Promise.all(childFolders.map((childFolder, childIndex) => albumFromDriveFolder(childFolder, childIndex, { id, slug })));
+  const children = childCandidates.filter((child) => child.count > 0 || child.children?.length);
+  // Cover order is deliberate: cover image in this folder, first image in this folder, then the first visible descendant cover.
+  const localCover = photos.find((photo) => /^cover(?:\s|$)/i.test(photo.title)) ?? photos[0];
+  const cover = localCover?.src || children.find((child) => child.cover)?.cover || "";
 
   return {
     id,
@@ -161,7 +173,7 @@ async function albumFromDriveFolder(folder, index, parent = null) {
     location: "Thiết kế phụng vụ",
     createdAt: folder.createdTime,
     count: photos.length + children.reduce((total, child) => total + child.count, 0),
-    cover: cover?.src || "",
+    cover,
     accent: "green",
     description: folder.description || `Album ${title}.`,
     photos,
@@ -171,7 +183,7 @@ async function albumFromDriveFolder(folder, index, parent = null) {
 }
 
 async function sync() {
-  const folders = await listFiles(ROOT_FOLDER_ID, true);
+  const folders = (await listFiles(ROOT_FOLDER_ID, true)).filter((folder) => !isWorkFolder(folder.name));
   const profileFiles = await listFiles(PROFILE_FOLDER_ID);
   const fileNamed = (name) => profileFiles.find((file) => file.name?.toLowerCase() === name.toLowerCase());
   const avatarFile = fileNamed("Avatar.png");

@@ -77,3 +77,8 @@
 - [x] Khôi phục đồng bộ/fetch manifest từ folder mới và xác minh website hiển thị ảnh mới.
 - [x] Đọc DRIVE_ROOT_FOLDER_ID và DRIVE_PROFILE_FOLDER_ID từ Repository secrets theo cấu hình owner đã tạo.
 - [x] Chạy Sync từ secrets mới và đối chiếu source folder trong manifest.
+- [ ] Chọn cover theo ưu tiên cover ảnh, ảnh đầu folder, rồi ảnh từ Bộ Sưu Tập con.
+- [ ] Bỏ qua folder công việc như PSD và File Thiet Ke, đồng thời chỉ đưa file ảnh vào manifest.
+- [ ] Mở rộng tìm kiếm để tìm tên Album/Bộ Sưu Tập và tên file ảnh trong toàn thư viện.
+- [ ] Hợp nhất hiển thị ảnh và Bộ Sưu Tập trong ba chế độ Lớn, Lưới, Danh sách.
+- [ ] Kiểm thử manifest Drive mới, desktop và Galaxy S20 sau khi chuẩn hóa hiển thị.
