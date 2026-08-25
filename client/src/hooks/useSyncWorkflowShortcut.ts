@@ -20,7 +20,7 @@ export function useSyncWorkflowShortcut() {
 
     if (tapCount.current >= REQUIRED_TAP_COUNT) {
       resetTaps();
-      window.location.assign(SYNC_WORKFLOW_URL);
+      window.open(SYNC_WORKFLOW_URL, "_blank", "noopener,noreferrer");
       return;
     }
 

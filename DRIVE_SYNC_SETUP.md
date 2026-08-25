@@ -36,7 +36,7 @@ Workflow chạy mỗi 30 phút, vào phút 17 và 47. GitHub Actions không nh�
 
 ## Lối tắt đồng bộ kín trên website
 
-Khi cần đồng bộ ngay, hãy vào trang chủ website và **chạm nhanh 7 lần liên tiếp vào dòng `Long Nguyen © 2026` ở footer trong tối đa 5 giây**. Ở lần chạm thứ bảy, website mở trang workflow `Sync Google Drive albums` của GitHub. Hãy đăng nhập đúng tài khoản GitHub của mình rồi bấm **Run workflow** để xác nhận chạy đồng bộ.
+Khi cần đồng bộ ngay, hãy vào trang chủ website và **chạm nhanh 7 lần liên tiếp vào dòng `Long Nguyen © 2026` ở footer trong tối đa 5 giây**. Ở lần chạm thứ bảy, website mở trang workflow `Sync Google Drive albums` của GitHub trong **tab mới**; trang thư viện hiện tại vẫn được giữ nguyên. Hãy đăng nhập đúng tài khoản GitHub của mình rồi bấm **Run workflow** để xác nhận chạy đồng bộ.
 
 Nếu không đủ 7 lần chạm trong 5 giây, bộ đếm sẽ tự hủy. Avatar chỉ dùng để hiển thị hồ sơ. Lối tắt này không lưu token hoặc mật khẩu trên website và không tự chạy workflow mà chưa có xác nhận trong GitHub.
 

@@ -62,6 +62,8 @@ Avatar giữ nguyên vai trò ảnh hồ sơ ở desktop và viewport Galaxy S20
 
 Đã mở preview mới nhất và mô phỏng sáu lần chạm: trang không điều hướng. Khi mô phỏng đủ bảy lần chạm trong cùng chuỗi, trình duyệt điều hướng khỏi trang preview tới workflow GitHub (xác nhận bằng trạng thái target đã điều hướng); thao tác không kích hoạt chạy workflow tự động.
 
+Sau cập nhật tab mới, mô phỏng đủ bảy chạm xác nhận `window.open` được gọi với URL workflow, target `_blank` và `noopener,noreferrer`; URL trang thư viện hiện tại không thay đổi.
+
 ## 2026-08-25 — Ảnh thiếu URL
 
 Manifest Drive thực tế có Album `Các Thánh` với `cover` rỗng. Đã thay việc render thẻ `img` vô điều kiện bằng placeholder trung tính cho cover/ảnh thiếu URL, đồng thời chặn Lightbox render khi ảnh không có nguồn hợp lệ. Preview trang chủ tải lại với placeholder đúng vị trí và console không còn cảnh báo `src=""`.
