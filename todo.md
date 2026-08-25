@@ -92,3 +92,7 @@
 - [x] Bảo đảm ảnh vừa trọn chiều ngang/dọc của viewport khi mở Lightbox.
 - [x] Thêm zoom in, zoom out, đặt lại zoom và toàn màn hình cho Lightbox.
 - [x] Kiểm thử thao tác chuột, bàn phím và chạm trên desktop/Galaxy S20.
+- [x] Chẩn đoán vùng hiển thị Lightbox làm mất chiều cao của ảnh.
+- [x] Buộc chế độ mặc định chứa trọn ảnh theo cả chiều ngang và dọc.
+- [x] Chỉ cho phép cắt khung khi người xem chủ động phóng to, kèm nút Vừa Ảnh.
+- [x] Kiểm thử ảnh ngang và dọc trên desktop/Galaxy S20 trước khi phát hành.

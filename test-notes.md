@@ -116,6 +116,12 @@ Lightbox được kiểm tra từ Xem tất cả với ảnh ngang: ở tỷ l�
 
 Kiểm tra Lightbox từ Album ở kích thước Galaxy S20 cho thấy ảnh ngang được chứa trọn trong vùng xem ở tỷ lệ 100%, không cắt nội dung; hàng công cụ Zoom/Đặt lại/Toàn màn hình/Đóng, điều hướng trước-sau và tải vẫn hiển thị cùng lúc, có nhãn truy cập được.
 
+## 2026-08-25 — Khung Vừa ảnh không cắt mép
+
+Đã đổi khung Lightbox mặc định sang canvas `width: 100%` và `height: 100%` với `object-fit: contain`; ở tỷ lệ mặc định, khung không còn clip overflow. Overflow chỉ bật khi người xem chủ động zoom lớn hơn 100%. Kiểm tra lại ảnh ngang `07 26 ChanPhuoc AnrePhuYen LN GX NamBan` xác nhận đủ toàn bộ chiều ngang và chiều dọc, nút trạng thái hiển thị rõ **Vừa ảnh**.
+
+Kiểm tra thêm ảnh dọc `1` trong Album `14 CHẶNG ĐÀNG THÁNH GIÁ NĂM THÁNH 2025` xác nhận ảnh được thu vừa theo chiều cao của vùng xem, giữ nguyên toàn bộ phần đầu và chân ảnh ở trạng thái **Vừa ảnh**.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.
