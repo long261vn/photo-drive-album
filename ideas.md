@@ -105,3 +105,4 @@ Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metad
 
 - Trang chủ ưu tiên nhận diện **Thư Viện Hình Công Giáo** và ngôn ngữ lưu trữ phụng vụ; tên người phụ trách là thông tin thứ cấp.
 - Mỗi album kế thừa dấu mốc lưu trữ qua số chỉ mục, metadata viết hoa, đường kẻ mảnh và góc khung trên thumbnail, đồng thời giữ ảnh nguyên tỷ lệ theo yêu cầu không cắt xén.
+- Chế độ **Xem tất cả** áp dụng contact sheet có nhịp biên tập: ảnh đầu mỗi mốc tháng là ảnh neo lớn hơn trên desktop; mọi thiết kế có index marker, metadata ngày và đường thời gian để tránh cảm giác lưới ảnh đơn thuần.

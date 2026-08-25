@@ -87,3 +87,8 @@
 - [x] Thêm bộ lọc Background mặc định ẩn trên trang Album và Timeline.
 - [x] Xây lại tìm kiếm sâu theo tên Album, Bộ Sưu Tập và hình ở mọi cấp, có kết quả trực tiếp.
 - [x] Đồng bộ manifest và kiểm thử bộ lọc/tìm kiếm trên desktop cùng Galaxy S20.
+- [x] Rà soát và làm rõ điểm chuyển giữa Xem theo Album và Xem tất cả.
+- [x] Bổ sung tìm kiếm, trạng thái rỗng và bộ lọc Background trong chế độ Xem tất cả.
+- [x] Bảo đảm ảnh vừa trọn chiều ngang/dọc của viewport khi mở Lightbox.
+- [x] Thêm zoom in, zoom out, đặt lại zoom và toàn màn hình cho Lightbox.
+- [x] Kiểm thử thao tác chuột, bàn phím và chạm trên desktop/Galaxy S20.

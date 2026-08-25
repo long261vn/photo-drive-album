@@ -108,6 +108,14 @@ Sync `32809093170` hoàn tất với 1.321 ảnh được gắn `isBackground: t
 
 Tìm kiếm sâu `Hinh 50x70cm` trả về riêng Bộ Sưu Tập con `Hinh 50x70cm` và ảnh `Thanh Elena Guerra LN 50x70cm` bên trong nó. Mỗi kết quả hiển thị loại nội dung, Album nguồn và nút mở đúng Album/Bộ Sưu Tập.
 
+## 2026-08-25 — Hai chế độ xem và tìm kiếm toàn thư viện
+
+Đã thêm hai lựa chọn ngang hàng, có nhãn Chế độ 01/02: **Xem theo Album** và **Xem tất cả**. Xem tất cả tải gọn 80 thiết kế đầu tiên thay vì render toàn bộ thư viện ngay lập tức. Kiểm tra tìm kiếm `Gioan Euđe` trong Xem tất cả trả về đúng 2 thiết kế ở tháng 08/2026 và 08/2025, kèm Album nguồn. Bộ lọc Background vẫn áp dụng trong chế độ này.
+
+Lightbox được kiểm tra từ Xem tất cả với ảnh ngang: ở tỷ lệ 100% ảnh vừa trọn vùng nhìn theo cả chiều ngang lẫn chiều dọc; nút phóng to tăng chính xác đến 150%; nút toàn màn hình đổi trạng thái thành “Thoát toàn màn hình”. Công cụ Thu nhỏ, Đặt lại tỷ lệ, Phóng to, Toàn màn hình, ảnh trước/sau và Tải được nhận diện đầy đủ.
+
+Kiểm tra Lightbox từ Album ở kích thước Galaxy S20 cho thấy ảnh ngang được chứa trọn trong vùng xem ở tỷ lệ 100%, không cắt nội dung; hàng công cụ Zoom/Đặt lại/Toàn màn hình/Đóng, điều hướng trước-sau và tải vẫn hiển thị cùng lúc, có nhãn truy cập được.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.
