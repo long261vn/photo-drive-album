@@ -509,7 +509,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 }
 @media (min-width: 850px) {
   .profile-shell { margin-top: 0; }
-  .profile-cover { height: 320px; }
+  .profile-cover { height: 365px; }
   .profile-summary { grid-template-columns: 112px minmax(0, 1fr) auto; padding: 0 30px 22px; }
   .profile-avatar { width: 112px; height: 112px; margin-top: -56px; }
   .album-list__row { grid-template-columns: 168px minmax(0, 1fr) 92px 118px; gap: 20px; min-height: 132px; padding: 16px 0; }

@@ -99,3 +99,5 @@
 - [x] Đo vùng Lightbox desktop sau khi trừ thanh tiêu đề, công cụ và footer.
 - [x] Giới hạn chiều cao ảnh mặc định theo vùng nhìn desktop thực tế.
 - [x] Kiểm tra lại ảnh ngang và dọc trên desktop không còn khuất phía dưới.
+- [x] Tăng chiều cao ảnh bìa trang chủ ở breakpoint desktop.
+- [x] Kiểm tra ảnh bìa vẫn cân đối và không ảnh hưởng Galaxy S20.
