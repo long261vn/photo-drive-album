@@ -64,8 +64,8 @@
 - [ ] Thiết kế chế độ xem Dòng thời gian toàn thư viện theo nhịp quét ảnh kiểu Flickr.
 - [ ] Chọn phương án để chủ website đổi folder Google Drive qua giao diện quản trị mà không sửa mã.
 - [ ] Đánh giá cơ chế đăng nhập quản trị và bảo vệ password/Drive API key khỏi GitHub cùng frontend.
-- [ ] Lưu ngày tạo Drive gốc cho từng ảnh và mở rộng schema Timeline.
-- [ ] Chuyển Drive root/profile Folder ID từ workflow cố định sang GitHub Actions Variables.
-- [ ] Tạo route Dòng thời gian gom ảnh từ toàn bộ Album, có mốc tháng/năm và link Album nguồn.
-- [ ] Gắn lối vào Dòng thời gian trong giao diện thư viện và kiểm thử desktop/Galaxy S20.
-- [ ] Viết hướng dẫn thay Folder ID trong GitHub cho owner, kèm yêu cầu phân quyền repository.
+- [x] Lưu ngày tạo Drive gốc cho từng ảnh và mở rộng schema Timeline.
+- [x] Chuyển Drive root/profile Folder ID từ workflow cố định sang GitHub Actions Variables.
+- [x] Tạo route Dòng thời gian gom ảnh từ toàn bộ Album, có mốc tháng/năm và link Album nguồn.
+- [x] Gắn lối vào Dòng thời gian trong giao diện thư viện và kiểm thử desktop/Galaxy S20.
+- [x] Viết hướng dẫn thay Folder ID trong GitHub cho owner, kèm yêu cầu phân quyền repository.

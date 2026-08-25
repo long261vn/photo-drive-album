@@ -82,6 +82,12 @@ Trang Album `cn20-tn-a` đã được nén thêm ở phần đầu, đường ch
 
 Các workflow đã đổi `actions/checkout`, `actions/setup-node`, `pnpm/action-setup` và `actions/upload-pages-artifact` sang các bản dùng Node.js 24 cho runtime action; bước build website vẫn cố định Node.js 22. Kiểm thử `pnpm check`, `GITHUB_PAGES=true pnpm build` và `git diff --check` đều thành công. Workflow GitHub Pages `32801268852` đã build/deploy thành công; log build xác nhận không còn cảnh báo `Node.js 20 is deprecated`.
 
+## 2026-08-25 — Dòng thời gian và cấu hình folder Drive
+
+Đã thêm route `/timeline`, gom 21 ảnh từ toàn bộ Album theo ngày tạo Google Drive, sắp mới nhất trước, chia mốc tháng/năm, có lightbox và nút mở Album nguồn. Kiểm thử ảnh chụp ở desktop 1280px lẫn Galaxy S20 360×800 cho thấy grid, cột mốc thời gian, nhãn ngày và vùng chạm không tràn ngang. GitHub Pages workflow `32802397967` build/deploy thành công; mở trực tiếp `/timeline` hoạt động và nút Album nguồn đưa về đúng `/album/cn21-tn-a`.
+
+Script đồng bộ nay ghi `createdAt`/`modifiedAt` từng ảnh. Workflow ưu tiên `DRIVE_ROOT_FOLDER_ID` và `DRIVE_PROFILE_FOLDER_ID` từ GitHub Actions Variables, nhưng giữ ID hiện tại làm fallback đến khi chủ repository tự tạo Variables trong GitHub. Việc tạo/chỉnh Variables cần quyền owner hoặc write của repository; API key vẫn chỉ ở GitHub Secret và không xuất hiện trong frontend.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.
