@@ -4,16 +4,16 @@ Website hiện dùng folder công khai `Website_LHN` với ID `1ua5LsDU7yv-Y_ZFy
 
 ## Đổi folder Google Drive không sửa code
 
-Folder ID nay là **GitHub Actions Variable**, không nằm cố định trong code website. Chỉ tài khoản có quyền quản trị repository `long261vn/photo-drive-album` mới thấy và thay được phần cấu hình này; khách xem website, kể cả khi repository là public, không có quyền thay đổi.
+Folder ID nay là **Repository secret**, không nằm cố định trong code website. Chỉ tài khoản có quyền quản trị repository `long261vn/photo-drive-album` mới thấy và thay được phần cấu hình này; khách xem website, kể cả khi repository là public, không có quyền thay đổi.
 
-1. Đăng nhập đúng tài khoản GitHub chủ repository, mở `long261vn/photo-drive-album` → **Settings** → **Secrets and variables** → **Actions** → tab **Variables**.
-2. Tạo hoặc mở variable `DRIVE_ROOT_FOLDER_ID`. Dán ID folder thư viện mới, tức phần nằm sau `/folders/` trong link Google Drive. Folder này là nơi các folder cấp một trở thành Album.
-3. Tạo hoặc mở variable `DRIVE_PROFILE_FOLDER_ID`. Dán ID folder chứa `Avatar.png`, `Cover.png` và Google Tài liệu `info`. Nếu vẫn dùng profile cũ, giữ nguyên ID hiện có.
-4. Bấm **Update variable**. Sau đó vào **Actions** → **Sync Google Drive albums** → **Run workflow** để sinh manifest và phát hành thư viện từ folder mới.
+1. Đăng nhập đúng tài khoản GitHub chủ repository, mở `long261vn/photo-drive-album` → **Settings** → **Secrets and variables** → **Actions** → tab **Secrets**.
+2. Tạo hoặc mở secret `DRIVE_ROOT_FOLDER_ID`. Dán ID folder thư viện mới, tức phần nằm sau `/folders/` trong link Google Drive. Folder này là nơi các folder cấp một trở thành Album.
+3. Tạo hoặc mở secret `DRIVE_PROFILE_FOLDER_ID`. Dán ID folder chứa `Avatar.png`, `Cover.png` và Google Tài liệu `info`. Nếu vẫn dùng profile cũ, giữ nguyên ID hiện có.
+4. Bấm **Update secret**. Sau đó vào **Actions** → **Sync Google Drive albums** → **Run workflow** để sinh manifest và phát hành thư viện từ folder mới.
 
-Hai ID folder là cấu hình, không phải API key. **Không** đặt `GOOGLE_DRIVE_API_KEY` vào tab Variables hay trong code: key này phải luôn ở **Settings → Secrets and variables → Actions → Secrets** với tên `GOOGLE_DRIVE_API_KEY`. GitHub không đưa giá trị Secret vào source hay trang web; website công khai chỉ nhận file `albums.json` đã được workflow tạo.
+Hai ID folder là cấu hình, không phải API key. Giữ cả hai ở tab **Secrets** cùng với `GOOGLE_DRIVE_API_KEY`; không đưa bất kỳ giá trị nào vào code. GitHub không đưa giá trị Secret vào source hay trang web; website công khai chỉ nhận file `albums.json` đã được workflow tạo.
 
-Để chỉ mình bạn quản lý: bật xác thực hai bước cho tài khoản GitHub, không thêm collaborator có quyền **Write/Maintain/Admin**, và kiểm tra định kỳ danh sách quyền ở repository **Settings → Collaborators and teams**. Người xem public không thể bấm chạy workflow, đổi Variable hoặc sửa GitHub Pages; những thao tác này cần quyền ghi repository. Nếu sau này giao quyền cho người khác, họ có thể thay folder hoặc chạy workflow, vì vậy chỉ cấp quyền này cho người hoàn toàn tin cậy.
+Để chỉ mình bạn quản lý: bật xác thực hai bước cho tài khoản GitHub, không thêm collaborator có quyền **Write/Maintain/Admin**, và kiểm tra định kỳ danh sách quyền ở repository **Settings → Collaborators and teams**. Người xem public không thể bấm chạy workflow, đổi Secret hoặc sửa GitHub Pages; những thao tác này cần quyền ghi repository. Nếu sau này giao quyền cho người khác, họ có thể thay folder hoặc chạy workflow, vì vậy chỉ cấp quyền này cho người hoàn toàn tin cậy.
 
 ## Folder lồng nhau
 

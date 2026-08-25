@@ -72,3 +72,8 @@
 - [x] Kiểm tra job deploy sau Sync Google Drive gây lỗi không tìm thấy pnpm.
 - [x] Cố định bước cài pnpm trong workflow đồng bộ trước install/build.
 - [x] Xác nhận workflow đồng bộ thủ công chạy lại thành công sau bản sửa.
+- [ ] Kiểm tra giá trị GitHub Variables hiện tại và source folder trong manifest mới nhất.
+- [ ] Đối chiếu workflow Sync gần nhất có nhận cấu hình folder Drive mới hay không.
+- [ ] Khôi phục đồng bộ/fetch manifest từ folder mới và xác minh website hiển thị ảnh mới.
+- [ ] Đọc DRIVE_ROOT_FOLDER_ID và DRIVE_PROFILE_FOLDER_ID từ Repository secrets theo cấu hình owner đã tạo.
+- [ ] Chạy Sync từ secrets mới và đối chiếu source folder trong manifest.

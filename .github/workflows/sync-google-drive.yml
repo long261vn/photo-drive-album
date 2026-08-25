@@ -30,8 +30,8 @@ jobs:
       - name: Generate album manifest from Google Drive
         env:
           GOOGLE_DRIVE_API_KEY: ${{ secrets.GOOGLE_DRIVE_API_KEY }}
-          DRIVE_ROOT_FOLDER_ID: ${{ vars.DRIVE_ROOT_FOLDER_ID || '1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw' }}
-          DRIVE_PROFILE_FOLDER_ID: ${{ vars.DRIVE_PROFILE_FOLDER_ID || '1EyZBWqmD1s74T_Aiekw3Y-tKguwdHwhQ' }}
+          DRIVE_ROOT_FOLDER_ID: ${{ secrets.DRIVE_ROOT_FOLDER_ID }}
+          DRIVE_PROFILE_FOLDER_ID: ${{ secrets.DRIVE_PROFILE_FOLDER_ID }}
         run: node scripts/sync-drive.mjs
 
       - name: Commit manifest only when content changed
