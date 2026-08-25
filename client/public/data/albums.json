@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T23:59:26.312Z",
+  "generatedAt": "2026-08-25T01:53:30.153Z",
   "source": {
     "rootFolderId": "1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw",
     "rootFolderName": "Website_LHN",
@@ -164,8 +164,8 @@
       "date": "08.2026",
       "location": "Thiết kế phụng vụ",
       "createdAt": "2026-08-24T05:47:59.324Z",
-      "count": 11,
-      "cover": "https://drive.google.com/thumbnail?id=1oojkUS0Hpq64PC-O55svzbBqrByjiHMv&sz=w1600",
+      "count": 12,
+      "cover": "https://drive.google.com/thumbnail?id=1Uxt-VC0L8Z1oA2nsqnEVwtRi7_fL4QSo&sz=w1600",
       "accent": "green",
       "description": "Album Chúa Nhật Thứ 21 Thường Niên - Năm A.",
       "photos": [
@@ -276,6 +276,16 @@
           "date": "08.2026",
           "src": "https://drive.google.com/thumbnail?id=1RKiTgDfW4fHd_xv2pkTYQrjmk2iygsWZ&sz=w1600",
           "downloadUrl": "https://drive.google.com/uc?export=download&id=1RKiTgDfW4fHd_xv2pkTYQrjmk2iygsWZ",
+          "orientation": "landscape",
+          "mimeType": "image/jpeg"
+        },
+        {
+          "id": "1Uxt-VC0L8Z1oA2nsqnEVwtRi7_fL4QSo",
+          "title": "Cover",
+          "location": "Chúa Nhật Thứ 21 Thường Niên - Năm A",
+          "date": "08.2026",
+          "src": "https://drive.google.com/thumbnail?id=1Uxt-VC0L8Z1oA2nsqnEVwtRi7_fL4QSo&sz=w1600",
+          "downloadUrl": "https://drive.google.com/uc?export=download&id=1Uxt-VC0L8Z1oA2nsqnEVwtRi7_fL4QSo",
           "orientation": "landscape",
           "mimeType": "image/jpeg"
         }
