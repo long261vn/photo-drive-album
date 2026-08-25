@@ -59,4 +59,4 @@
 - [x] Tắt lịch đồng bộ Google Drive định kỳ và chỉ giữ workflow chạy thủ công.
 - [x] Nén khoảng cách quanh đường chia, section gallery và phần giới thiệu đầu mỗi Album.
 - [x] Bổ sung tương tác tinh tế cho đầu Album, bộ chuyển chế độ xem và tile thiết kế.
-- [ ] Cập nhật Actions để không còn cảnh báo dependency Node.js 20 bị ép chạy Node.js 24.
+- [x] Cập nhật Actions để không còn cảnh báo dependency Node.js 20 bị ép chạy Node.js 24.

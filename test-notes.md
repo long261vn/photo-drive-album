@@ -80,7 +80,7 @@ Manifest Drive thực tế có Album `Các Thánh` với `cover` rỗng. Đã th
 
 Trang Album `cn20-tn-a` đã được nén thêm ở phần đầu, đường chia và trước gallery: desktop giữ tiêu đề rõ ràng nhưng đưa hàng ảnh lên gần hơn; Galaxy S20 vẫn có vùng chạm đủ rộng, không tràn ngang và không cắt hình. Các tile ảnh nay nổi nhẹ, viền xanh lá và bóng mờ khi hover/focus; nút quay lại, nút tải, bộ chuyển chế độ xem và các dòng danh sách cũng có phản hồi trạng thái ngắn, tôn trọng `prefers-reduced-motion`.
 
-Các workflow đã đổi `actions/checkout` và `actions/setup-node` từ v4 sang v5. Kiểm tra metadata action qua GitHub xác nhận cả hai bản v5 khai báo runtime `node24`, trong khi bước build website tiếp tục cố định Node.js 22. Kiểm thử `pnpm check`, `GITHUB_PAGES=true pnpm build` và `git diff --check` đều thành công; còn cần xác nhận lượt chạy GitHub Pages sau khi đẩy commit.
+Các workflow đã đổi `actions/checkout`, `actions/setup-node`, `pnpm/action-setup` và `actions/upload-pages-artifact` sang các bản dùng Node.js 24 cho runtime action; bước build website vẫn cố định Node.js 22. Kiểm thử `pnpm check`, `GITHUB_PAGES=true pnpm build` và `git diff --check` đều thành công. Workflow GitHub Pages `32801268852` đã build/deploy thành công; log build xác nhận không còn cảnh báo `Node.js 20 is deprecated`.
 
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
