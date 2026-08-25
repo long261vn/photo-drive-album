@@ -1,12 +1,12 @@
 /**
  * Liturgical Design Archive — Google Drive to static manifest synchronizer.
- * Requires a public Drive folder and GOOGLE_DRIVE_API_KEY in the execution environment.
+ * Requires public Drive folders, folder IDs supplied by the workflow, and GOOGLE_DRIVE_API_KEY only in the execution environment.
  */
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
-const ROOT_FOLDER_ID = process.env.DRIVE_ROOT_FOLDER_ID || "1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw";
-const PROFILE_FOLDER_ID = process.env.DRIVE_PROFILE_FOLDER_ID || "1EyZBWqmD1s74T_Aiekw3Y-tKguwdHwhQ";
+const ROOT_FOLDER_ID = process.env.DRIVE_ROOT_FOLDER_ID;
+const PROFILE_FOLDER_ID = process.env.DRIVE_PROFILE_FOLDER_ID;
 const API_KEY = process.env.GOOGLE_DRIVE_API_KEY;
 const OUTPUT_FILE = resolve(process.cwd(), "client/public/data/albums.json");
 const FOLDER_MIME = "application/vnd.google-apps.folder";
@@ -14,6 +14,11 @@ const GOOGLE_DOC_MIME = "application/vnd.google-apps.document";
 
 if (!API_KEY) {
   console.error("GOOGLE_DRIVE_API_KEY is required. Add it as a GitHub Actions secret before syncing.");
+  process.exit(1);
+}
+
+if (!ROOT_FOLDER_ID || !PROFILE_FOLDER_ID) {
+  console.error("DRIVE_ROOT_FOLDER_ID and DRIVE_PROFILE_FOLDER_ID are required. Set them as GitHub Actions Variables before syncing.");
   process.exit(1);
 }
 
@@ -116,6 +121,8 @@ function photoFromDriveFile(file, folderTitle) {
     title: titleFromFileName(file.name),
     location: folderTitle,
     date: formatMonthYear(file.modifiedTime || file.createdTime),
+    createdAt: file.createdTime || file.modifiedTime || null,
+    modifiedAt: file.modifiedTime || file.createdTime || null,
     src: previewUrl,
     downloadUrl: `https://drive.google.com/uc?export=download&id=${file.id}`,
     orientation: orientationFrom(file.imageMediaMetadata),

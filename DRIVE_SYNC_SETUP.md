@@ -1,6 +1,19 @@
 # Thiết lập đồng bộ Google Drive
 
-Website dùng folder công khai `Website_LHN` với ID `1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw`. Hai folder con đang được nhận diện là `CN20_TN_A` và `CN21_TN_A`; script sẽ tự đổi chúng thành “Chúa Nhật Thứ 20 Thường Niên - Năm A” và “Chúa Nhật Thứ 21 Thường Niên - Năm A”.
+Website hiện dùng folder công khai `Website_LHN` với ID `1ua5LsDU7yv-Y_ZFyFA7lx4LoKiXcGwUw`. Hai folder con đang được nhận diện là `CN20_TN_A` và `CN21_TN_A`; script sẽ tự đổi chúng thành “Chúa Nhật Thứ 20 Thường Niên - Năm A” và “Chúa Nhật Thứ 21 Thường Niên - Năm A”.
+
+## Đổi folder Google Drive không sửa code
+
+Folder ID nay là **GitHub Actions Variable**, không nằm cố định trong code website. Chỉ tài khoản có quyền quản trị repository `long261vn/photo-drive-album` mới thấy và thay được phần cấu hình này; khách xem website, kể cả khi repository là public, không có quyền thay đổi.
+
+1. Đăng nhập đúng tài khoản GitHub chủ repository, mở `long261vn/photo-drive-album` → **Settings** → **Secrets and variables** → **Actions** → tab **Variables**.
+2. Tạo hoặc mở variable `DRIVE_ROOT_FOLDER_ID`. Dán ID folder thư viện mới, tức phần nằm sau `/folders/` trong link Google Drive. Folder này là nơi các folder cấp một trở thành Album.
+3. Tạo hoặc mở variable `DRIVE_PROFILE_FOLDER_ID`. Dán ID folder chứa `Avatar.png`, `Cover.png` và Google Tài liệu `info`. Nếu vẫn dùng profile cũ, giữ nguyên ID hiện có.
+4. Bấm **Update variable**. Sau đó vào **Actions** → **Sync Google Drive albums** → **Run workflow** để sinh manifest và phát hành thư viện từ folder mới.
+
+Hai ID folder là cấu hình, không phải API key. **Không** đặt `GOOGLE_DRIVE_API_KEY` vào tab Variables hay trong code: key này phải luôn ở **Settings → Secrets and variables → Actions → Secrets** với tên `GOOGLE_DRIVE_API_KEY`. GitHub không đưa giá trị Secret vào source hay trang web; website công khai chỉ nhận file `albums.json` đã được workflow tạo.
+
+Để chỉ mình bạn quản lý: bật xác thực hai bước cho tài khoản GitHub, không thêm collaborator có quyền **Write/Maintain/Admin**, và kiểm tra định kỳ danh sách quyền ở repository **Settings → Collaborators and teams**. Người xem public không thể bấm chạy workflow, đổi Variable hoặc sửa GitHub Pages; những thao tác này cần quyền ghi repository. Nếu sau này giao quyền cho người khác, họ có thể thay folder hoặc chạy workflow, vì vậy chỉ cấp quyền này cho người hoàn toàn tin cậy.
 
 ## Folder lồng nhau
 
@@ -33,6 +46,10 @@ Trang chủ dùng thêm folder công khai `Website_LHN_Data` có ID `1EyZBWqmD1s
 Sau khi tạo key, thêm vào repository GitHub tại **Settings → Secrets and variables → Actions → New repository secret** với tên chính xác là `GOOGLE_DRIVE_API_KEY`. Sau đó mở tab **Actions**, chọn workflow **Sync Google Drive albums** và bấm **Run workflow** lần đầu. Workflow sẽ tạo hoặc cập nhật `client/public/data/albums.json`, rồi tự commit khi manifest thay đổi.
 
 Workflow không có lịch chạy tự động. Sau mỗi lần thêm, sửa hoặc xóa nội dung trong Google Drive, hãy chủ động bấm **Run workflow**. GitHub Actions sẽ tạo manifest mới, chỉ commit khi dữ liệu thật sự thay đổi và phát hành GitHub Pages trong cùng lượt chạy.
+
+## Dòng thời gian
+
+Trang **Dòng Thời Gian** gom ảnh từ tất cả Album, xếp mới nhất trước và chia theo tháng/năm. Mỗi ảnh ghi ngày tạo và liên kết về Album nguồn. Mốc dùng là **ngày tạo file trên Google Drive**: khi bạn đưa file vào Drive, không phải ngày ảnh được thiết kế. Sau khi cập nhật phiên bản website này, hãy chạy **Sync Google Drive albums** một lần để manifest có ngày tạo chính xác cho từng ảnh.
 
 ## Lối tắt đồng bộ kín trên website
 

@@ -60,3 +60,12 @@
 - [x] Nén khoảng cách quanh đường chia, section gallery và phần giới thiệu đầu mỗi Album.
 - [x] Bổ sung tương tác tinh tế cho đầu Album, bộ chuyển chế độ xem và tile thiết kế.
 - [x] Cập nhật Actions để không còn cảnh báo dependency Node.js 20 bị ép chạy Node.js 24.
+- [ ] Đánh giá manifest hiện có để gom toàn bộ ảnh theo mốc thời gian và giữ liên kết Album nguồn.
+- [ ] Thiết kế chế độ xem Dòng thời gian toàn thư viện theo nhịp quét ảnh kiểu Flickr.
+- [ ] Chọn phương án để chủ website đổi folder Google Drive qua giao diện quản trị mà không sửa mã.
+- [ ] Đánh giá cơ chế đăng nhập quản trị và bảo vệ password/Drive API key khỏi GitHub cùng frontend.
+- [ ] Lưu ngày tạo Drive gốc cho từng ảnh và mở rộng schema Timeline.
+- [ ] Chuyển Drive root/profile Folder ID từ workflow cố định sang GitHub Actions Variables.
+- [ ] Tạo route Dòng thời gian gom ảnh từ toàn bộ Album, có mốc tháng/năm và link Album nguồn.
+- [ ] Gắn lối vào Dòng thời gian trong giao diện thư viện và kiểm thử desktop/Galaxy S20.
+- [ ] Viết hướng dẫn thay Folder ID trong GitHub cho owner, kèm yêu cầu phân quyền repository.

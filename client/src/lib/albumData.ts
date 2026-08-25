@@ -7,6 +7,8 @@ export type Photo = {
   title: string;
   location: string;
   date: string;
+  createdAt?: string | null;
+  modifiedAt?: string | null;
   src: string;
   downloadUrl: string;
   orientation: "portrait" | "landscape" | "square";
