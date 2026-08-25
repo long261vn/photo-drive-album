@@ -122,6 +122,10 @@ Kiểm tra Lightbox từ Album ở kích thước Galaxy S20 cho thấy ảnh ng
 
 Kiểm tra thêm ảnh dọc `1` trong Album `14 CHẶNG ĐÀNG THÁNH GIÁ NĂM THÁNH 2025` xác nhận ảnh được thu vừa theo chiều cao của vùng xem, giữ nguyên toàn bộ phần đầu và chân ảnh ở trạng thái **Vừa ảnh**.
 
+## 2026-08-25 — Vùng an toàn Lightbox desktop
+
+Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa không gian cố định cho tiêu đề, các công cụ và footer. Kiểm tra lại ảnh dọc Đàng Thánh Giá cho thấy toàn bộ phần đầu, chân ảnh và footer cùng nằm trong một viewport; không còn hiện tượng phần đáy ảnh bị khuất.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.

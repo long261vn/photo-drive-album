@@ -358,6 +358,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 @keyframes media-pulse { 0%, 100% { background-position: 200% 0; } 50% { background-position: -20% 0; } }
 
 @media (min-width: 580px) {
+  .lightbox__frame { height: min(100%, calc(100dvh - 196px)); max-height: calc(100dvh - 196px); }
+  .lightbox__frame img { max-height: calc(100dvh - 196px); }
   .archive-home, .album-page, .timeline-page { padding: 0 28px; }
   .hero-section__copy { padding: 70px 50px; }
   .hero-section__marker { right: 28px; bottom: 26px; }

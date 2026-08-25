@@ -96,3 +96,6 @@
 - [x] Buộc chế độ mặc định chứa trọn ảnh theo cả chiều ngang và dọc.
 - [x] Chỉ cho phép cắt khung khi người xem chủ động phóng to, kèm nút Vừa Ảnh.
 - [x] Kiểm thử ảnh ngang và dọc trên desktop/Galaxy S20 trước khi phát hành.
+- [x] Đo vùng Lightbox desktop sau khi trừ thanh tiêu đề, công cụ và footer.
+- [x] Giới hạn chiều cao ảnh mặc định theo vùng nhìn desktop thực tế.
+- [x] Kiểm tra lại ảnh ngang và dọc trên desktop không còn khuất phía dưới.
