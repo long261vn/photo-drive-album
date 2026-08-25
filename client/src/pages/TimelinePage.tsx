@@ -4,7 +4,7 @@
  */
 import { useMemo, useState } from "react";
 import { Link, useLocation } from "wouter";
-import { ArrowLeft, CalendarDays, FolderOpen, Images, Plus } from "lucide-react";
+import { ArrowLeft, CalendarDays, Eye, EyeOff, FolderOpen, Images, Plus } from "lucide-react";
 import { Lightbox } from "@/components/Lightbox";
 import { flattenAlbums, formatAlbumTitle, type Album, type Photo } from "@/lib/albumData";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
@@ -36,10 +36,10 @@ function dateForTimeline(photo: Photo, album: Album) {
   return Number.isNaN(parsed.getTime()) ? new Date(0) : parsed;
 }
 
-function groupTimeline(albums: Album[]) {
+function groupTimeline(albums: Album[], showBackgrounds: boolean) {
   const groupMap = new Map<string, TimelinePhoto[]>();
   flattenAlbums(albums).forEach((album) => {
-    album.photos.forEach((photo) => {
+    album.photos.filter((photo) => showBackgrounds || !photo.isBackground).forEach((photo) => {
       const timelineDate = dateForTimeline(photo, album);
       const key = `${timelineDate.getFullYear()}-${String(timelineDate.getMonth() + 1).padStart(2, "0")}`;
       const asset: TimelinePhoto = { ...photo, albumSlug: album.slug, albumTitle: album.title, timelineDate };
@@ -62,7 +62,8 @@ export default function TimelinePage() {
   const { registerTap } = useSyncWorkflowShortcut();
   const [selectedPhoto, setSelectedPhoto] = useState<TimelinePhoto | null>(null);
   const [visibleGroupCount, setVisibleGroupCount] = useState(4);
-  const groups = useMemo(() => groupTimeline(albums), [albums]);
+  const [showBackgrounds, setShowBackgrounds] = useState(false);
+  const groups = useMemo(() => groupTimeline(albums, showBackgrounds), [albums, showBackgrounds]);
   const visibleGroups = groups.slice(0, visibleGroupCount);
   const timelinePhotos = useMemo(() => groups.flatMap((group) => group.photos), [groups]);
   const selectedIndex = selectedPhoto ? timelinePhotos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
@@ -74,7 +75,7 @@ export default function TimelinePage() {
     <section className="timeline-hero">
       <p className="eyebrow">Dòng Thời Gian</p>
       <div className="timeline-hero__copy"><h1>Tất Cả Thiết Kế</h1><p>Các thiết kế được sắp theo <strong>ngày tạo trên Google Drive</strong>, mới nhất ở trên cùng.</p></div>
-      <div className="timeline-hero__stats"><span><Images size={17} strokeWidth={1.7} /> {timelinePhotos.length} Thiết Kế</span><span><CalendarDays size={17} strokeWidth={1.7} /> {groups.length} Tháng Lưu Trữ</span></div>
+      <div className="timeline-hero__stats"><span><Images size={17} strokeWidth={1.7} /> {timelinePhotos.length} Thiết Kế</span><span><CalendarDays size={17} strokeWidth={1.7} /> {groups.length} Tháng Lưu Trữ</span><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button></div>
     </section>
 
     {visibleGroups.length > 0 ? <div className="timeline-rail">

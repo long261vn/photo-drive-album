@@ -13,6 +13,7 @@ export type Photo = {
   downloadUrl: string;
   orientation: "portrait" | "landscape" | "square";
   mimeType?: string;
+  isBackground?: boolean;
 };
 
 export type AlbumDownload = {

@@ -35,9 +35,13 @@ Folder có thể lồng sâu hơn nếu cần; mỗi cấp sẽ là một trang 
 
 Mỗi folder được chọn cover theo thứ tự rõ ràng: **(1)** ảnh có tên bắt đầu bằng `cover`, **(2)** ảnh đầu tiên nằm trực tiếp trong folder, **(3)** cover của Bộ Sưu Tập con đầu tiên có ảnh. Vì vậy folder mẹ không cần đặt lại ảnh nếu chỉ dùng để nhóm các Bộ Sưu Tập.
 
+Ảnh Background có tên chứa `_BG` (cũng nhận diện dạng ` BG` hoặc `-BG`) được đánh dấu riêng. Website **mặc định ẩn** các ảnh này ở Album, tìm kiếm và Dòng Thời Gian để thư viện dễ xem; người xem có thể bấm **Hiện BG** khi cần. Ảnh Background không bao giờ được chọn làm cover. Nếu folder chỉ có ảnh Background, website sẽ tiếp tục tìm ảnh không phải Background trong Bộ Sưu Tập con hoặc để cover trống.
+
 Website chỉ đưa **ảnh có thể xem** vào gallery. Tệp PSD, AI, EPS, XCF, các tệp thiết kế nguồn và các tệp không phải ảnh không xuất hiện ở gallery, Timeline hay kết quả tìm kiếm. Folder có tên công việc như `PSD`, `AI`, `Fonts`, `File Thiet Ke`, `Source`, `Layers` hoặc `PDF layers` cũng được bỏ qua cùng toàn bộ nội dung của chúng.
 
 Trong mỗi Album, ảnh và Bộ Sưu Tập con được sắp chung theo thứ tự Drive: Bộ Sưu Tập trước, rồi ảnh trực tiếp trong Album. Ba chế độ **Xem Lớn**, **Lưới** và **Danh Sách** đều hiển thị nhất quán cả hai loại; Bộ Sưu Tập có nhãn folder và bấm vào sẽ mở trang bên trong.
+
+Ô tìm kiếm ở trang chủ tìm sâu trong toàn bộ cây thư viện: tên Album, tên Bộ Sưu Tập, và tên từng ảnh trong các folder con. Kết quả cho biết loại nội dung, vị trí Album nguồn và bấm để mở đúng Album chứa nội dung đó.
 
 ## Tải Toàn Bộ Album
 

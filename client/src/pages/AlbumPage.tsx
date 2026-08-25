@@ -4,7 +4,7 @@
  */
 import { useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
-import { ArrowLeft, CalendarDays, Download, FolderOpen, Grid2X2, ImageIcon, List } from "lucide-react";
+import { ArrowLeft, CalendarDays, Download, Eye, EyeOff, FolderOpen, Grid2X2, ImageIcon, List } from "lucide-react";
 import { findAlbum, formatAlbumTitle, type Album, type Photo } from "@/lib/albumData";
 import { Lightbox } from "@/components/Lightbox";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
@@ -29,19 +29,21 @@ export default function AlbumPage() {
   const album = findAlbum(albums, params?.slug ?? "");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [galleryView, setGalleryView] = useState<GalleryView>("grid");
+  const [showBackgrounds, setShowBackgrounds] = useState(false);
   const { registerTap } = useSyncWorkflowShortcut();
 
   if (!album) return <main className="not-found-page"><p className="eyebrow">Không tìm thấy</p><h1>Bộ thiết kế này chưa có trong thư viện.</h1><Link href="/" className="text-link">Quay về danh mục</Link></main>;
 
   const parentAlbum = album.parentSlug ? findAlbum(albums, album.parentSlug) : undefined;
   const childAlbums = album.children ?? [];
+  const visiblePhotos = album.photos.filter((photo) => showBackgrounds || !photo.isBackground);
   const contentItems: AlbumContentItem[] = [
     ...childAlbums.map((child) => ({ kind: "collection" as const, album: child })),
-    ...album.photos.map((photo) => ({ kind: "photo" as const, photo })),
+    ...visiblePhotos.map((photo) => ({ kind: "photo" as const, photo })),
   ];
   const albumAvatar = profile.avatar?.trim();
-  const selectedIndex = selectedPhoto ? album.photos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
-  const selectOffset = (offset: number) => setSelectedPhoto(album.photos[(selectedIndex + offset + album.photos.length) % album.photos.length]);
+  const selectedIndex = selectedPhoto ? visiblePhotos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
+  const selectOffset = (offset: number) => setSelectedPhoto(visiblePhotos[(selectedIndex + offset + visiblePhotos.length) % visiblePhotos.length]);
 
   return (
     <main className="album-page">
@@ -52,6 +54,7 @@ export default function AlbumPage() {
           <span>Nội Dung Trong Album</span>
           <div className="gallery-actions">
             <span>{String(contentItems.length).padStart(2, "0")} Mục</span>
+            <button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds} title={showBackgrounds ? "Ẩn ảnh Background" : "Hiện ảnh Background"}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button>
             <div className="gallery-view-switch" role="group" aria-label="Chế độ xem nội dung">
               {galleryViews.map(({ id, label, icon: Icon }) => (
                 <button key={id} type="button" className={galleryView === id ? "is-active" : ""} onClick={() => setGalleryView(id)} aria-pressed={galleryView === id} title={label}>
@@ -102,7 +105,7 @@ export default function AlbumPage() {
       </section>}
       {contentItems.length === 0 && <section className="contact-sheet"><p className="empty-assets">Album này chưa có hình ảnh hoặc Bộ Sưu Tập công khai.</p></section>}
       <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/">Mở Album Khác</Link></footer>
-      {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={album.photos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
+    {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={visiblePhotos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
     </main>
   );
 }

@@ -35,6 +35,7 @@ const toSlug = (value) => value
   .replace(/(^-|-$)/g, "");
 
 const titleFromFileName = (name) => name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+const isBackgroundFile = (name = "") => /(?:_|\s|-)BG(?:[_\s.-]|$)/i.test(name);
 
 const isWorkFolder = (folderName = "") => {
   const normalized = toSlug(folderName);
@@ -136,6 +137,7 @@ function photoFromDriveFile(file, folderTitle) {
     downloadUrl: `https://drive.google.com/uc?export=download&id=${file.id}`,
     orientation: orientationFrom(file.imageMediaMetadata),
     mimeType: file.mimeType,
+    isBackground: isBackgroundFile(file.name),
   };
 }
 
@@ -160,7 +162,8 @@ async function albumFromDriveFolder(folder, index, parent = null) {
   const childCandidates = await Promise.all(childFolders.map((childFolder, childIndex) => albumFromDriveFolder(childFolder, childIndex, { id, slug })));
   const children = childCandidates.filter((child) => child.count > 0 || child.children?.length);
   // Cover order is deliberate: cover image in this folder, first image in this folder, then the first visible descendant cover.
-  const localCover = photos.find((photo) => /^cover(?:\s|$)/i.test(photo.title)) ?? photos[0];
+  const coverCandidates = photos.filter((photo) => !photo.isBackground);
+  const localCover = coverCandidates.find((photo) => /^cover(?:\s|$)/i.test(photo.title)) ?? coverCandidates[0];
   const cover = localCover?.src || children.find((child) => child.cover)?.cover || "";
 
   return {

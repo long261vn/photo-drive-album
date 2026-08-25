@@ -82,3 +82,8 @@
 - [x] Mở rộng tìm kiếm để tìm tên Album/Bộ Sưu Tập và tên file ảnh trong toàn thư viện.
 - [x] Hợp nhất hiển thị ảnh và Bộ Sưu Tập trong ba chế độ Lớn, Lưới, Danh sách.
 - [x] Kiểm thử manifest Drive mới, desktop và Galaxy S20 sau khi chuẩn hóa hiển thị.
+- [ ] Gắn cờ ảnh Background khi tên file chứa `_BG` trong manifest Drive.
+- [ ] Loại ảnh `_BG` khỏi quy tắc chọn cover ở mọi cấp Album và Bộ Sưu Tập.
+- [ ] Thêm bộ lọc Background mặc định ẩn trên trang Album và Timeline.
+- [ ] Xây lại tìm kiếm sâu theo tên Album, Bộ Sưu Tập và hình ở mọi cấp, có kết quả trực tiếp.
+- [ ] Đồng bộ manifest và kiểm thử bộ lọc/tìm kiếm trên desktop cùng Galaxy S20.
