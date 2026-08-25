@@ -56,3 +56,4 @@
 - [x] Mở workflow đồng bộ GitHub bằng tab mới sau chuỗi chạm 7 lần, không điều hướng rời website hiện tại.
 - [x] Bỏ thanh đầu trang ở Home, tăng chiều cao Cover và giữ bố cục profile gọn.
 - [x] Thay dấu Thánh Giá ở trang Album bằng Avatar profile và nén phần giới thiệu Album.
+- [x] Tắt lịch đồng bộ Google Drive định kỳ và chỉ giữ workflow chạy thủ công.

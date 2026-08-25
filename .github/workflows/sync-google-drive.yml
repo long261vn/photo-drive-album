@@ -2,9 +2,6 @@ name: Sync Google Drive albums
 
 on:
   workflow_dispatch:
-  schedule:
-    # Run at 17 and 47 minutes past each hour to avoid peak top-of-hour queues.
-    - cron: "17,47 * * * *"
 
 permissions:
   contents: write

@@ -32,7 +32,7 @@ Trang chủ dùng thêm folder công khai `Website_LHN_Data` có ID `1EyZBWqmD1s
 
 Sau khi tạo key, thêm vào repository GitHub tại **Settings → Secrets and variables → Actions → New repository secret** với tên chính xác là `GOOGLE_DRIVE_API_KEY`. Sau đó mở tab **Actions**, chọn workflow **Sync Google Drive albums** và bấm **Run workflow** lần đầu. Workflow sẽ tạo hoặc cập nhật `client/public/data/albums.json`, rồi tự commit khi manifest thay đổi.
 
-Workflow chạy mỗi 30 phút, vào phút 17 và 47. GitHub Actions không nhận trực tiếp thông báo file thay đổi từ Google Drive vì Drive push notifications cần một webhook HTTPS luôn hoạt động; GitHub Pages là website tĩnh nên không có webhook receiver. Vì vậy, cập nhật sẽ xuất hiện trong vòng khoảng 30 phút sau khi thêm hoặc xóa ảnh, hoặc ngay khi anh/chị bấm **Run workflow**.
+Workflow không có lịch chạy tự động. Sau mỗi lần thêm, sửa hoặc xóa nội dung trong Google Drive, hãy chủ động bấm **Run workflow**. GitHub Actions sẽ tạo manifest mới, chỉ commit khi dữ liệu thật sự thay đổi và phát hành GitHub Pages trong cùng lượt chạy.
 
 ## Lối tắt đồng bộ kín trên website
 
