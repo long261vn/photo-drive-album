@@ -96,6 +96,12 @@ Lượt Sync `32804331298` lỗi tại bước `actions/setup-node@v5`: cơ ch�
 
 Khi owner tạo `DRIVE_ROOT_FOLDER_ID` và `DRIVE_PROFILE_FOLDER_ID` trong tab Repository secrets, workflow trước đó vẫn đọc `vars`, nên dùng fallback folder cũ. Workflow đã đổi sang `secrets.DRIVE_ROOT_FOLDER_ID` và `secrets.DRIVE_PROFILE_FOLDER_ID`, không còn fallback để tránh đồng bộ nhầm nguồn. Lượt Sync `32805964409` thành công cả `sync` và `deploy-pages`; manifest hiện ghi root ID `1A50RPh0VKKkc2nmOrNzw5GwTawKNVyRn`. Website công khai đã xác minh nhận dữ liệu mới: 141 Album và 4.732 thiết kế.
 
+## 2026-08-25 — Album hợp nhất và lọc nội dung Drive
+
+Sau Sync `32807241144`, manifest không còn folder `PSD`/`Fonts` hay tệp `image/psd`; còn 359 Album/Bộ Sưu Tập hợp lệ và 3.293 ảnh hiển thị. Parent `14-dangthanhgia-ln-2025` đã nhận cover đệ quy từ Bộ Sưu Tập con. Kiểm tra desktop và Galaxy S20 cho Album chỉ có Bộ Sưu Tập xác nhận tile folder, cover, thứ tự và ba nút xem không tràn ngang. Kiểm tra Album hỗn hợp `le-phong-thanh-elena-guerra` xác nhận Lưới và Danh sách hiển thị chung folder trước, ảnh sau; folder có nhãn Bộ Sưu Tập/Mở, ảnh có phân loại Hình Ảnh/Tải.
+
+Tìm kiếm trang chủ bằng tên file `Mockup` trả về Album `Le Phong Thanh Elena Guerra` dù từ khóa không nằm trong tên Album, đồng thời giữ các Album khác có ảnh cùng tên. Ô tìm kiếm hiện gợi rõ “Tìm Album hoặc tên hình”.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.
