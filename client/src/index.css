@@ -1,5 +1,5 @@
 /* Design: Liturgical Design Archive — Vietnamese Unicode typography, parchment ground, liturgical green and restrained sacred editorial rhythm. */
-/* Design: Liturgical Design Archive — warm paper, forest green, restrained editorial rules. The owner-only sync cue stays visually absent until a deliberate footer hold. */
+/* Design: Liturgical Design Archive — warm paper, forest green, restrained editorial rules. The owner-only sync cue is a visually silent multi-tap on the footer. */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -172,10 +172,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .archive-note strong { color: var(--ink); }
 .archive-note > span { grid-column: 2; color: var(--cobalt); font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
 .site-footer, .album-page__footer { display: flex; justify-content: space-between; gap: 16px; padding: 24px 0 34px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
-.site-footer__sync-shortcut { position: relative; display: inline-flex; align-items: center; margin: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: default; touch-action: manipulation; }
-.site-footer__sync-shortcut::after { content: ""; position: absolute; right: 0; bottom: -5px; left: 0; height: 2px; background: var(--cobalt); opacity: 0; transform: scaleX(0.3); transform-origin: left center; transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out); pointer-events: none; }
-.site-footer__sync-shortcut.is-holding { color: var(--cobalt); }
-.site-footer__sync-shortcut.is-holding::after { opacity: 0.96; transform: scaleX(1); }
+.site-footer__sync-shortcut { display: inline-flex; align-items: center; margin: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: default; touch-action: manipulation; user-select: none; -webkit-tap-highlight-color: transparent; }
 
 .album-page__header { min-height: 74px; }
 .back-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--cobalt); font-size: 11px; font-weight: 800; letter-spacing: 0.04em; }

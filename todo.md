@@ -50,3 +50,5 @@
 - [x] Thêm nút tải toàn bộ Album theo cơ chế tải gói ZIP từ Google Drive, kèm fallback an toàn nếu Drive không tạo được gói.
 - [x] Thêm fallback GitHub Pages để URL Album chia sẻ trực tiếp không trả về 404.
 - [x] Chuyển lối tắt đồng bộ nhấn giữ 5 giây từ Avatar sang dòng Long Nguyen © 2026 ở footer.
+- [x] Chọn và triển khai lối mở link workflow đồng bộ GitHub kín, ổn định trên mobile thay cho thao tác nhấn giữ 5 giây.
+- [x] Thay trigger footer bằng chuỗi chạm 7 lần liên tiếp vào Long Nguyen © 2026 để mở workflow Sync Google Drive albums.

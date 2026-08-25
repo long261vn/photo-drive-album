@@ -1,5 +1,5 @@
 /**
- * Design: Compact Catholic image library. The homepage prioritizes a searchable, paginated album index; the Avatar remains a profile image while the quiet footer carries the owner shortcut.
+ * Design: Compact Catholic image library. The homepage prioritizes a searchable, paginated album index; the Avatar remains a profile image while the quiet footer carries a concealed multi-tap owner shortcut.
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
@@ -16,7 +16,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<"created-desc" | "created-asc" | "name">("created-desc");
   const [page, setPage] = useState(1);
-  const { isHolding, beginHold, cancelHold } = useSyncWorkflowShortcut();
+  const { registerTap } = useSyncWorkflowShortcut();
   const { albums, profile } = useArchiveManifest();
   const filteredAlbums = useMemo(() => albums
     .filter((album) => `${album.title} ${album.subtitle}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
@@ -53,6 +53,6 @@ export default function Home() {
     </section>
     <AlbumList albums={pageAlbums} startIndex={(currentPage - 1) * PAGE_SIZE} onOpen={(slug) => setLocation(`/album/${slug}`)} />
     {pageCount > 1 && <nav className="album-pagination" aria-label="Phân Trang Album"><button type="button" onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={currentPage === 1}><ChevronLeft size={16} /> Trước</button><span>Trang {currentPage} / {pageCount}</span><button type="button" onClick={() => setPage((current) => Math.min(pageCount, current + 1))} disabled={currentPage === pageCount}>Sau <ChevronRight size={16} /></button></nav>}
-    <footer className="site-footer"><button className={`site-footer__sync-shortcut${isHolding ? " is-holding" : ""}`} type="button" onPointerDown={(event) => { if (event.pointerType !== "mouse" || event.button === 0) beginHold(); }} onPointerUp={cancelHold} onPointerLeave={cancelHold} onPointerCancel={cancelHold} onContextMenu={(event) => { event.preventDefault(); cancelHold(); }} onKeyDown={(event) => { if (!event.repeat && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); beginHold(); } }} onKeyUp={cancelHold} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>
+    <footer className="site-footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>
   </main>;
 }

@@ -26,7 +26,7 @@ export default function AlbumPage() {
   const album = findAlbum(albums, params?.slug ?? "");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [galleryView, setGalleryView] = useState<GalleryView>("grid");
-  const { isHolding, beginHold, cancelHold } = useSyncWorkflowShortcut();
+  const { registerTap } = useSyncWorkflowShortcut();
 
   if (!album) return <main className="not-found-page"><p className="eyebrow">Không tìm thấy</p><h1>Bộ thiết kế này chưa có trong thư viện.</h1><Link href="/" className="text-link">Quay về danh mục</Link></main>;
 
@@ -81,7 +81,7 @@ export default function AlbumPage() {
         )}
       </section>}
       {!hasChildAlbums && album.photos.length === 0 && <section className="contact-sheet"><p className="empty-assets">Album này chưa có thiết kế công khai.</p></section>}
-      <footer className="album-page__footer"><button className={`site-footer__sync-shortcut${isHolding ? " is-holding" : ""}`} type="button" onPointerDown={(event) => { if (event.pointerType !== "mouse" || event.button === 0) beginHold(); }} onPointerUp={cancelHold} onPointerLeave={cancelHold} onPointerCancel={cancelHold} onContextMenu={(event) => { event.preventDefault(); cancelHold(); }} onKeyDown={(event) => { if (!event.repeat && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); beginHold(); } }} onKeyUp={cancelHold} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/">Mở Album Khác</Link></footer>
+      <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/">Mở Album Khác</Link></footer>
       {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={album.photos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
     </main>
   );

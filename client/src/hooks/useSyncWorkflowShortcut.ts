@@ -1,29 +1,33 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-const HOLD_DURATION_MS = 5_000;
+const REQUIRED_TAP_COUNT = 7;
+const TAP_WINDOW_MS = 5_000;
 const SYNC_WORKFLOW_URL = "https://github.com/long261vn/photo-drive-album/actions/workflows/sync-google-drive.yml";
 
 export function useSyncWorkflowShortcut() {
-  const [isHolding, setIsHolding] = useState(false);
-  const holdTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tapCount = useRef(0);
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const cancelHold = () => {
-    if (holdTimer.current) clearTimeout(holdTimer.current);
-    holdTimer.current = null;
-    setIsHolding(false);
+  const resetTaps = () => {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+    resetTimer.current = null;
+    tapCount.current = 0;
   };
 
-  const beginHold = () => {
-    if (holdTimer.current) return;
-    setIsHolding(true);
-    holdTimer.current = setTimeout(() => {
-      holdTimer.current = null;
-      setIsHolding(false);
+  const registerTap = () => {
+    if (resetTimer.current) clearTimeout(resetTimer.current);
+    tapCount.current += 1;
+
+    if (tapCount.current >= REQUIRED_TAP_COUNT) {
+      resetTaps();
       window.location.assign(SYNC_WORKFLOW_URL);
-    }, HOLD_DURATION_MS);
+      return;
+    }
+
+    resetTimer.current = setTimeout(resetTaps, TAP_WINDOW_MS);
   };
 
-  useEffect(() => cancelHold, []);
+  useEffect(() => resetTaps, []);
 
-  return { isHolding, beginHold, cancelHold };
+  return { registerTap };
 }

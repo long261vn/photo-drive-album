@@ -58,9 +58,9 @@ Workflow đồng bộ Drive đã được cập nhật: chỉ khi `albums.json` 
 
 ## 2026-08-24 — Lối tắt đồng bộ bằng footer
 
-Avatar giữ nguyên vai trò ảnh hồ sơ ở desktop và viewport Galaxy S20. Nhấn giữ pointer hoặc bàn phím trên dòng `Long Nguyen © 2026` trong 5 giây sẽ mở workflow `Sync Google Drive albums` trên GitHub; thả/di chuyển ra ngoài/hủy trước mốc 5 giây sẽ xóa timer. Khi đang giữ, gạch xanh phản hồi bên dưới dòng footer; không có token GitHub hoặc quyền chạy workflow trong mã frontend.
+Avatar giữ nguyên vai trò ảnh hồ sơ ở desktop và viewport Galaxy S20. Chạm nhanh 7 lần vào dòng `Long Nguyen © 2026` trong cửa sổ 5 giây sẽ mở workflow `Sync Google Drive albums` trên GitHub; không đủ 7 lần thì bộ đếm tự xóa. Không có token GitHub hoặc quyền chạy workflow trong mã frontend.
 
-Đã mở bản GitHub Pages công khai và mô phỏng thao tác nhấn giữ đủ 5 giây trên đúng nút footer. Trigger đã điều hướng rời khỏi website tới workflow GitHub; không kích hoạt chạy workflow tự động.
+Đã mở preview mới nhất và mô phỏng sáu lần chạm: trang không điều hướng. Khi mô phỏng đủ bảy lần chạm trong cùng chuỗi, trình duyệt điều hướng khỏi trang preview tới workflow GitHub (xác nhận bằng trạng thái target đã điều hướng); thao tác không kích hoạt chạy workflow tự động.
 
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
