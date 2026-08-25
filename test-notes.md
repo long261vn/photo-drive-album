@@ -92,6 +92,10 @@ Script đồng bộ nay ghi `createdAt`/`modifiedAt` từng ảnh. Workflow ưu 
 
 Lượt Sync `32804331298` lỗi tại bước `actions/setup-node@v5`: cơ chế package-manager cache tự động nhận diện `pnpm` từ `package.json`, dù job `sync` chỉ chạy script Node và chưa cài pnpm. Đã đặt `package-manager-cache: false` riêng cho job `sync`; job `deploy-pages` vẫn cài pnpm trước khi cache/install/build. Lượt chạy thủ công `32804476777` sau bản sửa đã thành công cả job `sync` và `deploy-pages`, đồng thời sinh manifest mới có `createdAt`/`modifiedAt` cho từng ảnh.
 
+## 2026-08-25 — Folder Drive từ Repository secrets
+
+Khi owner tạo `DRIVE_ROOT_FOLDER_ID` và `DRIVE_PROFILE_FOLDER_ID` trong tab Repository secrets, workflow trước đó vẫn đọc `vars`, nên dùng fallback folder cũ. Workflow đã đổi sang `secrets.DRIVE_ROOT_FOLDER_ID` và `secrets.DRIVE_PROFILE_FOLDER_ID`, không còn fallback để tránh đồng bộ nhầm nguồn. Lượt Sync `32805964409` thành công cả `sync` và `deploy-pages`; manifest hiện ghi root ID `1A50RPh0VKKkc2nmOrNzw5GwTawKNVyRn`. Website công khai đã xác minh nhận dữ liệu mới: 141 Album và 4.732 thiết kế.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.
