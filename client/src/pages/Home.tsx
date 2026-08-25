@@ -3,7 +3,7 @@
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowDownRight, ChevronDown, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { AlbumList } from "@/components/AlbumList";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { flattenAlbums } from "@/lib/albumData";
@@ -34,10 +34,6 @@ export default function Home() {
   const pageAlbums = filteredAlbums.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
 
   return <main className="archive-home">
-    <header className="site-header">
-      <button className="brand-lockup" type="button" onClick={() => setLocation("/")} aria-label="Về trang chủ Thư Viện Hình Công Giáo"><span className="brand-symbol" aria-hidden="true" /><span>Thư Viện Hình Công Giáo</span></button>
-      <a href="#albums" className="header-jump">Danh Mục <ArrowDownRight size={15} strokeWidth={1.8} /></a>
-    </header>
     <section className="profile-shell" aria-label="Thông tin thư viện">
       <div className="profile-cover">{profileCover && <img src={profileCover} alt="Ảnh bìa thư viện" fetchPriority="high" />}</div>
       <div className="profile-summary">

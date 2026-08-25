@@ -68,6 +68,10 @@ Sau cập nhật tab mới, mô phỏng đủ bảy chạm xác nhận `window.o
 
 Manifest Drive thực tế có Album `Các Thánh` với `cover` rỗng. Đã thay việc render thẻ `img` vô điều kiện bằng placeholder trung tính cho cover/ảnh thiếu URL, đồng thời chặn Lightbox render khi ảnh không có nguồn hợp lệ. Preview trang chủ tải lại với placeholder đúng vị trí và console không còn cảnh báo `src=""`.
 
+## 2026-08-25 — Profile Home và đầu trang Album gọn hơn
+
+Đã bỏ hoàn toàn thanh đầu trang ở Home để Cover mở đầu trang trực tiếp; chiều cao Cover tăng lên 185px trên mobile, 245px từ 580px và 320px từ 850px. Trên trang Album, biểu tượng Thánh Giá ở đầu trang được thay bằng Avatar Drive của profile. Khối giới thiệu giảm padding, cỡ chỉ mục, cỡ tiêu đề và khoảng cách metadata; đã kiểm tra desktop cùng Galaxy S20, không có va chạm hoặc cắt nội dung.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.

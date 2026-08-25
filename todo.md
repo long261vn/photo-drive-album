@@ -54,3 +54,5 @@
 - [x] Thay trigger footer bằng chuỗi chạm 7 lần liên tiếp vào Long Nguyen © 2026 để mở workflow Sync Google Drive albums.
 - [x] Loại bỏ mọi ảnh render với src rỗng khi dữ liệu Drive thiếu hoặc đang tải, rồi kiểm tra lại console trang chủ.
 - [x] Mở workflow đồng bộ GitHub bằng tab mới sau chuỗi chạm 7 lần, không điều hướng rời website hiện tại.
+- [x] Bỏ thanh đầu trang ở Home, tăng chiều cao Cover và giữ bố cục profile gọn.
+- [x] Thay dấu Thánh Giá ở trang Album bằng Avatar profile và nén phần giới thiệu Album.

@@ -22,7 +22,7 @@ const galleryViews: Array<{ id: GalleryView; label: string; icon: typeof ImageIc
 export default function AlbumPage() {
   const [, params] = useRoute("/album/:slug");
   const [, setLocation] = useLocation();
-  const { albums } = useArchiveManifest();
+  const { albums, profile } = useArchiveManifest();
   const album = findAlbum(albums, params?.slug ?? "");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [galleryView, setGalleryView] = useState<GalleryView>("grid");
@@ -33,12 +33,13 @@ export default function AlbumPage() {
   const parentAlbum = album.parentSlug ? findAlbum(albums, album.parentSlug) : undefined;
   const childAlbums = album.children ?? [];
   const hasChildAlbums = childAlbums.length > 0;
+  const albumAvatar = profile.avatar?.trim();
   const selectedIndex = selectedPhoto ? album.photos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
   const selectOffset = (offset: number) => setSelectedPhoto(album.photos[(selectedIndex + offset + album.photos.length) % album.photos.length]);
 
   return (
     <main className="album-page">
-      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay Lại" : "Tất Cả Thiết Kế"}</button><span className="header-mark brand-symbol" aria-hidden="true" /></header>
+      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay Lại" : "Tất Cả Thiết Kế"}</button>{albumAvatar ? <span className="album-page__avatar"><img src={albumAvatar} alt={`Avatar ${profile.name}`} /></span> : <span className="header-mark brand-symbol" aria-hidden="true" />}</header>
       <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{hasChildAlbums ? `${childAlbums.length} Bộ Sưu Tập` : `${album.count} Thiết Kế`}</span></div></div>{album.downloadAll && <a className="album-intro__download" href={album.downloadAll.url} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Toàn Bộ Album</a>}</section>
       {hasChildAlbums && <section className="parent-album" aria-label={`Bộ sưu tập trong ${album.title}`}><div className="parent-album__rule"><span>Bộ Sưu Tập</span><span>{String(childAlbums.length).padStart(2, "0")} Mục</span></div><div className="archive-grid">{childAlbums.map((child, index) => <AlbumCard key={child.id} album={child} order={index} onOpen={(slug) => setLocation(`/album/${slug}`)} />)}</div></section>}
       {album.photos.length > 0 && <section className="contact-sheet" aria-label={`Thiết kế trong ${album.title}`}>
