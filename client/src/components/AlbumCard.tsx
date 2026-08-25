@@ -11,7 +11,7 @@ export function AlbumCard({ album, order, onOpen }: AlbumCardProps) {
   return (
     <article className={`album-card album-card--${order % 3}`}>
       <button className="album-card__image" type="button" onClick={() => onOpen(album.slug)} aria-label={`Mở bộ thiết kế ${album.title}`}>
-        <img src={album.cover} alt="" loading="lazy" decoding="async" />
+        {album.cover?.trim() ? <img src={album.cover} alt="" loading="lazy" decoding="async" /> : <span className="album-card__placeholder" aria-hidden="true" />}
         <span className="album-card__wash" aria-hidden="true" />
         <span className="album-card__open" aria-hidden="true"><ArrowUpRight size={18} strokeWidth={1.7} /></span>
       </button>

@@ -351,6 +351,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .album-list__row { grid-template-columns: 72px minmax(0, 1fr) auto; gap: 11px; min-height: 92px; padding: 10px 0; }
 .album-list__thumbnail { position: relative; display: grid; width: 72px; height: 72px; place-items: center; background: var(--paper-deep); }
 .album-list__thumbnail img { width: 100%; height: 100%; object-fit: contain; }
+.album-list__thumbnail-placeholder, .album-card__placeholder, .photo-list__placeholder, .photo-tile__placeholder { display: block; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(34, 71, 52, 0.08), rgba(34, 71, 52, 0.02)); }
 .album-list__thumbnail::after { position: absolute; inset: 5px; border: 1px solid rgba(244, 240, 232, 0.92); border-right: 0; border-bottom: 0; content: ""; pointer-events: none; }
 .album-list__thumbnail:hover img { transform: none; opacity: 0.78; }
 .album-list__index { top: 10px; left: 78px; font-size: 8px; }

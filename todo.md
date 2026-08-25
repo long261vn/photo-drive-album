@@ -52,3 +52,4 @@
 - [x] Chuyển lối tắt đồng bộ nhấn giữ 5 giây từ Avatar sang dòng Long Nguyen © 2026 ở footer.
 - [x] Chọn và triển khai lối mở link workflow đồng bộ GitHub kín, ổn định trên mobile thay cho thao tác nhấn giữ 5 giây.
 - [x] Thay trigger footer bằng chuỗi chạm 7 lần liên tiếp vào Long Nguyen © 2026 để mở workflow Sync Google Drive albums.
+- [x] Loại bỏ mọi ảnh render với src rỗng khi dữ liệu Drive thiếu hoặc đang tải, rồi kiểm tra lại console trang chủ.

@@ -29,6 +29,8 @@ export function Lightbox({ photo, index, count, onClose, onPrevious, onNext }: L
     window.setTimeout(onClose, 180);
   };
 
+  if (!photo.src?.trim()) return null;
+
   return (
     <div className={`lightbox${isClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`Xem thiết kế ${photo.title}`}>
       <div className="lightbox__bar">

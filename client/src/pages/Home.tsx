@@ -18,6 +18,8 @@ export default function Home() {
   const [page, setPage] = useState(1);
   const { registerTap } = useSyncWorkflowShortcut();
   const { albums, profile } = useArchiveManifest();
+  const profileCover = profile.cover?.trim();
+  const profileAvatar = profile.avatar?.trim();
   const filteredAlbums = useMemo(() => albums
     .filter((album) => `${album.title} ${album.subtitle}`.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
     .sort((a, b) => {
@@ -37,9 +39,9 @@ export default function Home() {
       <a href="#albums" className="header-jump">Danh Mục <ArrowDownRight size={15} strokeWidth={1.8} /></a>
     </header>
     <section className="profile-shell" aria-label="Thông tin thư viện">
-      <div className="profile-cover"><img src={profile.cover} alt="Ảnh bìa thư viện" fetchPriority="high" /></div>
+      <div className="profile-cover">{profileCover && <img src={profileCover} alt="Ảnh bìa thư viện" fetchPriority="high" />}</div>
       <div className="profile-summary">
-        <div className="profile-avatar"><img src={profile.avatar} alt={`Avatar ${profile.name}`} /></div>
+        <div className="profile-avatar">{profileAvatar && <img src={profileAvatar} alt={`Avatar ${profile.name}`} />}</div>
         <div className="profile-copy"><h1>{profile.name}</h1>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{profile.bio && <p className="profile-bio">{profile.bio}</p>}</div>
         <div className="profile-stats" aria-label="Thống Kê Thư Viện"><span><strong>{albums.length}</strong> Album</span><span><strong>{assetCount}</strong> Thiết Kế</span></div>
       </div>

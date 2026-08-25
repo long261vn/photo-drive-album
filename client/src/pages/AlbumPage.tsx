@@ -61,7 +61,7 @@ export default function AlbumPage() {
             {album.photos.map((photo, index) => (
               <article className="photo-list__row" key={photo.id} role="listitem">
                 <button type="button" className="photo-list__preview" onClick={() => setSelectedPhoto(photo)} aria-label={`Mở thiết kế ${photo.title}`}>
-                  <img src={photo.src} alt={photo.title} loading="lazy" decoding="async" />
+                  {photo.src?.trim() ? <img src={photo.src} alt={photo.title} loading="lazy" decoding="async" /> : <span className="photo-list__placeholder" aria-hidden="true" />}
                 </button>
                 <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{photo.title}</strong><span>{photo.location} · {photo.date}</span></div>
                 <div className="photo-list__type"><span>{photo.mimeType?.replace("image/", "").toUpperCase() ?? "HÌNH ẢNH"}</span><span>Tệp Thiết Kế</span></div>
@@ -73,7 +73,7 @@ export default function AlbumPage() {
           <div className={`photo-grid photo-grid--${galleryView}`}>
             {album.photos.map((photo, index) => (
               <button key={photo.id} className={`photo-tile photo-tile--${photo.orientation}`} type="button" onClick={() => setSelectedPhoto(photo)} aria-label={`Mở thiết kế ${photo.title}`}>
-                <span className="photo-tile__media"><img src={photo.src} alt={photo.title} loading="lazy" decoding="async" /><span className="photo-tile__corner photo-tile__corner--one" aria-hidden="true" /><span className="photo-tile__corner photo-tile__corner--two" aria-hidden="true" /></span>
+                <span className="photo-tile__media">{photo.src?.trim() ? <img src={photo.src} alt={photo.title} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}<span className="photo-tile__corner photo-tile__corner--one" aria-hidden="true" /><span className="photo-tile__corner photo-tile__corner--two" aria-hidden="true" /></span>
                 <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{photo.title}</strong><em>{photo.location} · {photo.date}</em></span>
               </button>
             ))}
