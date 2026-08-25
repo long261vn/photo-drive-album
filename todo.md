@@ -105,3 +105,10 @@
 - [x] Rà soát toàn bộ luồng Album, Xem tất cả và trình xem ảnh trên desktop/Galaxy S20.
 - [x] Đánh giá nhận diện, bố cục, typography, tương tác, responsive, accessibility và hiệu năng.
 - [x] Soạn báo cáo ưu tiên cải tiến với khuyến nghị thực hiện cụ thể.
+
+## Chuẩn hóa tên hiển thị theo quy ước Drive
+
+- [x] Khảo sát schema manifest và toàn bộ vị trí hiển thị tên Album/thiết kế.
+- [x] Xây dựng bộ phân tích tên cho Chúa Nhật, mùa phụng vụ, ngày lễ, tuần lễ và hậu tố Long Nguyen.
+- [x] Áp dụng tên chuẩn hóa mà không thay đổi tên nguồn, slug hay URL tải từ Drive.
+- [x] Kiểm thử các tên mẫu trên desktop, Galaxy S20 và GitHub Pages.

@@ -7,7 +7,7 @@ import { Link, useLocation } from "wouter";
 import { ArrowLeft, CalendarDays, Eye, EyeOff, FolderOpen, Images, Plus, Search } from "lucide-react";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { Lightbox } from "@/components/Lightbox";
-import { flattenAlbums, formatAlbumTitle, type Album, type Photo } from "@/lib/albumData";
+import { flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
 
@@ -42,7 +42,7 @@ function dateForTimeline(photo: Photo, album: Album) {
 function groupTimeline(albums: Album[], showBackgrounds: boolean, query: string) {
   const groupMap = new Map<string, TimelinePhoto[]>();
   flattenAlbums(albums).forEach((album) => {
-    album.photos.filter((photo) => (showBackgrounds || !photo.isBackground) && (!query || normalizeSearch([photo.title, photo.location, album.title, album.subtitle].join(" ")).includes(query))).forEach((photo) => {
+    album.photos.filter((photo) => (showBackgrounds || !photo.isBackground) && (!query || normalizeSearch([titleSearchText(photo.title), titleSearchText(photo.location), titleSearchText(album.title), album.subtitle].join(" ")).includes(query))).forEach((photo) => {
       const timelineDate = dateForTimeline(photo, album);
       const key = `${timelineDate.getFullYear()}-${String(timelineDate.getMonth() + 1).padStart(2, "0")}`;
       const asset: TimelinePhoto = { ...photo, albumSlug: album.slug, albumTitle: album.title, timelineDate };
@@ -98,12 +98,12 @@ export default function TimelinePage() {
         <div className="timeline-group__heading"><span className="timeline-group__marker" aria-hidden="true" /><div><p className="eyebrow">{group.key}</p><h2>{group.label}</h2></div><span>{String(group.photos.length).padStart(2, "0")} Thiết Kế</span></div>
         <div className="timeline-grid">
           {group.photos.map((photo, photoIndex) => <article className={`timeline-tile ${photoIndex === 0 ? "timeline-tile--anchor" : ""}`} key={photo.id}>
-            <button type="button" className="timeline-tile__media" onClick={() => setSelectedPhoto(photo)} aria-label={`Mở thiết kế ${photo.title}`}>
-              {photo.src?.trim() ? <img src={photo.src} alt={photo.title} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}
+            <button type="button" className="timeline-tile__media" onClick={() => setSelectedPhoto(photo)} aria-label={`Mở thiết kế ${formatPhotoTitle(photo.title)}`}>
+              {photo.src?.trim() ? <img src={photo.src} alt={formatPhotoTitle(photo.title)} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}
               <span className="timeline-tile__index" aria-hidden="true">{String(photoIndex + 1).padStart(2, "0")}</span>
               <span className="timeline-tile__date"><CalendarDays size={12} strokeWidth={1.8} /> {dateFormatter.format(photo.timelineDate)}</span>
             </button>
-            <div className="timeline-tile__copy"><strong title={photo.title}>{photo.title}</strong><button type="button" onClick={() => setLocation(`/album/${photo.albumSlug}`)}><FolderOpen size={13} strokeWidth={1.8} /> {formatAlbumTitle(photo.albumTitle)}</button></div>
+            <div className="timeline-tile__copy"><strong title={formatPhotoTitle(photo.title)}>{formatPhotoTitle(photo.title)}</strong><button type="button" onClick={() => setLocation(`/album/${photo.albumSlug}`)}><FolderOpen size={13} strokeWidth={1.8} /> {formatAlbumTitle(photo.albumTitle)}</button></div>
           </article>)}
         </div>
       </section>)}

@@ -134,6 +134,12 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
 
+## 2026-08-25 — Chuẩn hóa tên phụng vụ từ Drive
+
+Đã thêm lớp chuẩn hóa tên hiển thị ở frontend. Tên file/folder nguồn, ID, slug và URL tải Google Drive được giữ nguyên; website chỉ tạo nhãn tiếng Việt có dấu tại thời điểm render. Bộ chuẩn hóa nhận các mẫu Chúa Nhật Thường Niên/Mùa Chay/Phục Sinh, ngày trong tuần, Mùa Vọng, Chúa Nhật Phục Sinh, Bài Đọc, Tin Mừng, ngày lễ theo tháng-ngày, khoảng thời gian và hậu tố Long Nguyen/Background.
+
+Script `scripts/verify-liturgical-names.ts` kiểm thử thành công 15 mẫu, gồm toàn bộ quy ước owner cung cấp và các biến thể đang có trong manifest. Đã chạy `pnpm check`, `GITHUB_PAGES=true pnpm build`, `git diff --check`; tất cả thành công. Đã xem trực quan Trang chủ, Dòng Thời Gian và Album tuần/lễ dài ở desktop 1280×720 cùng Galaxy S20 360×800: tên xuống dòng gọn, không tràn ngang; console sau bản sửa không có runtime error hay yêu cầu 4xx/5xx.
+
 ## 2026-08-25 — Cover 340px và đánh giá giao diện
 
 Cover trang chủ ở breakpoint desktop đã điều chỉnh từ 365px xuống đúng 340px. Tiêu đề nhận diện chính là `Thư Viện Hình Công Giáo`; `Long Nguyen` được giữ ở cấp phụ. Các trường handle/bio vẫn render nguyên văn từ manifest Google Drive, không bị giao diện thay thế hoặc diễn giải.

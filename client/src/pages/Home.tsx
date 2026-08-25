@@ -7,7 +7,7 @@ import { ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, ImageI
 import { AlbumList } from "@/components/AlbumList";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
-import { flattenAlbums, formatAlbumTitle, type Album, type Photo } from "@/lib/albumData";
+import { flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
 
 const PAGE_SIZE = 5;
@@ -21,9 +21,9 @@ const normalizeSearch = (value: string) => value
 type SearchResult = { kind: "folder"; album: Album } | { kind: "photo"; album: Album; photo: Photo };
 
 const searchArchive = (albums: Album[], query: string, showBackgrounds: boolean): SearchResult[] => albums.flatMap((album) => {
-  const folderMatches = normalizeSearch([album.title, album.subtitle, album.description].join(" ")).includes(query);
+  const folderMatches = normalizeSearch([titleSearchText(album.title), album.subtitle, album.description].join(" ")).includes(query);
   const directMatches = album.photos
-    .filter((photo) => (showBackgrounds || !photo.isBackground) && normalizeSearch([photo.title, photo.location].join(" ")).includes(query))
+    .filter((photo) => (showBackgrounds || !photo.isBackground) && normalizeSearch([titleSearchText(photo.title), titleSearchText(photo.location)].join(" ")).includes(query))
     .map((photo) => ({ kind: "photo" as const, album, photo }));
   return [
     ...(folderMatches ? [{ kind: "folder" as const, album }] : []),
@@ -45,7 +45,7 @@ export default function Home() {
   const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query]);
   const sortedAlbums = useMemo(() => albums
     .sort((a, b) => {
-      if (sort === "name") return a.title.localeCompare(b.title, "vi");
+      if (sort === "name") return formatAlbumTitle(a.title).localeCompare(formatAlbumTitle(b.title), "vi");
       const dateA = new Date(a.createdAt ?? 0).getTime();
       const dateB = new Date(b.createdAt ?? 0).getTime();
       return sort === "created-desc" ? dateB - dateA : dateA - dateB;
@@ -79,7 +79,7 @@ export default function Home() {
     </section>
     {isSearching ? <section className="search-results" aria-label="Kết quả tìm kiếm"><div className="search-results__rule"><span>{searchResults.length} Kết Quả</span><span>Tên folder và tên hình</span></div><div className="search-results__list">{pageResults.map((result, index) => {
       const isPhoto = result.kind === "photo";
-      const title = isPhoto ? result.photo.title : formatAlbumTitle(result.album.title);
+      const title = isPhoto ? formatPhotoTitle(result.photo.title) : formatAlbumTitle(result.album.title);
       const image = isPhoto ? result.photo.src : result.album.cover;
       const typeLabel = isPhoto ? "Hình Ảnh" : result.album.parentSlug ? "Bộ Sưu Tập" : "Album";
       return <article className="search-result" key={isPhoto ? result.photo.id : result.album.id}><button className="search-result__thumbnail" type="button" onClick={() => setLocation(`/album/${result.album.slug}`)} aria-label={`Mở ${title}`}>{image?.trim() ? <img src={image} alt="" loading="lazy" decoding="async" /> : <span className="album-list__thumbnail-placeholder" aria-hidden="true" />}{isPhoto ? <ImageIcon size={15} strokeWidth={1.8} /> : <FolderOpen size={15} strokeWidth={1.8} />}</button><div className="search-result__copy"><span>{String((currentPage - 1) * SEARCH_PAGE_SIZE + index + 1).padStart(2, "0")} · {typeLabel}</span><h3>{title}</h3><p>Trong {formatAlbumTitle(result.album.title)} · {result.album.date}</p></div><button className="search-result__open" type="button" onClick={() => setLocation(`/album/${result.album.slug}`)}>{isPhoto ? "Mở Album" : "Mở"}<ChevronRight size={16} strokeWidth={1.8} /></button></article>;

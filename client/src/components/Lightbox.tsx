@@ -4,7 +4,7 @@
  */
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Download, Expand, Minimize, Minus, Plus, RotateCcw, X } from "lucide-react";
-import type { Photo } from "@/lib/albumData";
+import { formatAlbumTitle, formatPhotoTitle, type Photo } from "@/lib/albumData";
 
 type LightboxProps = { photo: Photo; index: number; count: number; onClose: () => void; onPrevious: () => void; onNext: () => void };
 
@@ -59,21 +59,22 @@ export function Lightbox({ photo, index, count, onClose, onPrevious, onNext }: L
     setPan({ x: start.panX + event.clientX - start.x, y: start.panY + event.clientY - start.y });
   };
   const handlePointerUp = () => { pointerStart.current = null; };
+  const photoTitle = formatPhotoTitle(photo.title);
 
   if (!photo.src?.trim()) return null;
 
   return (
-    <div ref={lightboxRef} className={`lightbox${isClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`Xem thiết kế ${photo.title}`}>
+    <div ref={lightboxRef} className={`lightbox${isClosing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-label={`Xem thiết kế ${photoTitle}`}>
       <div className="lightbox__bar">
-        <div><p className="eyebrow">Thiết kế / {String(index + 1).padStart(2, "0")}</p><h2>{photo.title}</h2></div>
+        <div><p className="eyebrow">Thiết kế / {String(index + 1).padStart(2, "0")}</p><h2>{photoTitle}</h2></div>
         <div className="lightbox__controls" aria-label="Công cụ xem ảnh"><button type="button" onClick={() => changeZoom(-0.5)} disabled={zoom <= 1} aria-label="Thu nhỏ"><Minus size={18} strokeWidth={1.8} /></button><button type="button" onClick={resetZoom} aria-label="Vừa toàn bộ ảnh"><RotateCcw size={15} strokeWidth={1.8} /><span>{zoom === 1 ? "Vừa ảnh" : `${Math.round(zoom * 100)}%`}</span></button><button type="button" onClick={() => changeZoom(0.5)} disabled={zoom >= 3} aria-label="Phóng to"><Plus size={18} strokeWidth={1.8} /></button><button type="button" onClick={toggleFullscreen} aria-label={isFullscreen ? "Thoát toàn màn hình" : "Toàn màn hình"}>{isFullscreen ? <Minimize size={18} strokeWidth={1.8} /> : <Expand size={18} strokeWidth={1.8} />}</button><button className="icon-button lightbox__close" type="button" onClick={requestClose} aria-label="Đóng thiết kế"><X size={21} strokeWidth={1.8} /></button></div>
       </div>
       <div className={`lightbox__frame${imageLoaded ? " is-loaded" : ""}${zoom > 1 ? " is-zoomed" : ""}`} onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp} onWheel={(event) => { event.preventDefault(); changeZoom(event.deltaY < 0 ? 0.2 : -0.2); }}>
         <button className="lightbox__nav lightbox__nav--previous" type="button" onClick={onPrevious} aria-label="Thiết kế trước"><ChevronLeft size={28} strokeWidth={1.65} /></button>
-        <div className="lightbox__canvas" style={{ transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoom})` }}><img key={photo.id} src={photo.src} alt={photo.title} draggable={false} decoding="async" onLoad={() => setImageLoaded(true)} /></div>
+        <div className="lightbox__canvas" style={{ transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoom})` }}><img key={photo.id} src={photo.src} alt={photoTitle} draggable={false} decoding="async" onLoad={() => setImageLoaded(true)} /></div>
         <button className="lightbox__nav lightbox__nav--next" type="button" onClick={onNext} aria-label="Thiết kế tiếp theo"><ChevronRight size={28} strokeWidth={1.65} /></button>
       </div>
-      <div className="lightbox__footer"><p>{photo.location} <span>—</span> {photo.date}</p><a className="download-button" href={photo.downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải thiết kế</a><span className="lightbox__position">{index + 1} / {count}</span></div>
+      <div className="lightbox__footer"><p>{formatAlbumTitle(photo.location)} <span>—</span> {photo.date}</p><a className="download-button" href={photo.downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải thiết kế</a><span className="lightbox__position">{index + 1} / {count}</span></div>
     </div>
   );
 }

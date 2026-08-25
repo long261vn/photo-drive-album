@@ -43,6 +43,24 @@ Trong mỗi Album, ảnh và Bộ Sưu Tập con được sắp chung theo thứ
 
 Ô tìm kiếm ở trang chủ tìm sâu trong toàn bộ cây thư viện: tên Album, tên Bộ Sưu Tập, và tên từng ảnh trong các folder con. Kết quả cho biết loại nội dung, vị trí Album nguồn và bấm để mở đúng Album chứa nội dung đó.
 
+## Quy ước đặt tên phụng vụ
+
+Tên file/folder trong Drive là **tên nguồn**: website không đổi tên, slug, ID hoặc link tải Drive. Khi hiển thị, website tự chuyển các mẫu dưới đây thành tiếng Việt có dấu, đồng thời cho phép tìm bằng cả tên viết tắt lẫn tên đã chuẩn hóa.
+
+| Tên nguồn trên Drive | Tên hiển thị trên website |
+|---|---|
+| `09_05_Thánh_Têrêsa_Calcutta_LN1` | `05/09 Thánh Têrêsa Calcutta · Long Nguyen 1` |
+| `CN22_TN_A_LN1` | `Chúa Nhật Thứ 22 Thường Niên - Năm A · Long Nguyen 1` |
+| `CN22_TNA_BaiDoc1` | `Chúa Nhật Thứ 22 Thường Niên - Năm A - Bài Đọc 1` |
+| `CN22_TNA_Tin_Mung` | `Chúa Nhật Thứ 22 Thường Niên - Năm A - Tin Mừng` |
+| `CN05_PS_C`, `CN03_MuaChay_B` | `Chúa Nhật Thứ 05 Phục Sinh - Năm C`, `Chúa Nhật Thứ 03 Mùa Chay - Năm B` |
+| `T2_Tuan_06_TN_LN`, `T4_Tuan_02_MC_LN` | `Thứ Hai Tuần 06 Thường Niên · Long Nguyen`, `Thứ Tư Tuần 02 Mùa Chay · Long Nguyen` |
+| `_MV`, `_MuaVong`, `_CNPS` | `Mùa Vọng`, `Mùa Vọng`, `Chúa Nhật Phục Sinh` |
+| `Tuan_02_MC_va_Le_tu_02_03_den_07_03` | `Tuần 02 Mùa Chay và Lễ từ 02/03 đến 07/03` |
+| `CN22_TN_A_va_Tuan22TN_tu_30_08_den_05_09` | `Chúa Nhật Thứ 22 Thường Niên - Năm A và Tuần 22 Thường Niên từ 30/08 đến 05/09` |
+
+Hậu tố `_LN`, `_LN1`, `_LN2`… được hiểu là phiên bản của **Long Nguyen**. Hậu tố `_BG` vẫn chỉ đánh dấu ảnh Background và mặc định bị ẩn; khi bật **Hiện BG**, tên hiển thị thêm nhãn `Background` để phân biệt rõ.
+
 ## Tải Toàn Bộ Album
 
 Google Drive chỉ tạo gói ZIP khi tải folder qua giao diện Drive; API công khai của website chỉ tải trực tiếp từng tệp. Vì vậy, để có nút **Tải Toàn Bộ Album**, hãy tự nén các ảnh của bộ đó thành một file `.zip` và đặt file ZIP vào **cùng folder** với ảnh. Ví dụ: `mua-chay-2026.zip`.

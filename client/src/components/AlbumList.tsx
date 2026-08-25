@@ -9,11 +9,11 @@ export function AlbumList({ albums, startIndex = 0, onOpen }: AlbumListProps) {
     {albums.map((album, index) => {
       const childCount = album.children?.length ?? 0;
       return <article key={album.id} className="album-list__row">
-      <button className="album-list__thumbnail" type="button" onClick={() => onOpen(album.slug)} aria-label={`Mở Album ${album.title}`}>{album.cover?.trim() ? <img src={album.cover} alt="" loading="lazy" decoding="async" /> : <span className="album-list__thumbnail-placeholder" aria-hidden="true" />}</button>
+      <button className="album-list__thumbnail" type="button" onClick={() => onOpen(album.slug)} aria-label={`Mở Album ${formatAlbumTitle(album.title)}`}>{album.cover?.trim() ? <img src={album.cover} alt="" loading="lazy" decoding="async" /> : <span className="album-list__thumbnail-placeholder" aria-hidden="true" />}</button>
       <div className="album-list__index">{String(startIndex + index + 1).padStart(2, "0")}</div>
       <div className="album-list__copy"><div className="album-list__meta"><span>{album.subtitle}</span><span><CalendarDays size={13} strokeWidth={1.7} /> {album.date}</span></div><h3>{formatAlbumTitle(album.title)}</h3></div>
       <div className="album-list__stats"><span>{childCount ? <FolderTree size={15} strokeWidth={1.7} /> : <Images size={15} strokeWidth={1.7} />} {childCount || album.count}</span><span>{childCount ? "Bộ Sưu Tập" : "Thiết Kế"}</span></div>
-      <button className="album-list__open" type="button" onClick={() => onOpen(album.slug)} aria-label={`Mở Album ${album.title}`}><span>Mở Album</span><ArrowUpRight size={17} strokeWidth={1.8} /></button>
+      <button className="album-list__open" type="button" onClick={() => onOpen(album.slug)} aria-label={`Mở Album ${formatAlbumTitle(album.title)}`}><span>Mở Album</span><ArrowUpRight size={17} strokeWidth={1.8} /></button>
     </article>})}
     {albums.length === 0 && <div className="empty-archive"><p>Chưa tìm thấy Album phù hợp.</p></div>}
   </div>;

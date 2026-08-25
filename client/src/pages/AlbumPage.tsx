@@ -5,7 +5,7 @@
 import { useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ArrowLeft, CalendarDays, Download, Eye, EyeOff, FolderOpen, Grid2X2, ImageIcon, List } from "lucide-react";
-import { findAlbum, formatAlbumTitle, type Album, type Photo } from "@/lib/albumData";
+import { findAlbum, formatAlbumTitle, formatPhotoTitle, type Album, type Photo } from "@/lib/albumData";
 import { Lightbox } from "@/components/Lightbox";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
@@ -51,7 +51,7 @@ export default function AlbumPage() {
     <main className="album-page">
       <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay Lại" : "Tất Cả Thiết Kế"}</button>{albumAvatar ? <span className="album-page__avatar"><img src={albumAvatar} alt={`Avatar ${profile.name}`} /></span> : <span className="header-mark brand-symbol" aria-hidden="true" />}</header>
       <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} Thiết Kế</span>{childAlbums.length > 0 && <span>{childAlbums.length} Bộ Sưu Tập</span>}</div></div>{album.downloadAll && <a className="album-intro__download" href={album.downloadAll.url} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Toàn Bộ Album</a>}</section>
-      {contentItems.length > 0 && <section className="contact-sheet" aria-label={`Nội dung trong ${album.title}`}>
+      {contentItems.length > 0 && <section className="contact-sheet" aria-label={`Nội dung trong ${formatAlbumTitle(album.title)}`}>
         <div className="contact-sheet__rule">
           <span>Nội Dung Trong Album</span>
           <div className="gallery-actions">
@@ -71,35 +71,35 @@ export default function AlbumPage() {
           <div className="photo-list" role="list">
             {contentItems.map((item, index) => item.kind === "collection" ? (
               <article className="photo-list__row photo-list__row--collection" key={item.album.id} role="listitem">
-                <button type="button" className="photo-list__preview photo-list__preview--collection" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Bộ Sưu Tập ${item.album.title}`}>
+                <button type="button" className="photo-list__preview photo-list__preview--collection" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Bộ Sưu Tập ${formatAlbumTitle(item.album.title)}`}>
                   {item.album.cover?.trim() ? <img src={item.album.cover} alt="" loading="lazy" decoding="async" /> : <span className="photo-list__placeholder" aria-hidden="true" />}<FolderOpen className="collection-folder-icon" size={18} strokeWidth={1.8} aria-hidden="true" />
                 </button>
                 <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(item.album.title)}</strong><span>Bộ Sưu Tập · {item.album.count} Thiết Kế</span></div>
                 <div className="photo-list__type"><span>{item.album.count} Ảnh</span><span>Bộ Sưu Tập</span></div>
-                <button type="button" className="photo-list__open" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở ${item.album.title}`}><FolderOpen size={16} strokeWidth={1.8} /><span>Mở</span></button>
+                <button type="button" className="photo-list__open" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở ${formatAlbumTitle(item.album.title)}`}><FolderOpen size={16} strokeWidth={1.8} /><span>Mở</span></button>
               </article>
             ) : (
               <article className="photo-list__row" key={item.photo.id} role="listitem">
-                <button type="button" className="photo-list__preview" onClick={() => setSelectedPhoto(item.photo)} aria-label={`Mở thiết kế ${item.photo.title}`}>
-                  {item.photo.src?.trim() ? <img src={item.photo.src} alt={item.photo.title} loading="lazy" decoding="async" /> : <span className="photo-list__placeholder" aria-hidden="true" />}
+                <button type="button" className="photo-list__preview" onClick={() => setSelectedPhoto(item.photo)} aria-label={`Mở thiết kế ${formatPhotoTitle(item.photo.title)}`}>
+                  {item.photo.src?.trim() ? <img src={item.photo.src} alt={formatPhotoTitle(item.photo.title)} loading="lazy" decoding="async" /> : <span className="photo-list__placeholder" aria-hidden="true" />}
                 </button>
-                <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{item.photo.title}</strong><span>{item.photo.location} · {item.photo.date}</span></div>
+                <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(item.photo.title)}</strong><span>{formatAlbumTitle(item.photo.location)} · {item.photo.date}</span></div>
                 <div className="photo-list__type"><span>{item.photo.mimeType?.replace("image/", "").toUpperCase() ?? "HÌNH ẢNH"}</span><span>Hình Ảnh</span></div>
-                <a href={item.photo.downloadUrl} target="_blank" rel="noreferrer" className="photo-list__download" aria-label={`Tải ${item.photo.title}`}><Download size={16} strokeWidth={1.8} /><span>Tải</span></a>
+                <a href={item.photo.downloadUrl} target="_blank" rel="noreferrer" className="photo-list__download" aria-label={`Tải ${formatPhotoTitle(item.photo.title)}`}><Download size={16} strokeWidth={1.8} /><span>Tải</span></a>
               </article>
             ))}
           </div>
         ) : (
           <div className={`photo-grid photo-grid--${galleryView}`}>
             {contentItems.map((item, index) => item.kind === "collection" ? (
-              <button key={item.album.id} className="photo-tile photo-tile--collection" type="button" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Bộ Sưu Tập ${item.album.title}`}>
+              <button key={item.album.id} className="photo-tile photo-tile--collection" type="button" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Bộ Sưu Tập ${formatAlbumTitle(item.album.title)}`}>
                 <span className="photo-tile__media">{item.album.cover?.trim() ? <img src={item.album.cover} alt="" loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}<span className="collection-tile__badge"><FolderOpen size={16} strokeWidth={1.8} /> Bộ Sưu Tập</span><span className="photo-tile__corner photo-tile__corner--one" aria-hidden="true" /><span className="photo-tile__corner photo-tile__corner--two" aria-hidden="true" /></span>
                 <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(item.album.title)}</strong><em>{item.album.count} Thiết Kế · Mở Bộ Sưu Tập</em></span>
               </button>
             ) : (
-              <button key={item.photo.id} className={`photo-tile photo-tile--${item.photo.orientation}`} type="button" onClick={() => setSelectedPhoto(item.photo)} aria-label={`Mở thiết kế ${item.photo.title}`}>
-                <span className="photo-tile__media">{item.photo.src?.trim() ? <img src={item.photo.src} alt={item.photo.title} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}<span className="photo-tile__corner photo-tile__corner--one" aria-hidden="true" /><span className="photo-tile__corner photo-tile__corner--two" aria-hidden="true" /></span>
-                <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{item.photo.title}</strong><em>{item.photo.location} · {item.photo.date}</em></span>
+              <button key={item.photo.id} className={`photo-tile photo-tile--${item.photo.orientation}`} type="button" onClick={() => setSelectedPhoto(item.photo)} aria-label={`Mở thiết kế ${formatPhotoTitle(item.photo.title)}`}>
+                <span className="photo-tile__media">{item.photo.src?.trim() ? <img src={item.photo.src} alt={formatPhotoTitle(item.photo.title)} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}<span className="photo-tile__corner photo-tile__corner--one" aria-hidden="true" /><span className="photo-tile__corner photo-tile__corner--two" aria-hidden="true" /></span>
+                <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(item.photo.title)}</strong><em>{formatAlbumTitle(item.photo.location)} · {item.photo.date}</em></span>
               </button>
             ))}
           </div>

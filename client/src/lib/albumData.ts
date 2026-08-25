@@ -2,6 +2,7 @@
  * Design: Liturgical Design Archive.
  * The production source is /data/albums.json, generated from Google Drive. These samples only protect the UI before the first sync.
  */
+import { formatLiturgicalTitle, liturgicalSearchText } from "./liturgicalName";
 export type Photo = {
   id: string;
   title: string;
@@ -114,9 +115,9 @@ export const sampleProfile: ArchiveProfile = {
   cover: "https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1800&q=88",
 };
 
-export const formatAlbumTitle = (title: string) => title
-  .replace(/Chúa Nhật\s+thứ/gi, "Chúa Nhật Thứ")
-  .replace(/\s+—\s+/g, " - ");
+export const formatAlbumTitle = (title: string) => formatLiturgicalTitle(title);
+export const formatPhotoTitle = (title: string) => formatLiturgicalTitle(title);
+export const titleSearchText = (title: string) => liturgicalSearchText(title);
 
 export const flattenAlbums = (albums: Album[]): Album[] => albums.flatMap((album) => [album, ...flattenAlbums(album.children ?? [])]);
 
