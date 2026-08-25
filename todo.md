@@ -69,6 +69,6 @@
 - [x] Tạo route Dòng thời gian gom ảnh từ toàn bộ Album, có mốc tháng/năm và link Album nguồn.
 - [x] Gắn lối vào Dòng thời gian trong giao diện thư viện và kiểm thử desktop/Galaxy S20.
 - [x] Viết hướng dẫn thay Folder ID trong GitHub cho owner, kèm yêu cầu phân quyền repository.
-- [ ] Kiểm tra job deploy sau Sync Google Drive gây lỗi không tìm thấy pnpm.
-- [ ] Cố định bước cài pnpm trong workflow đồng bộ trước install/build.
-- [ ] Xác nhận workflow đồng bộ thủ công chạy lại thành công sau bản sửa.
+- [x] Kiểm tra job deploy sau Sync Google Drive gây lỗi không tìm thấy pnpm.
+- [x] Cố định bước cài pnpm trong workflow đồng bộ trước install/build.
+- [x] Xác nhận workflow đồng bộ thủ công chạy lại thành công sau bản sửa.

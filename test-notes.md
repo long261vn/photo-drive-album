@@ -88,6 +88,10 @@ Các workflow đã đổi `actions/checkout`, `actions/setup-node`, `pnpm/action
 
 Script đồng bộ nay ghi `createdAt`/`modifiedAt` từng ảnh. Workflow ưu tiên `DRIVE_ROOT_FOLDER_ID` và `DRIVE_PROFILE_FOLDER_ID` từ GitHub Actions Variables, nhưng giữ ID hiện tại làm fallback đến khi chủ repository tự tạo Variables trong GitHub. Việc tạo/chỉnh Variables cần quyền owner hoặc write của repository; API key vẫn chỉ ở GitHub Secret và không xuất hiện trong frontend.
 
+## 2026-08-25 — Khắc phục pnpm trong Sync Google Drive
+
+Lượt Sync `32804331298` lỗi tại bước `actions/setup-node@v5`: cơ chế package-manager cache tự động nhận diện `pnpm` từ `package.json`, dù job `sync` chỉ chạy script Node và chưa cài pnpm. Đã đặt `package-manager-cache: false` riêng cho job `sync`; job `deploy-pages` vẫn cài pnpm trước khi cache/install/build. Lượt chạy thủ công `32804476777` sau bản sửa đã thành công cả job `sync` và `deploy-pages`, đồng thời sinh manifest mới có `createdAt`/`modifiedAt` cho từng ảnh.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.
