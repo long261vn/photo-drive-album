@@ -76,6 +76,12 @@ Manifest Drive thực tế có Album `Các Thánh` với `cover` rỗng. Đã th
 
 Đã gỡ trigger `schedule` khỏi workflow `Sync Google Drive albums`. Workflow chỉ còn `workflow_dispatch`, do đó chỉ chạy khi chủ website bấm Run workflow trực tiếp trong GitHub hoặc mở workflow bằng lối tắt 7 lần chạm ở footer.
 
+## 2026-08-25 — Album compact và phản hồi tương tác
+
+Trang Album `cn20-tn-a` đã được nén thêm ở phần đầu, đường chia và trước gallery: desktop giữ tiêu đề rõ ràng nhưng đưa hàng ảnh lên gần hơn; Galaxy S20 vẫn có vùng chạm đủ rộng, không tràn ngang và không cắt hình. Các tile ảnh nay nổi nhẹ, viền xanh lá và bóng mờ khi hover/focus; nút quay lại, nút tải, bộ chuyển chế độ xem và các dòng danh sách cũng có phản hồi trạng thái ngắn, tôn trọng `prefers-reduced-motion`.
+
+Các workflow đã đổi `actions/checkout` và `actions/setup-node` từ v4 sang v5. Kiểm tra metadata action qua GitHub xác nhận cả hai bản v5 khai báo runtime `node24`, trong khi bước build website tiếp tục cố định Node.js 22. Kiểm thử `pnpm check`, `GITHUB_PAGES=true pnpm build` và `git diff --check` đều thành công; còn cần xác nhận lượt chạy GitHub Pages sau khi đẩy commit.
+
 ## 2026-08-24 — Tải Toàn Bộ Album và nhãn gọn
 
 Đã gỡ các chuỗi giao diện `Album Cha` và `Album Con`; các folder lồng nhau được trình bày trung tính là `Bộ Sưu Tập`, vẫn giữ toàn bộ điều hướng cũ. Script chỉ nhận một file `.zip` đặt trong cùng folder làm gói tải toàn Album, không đưa ZIP vào gallery. Kiểm thử cục bộ trên viewport 360×800 xác nhận nút `Tải Toàn Bộ Album` hiện đúng khi có metadata ZIP, đồng thời nhãn cũ không còn xuất hiện. Manifest Drive thật đã được khôi phục sau kiểm thử.

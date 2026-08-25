@@ -57,3 +57,6 @@
 - [x] Bỏ thanh đầu trang ở Home, tăng chiều cao Cover và giữ bố cục profile gọn.
 - [x] Thay dấu Thánh Giá ở trang Album bằng Avatar profile và nén phần giới thiệu Album.
 - [x] Tắt lịch đồng bộ Google Drive định kỳ và chỉ giữ workflow chạy thủ công.
+- [x] Nén khoảng cách quanh đường chia, section gallery và phần giới thiệu đầu mỗi Album.
+- [x] Bổ sung tương tác tinh tế cho đầu Album, bộ chuyển chế độ xem và tile thiết kế.
+- [ ] Cập nhật Actions để không còn cảnh báo dependency Node.js 20 bị ép chạy Node.js 24.

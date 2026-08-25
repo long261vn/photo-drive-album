@@ -1,5 +1,5 @@
 /* Design: Liturgical Design Archive — Vietnamese Unicode typography, parchment ground, liturgical green and restrained sacred editorial rhythm. */
-/* Design: Liturgical Design Archive — warm paper, forest green, restrained editorial rules. Home begins directly with the owner's cover; Album headers use the owner's Avatar as the private maker's mark. */
+/* Design: Liturgical Design Archive — warm paper, forest green, compact editorial rhythm. Home begins directly with the owner's cover; Album headers use the owner's Avatar as the private maker's mark, and gallery controls respond with restrained tactile motion. */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -175,7 +175,10 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .site-footer__sync-shortcut { display: inline-flex; align-items: center; margin: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; letter-spacing: inherit; text-transform: inherit; cursor: default; touch-action: manipulation; user-select: none; -webkit-tap-highlight-color: transparent; }
 
 .album-page__header { min-height: 74px; }
-.back-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--cobalt); font-size: 11px; font-weight: 800; letter-spacing: 0.04em; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--cobalt); font-size: 11px; font-weight: 800; letter-spacing: 0.04em; transition: color 180ms var(--ease-out); }
+.back-link svg { transition: transform 180ms var(--ease-out); }
+.back-link:hover { color: #173d2a; }
+.back-link:hover svg { transform: translateX(-3px); }
 .header-note { color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
 .album-intro { position: relative; display: grid; gap: 24px; padding: 50px 0 60px; border-bottom: 1px solid var(--border); }
 .album-intro__index { position: absolute; top: 50px; right: 0; color: var(--paper-deep); font-family: "Noto Serif", serif; font-size: 100px; line-height: 0.6; letter-spacing: -0.09em; }
@@ -185,45 +188,55 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .album-intro__meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 23px; color: var(--muted-ink); font-size: 11px; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
 .album-intro__meta span { display: inline-flex; align-items: center; gap: 6px; }
 .album-intro__download { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; width: fit-content; padding: 0 15px; background: var(--cobalt); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 0.04em; transition: transform 160ms var(--ease-out), background 160ms var(--ease-out); }
-.album-intro__download:hover { background: #173888; transform: translateY(-2px); }
-.parent-album { padding: 30px 0 58px; border-bottom: 1px solid var(--border); }
-.parent-album__rule { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 25px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.album-intro__download:hover { background: #173d2a; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(40, 90, 64, 0.18); }
+.album-intro__download:active { transform: translateY(0) scale(0.97); }
+.album-intro__download svg { transition: transform 180ms var(--ease-out); }
+.album-intro__download:hover svg { transform: translateY(2px); }
+.parent-album { padding: 22px 0 36px; border-bottom: 1px solid var(--border); }
+.parent-album__rule { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
 .parent-album__rule span:first-child { color: var(--cobalt); }
-.contact-sheet { padding: 28px 0 70px; }
-.contact-sheet__rule { display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+.contact-sheet { padding: 20px 0 48px; }
+.contact-sheet__rule { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
 .gallery-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.gallery-view-switch { display: inline-flex; overflow: hidden; border: 1px solid var(--border); background: var(--paper); }
-  .gallery-view-switch button { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; border: 0; border-right: 1px solid var(--border); padding: 0 9px; background: transparent; color: var(--muted-ink); font-family: "Noto Sans", sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; transition: background 180ms var(--ease-out), color 180ms var(--ease-out); }
+.gallery-view-switch { display: inline-flex; overflow: hidden; border: 1px solid var(--border); background: var(--paper); transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
+  .gallery-view-switch button { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; border: 0; border-right: 1px solid var(--border); padding: 0 9px; background: transparent; color: var(--muted-ink); font-family: "Noto Sans", sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 160ms var(--ease-out); }
 .gallery-view-switch button:last-child { border-right: 0; }
-.gallery-view-switch button:hover, .gallery-view-switch button.is-active { background: var(--cobalt); color: #fff; }
+.gallery-view-switch:hover { border-color: rgba(40, 90, 64, 0.58); box-shadow: 0 4px 12px rgba(40, 90, 64, 0.10); }
+.gallery-view-switch button:hover:not(.is-active) { background: var(--soft-blue); color: var(--ink); }
+.gallery-view-switch button.is-active { background: var(--cobalt); color: #fff; }
+.gallery-view-switch button:active { transform: scale(0.97); }
 .gallery-view-switch button span { display: none; }
 .photo-grid { display: grid; gap: 20px 12px; }
 .photo-grid--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .photo-grid--large { grid-template-columns: 1fr; max-width: 940px; margin-inline: auto; gap: 38px; }
-.photo-tile { display: grid; min-width: 0; border: 0; padding: 0; background: transparent; cursor: zoom-in; text-align: left; }
-.photo-tile__media { position: relative; display: grid; min-width: 0; place-items: center; overflow: hidden; background: linear-gradient(110deg, var(--paper-deep) 8%, #faf7ee 18%, var(--paper-deep) 33%); background-size: 200% 100%; }
+.photo-tile { display: grid; min-width: 0; border: 0; padding: 0; background: transparent; cursor: zoom-in; text-align: left; transition: transform 200ms var(--ease-out); }
+.photo-tile__media { position: relative; display: grid; min-width: 0; place-items: center; overflow: hidden; border: 1px solid transparent; background: linear-gradient(110deg, var(--paper-deep) 8%, #faf7ee 18%, var(--paper-deep) 33%); background-size: 200% 100%; transition: border-color 200ms var(--ease-out), box-shadow 200ms var(--ease-out); }
 .photo-tile img { display: block; width: 100%; height: 100%; object-fit: contain; background: transparent; transition: transform 280ms var(--ease-out), opacity 260ms var(--ease-out); animation: media-pulse 1.6s ease-in-out infinite; }
 .photo-tile img[loading="lazy"] { content-visibility: auto; contain-intrinsic-size: 280px 210px; }
 .photo-grid--grid .photo-tile__media { aspect-ratio: 1.18; }
 .photo-grid--large .photo-tile__media { min-height: 280px; max-height: 76vh; }
 .photo-grid--large .photo-tile--portrait .photo-tile__media { max-width: min(100%, 620px); justify-self: center; }
 .photo-grid--large .photo-tile img { height: auto; max-height: 76vh; }
-.photo-tile__caption { display: grid; grid-template-columns: auto 1fr; column-gap: 7px; row-gap: 2px; padding: 9px 0 0; border-bottom: 1px solid var(--border); color: var(--ink); }
+.photo-tile__caption { display: grid; grid-template-columns: auto 1fr; column-gap: 7px; row-gap: 2px; padding: 9px 0 0; border-bottom: 1px solid var(--border); color: var(--ink); transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out); }
 .photo-tile__index { grid-row: span 2; min-width: 23px; color: var(--cobalt); font-size: 10px; font-weight: 800; letter-spacing: 0.13em; }
 .photo-tile__caption strong { overflow: hidden; font-family: "Noto Serif", serif; font-size: clamp(16px, 2vw, 22px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.12; text-overflow: ellipsis; white-space: nowrap; }
 .photo-tile__caption em { overflow: hidden; color: var(--muted-ink); font-size: 8px; font-style: normal; font-weight: 800; letter-spacing: 0.08em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
-.photo-tile:hover img { transform: scale(1.02); }
+.photo-tile:hover { transform: translateY(-3px); }
+.photo-tile:hover .photo-tile__media, .photo-tile:focus-visible .photo-tile__media { border-color: rgba(40, 90, 64, 0.62); box-shadow: 0 10px 20px rgba(32, 38, 41, 0.12); }
+.photo-tile:hover .photo-tile__caption, .photo-tile:focus-visible .photo-tile__caption { border-color: rgba(40, 90, 64, 0.5); color: var(--cobalt); }
 .photo-tile__corner { position: absolute; width: 15px; height: 15px; opacity: 0.85; transition: opacity 180ms var(--ease-out); }
 .photo-tile__corner--one { top: 8px; left: 8px; border-top: 2px solid #fff; border-left: 2px solid #fff; }
 .photo-tile__corner--two { right: 8px; bottom: 8px; border-right: 2px solid #fff; border-bottom: 2px solid #fff; }
 .photo-tile:hover .photo-tile__corner { opacity: 1; }
 .photo-list { border-top: 1px solid var(--border); }
-.photo-list__row { display: grid; grid-template-columns: 86px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 94px; border-bottom: 1px solid var(--border); padding: 10px 0; }
+.photo-list__row { display: grid; grid-template-columns: 86px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 94px; border-bottom: 1px solid var(--border); padding: 10px 0; transition: background 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
+.photo-list__row:hover { background: rgba(226, 232, 223, 0.34); box-shadow: inset 3px 0 0 var(--cobalt); }
 .photo-list__preview { display: grid; width: 86px; height: 70px; place-items: center; overflow: hidden; border: 0; padding: 0; background: var(--paper-deep); cursor: zoom-in; }
 .photo-list__preview img { width: 100%; height: 100%; object-fit: contain; }
 .photo-list__metadata { display: grid; min-width: 0; gap: 3px; }
 .photo-list__index, .photo-list__type { color: var(--cobalt); font-size: 9px; font-weight: 800; letter-spacing: 0.12em; }
-.photo-list__metadata strong { overflow: hidden; font-family: "Noto Serif", serif; font-size: 17px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.photo-list__metadata strong { overflow: hidden; font-family: "Noto Serif", serif; font-size: 17px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; transition: color 180ms var(--ease-out); }
+.photo-list__row:hover .photo-list__metadata strong { color: var(--cobalt); }
 .photo-list__metadata > span:last-child { overflow: hidden; color: var(--muted-ink); font-size: 8px; font-weight: 800; letter-spacing: 0.07em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
 .photo-list__type { display: none; gap: 4px; color: var(--muted-ink); text-align: right; }
 .photo-list__download { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--border); color: var(--ink); transition: background 160ms var(--ease-out), color 160ms var(--ease-out); }
@@ -366,12 +379,14 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .photo-tile:hover img { transform: none; }
 .album-page__avatar { display: grid; width: 34px; height: 34px; place-items: center; overflow: hidden; border: 2px solid var(--paper); border-radius: 50%; background: var(--paper-deep); box-shadow: 0 2px 8px rgba(32, 38, 41, 0.12); }
 .album-page__avatar img { width: 100%; height: 100%; object-fit: contain; }
-.album-intro { gap: 12px; padding: 30px 0 34px; }
-.album-intro__index { top: 30px; font-size: 76px; }
+.album-intro { gap: 10px; padding: 20px 0 24px; }
+.album-intro__index { top: 20px; font-size: 76px; }
 .album-intro__copy { max-width: 680px; }
-.album-intro h1 { max-width: 680px; margin: 6px 0 10px; font-size: clamp(34px, 7.2vw, 60px); line-height: 1; }
-.album-intro__meta { gap: 6px 13px; margin-top: 10px; font-size: 9px; }
+.album-intro h1 { max-width: 680px; margin: 4px 0 8px; font-size: clamp(34px, 7.2vw, 60px); line-height: 1; }
+.album-intro__meta { gap: 6px 13px; margin-top: 8px; font-size: 9px; }
 .album-intro__download { min-height: 38px; padding: 0 12px; font-size: 10px; }
+.contact-sheet { padding: 16px 0 42px; }
+.contact-sheet__rule { gap: 8px; margin-bottom: 14px; }
 @media (min-width: 580px) {
   .profile-cover { height: 245px; }
   .profile-summary { grid-template-columns: 92px minmax(0, 1fr) auto; align-items: end; padding: 0 24px 20px; }
@@ -381,8 +396,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .album-list__index { top: 13px; left: 120px; }
   .album-list__copy { padding-top: 11px; }
   .album-list__copy h3 { font-size: 22px; }
-  .album-intro { padding: 38px 0 42px; }
-  .album-intro__index { top: 38px; font-size: 106px; }
+  .album-intro { padding: 28px 0 30px; }
+  .album-intro__index { top: 28px; font-size: 106px; }
+  .contact-sheet { padding-top: 20px; }
 }
 @media (min-width: 850px) {
   .profile-shell { margin-top: 0; }
@@ -395,8 +411,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .album-list__copy { padding-top: 13px; }
   .album-list__copy h3 { font-size: 26px; }
   .album-page__avatar { width: 38px; height: 38px; }
-  .album-intro { padding: 52px 0 50px; }
-  .album-intro__index { top: 48px; font-size: 128px; }
+  .album-intro { padding: 34px 0 34px; }
+  .album-intro__index { top: 32px; font-size: 128px; }
+  .contact-sheet { padding-top: 22px; }
 }
 @media (max-width: 480px) {
   .brand-lockup { font-size: 17px; }
