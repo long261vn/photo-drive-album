@@ -134,6 +134,12 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
 
+## 2026-08-26 — Sửa phân loại Đức Mẹ và Các Thánh
+
+Đã bổ sung alias `CN_DMMC` thành **Chúa Nhật Lễ Đức Mẹ Mân Côi**. Bộ lọc Đức Mẹ giờ chỉ nhận các cụm trực tiếp như `Duc_Me`, `Duc_Maria`, `Me_Maria`, `DMMC`; không còn dùng `Maria`/`Ma-ri-a` đứng một mình. Vì vậy các Thánh có tên Maria vẫn thuộc **Các Thánh**, không lẫn vào **Đức Mẹ**. Bộ đọc ngày cũng nhận cả `MM_DD`, `MM DD` và `MM/DD`.
+
+Đã kiểm thử 18 mẫu tên phụng vụ, bao gồm toàn bộ các ví dụ owner nêu: Thánh Maria Goretti, Antôn Maria Zaccaria, Maria Mađalêna, Martha Maria Ladaro, Alphonsô Maria Liguori, Antôn Maria Claret, Luy Maria Montfort, Maximilianô Maria Kolbe, cùng các tên không thuộc hai nhóm. `pnpm check`, build GitHub Pages và `git diff --check` đều thành công.
+
 ## 2026-08-26 — Lọc và metadata phụng vụ
 
 Đã bổ sung bộ lọc **Mùa Phụng Vụ → Tuần**, **Các Thánh** và **Đức Mẹ** ở Trang chủ, Dòng Thời Gian và từng Album. Tuần hiển thị phụ thuộc Mùa đang chọn. Ảnh `_Eng`/`_ENG` được gắn **Tiếng Anh**; Các Thánh nhận diện từ ngày `MM_DD` kết hợp `Thanh`/`Thánh` hoặc dấu hiệu Tử Đạo; Đức Mẹ nhận diện các cụm `Duc_Me`, `Duc_Maria`, `Me_Maria`, `Ma-ri-a` và biến thể có dấu.

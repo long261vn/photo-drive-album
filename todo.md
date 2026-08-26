@@ -127,3 +127,10 @@
 - [x] Tạo metadata phụng vụ cùng chỉ mục tìm kiếm viết tắt cho từng ảnh.
 - [x] Thêm bộ lọc Mùa, Tuần, Các Thánh, Đức Mẹ và hiển thị metadata trong chế độ Danh Sách.
 - [x] Kiểm thử desktop, Galaxy S20, tìm kiếm, hiệu năng và phát hành GitHub Pages.
+
+## Sửa nhận diện Đức Mẹ và Các Thánh
+
+- [x] Bổ sung alias `CN_DMMC` cho Chúa Nhật Lễ Đức Mẹ Mân Côi.
+- [x] Siết nhận diện Đức Mẹ để tên Các Thánh có “Maria” không bị đưa nhầm vào bộ lọc.
+- [x] Thêm kiểm thử hồi quy cho toàn bộ ví dụ owner cung cấp.
+- [x] Kiểm tra bộ lọc, build và phát hành GitHub Pages.

@@ -66,7 +66,7 @@
   },
   "categoryKeywords": {
     "saints": ["thanh", "thánh", "cac thanh", "các thánh", "tu dao", "tử đạo"],
-    "marian": ["duc me", "đức mẹ", "duc maria", "đức maria", "duc trinh nu maria", "đức trinh nữ maria", "me maria", "mẹ maria", "ma-ri-a", "maria me", "maria mẹ"]
+    "marian": ["duc me", "đức mẹ", "duc maria", "đức maria", "duc trinh nu maria", "đức trinh nữ maria", "me maria", "mẹ maria", "maria me", "maria mẹ", "dmmc", "duc me man coi", "đức mẹ mân côi"]
   },
   "smartSearchAliases": {
     "mua-vong": ["mv", "mua vong", "mùa vọng", "advent"],
@@ -93,6 +93,10 @@
     {
       "aliases": ["long thuong xot chua"],
       "label": "Lòng Thương Xót Chúa"
+    },
+    {
+      "aliases": ["cn dmmc", "cn_dmmc", "dmmc", "duc me man coi"],
+      "label": "Chúa Nhật Lễ Đức Mẹ Mân Côi"
     },
     {
       "aliases": ["chua thang thien"],

@@ -53,7 +53,7 @@ function weekFor(value: string) {
 }
 
 function feastDateFor(value: string) {
-  const match = value.match(/(?:^|[\s_-])(\d{1,2})[\s_-]+(\d{1,2})(?=[\s_-]|$)/);
+  const match = value.match(/(?:^|[\s_/-])(\d{1,2})[\s_/-]+(\d{1,2})(?=[\s_/-]|$)/);
   if (!match) return null;
   return `${padNumber(match[1])}-${padNumber(match[2])}`;
 }
@@ -93,9 +93,9 @@ export function getLiturgicalMetadata(title = "", location = ""): LiturgicalMeta
   const week = weekFor(raw);
   const categories: LiturgicalCategory[] = [];
   const feastKey = feastDateFor(title);
-  const strongSaintSignal = matchesAnyKey(raw, ["cac thanh", "các thánh", "tu dao", "tử đạo"]);
-  if (matchesAnyKey(raw, liturgicalRules.categoryKeywords.saints) && (feastKey || strongSaintSignal)) categories.push("saints");
-  if (matchesAnyKey(raw, liturgicalRules.categoryKeywords.marian)) categories.push("marian");
+  const strongSaintSignal = matchesAnyKey(title, ["cac thanh", "các thánh", "tu dao", "tử đạo"]);
+  if (matchesAnyKey(title, liturgicalRules.categoryKeywords.saints) && (feastKey || strongSaintSignal)) categories.push("saints");
+  if (matchesAnyKey(title, liturgicalRules.categoryKeywords.marian)) categories.push("marian");
   const language = languageFor(title);
   const celebrations = feastKey ? [...(fixedFeastsByDate.get(feastKey) ?? [])] : [];
   const weekLabel = week && season ? `Tuần ${padNumber(String(week))} ${season}` : week ? `Tuần ${padNumber(String(week))}` : null;

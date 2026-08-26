@@ -20,6 +20,7 @@ const cases: Array<[string, string]> = [
   ["Tuan09TN tu 01 06 den 06 06", "Tuần 09 Thường Niên từ 01/06 đến 06/06"],
   ["T4_Tuan_II_MC_LN", "Thứ Tư Tuần 02 Mùa Chay · Long Nguyen"],
   ["09_05_Thanh_Anton", "05/09 Thánh An-tôn Pa-đua-a, Tiến Sĩ Hội Thánh"],
+  ["CN_DMMC", "Chúa Nhật Lễ Đức Mẹ Mân Côi"],
 ];
 
 const failures = cases.flatMap(([source, expected]) => {
@@ -47,6 +48,23 @@ if (englishMetadata.language !== "en" || englishMetadata.season !== "Thường N
 const smartSearch = liturgicalMetadataSearchText("T4_Tuan_II_MC_LN");
 if (!smartSearch.includes("lent") || !matchesLiturgicalFilters(saintMetadata, { season: "", week: "", saintsOnly: true, marianOnly: false })) {
   throw new Error("Tìm kiếm viết tắt hoặc bộ lọc metadata không hoạt động đúng.");
+}
+
+const saintMariaTitles = [
+  "07 06 Thanh Maria Goretti",
+  "05/07 Thánh ANTÔN MARIA ZACCARIA",
+  "07/22 Thanh MARIA MAGĐALÊNA",
+  "07 29 Thanh Martha Maria Ladaro",
+  "08 01 Thanh Alphonsô Maria Liguori",
+  "4/10 Thánh AntônMariaClaret",
+  "04 28 Thanh Luy Maria Montfort",
+  "08 14 Thanh Maximilianô Maria Kolbe",
+];
+const saintMariaMetadata = saintMariaTitles.map((title) => getLiturgicalMetadata(title));
+const nonMarianTitles = ["Ta On Cuoi Nam Duong Lich", "Ngay VIII Bat Nhat GS 2025"];
+const rosaryMetadata = getLiturgicalMetadata("CN_DMMC");
+if (!saintMariaMetadata.every((metadata) => metadata.categories.includes("saints") && !metadata.categories.includes("marian")) || nonMarianTitles.some((title) => getLiturgicalMetadata(title).categories.length) || !rosaryMetadata.categories.includes("marian")) {
+  throw new Error("Các Thánh có tên Maria hoặc các ví dụ không liên quan đang bị phân loại nhầm là Đức Mẹ.");
 }
 
 type ManifestAlbum = { title: string; photos?: Array<{ title: string; location?: string }>; children?: ManifestAlbum[] };
