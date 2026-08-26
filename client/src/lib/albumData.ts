@@ -107,10 +107,10 @@ export const sampleAlbums: Album[] = [
 ];
 
 export const sampleProfile: ArchiveProfile = {
-  name: "Thư Viện Hình Công Giáo",
+  name: "Long Nguyen",
   handle: "",
-  bio: "Nơi lưu trữ các thiết kế truyền thông được sắp theo Chúa Nhật, mùa phụng vụ và nhịp sống của cộng đoàn.",
-  details: ["Thiết Kế · Cập Nhật Tự Động"],
+  bio: "",
+  details: [],
   avatar: "https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=320&q=88",
   cover: "https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1800&q=88",
 };

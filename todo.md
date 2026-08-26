@@ -149,3 +149,10 @@
 - [x] Loại bỏ trang, route và lối vào Danh Sách Lễ khỏi website.
 - [x] Kiểm thử lại Xem theo Album và Xem tất cả trên desktop/Galaxy S20.
 - [x] Phát hành điều hướng hai chế độ đã tinh gọn lên GitHub Pages.
+
+## Nhận diện trang hình cá nhân
+
+- [x] Rà soát nhãn trang đầu, mô tả Xem tất cả và lối điều hướng cuối trang không phù hợp.
+- [x] Bỏ nhận diện “Thư Viện Hình Công Giáo” và nội dung giải thích kỹ thuật khỏi giao diện.
+- [x] Thay lối điều hướng cuối trang bằng ngữ cảnh phù hợp với trang hình cá nhân.
+- [x] Kiểm thử desktop, Galaxy S20 và phát hành GitHub Pages.

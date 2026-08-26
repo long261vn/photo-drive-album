@@ -1,5 +1,5 @@
 /**
- * Design: Compact Catholic image library. The homepage prioritizes a searchable, paginated album index and a clear chronological reading path; the Avatar remains a profile image while the quiet footer carries a concealed multi-tap owner shortcut.
+ * Design: Personal image archive. The homepage centers Long Nguyen's Drive profile and a searchable, paginated Album index; the avatar remains a profile image while the quiet footer carries a concealed owner shortcut.
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
@@ -70,12 +70,12 @@ export default function Home() {
   const pageResults = searchResults.slice((currentPage - 1) * SEARCH_PAGE_SIZE, currentPage * SEARCH_PAGE_SIZE);
 
   return <main className="archive-home">
-    <section className="profile-shell" aria-label="Thông tin thư viện">
-      <div className="profile-cover">{profileCover && <img src={profileCover} alt="Ảnh bìa thư viện" fetchPriority="high" />}</div>
+    <section className="profile-shell" aria-label={`Thông tin cá nhân của ${profile.name}`}>
+      <div className="profile-cover">{profileCover && <img src={profileCover} alt={`Ảnh bìa của ${profile.name}`} fetchPriority="high" />}</div>
       <div className="profile-summary">
         <div className="profile-avatar">{profileAvatar && <img src={profileAvatar} alt={`Avatar ${profile.name}`} />}</div>
-        <div className="profile-copy"><h1>Thư Viện Hình Công Giáo</h1><p className="profile-copy__owner">{profile.name}</p>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{profile.bio && <p className="profile-bio">{profile.bio}</p>}</div>
-        <div className="profile-stats" aria-label="Thống Kê Thư Viện"><span><strong>{albums.length}</strong> Album</span><span><strong>{assetCount}</strong> Thiết Kế</span></div>
+        <div className="profile-copy"><h1>{profile.name}</h1>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{profile.bio && <p className="profile-bio">{profile.bio}</p>}</div>
+        <div className="profile-stats" aria-label="Thống kê hình ảnh"><span><strong>{albums.length}</strong> Album</span><span><strong>{assetCount}</strong> Thiết Kế</span></div>
       </div>
     </section>
     <LibraryModeSwitch active="albums" />

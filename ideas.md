@@ -91,7 +91,7 @@ Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metad
 
 ## Style Decisions
 
-- Website được định vị là thư viện thiết kế Công giáo; các album là những Chúa Nhật, mùa phụng vụ hoặc sự kiện mục vụ thay vì những kỷ niệm cá nhân.
+- Website là trang hình cá nhân của Long Nguyen; các Album có thể theo Chúa Nhật, mùa phụng vụ hoặc sự kiện mục vụ nhưng không được trình bày như một thư viện thương hiệu chung.
 - Contact sheet, số thứ tự, nhãn metadata và hairline rules tiếp tục là cấu trúc xuyên suốt, để thư viện không trở thành một kho tệp thông thường.
 - Các ảnh hiển thị thật sẽ được đồng bộ từ Google Drive. Dữ liệu mẫu chỉ tồn tại như fallback khi GitHub Actions chưa có `GOOGLE_DRIVE_API_KEY`.
 
@@ -103,8 +103,8 @@ Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metad
 
 ## Style Decisions
 
-- Trang chủ ưu tiên nhận diện **Thư Viện Hình Công Giáo** và ngôn ngữ lưu trữ phụng vụ; tên người phụ trách là thông tin thứ cấp.
+- Trang chủ ưu tiên tên và nội dung profile của **Long Nguyen**; ngôn ngữ phụng vụ chỉ hỗ trợ phân loại hình ảnh, không thay thế nhận diện cá nhân.
 - Mỗi album kế thừa dấu mốc lưu trữ qua số chỉ mục, metadata viết hoa, đường kẻ mảnh và góc khung trên thumbnail, đồng thời giữ ảnh nguyên tỷ lệ theo yêu cầu không cắt xén.
 - Chế độ **Xem tất cả** áp dụng contact sheet có nhịp biên tập: ảnh đầu mỗi mốc tháng là ảnh neo lớn hơn trên desktop; mọi thiết kế có index marker, metadata ngày và đường thời gian để tránh cảm giác lưới ảnh đơn thuần.
-- Trang đầu dùng tiêu đề **Thư Viện Hình Công Giáo** làm nhận diện chính; tên Long Nguyen chỉ xuất hiện ở cấp thông tin phụ, còn nội dung profile vẫn lấy nguyên văn từ Google Drive.
+- Trang đầu dùng **Long Nguyen** làm tiêu đề chính; nội dung profile vẫn lấy nguyên văn từ Google Drive, không thêm mô tả cách website vận hành.
 - Bộ lọc Mùa, Tuần, Các Thánh và Đức Mẹ dùng hairline controls cùng nhãn archive, đồng thời metadata phụng vụ tạo nhịp đọc cho Dòng Thời Gian và Danh Sách thay vì biến thư viện thành bảng dữ liệu thuần túy.

@@ -1,9 +1,9 @@
 /**
  * Design: Liturgical Design Archive — a chronological, image-first reading path.
- * The timeline keeps the warm editorial paper system while making each Drive creation date and source Album easy to trace.
+ * The timeline keeps the warm editorial paper system while presenting Long Nguyen's images chronologically.
  */
 import { useMemo, useState } from "react";
-import { Link, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { ArrowLeft, CalendarDays, Eye, EyeOff, FolderOpen, Images, Plus, Search } from "lucide-react";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { Lightbox } from "@/components/Lightbox";
@@ -95,7 +95,7 @@ export default function TimelinePage() {
     <LibraryModeSwitch active="all" />
     <section className="timeline-hero">
       <p className="eyebrow">Chế độ 02 · Toàn thư viện</p>
-      <div className="timeline-hero__copy"><h1>Xem Tất Cả</h1><p>Toàn bộ thiết kế được sắp theo <strong>ngày tạo trên Google Drive</strong>, mới nhất ở trên cùng.</p></div>
+      <div className="timeline-hero__copy"><h1>Xem Tất Cả</h1></div>
       <div className="timeline-hero__utility"><label className="timeline-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm trong toàn bộ thiết kế</span><input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleItemCount(LOAD_SIZE); }} placeholder="Tìm Mùa, Tuần, Lễ hoặc thiết kế" /></label><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button></div>
       <LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setVisibleItemCount(LOAD_SIZE); }} />
       <div className="timeline-hero__stats"><span><Images size={17} strokeWidth={1.7} /> {timelinePhotos.length} Thiết Kế</span><span><CalendarDays size={17} strokeWidth={1.7} /> {groups.length} Tháng Lưu Trữ</span>{normalizedQuery && <span>Kết quả cho “{query.trim()}”</span>}</div>
@@ -115,10 +115,10 @@ export default function TimelinePage() {
           </article>)}
         </div>
       </section>)}
-    </div> : <section className="timeline-empty"><p className="eyebrow">Chưa có thiết kế</p><h1>Dòng thời gian sẽ xuất hiện sau lần đồng bộ Drive đầu tiên.</h1><Link href="/" className="text-link">Quay về Album</Link></section>}
+    </div> : <section className="timeline-empty"><p className="eyebrow">Chưa có hình phù hợp</p><h1>Chưa có hình để hiển thị.</h1></section>}
 
     {hasMoreItems && <div className="timeline-load-more"><button type="button" onClick={() => setVisibleItemCount((count) => count + LOAD_SIZE)}><Plus size={16} strokeWidth={1.8} /> Tải Thêm {LOAD_SIZE} Thiết Kế</button><span>Đã hiển thị {Math.min(visibleItemCount, timelinePhotos.length)} / {timelinePhotos.length} thiết kế</span></div>}
-    <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/">Mở Album Khác</Link></footer>
+    <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>
     {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={timelinePhotos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
   </main>;
 }
