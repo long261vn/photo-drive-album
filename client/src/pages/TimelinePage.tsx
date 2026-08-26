@@ -7,7 +7,9 @@ import { Link, useLocation } from "wouter";
 import { ArrowLeft, CalendarDays, Eye, EyeOff, FolderOpen, Images, Plus, Search } from "lucide-react";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { Lightbox } from "@/components/Lightbox";
+import { LiturgicalFilters } from "@/components/LiturgicalFilters";
 import { flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
+import { emptyLiturgicalFilters, getLiturgicalMetadata, liturgicalDetailLabels, liturgicalMetadataSearchText, matchesLiturgicalFilters, type LiturgicalFilters as LiturgicalFiltersState } from "@/lib/liturgicalMetadata";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
 
@@ -39,10 +41,10 @@ function dateForTimeline(photo: Photo, album: Album) {
   return Number.isNaN(parsed.getTime()) ? new Date(0) : parsed;
 }
 
-function groupTimeline(albums: Album[], showBackgrounds: boolean, query: string) {
+function groupTimeline(albums: Album[], showBackgrounds: boolean, query: string, filters: LiturgicalFiltersState) {
   const groupMap = new Map<string, TimelinePhoto[]>();
   flattenAlbums(albums).forEach((album) => {
-    album.photos.filter((photo) => (showBackgrounds || !photo.isBackground) && (!query || normalizeSearch([titleSearchText(photo.title), titleSearchText(photo.location), titleSearchText(album.title), album.subtitle].join(" ")).includes(query))).forEach((photo) => {
+    album.photos.filter((photo) => (showBackgrounds || !photo.isBackground) && matchesLiturgicalFilters(getLiturgicalMetadata(photo.title, photo.location), filters) && (!query || normalizeSearch([titleSearchText(photo.title), titleSearchText(photo.location), titleSearchText(album.title), album.subtitle, liturgicalMetadataSearchText(photo.title, photo.location)].join(" ")).includes(query))).forEach((photo) => {
       const timelineDate = dateForTimeline(photo, album);
       const key = `${timelineDate.getFullYear()}-${String(timelineDate.getMonth() + 1).padStart(2, "0")}`;
       const asset: TimelinePhoto = { ...photo, albumSlug: album.slug, albumTitle: album.title, timelineDate };
@@ -67,8 +69,12 @@ export default function TimelinePage() {
   const [visibleItemCount, setVisibleItemCount] = useState(LOAD_SIZE);
   const [showBackgrounds, setShowBackgrounds] = useState(false);
   const [query, setQuery] = useState("");
+  const [liturgicalFilters, setLiturgicalFilters] = useState<LiturgicalFiltersState>(emptyLiturgicalFilters);
   const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query]);
-  const groups = useMemo(() => groupTimeline(albums, showBackgrounds, normalizedQuery), [albums, showBackgrounds, normalizedQuery]);
+  const allPhotos = useMemo(() => flattenAlbums(albums).flatMap((album) => album.photos), [albums]);
+  const seasons = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).season).filter((season): season is string => Boolean(season)))), [allPhotos]);
+  const weeks = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location)).filter((metadata) => !liturgicalFilters.season || metadata.season === liturgicalFilters.season).map((metadata) => metadata.week).filter((week): week is number => Number.isFinite(week)))).sort((first, second) => first - second), [allPhotos, liturgicalFilters.season]);
+  const groups = useMemo(() => groupTimeline(albums, showBackgrounds, normalizedQuery, liturgicalFilters), [albums, showBackgrounds, normalizedQuery, liturgicalFilters]);
   const timelinePhotos = useMemo(() => groups.flatMap((group) => group.photos), [groups]);
   const visibleGroups = useMemo(() => {
     let remaining = visibleItemCount;
@@ -89,7 +95,8 @@ export default function TimelinePage() {
     <section className="timeline-hero">
       <p className="eyebrow">Chế độ 02 · Toàn thư viện</p>
       <div className="timeline-hero__copy"><h1>Xem Tất Cả</h1><p>Toàn bộ thiết kế được sắp theo <strong>ngày tạo trên Google Drive</strong>, mới nhất ở trên cùng.</p></div>
-      <div className="timeline-hero__utility"><label className="timeline-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm trong toàn bộ thiết kế</span><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm trong tất cả thiết kế" /></label><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button></div>
+      <div className="timeline-hero__utility"><label className="timeline-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm trong toàn bộ thiết kế</span><input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleItemCount(LOAD_SIZE); }} placeholder="Tìm Mùa, Tuần, Lễ hoặc thiết kế" /></label><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button></div>
+      <LiturgicalFilters filters={liturgicalFilters} seasons={seasons} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setVisibleItemCount(LOAD_SIZE); }} />
       <div className="timeline-hero__stats"><span><Images size={17} strokeWidth={1.7} /> {timelinePhotos.length} Thiết Kế</span><span><CalendarDays size={17} strokeWidth={1.7} /> {groups.length} Tháng Lưu Trữ</span>{normalizedQuery && <span>Kết quả cho “{query.trim()}”</span>}</div>
     </section>
 
@@ -103,7 +110,7 @@ export default function TimelinePage() {
               <span className="timeline-tile__index" aria-hidden="true">{String(photoIndex + 1).padStart(2, "0")}</span>
               <span className="timeline-tile__date"><CalendarDays size={12} strokeWidth={1.8} /> {dateFormatter.format(photo.timelineDate)}</span>
             </button>
-            <div className="timeline-tile__copy"><strong title={formatPhotoTitle(photo.title)}>{formatPhotoTitle(photo.title)}</strong><button type="button" onClick={() => setLocation(`/album/${photo.albumSlug}`)}><FolderOpen size={13} strokeWidth={1.8} /> {formatAlbumTitle(photo.albumTitle)}</button></div>
+            <div className="timeline-tile__copy"><strong title={formatPhotoTitle(photo.title)}>{formatPhotoTitle(photo.title)}</strong><span className="timeline-tile__metadata">{liturgicalDetailLabels(getLiturgicalMetadata(photo.title, photo.location)).slice(0, 2).join(" · ")}</span><button type="button" onClick={() => setLocation(`/album/${photo.albumSlug}`)}><FolderOpen size={13} strokeWidth={1.8} /> {formatAlbumTitle(photo.albumTitle)}</button></div>
           </article>)}
         </div>
       </section>)}

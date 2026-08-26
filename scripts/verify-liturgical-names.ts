@@ -1,4 +1,6 @@
 import { formatLiturgicalTitle, liturgicalSearchText } from "../client/src/lib/liturgicalName";
+import { getLiturgicalMetadata, liturgicalMetadataSearchText, matchesLiturgicalFilters } from "../client/src/lib/liturgicalMetadata";
+import { readFile } from "node:fs/promises";
 
 const cases: Array<[string, string]> = [
   ["09_05_Thánh_Têrêsa_Calcutta_LN1", "05/09 Thánh Têrêsa Calcutta · Long Nguyen 1"],
@@ -33,6 +35,35 @@ const feastSearch = liturgicalSearchText("06_13_Thanh_Anton");
 const ordinarySearch = liturgicalSearchText("T2_Tuan_06_TN_LN");
 if (!feastSearch.includes("Thánh An-tôn Pa-đua-a") || ordinarySearch.includes("Thánh An-tôn Pa-đua-a")) {
   throw new Error("Từ khóa danh sách Lễ không được lập chỉ mục đúng theo từng tên ảnh.");
+}
+
+const englishMetadata = getLiturgicalMetadata("CN22_TN_A_ENG");
+const saintMetadata = getLiturgicalMetadata("06_13_Thanh_Anton");
+const marianMetadata = getLiturgicalMetadata("08_22_Duc_Maria_Nu_Vuong_ENG");
+if (englishMetadata.language !== "en" || englishMetadata.season !== "Thường Niên" || !saintMetadata.categories.includes("saints") || saintMetadata.feastDate !== "13/06" || !marianMetadata.categories.includes("marian") || marianMetadata.language !== "en") {
+  throw new Error("Metadata Tiếng Anh, Mùa, Các Thánh hoặc Đức Mẹ không được nhận diện đúng.");
+}
+
+const smartSearch = liturgicalMetadataSearchText("T4_Tuan_II_MC_LN");
+if (!smartSearch.includes("lent") || !matchesLiturgicalFilters(saintMetadata, { season: "", week: "", saintsOnly: true, marianOnly: false })) {
+  throw new Error("Tìm kiếm viết tắt hoặc bộ lọc metadata không hoạt động đúng.");
+}
+
+type ManifestAlbum = { title: string; photos?: Array<{ title: string; location?: string }>; children?: ManifestAlbum[] };
+const manifest = JSON.parse(await readFile(new URL("../client/public/data/albums.json", import.meta.url), "utf8")) as { albums: ManifestAlbum[] };
+const collectPhotos = (albums: ManifestAlbum[]): Array<{ title: string; location: string }> => albums.flatMap((album) => [
+  ...(album.photos ?? []).map((photo) => ({ title: photo.title, location: photo.location ?? album.title })),
+  ...collectPhotos(album.children ?? []),
+]);
+const actualMetadata = collectPhotos(manifest.albums).map((photo) => getLiturgicalMetadata(photo.title, photo.location));
+const realCoverage = {
+  english: actualMetadata.filter((metadata) => metadata.language === "en").length,
+  saints: actualMetadata.filter((metadata) => metadata.categories.includes("saints")).length,
+  marian: actualMetadata.filter((metadata) => metadata.categories.includes("marian")).length,
+  weeks: actualMetadata.filter((metadata) => metadata.week !== null).length,
+};
+if (Object.values(realCoverage).some((count) => count === 0)) {
+  throw new Error(`Bộ lọc chưa nhận diện được dữ liệu Drive thật: ${JSON.stringify(realCoverage)}`);
 }
 
 console.log(`Đã xác nhận ${cases.length} mẫu tên phụng vụ.`);

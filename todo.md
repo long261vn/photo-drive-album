@@ -119,3 +119,11 @@
 - [x] Tạo file cấu hình quy ước có thể sửa trên GitHub, gồm alias và danh sách Lễ theo ngày.
 - [x] Tích hợp cấu hình vào lớp chuẩn hóa tên và tìm kiếm mà không đổi dữ liệu Drive gốc.
 - [x] Kiểm thử tên Lễ, tải cấu hình và giao diện desktop/Galaxy S20 trước khi phát hành.
+
+## Phân loại và lọc phụng vụ thông minh
+
+- [x] Khảo sát tên file Drive hiện có để xác định mùa, tuần, Các Thánh, Đức Mẹ và ngôn ngữ.
+- [x] Mở rộng file cấu hình cho `_Eng`/`_ENG`, Các Thánh và Đức Mẹ.
+- [x] Tạo metadata phụng vụ cùng chỉ mục tìm kiếm viết tắt cho từng ảnh.
+- [x] Thêm bộ lọc Mùa, Tuần, Các Thánh, Đức Mẹ và hiển thị metadata trong chế độ Danh Sách.
+- [x] Kiểm thử desktop, Galaxy S20, tìm kiếm, hiệu năng và phát hành GitHub Pages.

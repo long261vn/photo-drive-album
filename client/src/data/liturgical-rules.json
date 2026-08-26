@@ -60,6 +60,23 @@
     "T6": "Thứ Sáu",
     "T7": "Thứ Bảy"
   },
+  "languageMarkers": {
+    "english": ["_eng", " eng", "_english", " english"],
+    "vietnamese": ["_vie", " vie", "_vietnamese", " vietnamese"]
+  },
+  "categoryKeywords": {
+    "saints": ["thanh", "thánh", "cac thanh", "các thánh", "tu dao", "tử đạo"],
+    "marian": ["duc me", "đức mẹ", "duc maria", "đức maria", "duc trinh nu maria", "đức trinh nữ maria", "me maria", "mẹ maria", "ma-ri-a", "maria me", "maria mẹ"]
+  },
+  "smartSearchAliases": {
+    "mua-vong": ["mv", "mua vong", "mùa vọng", "advent"],
+    "mua-chay": ["mc", "mua chay", "mùa chay", "lent"],
+    "phuc-sinh": ["ps", "phuc sinh", "phục sinh", "easter"],
+    "thuong-nien": ["tn", "thuong nien", "thường niên", "ordinary time"],
+    "cac-thanh": ["thanh", "thánh", "cac thanh", "các thánh", "saints"],
+    "duc-me": ["duc me", "đức mẹ", "duc maria", "đức maria", "me maria", "mẹ maria", "ma-ri-a", "marian", "mary"],
+    "tieng-anh": ["eng", "english", "tieng anh", "tiếng anh"]
+  },
   "displayAliases": [
     {
       "aliases": ["cnps", "cn phuc sinh"],

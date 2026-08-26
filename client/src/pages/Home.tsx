@@ -6,8 +6,10 @@ import { useLocation } from "wouter";
 import { ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, ImageIcon, Search } from "lucide-react";
 import { AlbumList } from "@/components/AlbumList";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
+import { LiturgicalFilters } from "@/components/LiturgicalFilters";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
+import { emptyLiturgicalFilters, getLiturgicalMetadata, liturgicalDetailLabels, liturgicalMetadataSearchText, matchesLiturgicalFilters, type LiturgicalFilters as LiturgicalFiltersState } from "@/lib/liturgicalMetadata";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
 
 const PAGE_SIZE = 5;
@@ -20,15 +22,17 @@ const normalizeSearch = (value: string) => value
 
 type SearchResult = { kind: "folder"; album: Album } | { kind: "photo"; album: Album; photo: Photo };
 
-const searchArchive = (albums: Album[], query: string, showBackgrounds: boolean): SearchResult[] => albums.flatMap((album) => {
+const albumMatchesFilters = (album: Album, filters: LiturgicalFiltersState, showBackgrounds: boolean) => flattenAlbums([album]).some((entry) => entry.photos.some((photo) => (showBackgrounds || !photo.isBackground) && matchesLiturgicalFilters(getLiturgicalMetadata(photo.title, photo.location), filters)));
+
+const searchArchive = (albums: Album[], query: string, showBackgrounds: boolean, filters: LiturgicalFiltersState): SearchResult[] => albums.flatMap((album) => {
   const folderMatches = normalizeSearch([titleSearchText(album.title), album.subtitle, album.description].join(" ")).includes(query);
   const directMatches = album.photos
-    .filter((photo) => (showBackgrounds || !photo.isBackground) && normalizeSearch([titleSearchText(photo.title), titleSearchText(photo.location)].join(" ")).includes(query))
+    .filter((photo) => (showBackgrounds || !photo.isBackground) && matchesLiturgicalFilters(getLiturgicalMetadata(photo.title, photo.location), filters) && normalizeSearch([titleSearchText(photo.title), titleSearchText(photo.location), liturgicalMetadataSearchText(photo.title, photo.location)].join(" ")).includes(query))
     .map((photo) => ({ kind: "photo" as const, album, photo }));
   return [
-    ...(folderMatches ? [{ kind: "folder" as const, album }] : []),
+    ...(folderMatches && albumMatchesFilters(album, filters, showBackgrounds) ? [{ kind: "folder" as const, album }] : []),
     ...directMatches,
-    ...searchArchive(album.children ?? [], query, showBackgrounds),
+    ...searchArchive(album.children ?? [], query, showBackgrounds, filters),
   ];
 });
 
@@ -38,19 +42,24 @@ export default function Home() {
   const [sort, setSort] = useState<"created-desc" | "created-asc" | "name">("created-desc");
   const [page, setPage] = useState(1);
   const [showBackgrounds, setShowBackgrounds] = useState(false);
+  const [liturgicalFilters, setLiturgicalFilters] = useState<LiturgicalFiltersState>(emptyLiturgicalFilters);
   const { registerTap } = useSyncWorkflowShortcut();
   const { albums, profile } = useArchiveManifest();
   const profileCover = profile.cover?.trim();
   const profileAvatar = profile.avatar?.trim();
   const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query]);
-  const sortedAlbums = useMemo(() => albums
+  const allPhotos = useMemo(() => flattenAlbums(albums).flatMap((album) => album.photos), [albums]);
+  const seasons = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).season).filter((season): season is string => Boolean(season)))), [allPhotos]);
+  const weeks = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location)).filter((metadata) => !liturgicalFilters.season || metadata.season === liturgicalFilters.season).map((metadata) => metadata.week).filter((week): week is number => Number.isFinite(week)))).sort((first, second) => first - second), [allPhotos, liturgicalFilters.season]);
+  const sortedAlbums = useMemo(() => [...albums]
+    .filter((album) => albumMatchesFilters(album, liturgicalFilters, showBackgrounds))
     .sort((a, b) => {
       if (sort === "name") return formatAlbumTitle(a.title).localeCompare(formatAlbumTitle(b.title), "vi");
       const dateA = new Date(a.createdAt ?? 0).getTime();
       const dateB = new Date(b.createdAt ?? 0).getTime();
       return sort === "created-desc" ? dateB - dateA : dateA - dateB;
-    }), [albums, sort]);
-  const searchResults = useMemo(() => normalizedQuery ? searchArchive(albums, normalizedQuery, showBackgrounds) : [], [albums, normalizedQuery, showBackgrounds]);
+    }), [albums, sort, liturgicalFilters, showBackgrounds]);
+  const searchResults = useMemo(() => normalizedQuery ? searchArchive(albums, normalizedQuery, showBackgrounds, liturgicalFilters) : [], [albums, normalizedQuery, showBackgrounds, liturgicalFilters]);
   const isSearching = normalizedQuery.length > 0;
   const assetCount = useMemo(() => flattenAlbums(albums).reduce((total, album) => total + album.photos.filter((photo) => showBackgrounds || !photo.isBackground).length, 0), [albums, showBackgrounds]);
   const pageSize = isSearching ? SEARCH_PAGE_SIZE : PAGE_SIZE;
@@ -77,12 +86,14 @@ export default function Home() {
         <label className="archive-sort"><span>Sắp Xếp</span><select value={sort} onChange={(event) => { setSort(event.target.value as typeof sort); setPage(1); }}><option value="created-desc">Mới Nhất</option><option value="created-asc">Cũ Nhất</option><option value="name">Tên A - Z</option></select><ChevronDown size={15} strokeWidth={1.8} /></label>
       </div>
     </section>
+    <section className="archive-liturgical-controls"><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setPage(1); }} /></section>
     {isSearching ? <section className="search-results" aria-label="Kết quả tìm kiếm"><div className="search-results__rule"><span>{searchResults.length} Kết Quả</span><span>Tên folder và tên hình</span></div><div className="search-results__list">{pageResults.map((result, index) => {
       const isPhoto = result.kind === "photo";
       const title = isPhoto ? formatPhotoTitle(result.photo.title) : formatAlbumTitle(result.album.title);
       const image = isPhoto ? result.photo.src : result.album.cover;
       const typeLabel = isPhoto ? "Hình Ảnh" : result.album.parentSlug ? "Bộ Sưu Tập" : "Album";
-      return <article className="search-result" key={isPhoto ? result.photo.id : result.album.id}><button className="search-result__thumbnail" type="button" onClick={() => setLocation(`/album/${result.album.slug}`)} aria-label={`Mở ${title}`}>{image?.trim() ? <img src={image} alt="" loading="lazy" decoding="async" /> : <span className="album-list__thumbnail-placeholder" aria-hidden="true" />}{isPhoto ? <ImageIcon size={15} strokeWidth={1.8} /> : <FolderOpen size={15} strokeWidth={1.8} />}</button><div className="search-result__copy"><span>{String((currentPage - 1) * SEARCH_PAGE_SIZE + index + 1).padStart(2, "0")} · {typeLabel}</span><h3>{title}</h3><p>Trong {formatAlbumTitle(result.album.title)} · {result.album.date}</p></div><button className="search-result__open" type="button" onClick={() => setLocation(`/album/${result.album.slug}`)}>{isPhoto ? "Mở Album" : "Mở"}<ChevronRight size={16} strokeWidth={1.8} /></button></article>;
+      const details = isPhoto ? liturgicalDetailLabels(getLiturgicalMetadata(result.photo.title, result.photo.location)).join(" · ") : "";
+      return <article className="search-result" key={isPhoto ? result.photo.id : result.album.id}><button className="search-result__thumbnail" type="button" onClick={() => setLocation(`/album/${result.album.slug}`)} aria-label={`Mở ${title}`}>{image?.trim() ? <img src={image} alt="" loading="lazy" decoding="async" /> : <span className="album-list__thumbnail-placeholder" aria-hidden="true" />}{isPhoto ? <ImageIcon size={15} strokeWidth={1.8} /> : <FolderOpen size={15} strokeWidth={1.8} />}</button><div className="search-result__copy"><span>{String((currentPage - 1) * SEARCH_PAGE_SIZE + index + 1).padStart(2, "0")} · {typeLabel}</span><h3>{title}</h3><p>Trong {formatAlbumTitle(result.album.title)} · {details || result.album.date}</p></div><button className="search-result__open" type="button" onClick={() => setLocation(`/album/${result.album.slug}`)}>{isPhoto ? "Mở Album" : "Mở"}<ChevronRight size={16} strokeWidth={1.8} /></button></article>;
     })}{pageResults.length === 0 && <div className="empty-archive"><p>Chưa tìm thấy Album, Bộ Sưu Tập hoặc hình phù hợp.</p></div>}</div></section> : <AlbumList albums={pageAlbums} startIndex={(currentPage - 1) * PAGE_SIZE} onOpen={(slug) => setLocation(`/album/${slug}`)} />}
     {pageCount > 1 && <nav className="album-pagination" aria-label={isSearching ? "Phân Trang Kết Quả" : "Phân Trang Album"}><button type="button" onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={currentPage === 1}><ChevronLeft size={16} /> Trước</button><span>{isSearching ? "Kết quả" : "Trang"} {currentPage} / {pageCount}</span><button type="button" onClick={() => setPage((current) => Math.min(pageCount, current + 1))} disabled={currentPage === pageCount}>Sau <ChevronRight size={16} /></button></nav>}
     <footer className="site-footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>

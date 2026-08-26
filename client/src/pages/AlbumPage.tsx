@@ -2,13 +2,15 @@
  * Design: Liturgical Design Archive.
  * A mobile-first Drive-like browser that keeps photos and nested collections in one coherent set of views.
  */
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ArrowLeft, CalendarDays, Download, Eye, EyeOff, FolderOpen, Grid2X2, ImageIcon, List } from "lucide-react";
-import { findAlbum, formatAlbumTitle, formatPhotoTitle, type Album, type Photo } from "@/lib/albumData";
+import { findAlbum, flattenAlbums, formatAlbumTitle, formatPhotoTitle, type Album, type Photo } from "@/lib/albumData";
 import { Lightbox } from "@/components/Lightbox";
+import { LiturgicalFilters } from "@/components/LiturgicalFilters";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
+import { emptyLiturgicalFilters, getLiturgicalMetadata, liturgicalDetailLabels, matchesLiturgicalFilters, type LiturgicalFilters as LiturgicalFiltersState } from "@/lib/liturgicalMetadata";
 
 type GalleryView = "large" | "grid" | "list";
 
@@ -30,17 +32,24 @@ export default function AlbumPage() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const [galleryView, setGalleryView] = useState<GalleryView>("grid");
   const [showBackgrounds, setShowBackgrounds] = useState(false);
+  const [liturgicalFilters, setLiturgicalFilters] = useState<LiturgicalFiltersState>(emptyLiturgicalFilters);
   const { registerTap } = useSyncWorkflowShortcut();
+  const albumPhotos = useMemo(() => album ? flattenAlbums([album]).flatMap((entry) => entry.photos) : [], [album]);
+  const seasons = useMemo(() => Array.from(new Set(albumPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).season).filter((season): season is string => Boolean(season)))), [albumPhotos]);
+  const weeks = useMemo(() => Array.from(new Set(albumPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location)).filter((metadata) => !liturgicalFilters.season || metadata.season === liturgicalFilters.season).map((metadata) => metadata.week).filter((week): week is number => Number.isFinite(week)))).sort((first, second) => first - second), [albumPhotos, liturgicalFilters.season]);
 
   if (!album) return <main className="not-found-page"><p className="eyebrow">Không tìm thấy</p><h1>Bộ thiết kế này chưa có trong thư viện.</h1><Link href="/" className="text-link">Quay về danh mục</Link></main>;
 
   const parentAlbum = album.parentSlug ? findAlbum(albums, album.parentSlug) : undefined;
   const childAlbums = album.children ?? [];
-  const visiblePhotos = album.photos.filter((photo) => showBackgrounds || !photo.isBackground);
-  const visibleAssetCount = (entry: Album): number => entry.photos.filter((photo) => showBackgrounds || !photo.isBackground).length + (entry.children ?? []).reduce((total, child) => total + visibleAssetCount(child), 0);
+  const isVisiblePhoto = (photo: Photo) => (showBackgrounds || !photo.isBackground) && matchesLiturgicalFilters(getLiturgicalMetadata(photo.title, photo.location), liturgicalFilters);
+  const visiblePhotos = album.photos.filter(isVisiblePhoto);
+  const collectionHasMatch = (entry: Album) => flattenAlbums([entry]).some((nested) => nested.photos.some(isVisiblePhoto));
+  const visibleChildAlbums = childAlbums.filter(collectionHasMatch);
+  const visibleAssetCount = (entry: Album): number => entry.photos.filter(isVisiblePhoto).length + (entry.children ?? []).reduce((total, child) => total + visibleAssetCount(child), 0);
   const visibleDesignCount = visibleAssetCount(album);
   const contentItems: AlbumContentItem[] = [
-    ...childAlbums.map((child) => ({ kind: "collection" as const, album: child })),
+    ...visibleChildAlbums.map((child) => ({ kind: "collection" as const, album: child })),
     ...visiblePhotos.map((photo) => ({ kind: "photo" as const, photo })),
   ];
   const albumAvatar = profile.avatar?.trim();
@@ -50,7 +59,7 @@ export default function AlbumPage() {
   return (
     <main className="album-page">
       <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay Lại" : "Tất Cả Thiết Kế"}</button>{albumAvatar ? <span className="album-page__avatar"><img src={albumAvatar} alt={`Avatar ${profile.name}`} /></span> : <span className="header-mark brand-symbol" aria-hidden="true" />}</header>
-      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} Thiết Kế</span>{childAlbums.length > 0 && <span>{childAlbums.length} Bộ Sưu Tập</span>}</div></div>{album.downloadAll && <a className="album-intro__download" href={album.downloadAll.url} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Toàn Bộ Album</a>}</section>
+      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} Thiết Kế</span>{visibleChildAlbums.length > 0 && <span>{visibleChildAlbums.length} Bộ Sưu Tập</span>}</div></div>{album.downloadAll && <a className="album-intro__download" href={album.downloadAll.url} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Toàn Bộ Album</a>}</section>
       {contentItems.length > 0 && <section className="contact-sheet" aria-label={`Nội dung trong ${formatAlbumTitle(album.title)}`}>
         <div className="contact-sheet__rule">
           <span>Nội Dung Trong Album</span>
@@ -66,6 +75,7 @@ export default function AlbumPage() {
             </div>
           </div>
         </div>
+        <LiturgicalFilters filters={liturgicalFilters} seasons={seasons} weeks={weeks} onChange={setLiturgicalFilters} />
 
         {galleryView === "list" ? (
           <div className="photo-list" role="list">
@@ -83,7 +93,7 @@ export default function AlbumPage() {
                 <button type="button" className="photo-list__preview" onClick={() => setSelectedPhoto(item.photo)} aria-label={`Mở thiết kế ${formatPhotoTitle(item.photo.title)}`}>
                   {item.photo.src?.trim() ? <img src={item.photo.src} alt={formatPhotoTitle(item.photo.title)} loading="lazy" decoding="async" /> : <span className="photo-list__placeholder" aria-hidden="true" />}
                 </button>
-                <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(item.photo.title)}</strong><span>{formatAlbumTitle(item.photo.location)} · {item.photo.date}</span></div>
+                <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(item.photo.title)}</strong><span>{formatAlbumTitle(item.photo.location)} · {item.photo.date}</span><span className="photo-list__liturgical">{liturgicalDetailLabels(getLiturgicalMetadata(item.photo.title, item.photo.location)).join(" · ") || "Chưa phân loại"}</span>{getLiturgicalMetadata(item.photo.title, item.photo.location).celebrations[0] && <span className="photo-list__feast">{getLiturgicalMetadata(item.photo.title, item.photo.location).celebrations[0]}</span>}</div>
                 <div className="photo-list__type"><span>{item.photo.mimeType?.replace("image/", "").toUpperCase() ?? "HÌNH ẢNH"}</span><span>Hình Ảnh</span></div>
                 <a href={item.photo.downloadUrl} target="_blank" rel="noreferrer" className="photo-list__download" aria-label={`Tải ${formatPhotoTitle(item.photo.title)}`}><Download size={16} strokeWidth={1.8} /><span>Tải</span></a>
               </article>

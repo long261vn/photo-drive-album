@@ -134,6 +134,12 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
 
+## 2026-08-26 — Lọc và metadata phụng vụ
+
+Đã bổ sung bộ lọc **Mùa Phụng Vụ → Tuần**, **Các Thánh** và **Đức Mẹ** ở Trang chủ, Dòng Thời Gian và từng Album. Tuần hiển thị phụ thuộc Mùa đang chọn. Ảnh `_Eng`/`_ENG` được gắn **Tiếng Anh**; Các Thánh nhận diện từ ngày `MM_DD` kết hợp `Thanh`/`Thánh` hoặc dấu hiệu Tử Đạo; Đức Mẹ nhận diện các cụm `Duc_Me`, `Duc_Maria`, `Me_Maria`, `Ma-ri-a` và biến thể có dấu.
+
+Ô tìm kiếm nhận metadata và alias theo file cấu hình; chế độ Danh Sách bổ sung Mùa/Tuần, ngày Lễ, nhóm nội dung, ngôn ngữ và tên Lễ cố định khi có dữ liệu. Kiểm thử hồi quy gồm 17 mẫu quy ước và đối chiếu manifest thật cho cả bốn nhóm Tiếng Anh/Các Thánh/Đức Mẹ/Tuần. Đã chạy `pnpm check`, build Pages, `git diff --check`, kiểm tra desktop 1280×720 và Galaxy S20 360×800. Bộ lọc thêm 12.74KB JavaScript, tương đương 2.74KB gzip; metadata được cache theo tên ảnh, không có request mạng mới hay lỗi runtime sau bản sửa.
+
 ## 2026-08-26 — File cấu hình quy ước và danh sách Lễ
 
 Đã tách số La Mã I–XXXIV, mùa phụng vụ, thứ trong tuần, alias tên Lễ và danh sách Lễ cố định theo ngày vào `client/src/data/liturgical-rules.json`. File được import lúc build, nên thay đổi trong file không đổi tên Drive gốc, slug Album, ID hoặc URL tải; đồng thời không tạo request mạng mới khi người xem mở website.

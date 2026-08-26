@@ -59,7 +59,9 @@ Tên file/folder trong Drive là **tên nguồn**: website không đổi tên, s
 | `Tuan_02_MC_va_Le_tu_02_03_den_07_03` | `Tuần 02 Mùa Chay và Lễ từ 02/03 đến 07/03` |
 | `CN22_TN_A_va_Tuan22TN_tu_30_08_den_05_09` | `Chúa Nhật Thứ 22 Thường Niên - Năm A và Tuần 22 Thường Niên từ 30/08 đến 05/09` |
 
-Hậu tố `_LN`, `_LN1`, `_LN2`… được hiểu là phiên bản của **Long Nguyen**. Hậu tố `_BG` vẫn chỉ đánh dấu ảnh Background và mặc định bị ẩn; khi bật **Hiện BG**, tên hiển thị thêm nhãn `Background` để phân biệt rõ.
+Hậu tố `_LN`, `_LN1`, `_LN2`… được hiểu là phiên bản của **Long Nguyen**. Hậu tố `_BG` vẫn chỉ đánh dấu ảnh Background và mặc định bị ẩn; khi bật **Hiện BG**, tên hiển thị thêm nhãn `Background` để phân biệt rõ. Hậu tố `_Eng` hoặc `_ENG` nhận diện thiết kế **Tiếng Anh** và thêm nhãn tương ứng khi hiển thị.
+
+Website cũng tự phân loại để lọc và tìm kiếm nhanh: mã `TN`/`MC`/`PS`/`MV` cho Mùa Phụng Vụ và Tuần; tên có ngày theo dạng `MM_DD` kết hợp `Thanh`/`Thánh` cho **Các Thánh**; và các cụm `Duc_Me`, `Duc_Maria`, `Me_Maria`, `Ma-ri-a` cho **Đức Mẹ**. Trong chế độ **Danh Sách**, từng ảnh hiển thị Mùa/Tuần, ngày Lễ, nhóm nội dung và ngôn ngữ khi nhận diện được.
 
 ### Thêm hoặc sửa quy ước không sửa giao diện
 

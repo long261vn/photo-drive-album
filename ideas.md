@@ -107,3 +107,4 @@ Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metad
 - Mỗi album kế thừa dấu mốc lưu trữ qua số chỉ mục, metadata viết hoa, đường kẻ mảnh và góc khung trên thumbnail, đồng thời giữ ảnh nguyên tỷ lệ theo yêu cầu không cắt xén.
 - Chế độ **Xem tất cả** áp dụng contact sheet có nhịp biên tập: ảnh đầu mỗi mốc tháng là ảnh neo lớn hơn trên desktop; mọi thiết kế có index marker, metadata ngày và đường thời gian để tránh cảm giác lưới ảnh đơn thuần.
 - Trang đầu dùng tiêu đề **Thư Viện Hình Công Giáo** làm nhận diện chính; tên Long Nguyen chỉ xuất hiện ở cấp thông tin phụ, còn nội dung profile vẫn lấy nguyên văn từ Google Drive.
+- Bộ lọc Mùa, Tuần, Các Thánh và Đức Mẹ dùng hairline controls cùng nhãn archive, đồng thời metadata phụng vụ tạo nhịp đọc cho Dòng Thời Gian và Danh Sách thay vì biến thư viện thành bảng dữ liệu thuần túy.
