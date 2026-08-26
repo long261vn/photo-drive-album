@@ -143,9 +143,9 @@
 - [x] Tích hợp lọc Năm A/B/C, tìm kiếm và liên kết từ thư viện sang tra cứu Lễ.
 - [x] Kiểm thử desktop, Galaxy S20, điều hướng neo, build và phát hành Pages.
 
-## Chế độ 03 — Danh Sách Lễ độc lập
+## Gỡ Chế độ 03 Danh Sách Lễ
 
-- [x] Rà soát điều hướng hiện tại để tách rõ trang Danh Sách Lễ.
-- [x] Thêm Chế độ 03 vào điều hướng chung của thư viện.
-- [x] Kiểm thử lối vào trang độc lập trên desktop và Galaxy S20.
-- [x] Phát hành GitHub Pages với điều hướng tách biệt.
+- [x] Xác định toàn bộ route, điều hướng và tài liệu thuộc Chế độ 03.
+- [x] Loại bỏ trang, route và lối vào Danh Sách Lễ khỏi website.
+- [x] Kiểm thử lại Xem theo Album và Xem tất cả trên desktop/Galaxy S20.
+- [x] Phát hành điều hướng hai chế độ đã tinh gọn lên GitHub Pages.

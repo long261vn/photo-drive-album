@@ -63,8 +63,6 @@ Hậu tố `_LN`, `_LN1`, `_LN2`… được hiểu là phiên bản của **Lon
 
 Website cũng tự phân loại để lọc và tìm kiếm nhanh: mã `TN`/`MC`/`PS`/`MV` cho Mùa Phụng Vụ và Tuần; tên Các Thánh thường bắt đầu bằng **tháng-ngày** theo dạng `MM_DD_Thánh...` (ví dụ `09_03_Thánh_Grêgôriô_Cả_LN`); và các cụm trực tiếp như `Duc_Me`, `Duc_Maria`, `Me_Maria`, `DMMC` cho **Đức Mẹ**. Mã `CN..._A`, `CN..._B`, `CN..._C` hoặc `Năm A/B/C` được dùng cho bộ lọc chu kỳ phụng vụ. Tên riêng `Maria` hoặc `Ma-ri-a` đứng một mình không kích hoạt bộ lọc Đức Mẹ, để các Thánh Maria không bị lẫn. Trong chế độ **Danh Sách**, từng ảnh hiển thị Mùa, Năm, Tuần, ngày Lễ, nhóm nội dung và ngôn ngữ khi nhận diện được.
 
-Nút **Tra Cứu Danh Sách Lễ** mở trang mục lục Lễ nội bộ. Danh sách lấy từ `fixedFeasts`, `calendar.leChinh` và `calendar.muaPhungVu` trong file quy ước; khi chọn một mục, website hiển thị các thiết kế Drive cùng ngày Lễ hoặc metadata phù hợp.
-
 ### Thêm hoặc sửa quy ước không sửa giao diện
 
 File cấu hình nằm tại **`client/src/data/liturgical-rules.json`**. Đây là nơi quản lý số La Mã, tên mùa phụng vụ, tên thứ, alias thường gặp và danh sách Lễ theo ngày. Để cập nhật, trên GitHub mở file này → bấm biểu tượng bút chì → sửa nội dung → **Commit changes** vào nhánh `main`. Workflow Pages sẽ tự build và phát hành bản mới; không cần sửa `Home.tsx`, `AlbumPage.tsx` hoặc script đồng bộ Drive.

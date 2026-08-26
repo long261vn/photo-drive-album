@@ -50,10 +50,6 @@ Trong website, người xem chọn **Mùa Phụng Vụ** trước rồi chọn *
 
 Website nhận `CN22_TN_A`, `CN03_MuaChay_B`, `CN05_PS_C` cũng như dạng chữ `Năm A`, `Năm B`, `Năm C`. Nút **Năm A/B/C** trên thư viện chỉ lọc ảnh mang đúng metadata đó. Đối với Các Thánh, giữ định dạng `MM_DD_Thánh...` hoặc `MM_DD_Thanh...`; website dùng phần tháng-ngày này để vừa xếp nhóm **Các Thánh**, vừa đối chiếu Danh Sách Lễ cố định.
 
-## Trang Tra Cứu Danh Sách Lễ
-
-Trang `/tra-cuu-le` hiển thị toàn bộ Lễ Chính, Mùa Phụng Vụ và Lễ Theo Ngày từ file JSON. Mỗi mục có một link neo riêng dạng `/tra-cuu-le/date-06-13-1`; khi chọn, mục đó được giữ trong vùng danh mục và nội dung bên trái trả về các thiết kế Drive phù hợp. Muốn thêm một Lễ, chỉnh `fixedFeasts` hoặc `calendar.leChinh`/`calendar.muaPhungVu`; không cần sửa giao diện.
-
 ## Cách phát hành sau khi sửa
 
 Trên GitHub, mở file → bấm biểu tượng chỉnh sửa → sửa JSON → **Commit changes** trực tiếp vào `main`. GitHub Pages tự build và xuất bản. Khi sửa nhanh, hãy kiểm tra ba điểm: dấu phẩy giữa các mục, dấu ngoặc kép quanh chữ và dấu ngoặc vuông/ngoặc nhọn cân bằng.

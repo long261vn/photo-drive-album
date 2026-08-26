@@ -134,9 +134,10 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
 
-## 2026-08-26 — Chế độ 03 độc lập
+## 2026-08-26 — Điều hướng hai chế độ
 
-Đã tách **Danh Sách Lễ** thành **Chế độ 03** trong bộ điều hướng chung, ngang hàng với `Xem theo Album` và `Xem tất cả`. Trang vẫn dùng URL độc lập `/tra-cuu-le`; không còn chỉ là lối vào phụ trong phần Album. Trên desktop, ba chế độ hiển thị thành ba ô song song; trên Galaxy S20, cả ba vẫn hiển thị rõ và có trạng thái active riêng. `pnpm check`, build GitHub Pages và `git diff --check` thành công.
+Theo yêu cầu owner, đã gỡ hoàn toàn Danh Sách Lễ: tệp trang, route `/tra-cuu-le`, mục điều hướng, CSS chuyên biệt và nội dung hướng dẫn liên quan đều đã bị loại bỏ. Thư viện chỉ còn **Chế độ 01 — Xem theo Album** và **Chế độ 02 — Xem tất cả**. Đã kiểm tra cả hai trang trên desktop 1280×720 và Galaxy S20 360×800: điều hướng hai ô hiển thị đúng, active state rõ ràng, không tràn ngang. TypeScript, build GitHub Pages và kiểm tra diff đều thành công.
+
 
 ## 2026-08-26 — Tra cứu Lễ và Năm A/B/C
 
