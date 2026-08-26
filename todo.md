@@ -156,3 +156,8 @@
 - [x] Bỏ nhận diện “Thư Viện Hình Công Giáo” và nội dung giải thích kỹ thuật khỏi giao diện.
 - [x] Thay lối điều hướng cuối trang bằng ngữ cảnh phù hợp với trang hình cá nhân.
 - [x] Kiểm thử desktop, Galaxy S20 và phát hành GitHub Pages.
+
+## Nhãn tải trong trình xem ảnh
+
+- [x] Xác định và đổi nhãn “Tải thiết kế” thành “Tải xuống”.
+- [x] Kiểm thử trình xem ảnh, build và phát hành GitHub Pages.

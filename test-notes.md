@@ -134,6 +134,10 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
 
+## 2026-08-26 — Nhãn tải trình xem ảnh
+
+Đã đổi nhãn nút tải ở footer của Lightbox từ **Tải thiết kế** thành **Tải xuống**. Thuộc tính `href`, việc mở liên kết tải ở tab mới và các điều khiển xem ảnh khác không thay đổi. TypeScript đã kiểm tra thành công; toàn bộ mã nguồn `client/src` không còn nhãn cũ.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.

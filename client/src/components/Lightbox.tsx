@@ -74,7 +74,7 @@ export function Lightbox({ photo, index, count, onClose, onPrevious, onNext }: L
         <div className="lightbox__canvas" style={{ transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoom})` }}><img key={photo.id} src={photo.src} alt={photoTitle} draggable={false} decoding="async" onLoad={() => setImageLoaded(true)} /></div>
         <button className="lightbox__nav lightbox__nav--next" type="button" onClick={onNext} aria-label="Thiết kế tiếp theo"><ChevronRight size={28} strokeWidth={1.65} /></button>
       </div>
-      <div className="lightbox__footer"><p>{formatAlbumTitle(photo.location)} <span>—</span> {photo.date}</p><a className="download-button" href={photo.downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải thiết kế</a><span className="lightbox__position">{index + 1} / {count}</span></div>
+      <div className="lightbox__footer"><p>{formatAlbumTitle(photo.location)} <span>—</span> {photo.date}</p><a className="download-button" href={photo.downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải xuống</a><span className="lightbox__position">{index + 1} / {count}</span></div>
     </div>
   );
 }
