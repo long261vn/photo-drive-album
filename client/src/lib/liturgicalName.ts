@@ -1,18 +1,21 @@
 /**
  * Design: Liturgical Design Archive.
- * Drive names remain the source of truth; this formatter only creates a readable Vietnamese display label and search vocabulary.
+ * Drive names remain the source of truth; editable rules live in data/liturgical-rules.json and only shape display/search labels.
  */
+import liturgicalRules from "@/data/liturgical-rules.json";
 
-const weekdayNames: Record<string, string> = { "2": "Hai", "3": "Ba", "4": "Tư", "5": "Năm", "6": "Sáu", "7": "Bảy" };
+const weekdayNames: Record<string, string> = Object.fromEntries(Object.entries(liturgicalRules.weekdayAliases).map(([key, label]) => [key.replace(/^T/, ""), label.replace(/^Thứ\s+/i, "")]));
+const romanNumerals: Record<string, number> = liturgicalRules.romanNumerals;
+const fixedFeastsByDate = new Map(liturgicalRules.fixedFeasts.map((feast) => [feast.date, feast.celebrations]));
 
 const padNumber = (value: string) => value.padStart(2, "0");
+const normalizeRuleKey = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/[^a-z0-9]+/gi, "").toLocaleLowerCase("vi");
+const escapeRegExp = (value: string) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 function seasonLabel(value: string) {
-  const token = value.replace(/\s+/g, "").toLocaleLowerCase("vi");
-  if (token === "tn" || token === "thuongnien") return "Thường Niên";
-  if (token === "mc" || token === "muachay") return "Mùa Chay";
-  if (token === "ps" || token === "phucsinh") return "Phục Sinh";
-  if (token === "mv" || token === "muavong") return "Mùa Vọng";
+  const token = normalizeRuleKey(value);
+  const configured = Object.entries(liturgicalRules.seasonAliases).find(([alias]) => normalizeRuleKey(alias) === token)?.[1];
+  if (configured) return configured;
   return value;
 }
 
@@ -42,9 +45,30 @@ function peelTechnicalSuffixes(value: string) {
   return { text: text.replace(/\s+/g, " ").trim(), suffixes };
 }
 
+function withArabicRomanWeek(value: string) {
+  return value.replace(/\b(CN|Tuan)\s+([IVXLCDM]+)(?=\s+(?:TN|MC|PS|MV|Thuong|Mua|Phuc))/gi, (match: string, prefix: string, roman: string) => {
+    const number = romanNumerals[roman.toUpperCase()];
+    return number ? `${prefix}${number}` : match;
+  });
+}
+
+function applyConfiguredAliases(value: string) {
+  return liturgicalRules.displayAliases.reduce((current, rule) => rule.aliases.reduce((result, alias) => {
+    const pattern = alias.trim().split(/\s+/).map(escapeRegExp).join("\\s+");
+    return result.replace(new RegExp(`(^|\\s)${pattern}(?=\\s|$)`, "gi"), (_match, leadingSpace: string) => `${leadingSpace}${rule.label}`);
+  }, current), value);
+}
+
+function fixedFeastSearchText(value: string) {
+  const match = sourceText(value).match(/^(\d{1,2})\s+(\d{1,2})(?:\s|$)/);
+  if (!match) return "";
+  return (fixedFeastsByDate.get(`${padNumber(match[1])}-${padNumber(match[2])}`) ?? []).join(" ");
+}
+
 /** Converts a Drive filename/folder title into a human-readable liturgical name without changing its raw source value. */
 export function formatLiturgicalTitle(value = "") {
-  const { text: source, suffixes } = peelTechnicalSuffixes(sourceText(value));
+  const { text: rawSource, suffixes } = peelTechnicalSuffixes(sourceText(value));
+  const source = withArabicRomanWeek(applyConfiguredAliases(rawSource));
   if (!source) return suffixes.join(" · ");
 
   let title = source
@@ -82,5 +106,10 @@ export function formatLiturgicalTitle(value = "") {
 
 /** Indexes both raw Drive text and the display label, so either naming style remains searchable. */
 export function liturgicalSearchText(value = "") {
-  return `${value} ${formatLiturgicalTitle(value)}`.trim();
+  const sourceKey = normalizeRuleKey(value);
+  const aliasSearchText = liturgicalRules.displayAliases
+    .filter((rule) => rule.aliases.some((alias) => sourceKey.includes(normalizeRuleKey(alias))))
+    .flatMap((rule) => [...rule.aliases, rule.label])
+    .join(" ");
+  return `${value} ${formatLiturgicalTitle(value)} ${fixedFeastSearchText(value)} ${aliasSearchText}`.trim();
 }

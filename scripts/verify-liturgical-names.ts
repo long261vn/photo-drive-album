@@ -1,4 +1,4 @@
-import { formatLiturgicalTitle } from "../client/src/lib/liturgicalName";
+import { formatLiturgicalTitle, liturgicalSearchText } from "../client/src/lib/liturgicalName";
 
 const cases: Array<[string, string]> = [
   ["09_05_Thánh_Têrêsa_Calcutta_LN1", "05/09 Thánh Têrêsa Calcutta · Long Nguyen 1"],
@@ -16,6 +16,8 @@ const cases: Array<[string, string]> = [
   ["CN ChuaBaNgoi A LN1", "Chúa Nhật Chúa Ba Ngôi - Năm A · Long Nguyen 1"],
   ["06 01 THÁNH JUSTINÔ tử đạo LN", "01/06 Thánh JUSTINÔ Tử Đạo · Long Nguyen"],
   ["Tuan09TN tu 01 06 den 06 06", "Tuần 09 Thường Niên từ 01/06 đến 06/06"],
+  ["T4_Tuan_II_MC_LN", "Thứ Tư Tuần 02 Mùa Chay · Long Nguyen"],
+  ["09_05_Thanh_Anton", "05/09 Thánh An-tôn Pa-đua-a, Tiến Sĩ Hội Thánh"],
 ];
 
 const failures = cases.flatMap(([source, expected]) => {
@@ -25,6 +27,12 @@ const failures = cases.flatMap(([source, expected]) => {
 
 if (failures.length) {
   throw new Error(`Tên chuẩn hóa không khớp:\n${failures.join("\n")}`);
+}
+
+const feastSearch = liturgicalSearchText("06_13_Thanh_Anton");
+const ordinarySearch = liturgicalSearchText("T2_Tuan_06_TN_LN");
+if (!feastSearch.includes("Thánh An-tôn Pa-đua-a") || ordinarySearch.includes("Thánh An-tôn Pa-đua-a")) {
+  throw new Error("Từ khóa danh sách Lễ không được lập chỉ mục đúng theo từng tên ảnh.");
 }
 
 console.log(`Đã xác nhận ${cases.length} mẫu tên phụng vụ.`);

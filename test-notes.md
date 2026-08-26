@@ -134,6 +134,12 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
 
+## 2026-08-26 — File cấu hình quy ước và danh sách Lễ
+
+Đã tách số La Mã I–XXXIV, mùa phụng vụ, thứ trong tuần, alias tên Lễ và danh sách Lễ cố định theo ngày vào `client/src/data/liturgical-rules.json`. File được import lúc build, nên thay đổi trong file không đổi tên Drive gốc, slug Album, ID hoặc URL tải; đồng thời không tạo request mạng mới khi người xem mở website.
+
+Đã kiểm thử 17 tên gồm quy ước file của owner, tuần/số La Mã, Lễ Thánh An-tôn và giới hạn tìm kiếm alias theo đúng tên ảnh. `pnpm check`, build GitHub Pages và `git diff --check` đều thành công. Bundle JavaScript tăng 10.91KB, tương đương 3.13KB gzip; mức tăng nhỏ so với lợi ích chỉnh sửa cấu hình độc lập. Đã xem desktop 1280×720 cùng Galaxy S20 360×800, không có tràn ngang; console và network sau bản cập nhật không ghi nhận lỗi runtime hoặc 4xx/5xx.
+
 ## 2026-08-25 — Chuẩn hóa tên phụng vụ từ Drive
 
 Đã thêm lớp chuẩn hóa tên hiển thị ở frontend. Tên file/folder nguồn, ID, slug và URL tải Google Drive được giữ nguyên; website chỉ tạo nhãn tiếng Việt có dấu tại thời điểm render. Bộ chuẩn hóa nhận các mẫu Chúa Nhật Thường Niên/Mùa Chay/Phục Sinh, ngày trong tuần, Mùa Vọng, Chúa Nhật Phục Sinh, Bài Đọc, Tin Mừng, ngày lễ theo tháng-ngày, khoảng thời gian và hậu tố Long Nguyen/Background.

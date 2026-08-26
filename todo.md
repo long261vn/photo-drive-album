@@ -112,3 +112,10 @@
 - [x] Xây dựng bộ phân tích tên cho Chúa Nhật, mùa phụng vụ, ngày lễ, tuần lễ và hậu tố Long Nguyen.
 - [x] Áp dụng tên chuẩn hóa mà không thay đổi tên nguồn, slug hay URL tải từ Drive.
 - [x] Kiểm thử các tên mẫu trên desktop, Galaxy S20 và GitHub Pages.
+
+## Cấu hình quy ước và danh sách Lễ
+
+- [x] Hoàn tất phân tích danh sách Lễ, mùa và cách ghi số La Mã/số thường từ tài liệu owner.
+- [x] Tạo file cấu hình quy ước có thể sửa trên GitHub, gồm alias và danh sách Lễ theo ngày.
+- [x] Tích hợp cấu hình vào lớp chuẩn hóa tên và tìm kiếm mà không đổi dữ liệu Drive gốc.
+- [x] Kiểm thử tên Lễ, tải cấu hình và giao diện desktop/Galaxy S20 trước khi phát hành.

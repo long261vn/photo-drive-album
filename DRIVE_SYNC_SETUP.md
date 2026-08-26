@@ -61,6 +61,12 @@ Tên file/folder trong Drive là **tên nguồn**: website không đổi tên, s
 
 Hậu tố `_LN`, `_LN1`, `_LN2`… được hiểu là phiên bản của **Long Nguyen**. Hậu tố `_BG` vẫn chỉ đánh dấu ảnh Background và mặc định bị ẩn; khi bật **Hiện BG**, tên hiển thị thêm nhãn `Background` để phân biệt rõ.
 
+### Thêm hoặc sửa quy ước không sửa giao diện
+
+File cấu hình nằm tại **`client/src/data/liturgical-rules.json`**. Đây là nơi quản lý số La Mã, tên mùa phụng vụ, tên thứ, alias thường gặp và danh sách Lễ theo ngày. Để cập nhật, trên GitHub mở file này → bấm biểu tượng bút chì → sửa nội dung → **Commit changes** vào nhánh `main`. Workflow Pages sẽ tự build và phát hành bản mới; không cần sửa `Home.tsx`, `AlbumPage.tsx` hoặc script đồng bộ Drive.
+
+File JSON được gộp vào JavaScript lúc build, không tạo thêm request mạng khi người xem mở thư viện. Quy mô danh sách Lễ hiện chỉ tăng rất nhỏ kích thước tải ban đầu; đổi lại, tên được chuẩn hóa và tìm kiếm được các Lễ theo ngày/alias. Khi sửa, luôn giữ dấu phẩy giữa các dòng, ngoặc kép quanh nội dung chữ và dấu ngoặc `{ }`, `[ ]` cân bằng. Các ghi chú đầu file kèm mẫu để đối chiếu.
+
 ## Tải Toàn Bộ Album
 
 Google Drive chỉ tạo gói ZIP khi tải folder qua giao diện Drive; API công khai của website chỉ tải trực tiếp từng tệp. Vì vậy, để có nút **Tải Toàn Bộ Album**, hãy tự nén các ảnh của bộ đó thành một file `.zip` và đặt file ZIP vào **cùng folder** với ảnh. Ví dụ: `mua-chay-2026.zip`.
