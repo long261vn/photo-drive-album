@@ -161,3 +161,10 @@
 
 - [x] Xác định và đổi nhãn “Tải thiết kế” thành “Tải xuống”.
 - [x] Kiểm thử trình xem ảnh, build và phát hành GitHub Pages.
+
+## Tải nhiều hình và toàn Album
+
+- [x] Rà soát chức năng tải từng hình và tải toàn Album/folder hiện có.
+- [x] Thiết kế thao tác chọn nhiều hình, chọn tất cả và hủy chọn phù hợp desktop/Galaxy S20.
+- [x] Thêm tải xuống nhiều hình và làm rõ nút tải toàn Album/folder.
+- [x] Kiểm thử thao tác tải, build và phát hành GitHub Pages.

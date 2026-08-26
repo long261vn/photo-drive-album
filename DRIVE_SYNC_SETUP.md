@@ -69,11 +69,13 @@ File cấu hình nằm tại **`client/src/data/liturgical-rules.json`**. Đây 
 
 File JSON được gộp vào JavaScript lúc build, không tạo thêm request mạng khi người xem mở thư viện. Quy mô danh sách Lễ hiện chỉ tăng rất nhỏ kích thước tải ban đầu; đổi lại, tên được chuẩn hóa và tìm kiếm được các Lễ theo ngày/alias. Khi sửa, luôn giữ dấu phẩy giữa các dòng, ngoặc kép quanh nội dung chữ và dấu ngoặc `{ }`, `[ ]` cân bằng. Các ghi chú đầu file kèm mẫu để đối chiếu.
 
-## Tải Toàn Bộ Album
+## Tải ảnh và Folder
 
-Google Drive chỉ tạo gói ZIP khi tải folder qua giao diện Drive; API công khai của website chỉ tải trực tiếp từng tệp. Vì vậy, để có nút **Tải Toàn Bộ Album**, hãy tự nén các ảnh của bộ đó thành một file `.zip` và đặt file ZIP vào **cùng folder** với ảnh. Ví dụ: `mua-chay-2026.zip`.
+Khi mở ảnh, người xem vẫn có nút **Tải xuống** cho một ảnh. Trong trang Album, nút **Chọn nhiều** cho phép chọn các ảnh đang hiển thị trực tiếp trong Album, sau đó tải tất cả vào một file ZIP. Dùng **Chọn tất cả**, **Bỏ chọn** hoặc **Hủy chọn** để thao tác nhanh. Các Bộ Sưu Tập là lối dẫn vào Album con nên không được chọn như ảnh.
 
-Lần đồng bộ kế tiếp sẽ nhận diện file ZIP, không hiển thị file này trong gallery ảnh và tự hiện nút **Tải Toàn Bộ Album** trên trang tương ứng. Nếu folder chưa có file `.zip`, nút sẽ không xuất hiện; người xem vẫn tải từng thiết kế như bình thường.
+Nút **Tải Folder** tạo một file ZIP gồm toàn bộ ảnh của Album đang mở, bao gồm cả ảnh trong các Bộ Sưu Tập lồng nhau. Đây là phương án dự phòng được tạo trên thiết bị của người xem; với Folder lớn, trang sẽ hỏi xác nhận trước và người xem nên giữ trang mở đến khi trình duyệt bắt đầu tải file.
+
+Nếu muốn một gói lớn được chuẩn bị sẵn, hãy tự nén ảnh thành file `.zip` và đặt file đó vào **cùng folder** trên Drive, ví dụ `mua-chay-2026.zip`. Sau lần đồng bộ kế tiếp, website ưu tiên nút **Tải Folder (.ZIP)** và mở gói ZIP có sẵn này thay vì tạo lại trên thiết bị. File ZIP không xuất hiện trong gallery ảnh.
 
 ## Hồ sơ thư viện
 

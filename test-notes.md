@@ -138,6 +138,12 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã đổi nhãn nút tải ở footer của Lightbox từ **Tải thiết kế** thành **Tải xuống**. Thuộc tính `href`, việc mở liên kết tải ở tab mới và các điều khiển xem ảnh khác không thay đổi. TypeScript đã kiểm tra thành công; toàn bộ mã nguồn `client/src` không còn nhãn cũ.
 
+## 2026-08-26 — Chọn nhiều hình và tải Folder
+
+Trang Album có nút **Chọn nhiều** ở thanh thao tác. Khi bật, mỗi ảnh trực tiếp trong Album có dấu chọn; bấm lại ảnh sẽ chọn/bỏ chọn thay vì mở Lightbox. Thanh thao tác cho phép **Chọn tất cả**, **Bỏ chọn**, **Tải xuống (N)** và đóng chế độ chọn. Các ảnh được tải tuần tự từ URL Drive rồi đóng gói vào một file ZIP trên trình duyệt; bài kiểm thử `scripts/verify-batch-download.mts` đã tải ảnh Drive mẫu 3.914.662 bytes và xác nhận ZIP chứa được ảnh đó.
+
+Nút **Tải Folder** dùng file ZIP đã chuẩn bị sẵn trong Drive nếu manifest có `downloadAll`; nếu không, website tạo ZIP gồm toàn bộ ảnh trong Album và các Bộ Sưu Tập lồng nhau. Folder trên 75 ảnh có hộp xác nhận trước khi tải. Đã kiểm tra bố cục nút tải Folder, Chọn nhiều, các chế độ xem và bộ lọc ở desktop 1280×720 cùng Galaxy S20 360×800: không có tràn ngang; TypeScript, build Pages và kiểm tra diff đã chạy thành công.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.
