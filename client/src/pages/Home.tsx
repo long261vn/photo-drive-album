@@ -3,7 +3,7 @@
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
-import { ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, ImageIcon, Search } from "lucide-react";
+import { CalendarDays, ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, ImageIcon, Search } from "lucide-react";
 import { AlbumList } from "@/components/AlbumList";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { LiturgicalFilters } from "@/components/LiturgicalFilters";
@@ -50,6 +50,7 @@ export default function Home() {
   const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query]);
   const allPhotos = useMemo(() => flattenAlbums(albums).flatMap((album) => album.photos), [albums]);
   const seasons = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).season).filter((season): season is string => Boolean(season)))), [allPhotos]);
+  const years = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).liturgicalYear).filter((year): year is "A" | "B" | "C" => Boolean(year)))).sort(), [allPhotos]);
   const weeks = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location)).filter((metadata) => !liturgicalFilters.season || metadata.season === liturgicalFilters.season).map((metadata) => metadata.week).filter((week): week is number => Number.isFinite(week)))).sort((first, second) => first - second), [allPhotos, liturgicalFilters.season]);
   const sortedAlbums = useMemo(() => [...albums]
     .filter((album) => albumMatchesFilters(album, liturgicalFilters, showBackgrounds))
@@ -79,14 +80,14 @@ export default function Home() {
     </section>
     <LibraryModeSwitch active="albums" />
     <section className="archive-toolbar archive-toolbar--profile" id="albums">
-      <div><p className="eyebrow">Chế độ 01 · Danh mục</p><h2>Album</h2></div>
+      <div><p className="eyebrow">Chế độ 01 · Danh mục</p><h2>Album</h2><button className="archive-timeline-link" type="button" onClick={() => setLocation("/tra-cuu-le")}><CalendarDays size={15} strokeWidth={1.8} /> Tra Cứu Danh Sách Lễ</button></div>
       <div className="archive-toolbar__controls">
         <label className="archive-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm Album, Bộ Sưu Tập hoặc tên hình</span><input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Tìm Album, folder hoặc tên hình" /></label>
         <button className={`background-toggle archive-background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => { setShowBackgrounds((visible) => !visible); setPage(1); }} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button>
         <label className="archive-sort"><span>Sắp Xếp</span><select value={sort} onChange={(event) => { setSort(event.target.value as typeof sort); setPage(1); }}><option value="created-desc">Mới Nhất</option><option value="created-asc">Cũ Nhất</option><option value="name">Tên A - Z</option></select><ChevronDown size={15} strokeWidth={1.8} /></label>
       </div>
     </section>
-    <section className="archive-liturgical-controls"><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setPage(1); }} /></section>
+    <section className="archive-liturgical-controls"><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setPage(1); }} /></section>
     {isSearching ? <section className="search-results" aria-label="Kết quả tìm kiếm"><div className="search-results__rule"><span>{searchResults.length} Kết Quả</span><span>Tên folder và tên hình</span></div><div className="search-results__list">{pageResults.map((result, index) => {
       const isPhoto = result.kind === "photo";
       const title = isPhoto ? formatPhotoTitle(result.photo.title) : formatAlbumTitle(result.album.title);

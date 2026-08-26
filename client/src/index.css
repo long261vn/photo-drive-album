@@ -332,6 +332,47 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .timeline-load-more button:active { transform: scale(0.97); }
 .timeline-empty { display: grid; align-content: center; min-height: 56vh; max-width: 760px; padding: 42px 0; }
 .timeline-empty .text-link { width: fit-content; margin-top: 5px; }
+
+/* Design: Liturgical Design Archive — an editorial feast reader with a right-hand catalog, not a copied external layout. */
+.feast-lookup-page { width: min(1400px, 100%); margin: 0 auto; padding: 0 16px; }
+.feast-lookup__header { display: flex; min-height: 58px; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.feast-lookup__intro { max-width: 760px; padding: 28px 0 22px; border-bottom: 1px solid var(--border); }
+.feast-lookup__intro h1 { margin: 4px 0 10px; font-family: "Noto Serif", serif; font-size: clamp(42px, 7vw, 76px); font-weight: 600; letter-spacing: -0.065em; line-height: 0.98; }
+.feast-lookup__intro p:last-child { max-width: 620px; margin: 0; color: var(--muted-ink); font-size: 13px; line-height: 1.65; }
+.feast-lookup__layout { display: grid; gap: 22px; padding: 22px 0 36px; }
+.feast-reader { min-width: 0; }
+.feast-reader.is-fixed-feast { border-left: 3px solid var(--terracotta); padding-left: 14px; }
+.feast-reader__rule { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-bottom: 10px; border-bottom: 1px solid var(--border); color: var(--cobalt); font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.feast-reader__rule span { display: inline-flex; align-items: center; gap: 5px; }
+.feast-reader.is-fixed-feast .feast-reader__rule span:first-child { color: var(--terracotta); }
+.feast-reader h2 { max-width: 850px; margin: 18px 0 8px; font-family: "Noto Serif", serif; font-size: clamp(32px, 5vw, 58px); font-weight: 600; letter-spacing: -0.055em; line-height: 1.05; }
+.feast-reader__lede { margin: 0 0 24px; color: var(--muted-ink); font-size: 13px; line-height: 1.6; }
+.feast-assets { display: grid; gap: 16px; border-top: 1px solid var(--border); }
+.feast-asset { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 13px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.feast-asset__image { position: relative; display: grid; width: 104px; height: 82px; place-items: center; overflow: hidden; border: 0; padding: 0; background: var(--paper-deep); cursor: pointer; }
+.feast-asset__image img { width: 100%; height: 100%; object-fit: contain; }
+.feast-asset__image > span:last-child { position: absolute; top: 5px; left: 5px; display: grid; width: 22px; height: 22px; place-items: center; background: rgba(40,90,64,0.92); color: #fff; font-size: 8px; font-weight: 800; letter-spacing: 0.05em; }
+.feast-asset__copy { display: grid; min-width: 0; align-content: center; gap: 4px; }
+.feast-asset__copy p { overflow: hidden; margin: 0; color: var(--cobalt); font-size: 8px; font-weight: 800; letter-spacing: 0.06em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.feast-asset__copy h3 { overflow: hidden; margin: 0; font-family: "Noto Serif", serif; font-size: 18px; font-weight: 600; letter-spacing: -0.035em; text-overflow: ellipsis; white-space: nowrap; }
+.feast-asset__copy button { display: inline-flex; min-width: 0; align-items: center; gap: 4px; overflow: hidden; width: fit-content; border: 0; padding: 0; background: transparent; color: var(--muted-ink); font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-align: left; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: color 180ms var(--ease-out); }
+.feast-asset__copy button:hover { color: var(--cobalt); }
+.feast-catalog { min-width: 0; border: 1px solid var(--border); background: rgba(251,248,242,0.68); }
+.feast-catalog__search { display: flex; align-items: center; gap: 8px; min-height: 42px; border-bottom: 1px solid var(--border); padding: 0 10px; color: var(--muted-ink); }
+.feast-catalog__search:focus-within { color: var(--cobalt); }
+.feast-catalog__search input { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-size: 12px; }
+.feast-catalog__scroll { max-height: 56vh; overflow: auto; }
+.feast-catalog__scroll section { border-bottom: 1px solid var(--border); }
+.feast-catalog__scroll section:last-child { border-bottom: 0; }
+.feast-catalog__scroll h2 { margin: 0; padding: 12px 10px 7px; color: var(--cobalt); font-size: 9px; font-weight: 800; letter-spacing: 0.11em; text-transform: uppercase; }
+.feast-catalog__scroll button { display: grid; grid-template-columns: 37px minmax(0, 1fr) auto; width: 100%; align-items: center; gap: 7px; border: 0; border-top: 1px solid rgba(209,201,184,0.56); padding: 8px 10px; background: transparent; color: var(--ink); text-align: left; cursor: pointer; transition: background 180ms var(--ease-out), color 180ms var(--ease-out); }
+.feast-catalog__scroll button:hover { background: rgba(226,232,223,0.42); color: var(--cobalt); }
+.feast-catalog__scroll button.is-active { background: var(--cobalt); color: #fff; }
+.feast-catalog__scroll button > span { color: var(--terracotta); font-size: 8px; font-weight: 800; letter-spacing: 0.04em; }
+.feast-catalog__scroll button.is-active > span { color: #d7e7da; }
+.feast-catalog__scroll button strong { overflow: hidden; font-family: "Noto Serif", serif; font-size: 13px; font-weight: 600; line-height: 1.14; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 849px) { .feast-catalog { order: -1; } }
+@media (min-width: 850px) { .feast-lookup-page { padding: 0 44px; } .feast-lookup__layout { grid-template-columns: minmax(0, 1fr) 312px; gap: 42px; align-items: start; } .feast-catalog { position: sticky; top: 20px; grid-column: 2; grid-row: 1; } .feast-catalog__scroll { max-height: calc(100vh - 132px); } .feast-asset { grid-template-columns: 172px minmax(0, 1fr); gap: 20px; padding: 16px 0; } .feast-asset__image { width: 172px; height: 126px; } .feast-asset__copy h3 { font-size: 24px; } }
 .not-found-page { display: grid; min-height: 70vh; align-content: center; gap: 18px; max-width: 720px; padding: 40px 20px; }
 .not-found-page h1 { margin: 0; font-family: "Noto Serif", serif; font-size: clamp(42px, 7vw, 80px); font-weight: 600; line-height: 0.98; letter-spacing: -0.06em; }
 .text-link { color: var(--cobalt); font-size: 12px; font-weight: 800; }

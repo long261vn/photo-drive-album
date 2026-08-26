@@ -9,6 +9,7 @@ File duy nhất cần chỉnh là **`client/src/data/liturgical-rules.json`**. F
 | `romanNumerals` | Đổi số La Mã `I`–`XXXIV` thành số thường khi đọc tên tuần/Chúa Nhật. | Chỉ sửa nếu thêm cách ghi số La Mã khác. |
 | `seasonAliases` | Nhận diện `TN`, `MC`, `PS`, `MV` và biến thể không dấu. | Thêm một viết tắt mùa mới. |
 | `weekdayAliases` | Nhận diện `T2` đến `T7`. | Thường không cần sửa. |
+| `liturgicalYears` | Các chu kỳ hợp lệ `A`, `B`, `C` cho bộ lọc Năm. | Chỉ sửa khi muốn giới hạn hoặc mở rộng danh sách. |
 | `languageMarkers` | Nhận diện hậu tố `_Eng`/`_ENG` và biến thể Tiếng Việt. | Thêm một hậu tố ngôn ngữ mới. |
 | `categoryKeywords` | Nhận diện ảnh **Các Thánh** và **Đức Mẹ**. | Thêm một cách ghi tên nhóm mới trên Drive. |
 | `smartSearchAliases` | Tập từ khóa tương đương cho tìm kiếm: `MC` ↔ Mùa Chay ↔ `lent`. | Thêm viết tắt hoặc từ đồng nghĩa. |
@@ -44,6 +45,14 @@ Ví dụ, để thêm Lễ vào ngày 19/03, thêm object dưới đây vào `fi
 Ảnh **Các Thánh** được nhận diện khi có dấu hiệu Thánh/Tử Đạo, kèm ngày theo dạng `MM_DD` hoặc cụm rõ như `Các Thánh`, `Tử Đạo`. Ảnh **Đức Mẹ** dùng các cụm trực tiếp `Duc_Me`, `Duc_Maria`, `Me_Maria`, `DMMC` (có hoặc không dấu). Không thêm `Maria` hay `Ma-ri-a` đứng một mình vào `categoryKeywords.marian`, vì đây cũng là tên của nhiều vị Thánh. Ảnh Tiếng Anh dùng `_Eng` hoặc `_ENG`.
 
 Trong website, người xem chọn **Mùa Phụng Vụ** trước rồi chọn **Tuần**; các tuần trong menu sẽ thu hẹp theo Mùa đã chọn. Hai nút **Các Thánh** và **Đức Mẹ** có thể dùng cùng nhau để tìm hợp các nhóm. Ô tìm kiếm cũng hiểu mã mùa, viết tắt, tên nhóm và các alias đã khai báo trong `smartSearchAliases`.
+
+## Năm A/B/C và Các Thánh theo ngày
+
+Website nhận `CN22_TN_A`, `CN03_MuaChay_B`, `CN05_PS_C` cũng như dạng chữ `Năm A`, `Năm B`, `Năm C`. Nút **Năm A/B/C** trên thư viện chỉ lọc ảnh mang đúng metadata đó. Đối với Các Thánh, giữ định dạng `MM_DD_Thánh...` hoặc `MM_DD_Thanh...`; website dùng phần tháng-ngày này để vừa xếp nhóm **Các Thánh**, vừa đối chiếu Danh Sách Lễ cố định.
+
+## Trang Tra Cứu Danh Sách Lễ
+
+Trang `/tra-cuu-le` hiển thị toàn bộ Lễ Chính, Mùa Phụng Vụ và Lễ Theo Ngày từ file JSON. Mỗi mục có một link neo riêng dạng `/tra-cuu-le/date-06-13-1`; khi chọn, mục đó được giữ trong vùng danh mục và nội dung bên trái trả về các thiết kế Drive phù hợp. Muốn thêm một Lễ, chỉnh `fixedFeasts` hoặc `calendar.leChinh`/`calendar.muaPhungVu`; không cần sửa giao diện.
 
 ## Cách phát hành sau khi sửa
 

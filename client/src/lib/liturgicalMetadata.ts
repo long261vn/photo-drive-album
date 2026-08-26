@@ -5,9 +5,11 @@
 import liturgicalRules from "@/data/liturgical-rules.json";
 
 export type LiturgicalCategory = "saints" | "marian";
+export type LiturgicalYear = "A" | "B" | "C";
 
 export type LiturgicalMetadata = {
   season: string | null;
+  liturgicalYear: LiturgicalYear | null;
   week: number | null;
   weekLabel: string | null;
   categories: LiturgicalCategory[];
@@ -19,12 +21,13 @@ export type LiturgicalMetadata = {
 
 export type LiturgicalFilters = {
   season: string;
+  liturgicalYear: "" | LiturgicalYear;
   week: string;
   saintsOnly: boolean;
   marianOnly: boolean;
 };
 
-export const emptyLiturgicalFilters: LiturgicalFilters = { season: "", week: "", saintsOnly: false, marianOnly: false };
+export const emptyLiturgicalFilters: LiturgicalFilters = { season: "", liturgicalYear: "", week: "", saintsOnly: false, marianOnly: false };
 
 const normalizeKey = (value: string) => value
   .normalize("NFD")
@@ -50,6 +53,14 @@ function weekFor(value: string) {
   const rawNumber = match[1].toUpperCase();
   const number = /^\d+$/.test(rawNumber) ? Number(rawNumber) : romanNumerals[rawNumber];
   return Number.isFinite(number) ? number : null;
+}
+
+function liturgicalYearFor(value: string): LiturgicalYear | null {
+  const explicit = value.match(/\b(?:Nam|Năm)\s*([ABC])\b/i)?.[1]?.toUpperCase();
+  if (explicit && liturgicalRules.liturgicalYears.includes(explicit as LiturgicalYear)) return explicit as LiturgicalYear;
+  const sundayShortCode = value.match(/(?:^|[\s_-])CN(?:\d{1,2})?(?:[\s_-][^\s_-]+)*[\s_-]([ABC])(?:[\s_-]|$)/i)?.[1]?.toUpperCase();
+  if (sundayShortCode && liturgicalRules.liturgicalYears.includes(sundayShortCode as LiturgicalYear)) return sundayShortCode as LiturgicalYear;
+  return null;
 }
 
 function feastDateFor(value: string) {
@@ -90,6 +101,7 @@ export function getLiturgicalMetadata(title = "", location = ""): LiturgicalMeta
   if (cached) return cached;
   const raw = `${title} ${location}`.trim();
   const season = seasonFor(raw);
+  const liturgicalYear = liturgicalYearFor(raw);
   const week = weekFor(raw);
   const categories: LiturgicalCategory[] = [];
   const feastKey = feastDateFor(title);
@@ -103,6 +115,7 @@ export function getLiturgicalMetadata(title = "", location = ""): LiturgicalMeta
 
   const metadata = {
     season,
+    liturgicalYear,
     week,
     weekLabel,
     categories,
@@ -117,6 +130,7 @@ export function getLiturgicalMetadata(title = "", location = ""): LiturgicalMeta
 
 export function matchesLiturgicalFilters(metadata: LiturgicalMetadata, filters: LiturgicalFilters) {
   if (filters.season && metadata.season !== filters.season) return false;
+  if (filters.liturgicalYear && metadata.liturgicalYear !== filters.liturgicalYear) return false;
   if (filters.week && String(metadata.week ?? "") !== filters.week) return false;
   const selectedCategories: LiturgicalCategory[] = [filters.saintsOnly ? "saints" : null, filters.marianOnly ? "marian" : null].filter(Boolean) as LiturgicalCategory[];
   if (selectedCategories.length && !selectedCategories.some((category) => metadata.categories.includes(category))) return false;
@@ -124,12 +138,12 @@ export function matchesLiturgicalFilters(metadata: LiturgicalMetadata, filters: 
 }
 
 export function liturgicalDetailLabels(metadata: LiturgicalMetadata) {
-  const labels = [metadata.season, metadata.weekLabel, metadata.feastDate ? `Lễ ${metadata.feastDate}` : null, metadata.categories.includes("saints") ? "Các Thánh" : null, metadata.categories.includes("marian") ? "Đức Mẹ" : null, metadata.language === "en" ? "Tiếng Anh" : null].filter(Boolean) as string[];
+  const labels = [metadata.season, metadata.liturgicalYear ? `Năm ${metadata.liturgicalYear}` : null, metadata.weekLabel, metadata.feastDate ? `Lễ ${metadata.feastDate}` : null, metadata.categories.includes("saints") ? "Các Thánh" : null, metadata.categories.includes("marian") ? "Đức Mẹ" : null, metadata.language === "en" ? "Tiếng Anh" : null].filter(Boolean) as string[];
   return labels;
 }
 
 /** Adds inferred seasonal, feast, category and language vocabulary to the normal full-text index. */
 export function liturgicalMetadataSearchText(title = "", location = "") {
   const metadata = getLiturgicalMetadata(title, location);
-  return [title, location, metadata.season, metadata.weekLabel, metadata.feastDate, ...metadata.celebrations, ...metadata.searchTerms, ...liturgicalDetailLabels(metadata)].filter(Boolean).join(" ");
+  return [title, location, metadata.season, metadata.liturgicalYear ? `Năm ${metadata.liturgicalYear}` : null, metadata.weekLabel, metadata.feastDate, ...metadata.celebrations, ...metadata.searchTerms, ...liturgicalDetailLabels(metadata)].filter(Boolean).join(" ");
 }

@@ -134,6 +134,12 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
 
+## 2026-08-26 — Tra cứu Lễ và Năm A/B/C
+
+Đã thêm metadata `liturgicalYear` và bộ lọc **Năm A/B/C** ở Trang chủ, Dòng Thời Gian và Album. Parser nhận dạng mã `CN22_TN_A`, `CN03_MuaChay_B`, `CN05_PS_C` hoặc cụm `Năm A/B/C`. Ảnh Các Thánh theo chuẩn `MM_DD_Thánh...` được nhận ngày Lễ, đối chiếu danh mục Lễ và vẫn thuộc nhóm Các Thánh.
+
+Trang `/tra-cuu-le` lấy danh sách từ `calendar.leChinh`, `calendar.muaPhungVu` và `fixedFeasts` của cấu hình. Trên desktop có mục lục neo sticky bên phải; mở một Lễ theo đường dẫn trực tiếp sẽ tự đưa mục đang chọn vào vùng nhìn thấy. Trên Galaxy S20, mục lục chuyển lên trước nội dung. Đã thử trực tiếp Lễ Thánh An-tôn Pa-đua-a (trả 2 thiết kế Drive) và Lễ Đức Mẹ Mân Côi (empty state đúng khi chưa có ảnh). `pnpm check`, 18 kiểm thử quy ước, build Pages, desktop 1280×720, Galaxy S20 360×800 và console sau bản sửa đều đạt.
+
 ## 2026-08-26 — Sửa phân loại Đức Mẹ và Các Thánh
 
 Đã bổ sung alias `CN_DMMC` thành **Chúa Nhật Lễ Đức Mẹ Mân Côi**. Bộ lọc Đức Mẹ giờ chỉ nhận các cụm trực tiếp như `Duc_Me`, `Duc_Maria`, `Me_Maria`, `DMMC`; không còn dùng `Maria`/`Ma-ri-a` đứng một mình. Vì vậy các Thánh có tên Maria vẫn thuộc **Các Thánh**, không lẫn vào **Đức Mẹ**. Bộ đọc ngày cũng nhận cả `MM_DD`, `MM DD` và `MM/DD`.

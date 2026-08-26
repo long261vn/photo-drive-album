@@ -134,3 +134,11 @@
 - [x] Siết nhận diện Đức Mẹ để tên Các Thánh có “Maria” không bị đưa nhầm vào bộ lọc.
 - [x] Thêm kiểm thử hồi quy cho toàn bộ ví dụ owner cung cấp.
 - [x] Kiểm tra bộ lọc, build và phát hành GitHub Pages.
+
+## Tra cứu Lễ và Năm Phụng Vụ
+
+- [x] Khảo sát quy ước ảnh Các Thánh theo ngày, Năm A/B/C và cấu trúc danh mục Lễ tham chiếu.
+- [x] Mở rộng metadata/cấu hình cho Các Thánh theo `MM_DD` và Năm A/B/C.
+- [x] Xây dựng trang tra cứu Danh sách Lễ với mục neo và vùng hiển thị nội dung tương ứng.
+- [x] Tích hợp lọc Năm A/B/C, tìm kiếm và liên kết từ thư viện sang tra cứu Lễ.
+- [x] Kiểm thử desktop, Galaxy S20, điều hướng neo, build và phát hành Pages.

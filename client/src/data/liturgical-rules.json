@@ -60,6 +60,7 @@
     "T6": "Thứ Sáu",
     "T7": "Thứ Bảy"
   },
+  "liturgicalYears": ["A", "B", "C"],
   "languageMarkers": {
     "english": ["_eng", " eng", "_english", " english"],
     "vietnamese": ["_vie", " vie", "_vietnamese", " vietnamese"]

@@ -50,6 +50,14 @@ if (!smartSearch.includes("lent") || !matchesLiturgicalFilters(saintMetadata, { 
   throw new Error("Tìm kiếm viết tắt hoặc bộ lọc metadata không hoạt động đúng.");
 }
 
+const yearAMetadata = getLiturgicalMetadata("CN22_TN_A_LN1");
+const yearBMetadata = getLiturgicalMetadata("CN03_MuaChay_B");
+const yearCMetadata = getLiturgicalMetadata("CN05_PS_C");
+const dateFirstSaintMetadata = getLiturgicalMetadata("09_03_Thánh_Grêgôriô_Cả_LN");
+if (yearAMetadata.liturgicalYear !== "A" || yearBMetadata.liturgicalYear !== "B" || yearCMetadata.liturgicalYear !== "C" || !dateFirstSaintMetadata.categories.includes("saints") || dateFirstSaintMetadata.feastDate !== "03/09" || !matchesLiturgicalFilters(yearAMetadata, { season: "", liturgicalYear: "A", week: "", saintsOnly: false, marianOnly: false })) {
+  throw new Error("Năm A/B/C hoặc quy ước Các Thánh bắt đầu bằng tháng-ngày không được nhận diện đúng.");
+}
+
 const saintMariaTitles = [
   "07 06 Thanh Maria Goretti",
   "05/07 Thánh ANTÔN MARIA ZACCARIA",
