@@ -286,7 +286,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .search-result__copy h3 { overflow: hidden; margin: 0; font-family: "Noto Serif", serif; font-size: 17px; font-weight: 600; letter-spacing: -0.03em; text-overflow: ellipsis; white-space: nowrap; }
 .search-result__open { display: inline-flex; align-items: center; gap: 3px; border: 1px solid var(--border); padding: 0 7px; min-height: 34px; background: var(--paper); color: var(--cobalt); font-size: 0; cursor: pointer; transition: background 180ms var(--ease-out), color 180ms var(--ease-out); }
 .search-result__open:hover { background: var(--cobalt); color: #fff; }
-.library-mode-switch { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 18px 0 4px; }
+.library-mode-switch { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 18px 0 4px; }
 .library-mode-switch__option { display: flex; min-width: 0; align-items: center; gap: 9px; border: 1px solid var(--border); padding: 11px 12px; background: rgba(251,248,242,0.72); color: var(--muted-ink); text-decoration: none; transition: background 180ms var(--ease-out), color 180ms var(--ease-out), border-color 180ms var(--ease-out), transform 160ms var(--ease-out); }
 .library-mode-switch__option:hover { border-color: rgba(40,90,64,0.6); color: var(--cobalt); transform: translateY(-2px); }
 .library-mode-switch__option.is-active { border-color: var(--cobalt); background: var(--cobalt); color: #fff; box-shadow: 0 6px 16px rgba(40,90,64,0.18); }
@@ -585,5 +585,5 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .archive-home .header-jump { display: none; }
   .library-mode-switch__option { gap: 6px; padding: 9px 8px; }
   .library-mode-switch__option small { display: none; }
-  .library-mode-switch__option strong { overflow: visible; font-size: 13px; line-height: 1.05; white-space: normal; }
+  .library-mode-switch__option strong { overflow: visible; font-size: 12px; line-height: 1.05; white-space: normal; }
 }

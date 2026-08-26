@@ -142,3 +142,10 @@
 - [x] Xây dựng trang tra cứu Danh sách Lễ với mục neo và vùng hiển thị nội dung tương ứng.
 - [x] Tích hợp lọc Năm A/B/C, tìm kiếm và liên kết từ thư viện sang tra cứu Lễ.
 - [x] Kiểm thử desktop, Galaxy S20, điều hướng neo, build và phát hành Pages.
+
+## Chế độ 03 — Danh Sách Lễ độc lập
+
+- [x] Rà soát điều hướng hiện tại để tách rõ trang Danh Sách Lễ.
+- [x] Thêm Chế độ 03 vào điều hướng chung của thư viện.
+- [x] Kiểm thử lối vào trang độc lập trên desktop và Galaxy S20.
+- [x] Phát hành GitHub Pages với điều hướng tách biệt.

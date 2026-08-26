@@ -134,6 +134,10 @@ Trên desktop, khung ảnh nay bị giới hạn còn `100dvh - 196px`, chừa k
 
 Đã phát hiện và sửa fallback GitHub Pages cho route sâu. Trước bản sửa, URL `/album/cac-thanh` trả về trang 404 của GitHub Pages khi mở trực tiếp. Sau phát hành, cùng URL mở đúng trang `Các Thánh`, hiển thị `Bộ Sưu Tập` và không còn nhãn phân cấp cũ.
 
+## 2026-08-26 — Chế độ 03 độc lập
+
+Đã tách **Danh Sách Lễ** thành **Chế độ 03** trong bộ điều hướng chung, ngang hàng với `Xem theo Album` và `Xem tất cả`. Trang vẫn dùng URL độc lập `/tra-cuu-le`; không còn chỉ là lối vào phụ trong phần Album. Trên desktop, ba chế độ hiển thị thành ba ô song song; trên Galaxy S20, cả ba vẫn hiển thị rõ và có trạng thái active riêng. `pnpm check`, build GitHub Pages và `git diff --check` thành công.
+
 ## 2026-08-26 — Tra cứu Lễ và Năm A/B/C
 
 Đã thêm metadata `liturgicalYear` và bộ lọc **Năm A/B/C** ở Trang chủ, Dòng Thời Gian và Album. Parser nhận dạng mã `CN22_TN_A`, `CN03_MuaChay_B`, `CN05_PS_C` hoặc cụm `Năm A/B/C`. Ảnh Các Thánh theo chuẩn `MM_DD_Thánh...` được nhận ngày Lễ, đối chiếu danh mục Lễ và vẫn thuộc nhóm Các Thánh.

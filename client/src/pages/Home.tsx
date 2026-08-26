@@ -3,7 +3,7 @@
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
-import { CalendarDays, ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, ImageIcon, Search } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, ImageIcon, Search } from "lucide-react";
 import { AlbumList } from "@/components/AlbumList";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { LiturgicalFilters } from "@/components/LiturgicalFilters";
@@ -80,7 +80,7 @@ export default function Home() {
     </section>
     <LibraryModeSwitch active="albums" />
     <section className="archive-toolbar archive-toolbar--profile" id="albums">
-      <div><p className="eyebrow">Chế độ 01 · Danh mục</p><h2>Album</h2><button className="archive-timeline-link" type="button" onClick={() => setLocation("/tra-cuu-le")}><CalendarDays size={15} strokeWidth={1.8} /> Tra Cứu Danh Sách Lễ</button></div>
+      <div><p className="eyebrow">Chế độ 01 · Danh mục</p><h2>Album</h2></div>
       <div className="archive-toolbar__controls">
         <label className="archive-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm Album, Bộ Sưu Tập hoặc tên hình</span><input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Tìm Album, folder hoặc tên hình" /></label>
         <button className={`background-toggle archive-background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => { setShowBackgrounds((visible) => !visible); setPage(1); }} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button>

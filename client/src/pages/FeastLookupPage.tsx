@@ -6,6 +6,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
 import { ArrowLeft, CalendarDays, ChevronRight, FolderOpen, Search } from "lucide-react";
 import liturgicalRules from "@/data/liturgical-rules.json";
+import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
 import { getLiturgicalMetadata, liturgicalDetailLabels } from "@/lib/liturgicalMetadata";
@@ -54,6 +55,7 @@ export default function FeastLookupPage() {
 
   return <main className="feast-lookup-page">
     <header className="feast-lookup__header"><Link href="/" className="back-link"><ArrowLeft size={18} strokeWidth={1.8} /> Về Thư Viện</Link><span className="header-mark brand-symbol" aria-hidden="true" /></header>
+    <LibraryModeSwitch active="feasts" />
     <section className="feast-lookup__intro"><p className="eyebrow">Tra cứu · Năm phụng vụ</p><h1>Danh Sách Lễ</h1><p>Chọn một Lễ trong mục lục để xem các thiết kế đang có từ Google Drive. Danh mục dùng cùng file quy ước với bộ tìm kiếm của thư viện.</p></section>
     <section className="feast-lookup__layout" aria-label="Tra cứu danh sách Lễ">
       <article className={`feast-reader ${selectedEntry.group === "Lễ Theo Ngày" ? "is-fixed-feast" : ""}`}>
