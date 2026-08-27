@@ -99,7 +99,7 @@ export default function AlbumPage() {
     if (albumPhotos.length > 20 && !window.confirm(`Thư mục này có ${albumPhotos.length} hình. Trình duyệt sẽ tải từng file và có thể hỏi cho phép tải nhiều tệp. Bạn muốn tiếp tục?`)) return;
     void downloadPhotos(albumPhotos, "folder");
   };
-  const hasActiveOptions = showBackgrounds || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly);
+  const hasActiveOptions = showBackgrounds || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly || liturgicalFilters.childrenOnly);
   const renderCollectionDetail = (child: Album, index: number) => (
     <button className="folder-detail-row folder-detail-row--nested" key={child.id} type="button" role="listitem" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}>
       <ExplorerFolderPreview album={child} size="detail" />

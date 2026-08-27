@@ -82,7 +82,7 @@ export default function Home() {
   const pageResults = searchResults.slice((currentPage - 1) * SEARCH_PAGE_SIZE, currentPage * SEARCH_PAGE_SIZE);
   const selectedSearchIndex = selectedSearchPhoto ? searchPhotos.findIndex((photo) => photo.id === selectedSearchPhoto.id) : -1;
   const selectedSearchResult = selectedSearchPhoto ? searchResults.find((result): result is Extract<SearchResult, { kind: "photo" }> => result.kind === "photo" && result.photo.id === selectedSearchPhoto.id) : undefined;
-  const hasActiveOptions = showBackgrounds || sort !== "created-desc" || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly);
+  const hasActiveOptions = showBackgrounds || sort !== "created-desc" || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly || liturgicalFilters.childrenOnly);
   const moveSearchPhoto = (offset: number) => setSelectedSearchPhoto(searchPhotos[(selectedSearchIndex + offset + searchPhotos.length) % searchPhotos.length]);
 
   return <main className="archive-home">

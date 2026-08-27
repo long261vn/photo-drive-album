@@ -135,12 +135,14 @@ if (!feastSearch.includes("Thánh An-tôn Pa-đua-a") || ordinarySearch.includes
 const englishMetadata = getLiturgicalMetadata("CN22_TN_A_ENG");
 const saintMetadata = getLiturgicalMetadata("06_13_Thanh_Anton");
 const marianMetadata = getLiturgicalMetadata("08_22_Duc_Maria_Nu_Vuong_ENG");
-if (englishMetadata.language !== "en" || englishMetadata.season !== "Thường Niên" || !saintMetadata.categories.includes("saints") || saintMetadata.feastDate !== "13/06" || !marianMetadata.categories.includes("marian") || marianMetadata.language !== "en") {
-  throw new Error("Metadata Tiếng Anh, Mùa, Các Thánh hoặc Đức Mẹ không được nhận diện đúng.");
+const childrenMetadata = getLiturgicalMetadata("CN02_TN_A_LN2_TN");
+const childrenLocationMetadata = getLiturgicalMetadata("BaiDoc_1", "CN02 TN A ThieuNhi");
+if (englishMetadata.language !== "en" || englishMetadata.season !== "Thường Niên" || !saintMetadata.categories.includes("saints") || saintMetadata.feastDate !== "13/06" || !marianMetadata.categories.includes("marian") || marianMetadata.language !== "en" || !childrenMetadata.categories.includes("children") || !childrenLocationMetadata.categories.includes("children")) {
+  throw new Error("Metadata Tiếng Anh, Mùa, Các Thánh, Đức Mẹ hoặc Thiếu Nhi không được nhận diện đúng.");
 }
 
 const smartSearch = liturgicalMetadataSearchText("T4_Tuan_II_MC_LN");
-if (!smartSearch.includes("lent") || !matchesLiturgicalFilters(saintMetadata, { season: "", week: "", saintsOnly: true, marianOnly: false })) {
+if (!smartSearch.includes("lent") || !matchesLiturgicalFilters(saintMetadata, { season: "", week: "", saintsOnly: true, marianOnly: false, childrenOnly: false }) || !matchesLiturgicalFilters(childrenMetadata, { season: "", week: "", saintsOnly: false, marianOnly: false, childrenOnly: true })) {
   throw new Error("Tìm kiếm viết tắt hoặc bộ lọc metadata không hoạt động đúng.");
 }
 
@@ -151,7 +153,7 @@ const dateFirstSaintMetadata = getLiturgicalMetadata("09_03_Thánh_Grêgôriô_C
 const slashDateSaintMetadata = getLiturgicalMetadata("03/09_Thanh_Gregorio");
 const namedYearMetadata = getLiturgicalMetadata("CN22_TN_NamA");
 const weekdayWordMetadata = getLiturgicalMetadata("Thu_2_Tuan_06_TN");
-if (yearAMetadata.liturgicalYear !== "A" || yearBMetadata.liturgicalYear !== "B" || yearCMetadata.liturgicalYear !== "C" || namedYearMetadata.liturgicalYear !== "A" || weekdayWordMetadata.week !== 6 || !dateFirstSaintMetadata.categories.includes("saints") || dateFirstSaintMetadata.feastDate !== "03/09" || slashDateSaintMetadata.feastDate !== "09/03" || !matchesLiturgicalFilters(yearAMetadata, { season: "", liturgicalYear: "A", week: "", saintsOnly: false, marianOnly: false })) {
+if (yearAMetadata.liturgicalYear !== "A" || yearBMetadata.liturgicalYear !== "B" || yearCMetadata.liturgicalYear !== "C" || namedYearMetadata.liturgicalYear !== "A" || weekdayWordMetadata.week !== 6 || !dateFirstSaintMetadata.categories.includes("saints") || dateFirstSaintMetadata.feastDate !== "03/09" || slashDateSaintMetadata.feastDate !== "09/03" || !matchesLiturgicalFilters(yearAMetadata, { season: "", liturgicalYear: "A", week: "", saintsOnly: false, marianOnly: false, childrenOnly: false })) {
   throw new Error(`Năm A/B/C hoặc quy ước Các Thánh bắt đầu bằng tháng-ngày không được nhận diện đúng: ${JSON.stringify({ yearAMetadata, yearBMetadata, yearCMetadata, namedYearMetadata, weekdayWordMetadata, dateFirstSaintMetadata, slashDateSaintMetadata })}`);
 }
 
@@ -184,6 +186,7 @@ const realCoverage = {
   english: actualMetadata.filter((metadata) => metadata.language === "en").length,
   saints: actualMetadata.filter((metadata) => metadata.categories.includes("saints")).length,
   marian: actualMetadata.filter((metadata) => metadata.categories.includes("marian")).length,
+  children: actualMetadata.filter((metadata) => metadata.categories.includes("children")).length,
   weeks: actualMetadata.filter((metadata) => metadata.week !== null).length,
 };
 if (Object.values(realCoverage).some((count) => count === 0)) {

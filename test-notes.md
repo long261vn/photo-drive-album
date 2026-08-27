@@ -308,3 +308,7 @@ Trên Galaxy S20, phần kết thúc của cover–avatar–info được cách 
 ## 2026-08-27 — Căn tên và thông tin hồ sơ theo Avatar
 
 Cụm chữ hồ sơ được hạ nhẹ 5px trên Galaxy S20, 7px ở tablet và 9px desktop để có đường thở rõ với mép cover. Dòng **Long Nguyen** bắt đầu tại tâm dọc của avatar và nội dung `info` nằm gọn ngay dưới theo cùng một khối, không bị chạm vào cover. Đã kiểm tra trang Xem tất cả và Thư mục có tên dài ở 360×800 lẫn 1280×720; TypeScript, build Pages và diff thành công.
+
+## 2026-08-27 — Bộ lọc Thiếu Nhi
+
+Đã thêm nút **Thiếu Nhi** ngay sau **Các Thánh** và **Đức Mẹ** trong bảng Lọc của Xem tất cả, Theo thư mục và mọi Thư mục con. Quy tắc nhận diện dùng cả tên file và tên Thư mục chứa ảnh: `ThieuNhi`, `Thiếu Nhi` và hậu tố `_TN` đã được lớp chuẩn hóa đổi thành Thiếu Nhi. Thử trực tiếp ở Xem tất cả trả về **153 hình** chỉ có nhãn Thiếu Nhi, gồm cả ảnh tiếng Anh. Bộ kiểm thử quy ước 112 mẫu, TypeScript, build Pages, Galaxy S20 và diff đều thành công.

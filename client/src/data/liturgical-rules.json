@@ -71,7 +71,8 @@
   "categoryKeywords": {
     "saints": ["thanh", "thánh", "cac thanh", "các thánh", "tu dao", "tử đạo"],
     "saintsStrong": ["anre phu yen", "thanh phero phaolo", "thanh vinh son", "thanh teresa", "thien than ho thu", "tong lanh thien than"],
-    "marian": ["duc me", "đức mẹ", "duc maria", "đức maria", "duc trinh nu maria", "đức trinh nữ maria", "me maria", "mẹ maria", "maria me", "maria mẹ", "dmmc", "duc me man coi", "đức mẹ mân côi"]
+    "marian": ["duc me", "đức mẹ", "duc maria", "đức maria", "duc trinh nu maria", "đức trinh nữ maria", "me maria", "mẹ maria", "maria me", "maria mẹ", "dmmc", "duc me man coi", "đức mẹ mân côi"],
+    "children": ["thieu nhi", "thiếu nhi"]
   },
   "smartSearchAliases": {
     "mua-vong": ["mv", "mua vong", "mùa vọng", "advent"],
@@ -80,6 +81,7 @@
     "thuong-nien": ["tn", "thuong nien", "thường niên", "ordinary time"],
     "cac-thanh": ["thanh", "thánh", "cac thanh", "các thánh", "saints"],
     "duc-me": ["duc me", "đức mẹ", "duc maria", "đức maria", "me maria", "mẹ maria", "ma-ri-a", "marian", "mary"],
+    "thieu-nhi": ["thieu nhi", "thiếu nhi", "children"],
     "tieng-anh": ["eng", "english", "tieng anh", "tiếng anh"]
   },
   "displayAliases": [

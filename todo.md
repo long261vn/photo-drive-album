@@ -330,3 +330,9 @@
 - [x] Hạ nhẹ phần chữ hồ sơ để tách khỏi mép cover.
 - [x] Căn dòng Long Nguyen đúng tâm với avatar, giữ info ngay bên dưới.
 - [x] Kiểm thử Galaxy S20, desktop, build và phát hành GitHub Pages.
+
+## Bộ lọc Thiếu Nhi
+
+- [x] Rà soát metadata và quy ước nhận diện hình Thiếu Nhi.
+- [x] Thêm nút Thiếu Nhi cạnh Các Thánh và Đức Mẹ trên mọi trang duyệt ảnh.
+- [x] Kiểm thử kết quả lọc, Galaxy S20, build và phát hành GitHub Pages.

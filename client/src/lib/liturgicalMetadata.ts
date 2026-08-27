@@ -3,8 +3,9 @@
  * Metadata is inferred from raw Drive names and editable JSON rules; no Drive title, slug, ID or URL is changed.
  */
 import liturgicalRules from "@/data/liturgical-rules.json";
+import { formatLiturgicalTitle } from "./liturgicalName";
 
-export type LiturgicalCategory = "saints" | "marian";
+export type LiturgicalCategory = "saints" | "marian" | "children";
 export type LiturgicalYear = "A" | "B" | "C";
 
 export type LiturgicalMetadata = {
@@ -25,9 +26,10 @@ export type LiturgicalFilters = {
   week: string;
   saintsOnly: boolean;
   marianOnly: boolean;
+  childrenOnly: boolean;
 };
 
-export const emptyLiturgicalFilters: LiturgicalFilters = { season: "", liturgicalYear: "", week: "", saintsOnly: false, marianOnly: false };
+export const emptyLiturgicalFilters: LiturgicalFilters = { season: "", liturgicalYear: "", week: "", saintsOnly: false, marianOnly: false, childrenOnly: false };
 
 const normalizeKey = (value: string) => value
   .normalize("NFD")
@@ -91,6 +93,7 @@ function smartTermsFor(season: string | null, categories: LiturgicalCategory[], 
     season === "Thường Niên" ? "thuong-nien" : "",
     categories.includes("saints") ? "cac-thanh" : "",
     categories.includes("marian") ? "duc-me" : "",
+    categories.includes("children") ? "thieu-nhi" : "",
     language === "en" ? "tieng-anh" : "",
   ].filter(Boolean);
   return keys.flatMap((key) => liturgicalRules.smartSearchAliases[key as keyof typeof liturgicalRules.smartSearchAliases] ?? []);
@@ -102,6 +105,7 @@ export function getLiturgicalMetadata(title = "", location = ""): LiturgicalMeta
   const cached = metadataCache.get(cacheKey);
   if (cached) return cached;
   const raw = `${title} ${location}`.trim();
+  const formattedTitle = formatLiturgicalTitle(title);
   const season = seasonFor(raw);
   const liturgicalYear = liturgicalYearFor(raw);
   const week = weekFor(raw);
@@ -111,6 +115,7 @@ export function getLiturgicalMetadata(title = "", location = ""): LiturgicalMeta
   const strongSaintSignal = matchesAnyKey(title, ["cac thanh", "các thánh", "tu dao", "tử đạo", ...liturgicalRules.categoryKeywords.saintsStrong]);
   if (matchesAnyKey(title, saintKeywords) && (feastKey || strongSaintSignal)) categories.push("saints");
   if (matchesAnyKey(title, liturgicalRules.categoryKeywords.marian)) categories.push("marian");
+  if (matchesAnyKey(`${raw} ${formattedTitle}`, liturgicalRules.categoryKeywords.children)) categories.push("children");
   const language = languageFor(title);
   const celebrations = feastKey ? [...(fixedFeastsByDate.get(feastKey) ?? [])] : [];
   const weekLabel = week && season ? `Tuần ${padNumber(String(week))} ${season}` : week ? `Tuần ${padNumber(String(week))}` : null;
@@ -135,13 +140,13 @@ export function matchesLiturgicalFilters(metadata: LiturgicalMetadata, filters: 
   if (filters.season && metadata.season !== filters.season) return false;
   if (filters.liturgicalYear && metadata.liturgicalYear !== filters.liturgicalYear) return false;
   if (filters.week && String(metadata.week ?? "") !== filters.week) return false;
-  const selectedCategories: LiturgicalCategory[] = [filters.saintsOnly ? "saints" : null, filters.marianOnly ? "marian" : null].filter(Boolean) as LiturgicalCategory[];
+  const selectedCategories: LiturgicalCategory[] = [filters.saintsOnly ? "saints" : null, filters.marianOnly ? "marian" : null, filters.childrenOnly ? "children" : null].filter(Boolean) as LiturgicalCategory[];
   if (selectedCategories.length && !selectedCategories.some((category) => metadata.categories.includes(category))) return false;
   return true;
 }
 
 export function liturgicalDetailLabels(metadata: LiturgicalMetadata) {
-  const labels = [metadata.season, metadata.liturgicalYear ? `Năm ${metadata.liturgicalYear}` : null, metadata.weekLabel, metadata.feastDate ? `Lễ ${metadata.feastDate}` : null, metadata.categories.includes("saints") ? "Các Thánh" : null, metadata.categories.includes("marian") ? "Đức Mẹ" : null, metadata.language === "en" ? "Tiếng Anh" : null].filter(Boolean) as string[];
+  const labels = [metadata.season, metadata.liturgicalYear ? `Năm ${metadata.liturgicalYear}` : null, metadata.weekLabel, metadata.feastDate ? `Lễ ${metadata.feastDate}` : null, metadata.categories.includes("saints") ? "Các Thánh" : null, metadata.categories.includes("marian") ? "Đức Mẹ" : null, metadata.categories.includes("children") ? "Thiếu Nhi" : null, metadata.language === "en" ? "Tiếng Anh" : null].filter(Boolean) as string[];
   return labels;
 }
 
