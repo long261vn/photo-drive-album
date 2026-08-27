@@ -152,6 +152,10 @@ Trong một Thư mục có hai Thư mục con, thao tác từ hàng Chi tiết m
 
 Thư mục con `CN22...` có 11 file hình trực tiếp vẫn hiển thị đúng các nút **Tải Thư mục**, **Chọn nhiều**, **Hiện nền** và ba kiểu xem. Từng file có nhãn trợ năng “Mở hình…”, do đó không bị nhầm với Thư mục và có thể tiếp tục mở Lightbox/tải như trước.
 
+## 2026-08-27 — Biểu tượng Thư mục tĩnh
+
+Theo phản hồi trực tiếp, biểu tượng Thư mục đã được thu gọn, bỏ hoàn toàn thumbnail thứ ba và mọi phép xoay/dịch chuyển. Biểu tượng chỉ còn hai ảnh đứng yên nằm ngay ngắn trong folder, không có animation; khung folder gọn hơn ở desktop lẫn Galaxy S20. Kiểm tra TypeScript, `git diff --check`, desktop 1280 × 720 và Galaxy S20 360 × 800 đều thành công.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.

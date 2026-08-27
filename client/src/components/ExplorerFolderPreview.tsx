@@ -1,6 +1,6 @@
 /**
  * Design: Windows Explorer-inspired folder visual for Long Nguyen's archive.
- * Open folder previews reveal a few contained files; detail mode is deliberately a closed folder icon.
+ * Open folder previews reveal two still thumbnails; detail mode is deliberately a closed folder icon.
  */
 import { Folder, FolderOpen } from "lucide-react";
 import { type Album, type Photo } from "@/lib/albumData";
@@ -15,7 +15,7 @@ type ExplorerFolderPreviewProps = {
 const previewPhotos = (album: Album): Photo[] => [
   ...album.photos.filter((photo) => !photo.isBackground),
   ...(album.children ?? []).flatMap(previewPhotos),
-].slice(0, 3);
+].slice(0, 2);
 
 export function ExplorerFolderPreview({ album, size = "large" }: ExplorerFolderPreviewProps) {
   if (size === "detail") return <span className="explorer-folder-detail-icon" aria-hidden="true"><Folder size={25} strokeWidth={1.55} /></span>;

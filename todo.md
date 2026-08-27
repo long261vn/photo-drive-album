@@ -182,3 +182,9 @@
 - [x] Tạo biểu tượng thư mục có ảnh hé bên trong, chế độ biểu tượng và chế độ chi tiết.
 - [x] Cập nhật điều hướng, tìm kiếm và tải Thư mục mà không ảnh hưởng Lightbox/Xem tất cả.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Tinh chỉnh biểu tượng Thư mục
+
+- [x] Rà soát tỷ lệ biểu tượng và lớp ảnh xem trước đang gây cảm giác thô/rối.
+- [x] Chuyển biểu tượng Thư mục sang dạng gọn, tĩnh, không xoay hoặc dịch chuyển ảnh bên trong.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành bản tinh chỉnh.
