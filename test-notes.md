@@ -315,3 +315,13 @@ Cụm chữ hồ sơ được hạ nhẹ 5px trên Galaxy S20, 7px ở tablet v�
 ## 2026-08-27 — Bỏ số thứ tự trên Thư mục và hình
 
 Đã gỡ nhãn số thứ tự ở ô Thư mục trong ba kiểu xem, thẻ hình của Xem tất cả, kết quả tìm kiếm, danh sách chi tiết và Thư mục con. Trình xem ảnh cũng không còn hiển thị vị trí số trong phần đầu hoặc chân trang. Kiểm tra desktop 1280×720 và Galaxy S20 360×800 cho ba route Xem tất cả, Theo thư mục và Thư mục chi tiết xác nhận tên có thêm không gian, không tràn ngang; TypeScript, build Pages và diff đều thành công.
+
+## 2026-08-27 — Đồng bộ Drive và QA đa nhóm người dùng
+
+Workflow Sync Google Drive albums `33069726793` hoàn tất thành công, bao gồm sinh manifest, build và triển khai Pages cùng lượt. Manifest mới có 3.326 ảnh nguồn, 1.991 ảnh hiển thị mặc định, 362 Thư mục và không có URL ảnh/tải lỗi, ID trùng, chênh lệch đếm Thư mục hoặc trường dữ liệu bắt buộc bị thiếu.
+
+Đã kiểm tra bản công khai theo các luồng người mới, người tìm nội dung phụng vụ, người duyệt Thư mục, người mở/tải ảnh, chủ website và người dùng Galaxy S20 360×800. Tìm `thieu nhi` trả 153 hình thuộc 12 tháng; bộ lọc Các Thánh có trạng thái truy cập đúng; Lightbox có đủ zoom/toàn màn hình/đường dẫn/Xem Thư mục/Tải xuống và phím mũi tên chuyển ảnh thành công. TypeScript, 112 mẫu quy ước, build Pages, console và log mạng đều đạt; báo cáo chi tiết lưu tại `../qa/BAO_CAO_QA_DONG_BO_DRIVE_2026-08-27.md`.
+
+## 2026-08-27 — Cấu hình Vercel cho website tĩnh
+
+Ảnh chụp từ Vercel cho thấy domain đang trả nội dung `server/index.ts`, nghĩa là nền tảng đã phục vụ nhầm mã nguồn thay vì bản React đã build. Đã thêm `vercel.json` cố định framework Vite, cài pnpm theo lockfile, lệnh build `pnpm build`, thư mục xuất bản `dist/public` và rewrite SPA về `index.html` cho mọi đường dẫn `/folders` và `/album/...`. JSON hợp lệ, build tĩnh tạo đủ `dist/public/index.html` và `dist/public/data/albums.json`, kiểm tra diff đạt.

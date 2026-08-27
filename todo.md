@@ -342,3 +342,16 @@
 - [x] Xác định toàn bộ nhãn số thứ tự trên các chế độ xem Thư mục và hình.
 - [x] Gỡ nhãn số thứ tự, giữ nguyên thao tác mở Thư mục và xem hình.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Đồng bộ Drive và đánh giá QA đa nhóm người dùng
+
+- [x] Chạy workflow đồng bộ Google Drive thủ công và xác nhận kết quả.
+- [x] Đối chiếu manifest, GitHub Pages và các đường dẫn chính sau đồng bộ.
+- [x] Đánh giá trải nghiệm theo nhiều nhóm người dùng trên desktop và Galaxy S20.
+- [x] Lập báo cáo ưu tiên về các khuyết điểm và hướng nâng cấp chuyên nghiệp.
+
+## Khắc phục triển khai Vercel
+
+- [x] Xác định vì sao Vercel phục vụ tệp `server/index.ts` thay vì website tĩnh.
+- [x] Thêm cấu hình Vercel cho build Vite, thư mục xuất bản và route ứng dụng.
+- [x] Kiểm tra build, đồng bộ GitHub và xác minh link Vercel sau triển khai.
