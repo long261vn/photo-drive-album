@@ -182,6 +182,12 @@ Workflow **Sync Google Drive albums** đã hoàn tất thành công; manifest th
 
 Đã tìm “Lòng Chúa Thương Xót” ở trang Theo thư mục và nhận 15 kết quả, gồm Thư mục, Thư mục con và các hình liên quan; các nút **Mở thư mục** / **Xem ảnh** phân biệt đúng loại kết quả. Bộ kiểm thử tự động xác nhận 59 mẫu tên, gồm toàn bộ quy ước mới, cùng metadata/bộ lọc Các Thánh, Đức Mẹ và năm phụng vụ.
 
+## 2026-08-27 — Phân nhóm nội dung Thư mục
+
+Đã kiểm tra Thư mục `RuocLeLanDau` có đồng thời một Thư mục con và file hình. Số mã mờ, lớn ở phần đầu đã được gỡ hoàn toàn. Ở **Chi tiết** và **Biểu tượng lớn**, hai phần **Thư mục con** và **File hình** hiển thị bằng tiêu đề riêng, đường phân cách riêng, thứ tự Thư mục trước file hình; từng hàng/tile vẫn mở đúng nội dung tương ứng.
+
+Đã chuyển sang **Biểu tượng nhỏ** và xác nhận hai tiêu đề nhóm vẫn được giữ. Kiểm tra Galaxy S20 360 × 800 với cả Thư mục hỗn hợp và Thư mục mẹ: tên dài xuống hàng tự nhiên, phần Thư mục con nằm trước, File hình được tách sau đường phân cách và không còn số mờ trang trí.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.

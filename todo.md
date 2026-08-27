@@ -224,3 +224,11 @@
 - [x] Chạy Sync Google Drive albums và xác minh manifest cập nhật.
 - [x] Kiểm thử tên hiển thị, tìm kiếm tự nhiên/viết tắt, bộ lọc và build.
 - [x] Phát hành GitHub Pages với dữ liệu Drive và quy tắc mới.
+
+## Làm rõ nội dung trong Thư mục
+
+- [x] Bỏ số trang trí mờ, lớn tại phần đầu Thư mục.
+- [x] Thiết kế nhãn/phân cách Thư mục con và File hình thống nhất.
+- [x] Áp dụng phân nhóm trong biểu tượng lớn, biểu tượng nhỏ và chi tiết.
+- [x] Kiểm thử Thư mục có cả thư mục con lẫn hình trên desktop và Galaxy S20.
+- [x] Build và phát hành GitHub Pages.

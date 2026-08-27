@@ -56,10 +56,8 @@ export default function AlbumPage() {
   const visibleChildAlbums = childAlbums.filter(collectionHasMatch);
   const visibleAssetCount = (entry: Album): number => entry.photos.filter(isVisiblePhoto).length + (entry.children ?? []).reduce((total, child) => total + visibleAssetCount(child), 0);
   const visibleDesignCount = visibleAssetCount(album);
-  const contentItems: AlbumContentItem[] = [
-    ...visibleChildAlbums.map((child) => ({ kind: "collection" as const, album: child })),
-    ...visiblePhotos.map((photo) => ({ kind: "photo" as const, photo })),
-  ];
+  const contentItemCount = visibleChildAlbums.length + visiblePhotos.length;
+  const hasFoldersAndPhotos = visibleChildAlbums.length > 0 && visiblePhotos.length > 0;
   const albumAvatar = profile.avatar?.trim();
   const selectedIndex = selectedPhoto ? visiblePhotos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
   const selectOffset = (offset: number) => setSelectedPhoto(visiblePhotos[(selectedIndex + offset + visiblePhotos.length) % visiblePhotos.length]);
@@ -92,17 +90,47 @@ export default function AlbumPage() {
     if (albumPhotos.length > 20 && !window.confirm(`Thư mục này có ${albumPhotos.length} hình. Trình duyệt sẽ tải từng file và có thể hỏi cho phép tải nhiều tệp. Bạn muốn tiếp tục?`)) return;
     void downloadPhotos(albumPhotos, "folder");
   };
+  const renderCollectionDetail = (child: Album, index: number) => (
+    <article className="photo-list__row photo-list__row--collection" key={child.id} role="listitem">
+      <button type="button" className="photo-list__preview photo-list__preview--collection" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}><ExplorerFolderPreview album={child} size="detail" /></button>
+      <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(child.title)}</strong><span>Thư mục</span></div>
+      <div className="photo-list__type"><span>Thư mục</span></div>
+      <button type="button" className="photo-list__open" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}><FolderOpen size={16} strokeWidth={1.8} /><span>Mở</span></button>
+    </article>
+  );
+  const renderPhotoDetail = (photo: Photo, index: number) => (
+    <article className={`photo-list__row ${selectionMode && selectedPhotoIds.has(photo.id) ? "is-selected" : ""}`} key={photo.id} role="listitem">
+      <button type="button" className="photo-list__preview" onClick={() => selectionMode ? togglePhotoSelection(photo) : setSelectedPhoto(photo)} aria-label={selectionMode ? `${selectedPhotoIds.has(photo.id) ? "Bỏ chọn" : "Chọn"} ${formatPhotoTitle(photo.title)}` : `Mở hình ${formatPhotoTitle(photo.title)}`}>
+        {photo.src?.trim() ? <img src={photo.src} alt={formatPhotoTitle(photo.title)} loading="lazy" decoding="async" /> : <span className="photo-list__placeholder" aria-hidden="true" />}{selectionMode && <span className="photo-select-indicator" aria-hidden="true">{selectedPhotoIds.has(photo.id) ? <Check size={15} strokeWidth={2.2} /> : <Square size={15} strokeWidth={1.8} />}</span>}
+      </button>
+      <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(photo.title)}</strong><span>{formatAlbumTitle(photo.location)} · {photo.date}</span><span className="photo-list__liturgical">{liturgicalDetailLabels(getLiturgicalMetadata(photo.title, photo.location)).join(" · ") || "Chưa phân loại"}</span>{getLiturgicalMetadata(photo.title, photo.location).celebrations[0] && <span className="photo-list__feast">{getLiturgicalMetadata(photo.title, photo.location).celebrations[0]}</span>}</div>
+      <div className="photo-list__type"><span>{photo.mimeType?.replace("image/", "").toUpperCase() ?? "HÌNH ẢNH"}</span><span>Hình ảnh</span></div>
+      <a href={photo.downloadUrl} target="_blank" rel="noreferrer" className="photo-list__download" aria-label={`Tải ${formatPhotoTitle(photo.title)}`}><Download size={16} strokeWidth={1.8} /><span>Tải</span></a>
+    </article>
+  );
+  const renderCollectionTile = (child: Album, index: number) => (
+    <button key={child.id} className="photo-tile photo-tile--collection explorer-content-folder" type="button" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}>
+      <ExplorerFolderPreview album={child} size={galleryView === "small" ? "small" : "large"} />
+      <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(child.title)}</strong><em>Thư mục</em></span>
+    </button>
+  );
+  const renderPhotoTile = (photo: Photo, index: number) => (
+    <button key={photo.id} className={`photo-tile photo-tile--${photo.orientation}${selectionMode ? " is-selectable" : ""}${selectedPhotoIds.has(photo.id) ? " is-selected" : ""}`} type="button" onClick={() => selectionMode ? togglePhotoSelection(photo) : setSelectedPhoto(photo)} aria-label={selectionMode ? `${selectedPhotoIds.has(photo.id) ? "Bỏ chọn" : "Chọn"} ${formatPhotoTitle(photo.title)}` : `Mở hình ${formatPhotoTitle(photo.title)}`}>
+      <span className="photo-tile__media">{photo.src?.trim() ? <img src={photo.src} alt={formatPhotoTitle(photo.title)} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}{selectionMode && <span className="photo-select-indicator" aria-hidden="true">{selectedPhotoIds.has(photo.id) ? <Check size={15} strokeWidth={2.2} /> : <Square size={15} strokeWidth={1.8} />}</span>}<span className="photo-tile__corner photo-tile__corner--one" aria-hidden="true" /><span className="photo-tile__corner photo-tile__corner--two" aria-hidden="true" /></span>
+      <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(photo.title)}</strong><em>{formatAlbumTitle(photo.location)} · {photo.date}</em></span>
+    </button>
+  );
 
   return (
     <main className="album-page">
       <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay lại" : "Thư mục gốc"}</button>{albumAvatar ? <span className="album-page__avatar"><img src={albumAvatar} alt={`Avatar ${profile.name}`} /></span> : <span className="header-mark brand-symbol" aria-hidden="true" />}</header>
-      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} hình</span></div></div>{albumPhotos.length > 0 ? <button className="album-intro__download" type="button" onClick={downloadFolder} disabled={isDownloading}><Download size={16} strokeWidth={1.8} /> {isDownloading ? `Đã gửi ${downloadProgress?.completed ?? 0}/${downloadProgress?.total ?? albumPhotos.length}` : `Tải Thư mục (${albumPhotos.length})`}</button> : null}</section>
+      <section className="album-intro"><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} hình</span></div></div>{albumPhotos.length > 0 ? <button className="album-intro__download" type="button" onClick={downloadFolder} disabled={isDownloading}><Download size={16} strokeWidth={1.8} /> {isDownloading ? `Đã gửi ${downloadProgress?.completed ?? 0}/${downloadProgress?.total ?? albumPhotos.length}` : `Tải Thư mục (${albumPhotos.length})`}</button> : null}</section>
       {isDownloading && downloadProgress && <section className="direct-download-progress" aria-live="polite" aria-label="Tiến trình gửi yêu cầu tải"><div className="direct-download-progress__heading"><span>{downloadProgressMessage}</span><strong>{downloadProgress.completed}/{downloadProgress.total}</strong></div><progress value={downloadProgress.completed} max={Math.max(downloadProgress.total, 1)} /><p>Mỗi hình được tải trực tiếp từ Google Drive. Nếu được hỏi, hãy cho phép trình duyệt tải nhiều tệp.</p></section>}
-      {contentItems.length > 0 && <section className="contact-sheet" aria-label={`Nội dung trong Thư mục ${formatAlbumTitle(album.title)}`}>
+      {contentItemCount > 0 && <section className="contact-sheet" aria-label={`Nội dung trong Thư mục ${formatAlbumTitle(album.title)}`}>
         <div className="contact-sheet__rule">
           <span>Nội dung Thư mục</span>
           <div className="gallery-actions">
-            <span>{String(contentItems.length).padStart(2, "0")} Mục</span>
+            <span>{String(contentItemCount).padStart(2, "0")} Mục</span>
             <button className={`gallery-selection-trigger ${selectionMode ? "is-active" : ""}`} type="button" onClick={() => selectionMode ? closeSelection() : setSelectionMode(true)} disabled={!visiblePhotos.length || isDownloading} aria-pressed={selectionMode}><Square size={15} strokeWidth={1.8} /><span>{selectionMode ? "Hủy chọn" : "Chọn nhiều hình"}</span></button>
             <button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds} title={showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn nền" : "Hiện nền"}</span></button>
             <div className="gallery-view-switch" role="group" aria-label="Kiểu hiển thị nội dung">
@@ -118,43 +146,15 @@ export default function AlbumPage() {
         {selectionMode && <div className="batch-download-bar" aria-live="polite"><span>{selectedPhotos.length} hình đã chọn</span><div><button type="button" onClick={() => setSelectedPhotoIds(new Set(visiblePhotos.map((photo) => photo.id)))} disabled={!visiblePhotos.length || isDownloading}>Chọn tất cả</button><button type="button" onClick={() => setSelectedPhotoIds(new Set())} disabled={!selectedPhotos.length || isDownloading}>Bỏ chọn</button><button className="batch-download-bar__primary" type="button" onClick={() => downloadPhotos(selectedPhotos, "selection")} disabled={!selectedPhotos.length || isDownloading}><Download size={15} strokeWidth={1.8} /> {downloadProgress ? `Đã gửi ${downloadProgress.completed}/${downloadProgress.total}` : `Tải từng hình (${selectedPhotos.length})`}</button><button className="batch-download-bar__close" type="button" onClick={closeSelection} disabled={isDownloading} aria-label="Đóng chọn nhiều hình"><X size={16} strokeWidth={1.8} /></button></div></div>}
         {downloadNotice && <p className="batch-download-notice" role="status">{downloadNotice}</p>}
 
-        {galleryView === "details" ? (
-          <div className="photo-list" role="list">
-            {contentItems.map((item, index) => item.kind === "collection" ? (
-              <article className="photo-list__row photo-list__row--collection" key={item.album.id} role="listitem">
-                <button type="button" className="photo-list__preview photo-list__preview--collection" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(item.album.title)}`}><ExplorerFolderPreview album={item.album} size="detail" /></button>
-                <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(item.album.title)}</strong><span>Thư mục</span></div>
-                <div className="photo-list__type"><span>Thư mục</span></div>
-                <button type="button" className="photo-list__open" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(item.album.title)}`}><FolderOpen size={16} strokeWidth={1.8} /><span>Mở</span></button>
-              </article>
-            ) : (
-              <article className={`photo-list__row ${selectionMode && selectedPhotoIds.has(item.photo.id) ? "is-selected" : ""}`} key={item.photo.id} role="listitem">
-                <button type="button" className="photo-list__preview" onClick={() => selectionMode ? togglePhotoSelection(item.photo) : setSelectedPhoto(item.photo)} aria-label={selectionMode ? `${selectedPhotoIds.has(item.photo.id) ? "Bỏ chọn" : "Chọn"} ${formatPhotoTitle(item.photo.title)}` : `Mở hình ${formatPhotoTitle(item.photo.title)}`}>
-                  {item.photo.src?.trim() ? <img src={item.photo.src} alt={formatPhotoTitle(item.photo.title)} loading="lazy" decoding="async" /> : <span className="photo-list__placeholder" aria-hidden="true" />}{selectionMode && <span className="photo-select-indicator" aria-hidden="true">{selectedPhotoIds.has(item.photo.id) ? <Check size={15} strokeWidth={2.2} /> : <Square size={15} strokeWidth={1.8} />}</span>}
-                </button>
-                <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(item.photo.title)}</strong><span>{formatAlbumTitle(item.photo.location)} · {item.photo.date}</span><span className="photo-list__liturgical">{liturgicalDetailLabels(getLiturgicalMetadata(item.photo.title, item.photo.location)).join(" · ") || "Chưa phân loại"}</span>{getLiturgicalMetadata(item.photo.title, item.photo.location).celebrations[0] && <span className="photo-list__feast">{getLiturgicalMetadata(item.photo.title, item.photo.location).celebrations[0]}</span>}</div>
-                <div className="photo-list__type"><span>{item.photo.mimeType?.replace("image/", "").toUpperCase() ?? "HÌNH ẢNH"}</span><span>Hình ảnh</span></div>
-                <a href={item.photo.downloadUrl} target="_blank" rel="noreferrer" className="photo-list__download" aria-label={`Tải ${formatPhotoTitle(item.photo.title)}`}><Download size={16} strokeWidth={1.8} /><span>Tải</span></a>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className={`photo-grid photo-grid--${galleryView}`}>
-            {contentItems.map((item, index) => item.kind === "collection" ? (
-              <button key={item.album.id} className="photo-tile photo-tile--collection explorer-content-folder" type="button" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(item.album.title)}`}>
-                <ExplorerFolderPreview album={item.album} size={galleryView === "small" ? "small" : "large"} />
-                <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(item.album.title)}</strong><em>Thư mục</em></span>
-              </button>
-            ) : (
-              <button key={item.photo.id} className={`photo-tile photo-tile--${item.photo.orientation}${selectionMode ? " is-selectable" : ""}${selectedPhotoIds.has(item.photo.id) ? " is-selected" : ""}`} type="button" onClick={() => selectionMode ? togglePhotoSelection(item.photo) : setSelectedPhoto(item.photo)} aria-label={selectionMode ? `${selectedPhotoIds.has(item.photo.id) ? "Bỏ chọn" : "Chọn"} ${formatPhotoTitle(item.photo.title)}` : `Mở hình ${formatPhotoTitle(item.photo.title)}`}>
-                <span className="photo-tile__media">{item.photo.src?.trim() ? <img src={item.photo.src} alt={formatPhotoTitle(item.photo.title)} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}{selectionMode && <span className="photo-select-indicator" aria-hidden="true">{selectedPhotoIds.has(item.photo.id) ? <Check size={15} strokeWidth={2.2} /> : <Square size={15} strokeWidth={1.8} />}</span>}<span className="photo-tile__corner photo-tile__corner--one" aria-hidden="true" /><span className="photo-tile__corner photo-tile__corner--two" aria-hidden="true" /></span>
-                <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(item.photo.title)}</strong><em>{formatAlbumTitle(item.photo.location)} · {item.photo.date}</em></span>
-              </button>
-            ))}
-          </div>
-        )}
+        {galleryView === "details" ? <div className="folder-content-groups">
+          {visibleChildAlbums.length > 0 && <section className="folder-content-group"><h2 className="folder-content-group__heading">Thư mục con</h2><div className="photo-list" role="list">{visibleChildAlbums.map(renderCollectionDetail)}</div></section>}
+          {visiblePhotos.length > 0 && <section className="folder-content-group"><h2 className={`folder-content-group__heading ${hasFoldersAndPhotos ? "" : "is-visually-hidden"}`}>File hình</h2><div className="photo-list" role="list">{visiblePhotos.map(renderPhotoDetail)}</div></section>}
+        </div> : <div className="folder-content-groups">
+          {visibleChildAlbums.length > 0 && <section className="folder-content-group"><h2 className="folder-content-group__heading">Thư mục con</h2><div className={`photo-grid photo-grid--${galleryView}`}>{visibleChildAlbums.map(renderCollectionTile)}</div></section>}
+          {visiblePhotos.length > 0 && <section className="folder-content-group"><h2 className={`folder-content-group__heading ${hasFoldersAndPhotos ? "" : "is-visually-hidden"}`}>File hình</h2><div className={`photo-grid photo-grid--${galleryView}`}>{visiblePhotos.map(renderPhotoTile)}</div></section>}
+        </div>}
       </section>}
-      {contentItems.length === 0 && <section className="contact-sheet"><p className="empty-assets">Thư mục này chưa có hình ảnh hoặc Thư mục con công khai.</p></section>}
+      {contentItemCount === 0 && <section className="contact-sheet"><p className="empty-assets">Thư mục này chưa có hình ảnh hoặc Thư mục con công khai.</p></section>}
       <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/">Về Thư mục gốc</Link></footer>
     {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={visiblePhotos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
     </main>
