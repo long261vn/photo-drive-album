@@ -21,6 +21,47 @@ const cases: Array<[string, string]> = [
   ["T4_Tuan_II_MC_LN", "Thứ Tư Tuần 02 Mùa Chay · Long Nguyen"],
   ["09_05_Thanh_Anton", "05/09 Thánh An-tôn Pa-đua-a, Tiến Sĩ Hội Thánh"],
   ["CN_DMMC", "Chúa Nhật Lễ Đức Mẹ Mân Côi"],
+  ["CN_MinhMauChua_A", "Chúa Nhật Mình Máu Chúa Năm A"],
+  ["CN_ChuaBaNgoi_B", "Chúa Nhật Chúa Ba Ngôi Năm B"],
+  ["CTT", "Chúa Thánh Thần"],
+  ["CN_CTT_HienXuong", "Chúa Nhật Chúa Thánh Thần Hiện Xuống"],
+  ["ChuaThangThien", "Chúa Thăng Thiên"],
+  ["LCTX", "Lòng Chúa Thương Xót"],
+  ["LeLa_TuanThanh_PS_2026", "Lễ Lá - Tuần Thánh - Phục Sinh - 2026"],
+  ["Tuan05MC", "Tuần 05 Mùa Chay"],
+  ["Tuan03TN", "Tuần 03 Thường Niên"],
+  ["Tuan02MV", "Tuần 02 Mùa Vọng"],
+  ["CN06_TN_A_TET_LE_TRO", "Chúa Nhật 06 Thường Niên Năm A, TẾT, Lễ Tro"],
+  ["Chua_Chiu_Phep_Rua_A_va_Le_tu_12_01_den_17_01", "Chúa Chịu Phép Rửa và Lễ từ ngày 12/01 đến 17/01"],
+  ["DucMaria_MeThienChua", "Đức Maria Mẹ Thiên Chúa"],
+  ["Le_Thanh_Gia_Nam_A", "Lễ Thánh Gia Năm A"],
+  ["Le_Cac_Thanh_Nam_Nu", "Lễ Các Thánh Nam Nữ"],
+  ["Duc_Me_Man_Coi", "Đức Mẹ Mân Côi"],
+  ["Thien_than_ho_thu", "Thiên Thần Hộ Thủ"],
+  ["Thanh_Teresa", "Thánh Teresa"],
+  ["Le_Tong_Lanh_Thien_Than", "Lễ Tổng Lãnh Thiên Thần"],
+  ["Duc_Me_Len_Troi", "Đức Mẹ Lên Trời"],
+  ["Anre_Phu_Yen", "Thánh Anre Phú Yên"],
+  ["ThanhPheroPhaolo", "Thánh Phêrô Phaolô"],
+  ["RuocLeLanDau_LN_2025", "Rước Lễ Lần Đầu - Long Nguyen - 2025"],
+  ["CN_ChuaThangThien", "Chúa Nhật Chúa Thăng Thiên"],
+  ["Thanh_Vinh_Son", "Thánh Vinh Sơn"],
+  ["CN02_PS_C", "Chúa Nhật Thứ 02 Phục Sinh - Năm C"],
+  ["Tuan_Bat_Nhat_PS", "Tuần Bát Nhật Phục Sinh"],
+  ["Ngam_Dau_Danh_va_Ngam_Rang", "Ngắm Dấu Đanh và Ngắm Rằng"],
+  ["Ngam_15_Su_Thuong_Kho", "Ngắm 15 Sự Thương Khó"],
+  ["14_DangThanhGia", "14 Đàng Thánh Giá"],
+  ["Le_Truyen_Tin", "Lễ Truyền Tin"],
+  ["DangChuaTrongDenThanh", "Dâng Chúa Trong Đền Thánh"],
+  ["TET", "Tết"],
+  ["Le_Chua_Chiu_Phep_Rua_C", "Lễ Chúa Chịu Phép Rửa Năm C"],
+  ["Le_Hien_Linh", "Lễ Hiển Linh"],
+  ["Giang_Sinh", "Giáng Sinh"],
+  ["CN29_TN_B_CN_Truyen_Giao_2024", "Chúa Nhật 29 Thường Niên Năm B, Chúa Nhật Truyền Giáo 2024"],
+  ["Le_Phong_Thanh", "Lễ Phong Thánh"],
+  ["Le_Duc_Me_Len_Troi_15_8", "Lễ Đức Mẹ Lên Trời 15/08"],
+  ["SN_Thanh_Gioan_Tay_Gia", "Sinh Nhật Thánh Gioan Tẩy Giả"],
+  ["LeTro_MuaChay", "Lễ Tro, Mùa Chay"],
 ];
 
 const failures = cases.flatMap(([source, expected]) => {
@@ -71,7 +112,8 @@ const saintMariaTitles = [
 const saintMariaMetadata = saintMariaTitles.map((title) => getLiturgicalMetadata(title));
 const nonMarianTitles = ["Ta On Cuoi Nam Duong Lich", "Ngay VIII Bat Nhat GS 2025"];
 const rosaryMetadata = getLiturgicalMetadata("CN_DMMC");
-if (!saintMariaMetadata.every((metadata) => metadata.categories.includes("saints") && !metadata.categories.includes("marian")) || nonMarianTitles.some((title) => getLiturgicalMetadata(title).categories.length) || !rosaryMetadata.categories.includes("marian")) {
+const anreMetadata = getLiturgicalMetadata("Anre_Phu_Yen");
+if (!saintMariaMetadata.every((metadata) => metadata.categories.includes("saints") && !metadata.categories.includes("marian")) || nonMarianTitles.some((title) => getLiturgicalMetadata(title).categories.length) || !rosaryMetadata.categories.includes("marian") || !anreMetadata.categories.includes("saints")) {
   throw new Error("Các Thánh có tên Maria hoặc các ví dụ không liên quan đang bị phân loại nhầm là Đức Mẹ.");
 }
 

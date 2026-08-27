@@ -30,6 +30,11 @@ function sourceText(value: string) {
 function peelTechnicalSuffixes(value: string) {
   const suffixes: string[] = [];
   let text = value;
+  text = text.replace(/\bLN\s*(\d{4})\b/gi, (_match: string, year: string, offset: number, original: string) => {
+    if (normalizeRuleKey(original).includes("ruoclelandau")) return ` ${year}`;
+    suffixes.push(`Long Nguyen ${year}`);
+    return " ";
+  });
   text = text.replace(/\bLN\s*(\d+[A-Za-z]?)?\b/gi, (_match: string, version?: string) => {
     suffixes.push(`Long Nguyen${version ? ` ${version.toUpperCase()}` : ""}`);
     return " ";

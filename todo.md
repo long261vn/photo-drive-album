@@ -216,3 +216,11 @@
 - [x] Chỉ cho phép chọn nhiều hình; Thư mục chỉ có thao tác tải lần lượt toàn bộ hình.
 - [x] Đổi nhãn thành “Chọn nhiều hình” và bỏ số lượng Thư mục ở các màn hình duyệt.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Đồng bộ Drive và mở rộng quy ước phụng vụ
+
+- [ ] Rà soát các alias, quy tắc metadata và kiểm thử chuẩn hóa hiện có.
+- [ ] Bổ sung các tên Lễ, Mùa, Chúa Nhật và Các Thánh mới vào cấu hình quy ước.
+- [ ] Chạy Sync Google Drive albums và xác minh manifest cập nhật.
+- [ ] Kiểm thử tên hiển thị, tìm kiếm tự nhiên/viết tắt, bộ lọc và build.
+- [ ] Phát hành GitHub Pages với dữ liệu Drive và quy tắc mới.

@@ -105,8 +105,9 @@ export function getLiturgicalMetadata(title = "", location = ""): LiturgicalMeta
   const week = weekFor(raw);
   const categories: LiturgicalCategory[] = [];
   const feastKey = feastDateFor(title);
-  const strongSaintSignal = matchesAnyKey(title, ["cac thanh", "các thánh", "tu dao", "tử đạo"]);
-  if (matchesAnyKey(title, liturgicalRules.categoryKeywords.saints) && (feastKey || strongSaintSignal)) categories.push("saints");
+  const saintKeywords = [...liturgicalRules.categoryKeywords.saints, ...liturgicalRules.categoryKeywords.saintsStrong];
+  const strongSaintSignal = matchesAnyKey(title, ["cac thanh", "các thánh", "tu dao", "tử đạo", ...liturgicalRules.categoryKeywords.saintsStrong]);
+  if (matchesAnyKey(title, saintKeywords) && (feastKey || strongSaintSignal)) categories.push("saints");
   if (matchesAnyKey(title, liturgicalRules.categoryKeywords.marian)) categories.push("marian");
   const language = languageFor(title);
   const celebrations = feastKey ? [...(fixedFeastsByDate.get(feastKey) ?? [])] : [];

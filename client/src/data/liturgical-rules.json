@@ -67,6 +67,7 @@
   },
   "categoryKeywords": {
     "saints": ["thanh", "thánh", "cac thanh", "các thánh", "tu dao", "tử đạo"],
+    "saintsStrong": ["anre phu yen", "thanh phero phaolo", "thanh vinh son", "thanh teresa", "thien than ho thu", "tong lanh thien than"],
     "marian": ["duc me", "đức mẹ", "duc maria", "đức maria", "duc trinh nu maria", "đức trinh nữ maria", "me maria", "mẹ maria", "maria me", "maria mẹ", "dmmc", "duc me man coi", "đức mẹ mân côi"]
   },
   "smartSearchAliases": {
@@ -96,7 +97,7 @@
       "label": "Lòng Thương Xót Chúa"
     },
     {
-      "aliases": ["cn dmmc", "cn_dmmc", "dmmc", "duc me man coi"],
+      "aliases": ["cn dmmc", "cn_dmmc", "dmmc"],
       "label": "Chúa Nhật Lễ Đức Mẹ Mân Côi"
     },
     {
@@ -114,6 +115,166 @@
     {
       "aliases": ["thanh teresa calcutta", "thanh teresa cancutta"],
       "label": "Thánh Têrêsa Calcutta"
+    },
+    {
+      "aliases": ["cn minhmauchua a"],
+      "label": "Chúa Nhật Mình Máu Chúa Năm A"
+    },
+    {
+      "aliases": ["cn chuabangoi b"],
+      "label": "Chúa Nhật Chúa Ba Ngôi Năm B"
+    },
+    {
+      "aliases": ["cn ctt hienxuong"],
+      "label": "Chúa Nhật Chúa Thánh Thần Hiện Xuống"
+    },
+    {
+      "aliases": ["ctt"],
+      "label": "Chúa Thánh Thần"
+    },
+    {
+      "aliases": ["lctx"],
+      "label": "Lòng Chúa Thương Xót"
+    },
+    {
+      "aliases": ["lela tuanthanh ps 2026"],
+      "label": "Lễ Lá - Tuần Thánh - Phục Sinh - 2026"
+    },
+    {
+      "aliases": ["tuan05mc"],
+      "label": "Tuần 05 Mùa Chay"
+    },
+    {
+      "aliases": ["tuan03tn"],
+      "label": "Tuần 03 Thường Niên"
+    },
+    {
+      "aliases": ["tuan02mv"],
+      "label": "Tuần 02 Mùa Vọng"
+    },
+    {
+      "aliases": ["cn06 tn a tet le tro"],
+      "label": "Chúa Nhật 06 Thường Niên Năm A, TẾT, Lễ Tro"
+    },
+    {
+      "aliases": ["chua chiu phep rua a va le tu 12 01 den 17 01"],
+      "label": "Chúa Chịu Phép Rửa và Lễ từ ngày 12/01 đến 17/01"
+    },
+    {
+      "aliases": ["ducmaria methienchua"],
+      "label": "Đức Maria Mẹ Thiên Chúa"
+    },
+    {
+      "aliases": ["le thanh gia nam a"],
+      "label": "Lễ Thánh Gia Năm A"
+    },
+    {
+      "aliases": ["le cac thanh nam nu"],
+      "label": "Lễ Các Thánh Nam Nữ"
+    },
+    {
+      "aliases": ["duc me man coi"],
+      "label": "Đức Mẹ Mân Côi"
+    },
+    {
+      "aliases": ["thien than ho thu"],
+      "label": "Thiên Thần Hộ Thủ"
+    },
+    {
+      "aliases": ["thanh teresa"],
+      "label": "Thánh Teresa"
+    },
+    {
+      "aliases": ["le tong lanh thien than"],
+      "label": "Lễ Tổng Lãnh Thiên Thần"
+    },
+    {
+      "aliases": ["cn chuathangthien"],
+      "label": "Chúa Nhật Chúa Thăng Thiên"
+    },
+    {
+      "aliases": ["chuathangthien"],
+      "label": "Chúa Thăng Thiên"
+    },
+    {
+      "aliases": ["le duc me len troi 15 8"],
+      "label": "Lễ Đức Mẹ Lên Trời 15/08"
+    },
+    {
+      "aliases": ["ruoclelandau 2025"],
+      "label": "Rước Lễ Lần Đầu - Long Nguyen - 2025"
+    },
+    {
+      "aliases": ["duc me len troi"],
+      "label": "Đức Mẹ Lên Trời"
+    },
+    {
+      "aliases": ["thanh vinh son"],
+      "label": "Thánh Vinh Sơn"
+    },
+    {
+      "aliases": ["tuan bat nhat ps"],
+      "label": "Tuần Bát Nhật Phục Sinh"
+    },
+    {
+      "aliases": ["ngam dau danh va ngam rang"],
+      "label": "Ngắm Dấu Đanh và Ngắm Rằng"
+    },
+    {
+      "aliases": ["ngam 15 su thuong kho"],
+      "label": "Ngắm 15 Sự Thương Khó"
+    },
+    {
+      "aliases": ["14 dangthanhgia"],
+      "label": "14 Đàng Thánh Giá"
+    },
+    {
+      "aliases": ["le truyen tin"],
+      "label": "Lễ Truyền Tin"
+    },
+    {
+      "aliases": ["dangchuatrongdenthanh"],
+      "label": "Dâng Chúa Trong Đền Thánh"
+    },
+    {
+      "aliases": ["tet"],
+      "label": "Tết"
+    },
+    {
+      "aliases": ["le chua chiu phep rua c"],
+      "label": "Lễ Chúa Chịu Phép Rửa Năm C"
+    },
+    {
+      "aliases": ["le hien linh"],
+      "label": "Lễ Hiển Linh"
+    },
+    {
+      "aliases": ["giang sinh"],
+      "label": "Giáng Sinh"
+    },
+    {
+      "aliases": ["cn29 tn b cn truyen giao 2024"],
+      "label": "Chúa Nhật 29 Thường Niên Năm B, Chúa Nhật Truyền Giáo 2024"
+    },
+    {
+      "aliases": ["le phong thanh"],
+      "label": "Lễ Phong Thánh"
+    },
+    {
+      "aliases": ["anre phu yen"],
+      "label": "Thánh Anre Phú Yên"
+    },
+    {
+      "aliases": ["thanhpherophaolo"],
+      "label": "Thánh Phêrô Phaolô"
+    },
+    {
+      "aliases": ["sn thanh gioan tay gia"],
+      "label": "Sinh Nhật Thánh Gioan Tẩy Giả"
+    },
+    {
+      "aliases": ["letro muachay"],
+      "label": "Lễ Tro, Mùa Chay"
     }
   ],
   "calendar": {
