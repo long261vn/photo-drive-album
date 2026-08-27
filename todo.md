@@ -168,3 +168,17 @@
 - [x] Thiết kế thao tác chọn nhiều hình, chọn tất cả và hủy chọn phù hợp desktop/Galaxy S20.
 - [x] Thêm tải xuống nhiều hình và làm rõ nút tải toàn Album/folder.
 - [x] Kiểm thử thao tác tải, build và phát hành GitHub Pages.
+
+## Đánh giá trải nghiệm theo hai chân dung người dùng
+
+- [x] Lập hành trình thử dùng cho người rành công nghệ và người lớn tuổi lần đầu sử dụng.
+- [x] Thử tìm ảnh, mở Album, xem ảnh và tải xuống trên desktop lẫn Galaxy S20.
+- [x] Tổng hợp điểm tốt, trở ngại và khuyến nghị ưu tiên.
+
+## Chế độ Theo thư mục kiểu Explorer
+
+- [x] Rà soát dữ liệu Album/Bộ Sưu Tập, Home, AlbumPage và CSS để lập bản đồ thay đổi.
+- [x] Đổi thuật ngữ và thiết kế chế độ Theo thư mục, giữ Xem tất cả tập trung vào ảnh.
+- [x] Tạo biểu tượng thư mục có ảnh hé bên trong, chế độ biểu tượng và chế độ chi tiết.
+- [x] Cập nhật điều hướng, tìm kiếm và tải Thư mục mà không ảnh hưởng Lightbox/Xem tất cả.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.

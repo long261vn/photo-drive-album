@@ -1,6 +1,6 @@
 /**
- * Design: Liturgical Design Archive — a chronological, image-first reading path.
- * The timeline keeps the warm editorial paper system while presenting Long Nguyen's images chronologically.
+ * Design: Long Nguyen personal image archive — a chronological, image-first viewing path.
+ * “Xem tất cả” complements the Explorer-inspired folder browser and presents images chronologically.
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
@@ -91,19 +91,19 @@ export default function TimelinePage() {
   const avatar = profile.avatar?.trim();
 
   return <main className="timeline-page">
-    <header className="timeline-page__header"><button className="back-link" type="button" onClick={() => setLocation("/")}><ArrowLeft size={18} strokeWidth={1.8} /> Xem theo Album</button>{avatar && <span className="album-page__avatar"><img src={avatar} alt={`Avatar ${profile.name}`} /></span>}</header>
+    <header className="timeline-page__header"><button className="back-link" type="button" onClick={() => setLocation("/")}><ArrowLeft size={18} strokeWidth={1.8} /> Theo thư mục</button>{avatar && <span className="album-page__avatar"><img src={avatar} alt={`Avatar ${profile.name}`} /></span>}</header>
     <LibraryModeSwitch active="all" />
     <section className="timeline-hero">
-      <p className="eyebrow">Chế độ 02 · Toàn thư viện</p>
+      <p className="eyebrow">Xem ảnh · Toàn bộ thư viện</p>
       <div className="timeline-hero__copy"><h1>Xem Tất Cả</h1></div>
       <div className="timeline-hero__utility"><label className="timeline-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm trong toàn bộ thiết kế</span><input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleItemCount(LOAD_SIZE); }} placeholder="Tìm Mùa, Tuần, Lễ hoặc thiết kế" /></label><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button></div>
       <LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setVisibleItemCount(LOAD_SIZE); }} />
-      <div className="timeline-hero__stats"><span><Images size={17} strokeWidth={1.7} /> {timelinePhotos.length} Thiết Kế</span><span><CalendarDays size={17} strokeWidth={1.7} /> {groups.length} Tháng Lưu Trữ</span>{normalizedQuery && <span>Kết quả cho “{query.trim()}”</span>}</div>
+      <div className="timeline-hero__stats"><span><Images size={17} strokeWidth={1.7} /> {timelinePhotos.length} hình</span><span><CalendarDays size={17} strokeWidth={1.7} /> {groups.length} tháng lưu trữ</span>{normalizedQuery && <span>Kết quả cho “{query.trim()}”</span>}</div>
     </section>
 
     {visibleGroups.length > 0 ? <div className="timeline-rail">
-      {visibleGroups.map((group) => <section className="timeline-group" key={group.key} aria-label={`Thiết kế ${group.label}`}>
-        <div className="timeline-group__heading"><span className="timeline-group__marker" aria-hidden="true" /><div><p className="eyebrow">{group.key}</p><h2>{group.label}</h2></div><span>{String(group.photos.length).padStart(2, "0")} Thiết Kế</span></div>
+      {visibleGroups.map((group) => <section className="timeline-group" key={group.key} aria-label={`Hình ảnh ${group.label}`}>
+        <div className="timeline-group__heading"><span className="timeline-group__marker" aria-hidden="true" /><div><p className="eyebrow">{group.key}</p><h2>{group.label}</h2></div><span>{String(group.photos.length).padStart(2, "0")} hình</span></div>
         <div className="timeline-grid">
           {group.photos.map((photo, photoIndex) => <article className={`timeline-tile ${photoIndex === 0 ? "timeline-tile--anchor" : ""}`} key={photo.id}>
             <button type="button" className="timeline-tile__media" onClick={() => setSelectedPhoto(photo)} aria-label={`Mở thiết kế ${formatPhotoTitle(photo.title)}`}>
@@ -117,7 +117,7 @@ export default function TimelinePage() {
       </section>)}
     </div> : <section className="timeline-empty"><p className="eyebrow">Chưa có hình phù hợp</p><h1>Chưa có hình để hiển thị.</h1></section>}
 
-    {hasMoreItems && <div className="timeline-load-more"><button type="button" onClick={() => setVisibleItemCount((count) => count + LOAD_SIZE)}><Plus size={16} strokeWidth={1.8} /> Tải Thêm {LOAD_SIZE} Thiết Kế</button><span>Đã hiển thị {Math.min(visibleItemCount, timelinePhotos.length)} / {timelinePhotos.length} thiết kế</span></div>}
+    {hasMoreItems && <div className="timeline-load-more"><button type="button" onClick={() => setVisibleItemCount((count) => count + LOAD_SIZE)}><Plus size={16} strokeWidth={1.8} /> Tải thêm {LOAD_SIZE} hình</button><span>Đã hiển thị {Math.min(visibleItemCount, timelinePhotos.length)} / {timelinePhotos.length} hình</span></div>}
     <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>
     {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={timelinePhotos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
   </main>;

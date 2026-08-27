@@ -108,3 +108,5 @@ Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metad
 - Chế độ **Xem tất cả** áp dụng contact sheet có nhịp biên tập: ảnh đầu mỗi mốc tháng là ảnh neo lớn hơn trên desktop; mọi thiết kế có index marker, metadata ngày và đường thời gian để tránh cảm giác lưới ảnh đơn thuần.
 - Trang đầu dùng **Long Nguyen** làm tiêu đề chính; nội dung profile vẫn lấy nguyên văn từ Google Drive, không thêm mô tả cách website vận hành.
 - Bộ lọc Mùa, Tuần, Các Thánh và Đức Mẹ dùng hairline controls cùng nhãn archive, đồng thời metadata phụng vụ tạo nhịp đọc cho Dòng Thời Gian và Danh Sách thay vì biến thư viện thành bảng dữ liệu thuần túy.
+- Chế độ **Theo thư mục** dùng ngôn ngữ quen thuộc của Windows Explorer: thư mục và thư mục con trước file hình, biểu tượng thư mục mở hé các hình bên trong ở hai chế độ biểu tượng, còn chế độ Chi tiết dùng folder đóng cùng tên, ngày, loại và số lượng nội dung.
+- Chế độ **Xem tất cả** giữ vai trò trải nghiệm ảnh: dòng thời gian, lưới ảnh và mở ảnh trực tiếp. Hai chế độ phải có vai trò khác nhau, tránh dùng ảnh bên trong làm “cover Album” trên trang Theo thư mục.

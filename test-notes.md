@@ -144,6 +144,14 @@ Trang Album có nút **Chọn nhiều** ở thanh thao tác. Khi bật, mỗi �
 
 Nút **Tải Folder** dùng file ZIP đã chuẩn bị sẵn trong Drive nếu manifest có `downloadAll`; nếu không, website tạo ZIP gồm toàn bộ ảnh trong Album và các Bộ Sưu Tập lồng nhau. Folder trên 75 ảnh có hộp xác nhận trước khi tải. Đã kiểm tra bố cục nút tải Folder, Chọn nhiều, các chế độ xem và bộ lọc ở desktop 1280×720 cùng Galaxy S20 360×800: không có tràn ngang; TypeScript, build Pages và kiểm tra diff đã chạy thành công.
 
+## 2026-08-27 — Theo thư mục kiểu Explorer
+
+Đã thử bản xem trước ở trang gốc. Ba kiểu xem **Biểu tượng lớn**, **Biểu tượng nhỏ** và **Chi tiết** đều hiển thị, đổi trạng thái bằng nút tương ứng và giữ được danh sách 24 Thư mục/phân trang. Kiểu **Chi tiết** xác nhận có folder đóng, tên, ngày, loại “Thư mục” và thông tin số Thư mục con/hình; các hàng là nút mở Thư mục có nhãn trợ năng đầy đủ. Bố cục desktop hiển thị Thư mục, thanh tìm kiếm, bộ lọc và các kiểu xem không tràn ngang.
+
+Trong một Thư mục có hai Thư mục con, thao tác từ hàng Chi tiết mở đúng nội dung con. Ở kiểu **Biểu tượng lớn**, hai Thư mục con dùng biểu tượng folder mở với các hình nằm bên trong; chuyển sang **Chi tiết** thay chúng bằng folder đóng, tên, loại Thư mục, số hình và nút Mở. Nút quay về đã đổi thành “Thư mục gốc” hoặc “Quay lại” theo ngữ cảnh.
+
+Thư mục con `CN22...` có 11 file hình trực tiếp vẫn hiển thị đúng các nút **Tải Thư mục**, **Chọn nhiều**, **Hiện nền** và ba kiểu xem. Từng file có nhãn trợ năng “Mở hình…”, do đó không bị nhầm với Thư mục và có thể tiếp tục mở Lightbox/tải như trước.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.
