@@ -176,6 +176,12 @@ Trong Thư mục có 11 hình, đã bật **Chọn nhiều** và xác nhận tha
 
 Trên desktop 1280 × 720 và Galaxy S20 360 × 800, nút **Tải Thư mục (17)**, **Chọn nhiều hình**, trạng thái tải và các hàng file đều hiển thị không tràn ngang. Số Thư mục đã được gỡ khỏi phần thống kê trang chủ, thẻ Thư mục và phần giới thiệu Thư mục; số lượng hình vẫn giữ ở nơi phục vụ thao tác tải.
 
+## 2026-08-27 — Quy ước phụng vụ và đồng bộ Drive
+
+Workflow **Sync Google Drive albums** đã hoàn tất thành công; manifest thay đổi 32 dòng thêm và 5 dòng xóa. Trên dữ liệu thật, danh sách Thư mục hiện hiển thị đúng các tên mới gồm **Chúa Nhật Mình Máu Chúa Năm A**, **Chúa Nhật Chúa Thánh Thần Hiện Xuống**, **Chúa Thăng Thiên**, **Lòng Chúa Thương Xót**, **Lễ Lá - Tuần Thánh - Phục Sinh - 2026** và **Tuần 05 Mùa Chay**.
+
+Đã tìm “Lòng Chúa Thương Xót” ở trang Theo thư mục và nhận 15 kết quả, gồm Thư mục, Thư mục con và các hình liên quan; các nút **Mở thư mục** / **Xem ảnh** phân biệt đúng loại kết quả. Bộ kiểm thử tự động xác nhận 59 mẫu tên, gồm toàn bộ quy ước mới, cùng metadata/bộ lọc Các Thánh, Đức Mẹ và năm phụng vụ.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.
