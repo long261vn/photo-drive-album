@@ -823,7 +823,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 /* Design: profile and browsing controls are distinct chapters on small screens, separated by one measured breath rather than an empty gap. */
 @media (max-width: 579px) {
-  .profile-shell { margin-bottom: 26px; }
-  .library-mode-switch { margin-top: 14px; }
-  .album-page .profile-shell { margin-bottom: 24px; }
+  .profile-shell { margin-bottom: 10px; }
+  .library-mode-switch { margin-top: 6px; }
+  .album-page .profile-shell { margin-bottom: 10px; }
 }

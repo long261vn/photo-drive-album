@@ -318,3 +318,9 @@
 - [x] Đo nhịp dọc giữa cụm cover–avatar–info và vùng duyệt nội dung trên Galaxy S20.
 - [x] Điều chỉnh khoảng đệm profile, bộ chuyển cách xem và thanh công cụ theo một nhịp thoáng.
 - [x] Kiểm thử Galaxy S20, desktop, build và phát hành GitHub Pages.
+
+## Thu gọn khoảng cách hồ sơ và nội dung theo phản hồi
+
+- [x] Rà soát khoảng trống vừa tăng giữa phần thông tin cá nhân và vùng chuyển cách xem.
+- [x] Giảm khoảng đệm, kéo vùng duyệt nội dung lên sát hơn trên điện thoại.
+- [x] Kiểm thử Galaxy S20, desktop, build và phát hành GitHub Pages.

@@ -300,3 +300,7 @@ Theo phản hồi owner, chiều cao cover được giữ nguyên. Avatar tăng 
 ## 2026-08-27 — Khoảng cách hồ sơ và nội dung
 
 Trên Galaxy S20, phần kết thúc của cover–avatar–info được cách vùng chuyển **Xem tất cả / Theo thư mục** bằng khoảng đệm 26px; tiếp theo là khoảng đệm 14px trước nhóm nút. Ở trang Thư mục, khoảng đệm sau hồ sơ là 24px trước điều hướng. Nhịp này tách rõ phần nhận diện với phần duyệt nội dung, nhưng không đẩy nội dung chính quá xa khỏi vùng nhìn đầu tiên. Desktop giữ tỷ lệ cũ cân đối. Đã kiểm tra ba route chính ở 360×800 và 1280×720; TypeScript, build Pages và diff thành công.
+
+## 2026-08-27 — Thu gọn khoảng cách theo phản hồi owner
+
+Đã điều chỉnh lại sau khi owner xác nhận cần **giảm**, không phải tăng khoảng cách. Trên Galaxy S20, khoảng cách sau cụm hồ sơ giảm xuống 10px và margin trước bộ chuyển cách xem giảm còn 6px; riêng trang Thư mục giữ 10px trước điều hướng. Ba route Xem tất cả, Theo thư mục và Thư mục chi tiết nay tiếp nối sát, rõ và không tạo vùng trống giữa nhận diện với nội dung. Đã chụp kiểm tra 360×800 và desktop 1280×720; TypeScript, build Pages và diff thành công.
