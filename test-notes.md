@@ -304,3 +304,7 @@ Trên Galaxy S20, phần kết thúc của cover–avatar–info được cách 
 ## 2026-08-27 — Thu gọn khoảng cách theo phản hồi owner
 
 Đã điều chỉnh lại sau khi owner xác nhận cần **giảm**, không phải tăng khoảng cách. Trên Galaxy S20, khoảng cách sau cụm hồ sơ giảm xuống 10px và margin trước bộ chuyển cách xem giảm còn 6px; riêng trang Thư mục giữ 10px trước điều hướng. Ba route Xem tất cả, Theo thư mục và Thư mục chi tiết nay tiếp nối sát, rõ và không tạo vùng trống giữa nhận diện với nội dung. Đã chụp kiểm tra 360×800 và desktop 1280×720; TypeScript, build Pages và diff thành công.
+
+## 2026-08-27 — Căn tên và thông tin hồ sơ theo Avatar
+
+Cụm chữ hồ sơ được hạ nhẹ 5px trên Galaxy S20, 7px ở tablet và 9px desktop để có đường thở rõ với mép cover. Dòng **Long Nguyen** bắt đầu tại tâm dọc của avatar và nội dung `info` nằm gọn ngay dưới theo cùng một khối, không bị chạm vào cover. Đã kiểm tra trang Xem tất cả và Thư mục có tên dài ở 360×800 lẫn 1280×720; TypeScript, build Pages và diff thành công.

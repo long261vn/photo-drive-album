@@ -324,3 +324,9 @@
 - [x] Rà soát khoảng trống vừa tăng giữa phần thông tin cá nhân và vùng chuyển cách xem.
 - [x] Giảm khoảng đệm, kéo vùng duyệt nội dung lên sát hơn trên điện thoại.
 - [x] Kiểm thử Galaxy S20, desktop, build và phát hành GitHub Pages.
+
+## Căn dòng tên và thông tin hồ sơ
+
+- [x] Hạ nhẹ phần chữ hồ sơ để tách khỏi mép cover.
+- [x] Căn dòng Long Nguyen đúng tâm với avatar, giữ info ngay bên dưới.
+- [x] Kiểm thử Galaxy S20, desktop, build và phát hành GitHub Pages.
