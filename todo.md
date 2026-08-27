@@ -312,3 +312,9 @@
 - [x] Giữ nguyên chiều cao cover hiện tại, tăng avatar và tạo overlap nhẹ.
 - [x] Kéo tên và nội dung `info` lên cùng nhịp với avatar lớn hơn.
 - [x] Kiểm thử Galaxy S20, desktop, build và phát hành GitHub Pages.
+
+## Cân lại khoảng cách hồ sơ và nội dung
+
+- [x] Đo nhịp dọc giữa cụm cover–avatar–info và vùng duyệt nội dung trên Galaxy S20.
+- [x] Điều chỉnh khoảng đệm profile, bộ chuyển cách xem và thanh công cụ theo một nhịp thoáng.
+- [x] Kiểm thử Galaxy S20, desktop, build và phát hành GitHub Pages.

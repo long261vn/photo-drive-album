@@ -296,3 +296,7 @@ Trong chế độ Chi tiết, Thư mục con nay dùng đúng hàng `folder-deta
 ## 2026-08-27 — Avatar chồng nhẹ lên Cover
 
 Theo phản hồi owner, chiều cao cover được giữ nguyên. Avatar tăng lên 82px trên Galaxy S20, 122px ở tablet và 138px trên desktop; toàn bộ cụm hồ sơ được kéo lên để avatar chồng nhẹ, có chủ đích lên mép cover. Tên **Long Nguyen** và nội dung nguyên văn từ `info` căn giữa cùng hàng với avatar, tạo một nhịp ngang rõ ràng hơn. Không có phần tử tràn hoặc chồng chữ ở 360×800 và 1280×720; TypeScript, build Pages và diff đều thành công.
+
+## 2026-08-27 — Khoảng cách hồ sơ và nội dung
+
+Trên Galaxy S20, phần kết thúc của cover–avatar–info được cách vùng chuyển **Xem tất cả / Theo thư mục** bằng khoảng đệm 26px; tiếp theo là khoảng đệm 14px trước nhóm nút. Ở trang Thư mục, khoảng đệm sau hồ sơ là 24px trước điều hướng. Nhịp này tách rõ phần nhận diện với phần duyệt nội dung, nhưng không đẩy nội dung chính quá xa khỏi vùng nhìn đầu tiên. Desktop giữ tỷ lệ cũ cân đối. Đã kiểm tra ba route chính ở 360×800 và 1280×720; TypeScript, build Pages và diff thành công.
