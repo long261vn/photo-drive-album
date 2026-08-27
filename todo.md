@@ -292,3 +292,10 @@
 - [x] Đo lại phần tiêu đề dài, metadata và nút tải trên Galaxy S20.
 - [x] Giảm cỡ chữ, padding và khoảng cách dọc của phần đầu Thư mục.
 - [x] Kiểm thử tên Thư mục dài, desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Tinh gọn cụm hồ sơ và thao tác tải Thư mục
+
+- [x] Bỏ thống kê tổng số hình khỏi cover–avatar–info.
+- [x] Căn avatar cùng hàng với tên và nội dung hồ sơ lấy từ `info`.
+- [x] Đưa Tải Thư mục xuống thanh thao tác nội dung để giảm tải phần tiêu đề.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.

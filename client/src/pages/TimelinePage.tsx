@@ -91,11 +91,10 @@ export default function TimelinePage() {
   const hasMoreItems = timelinePhotos.length > visibleItemCount;
   const selectedIndex = selectedPhoto ? timelinePhotos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
   const selectOffset = (offset: number) => setSelectedPhoto(timelinePhotos[(selectedIndex + offset + timelinePhotos.length) % timelinePhotos.length]);
-  const profileAssetCount = useMemo(() => allPhotos.filter((photo) => !photo.isBackground).length, [allPhotos]);
   const hasActiveOptions = showBackgrounds || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly);
 
   return <main className="timeline-page">
-    <ArchiveProfileHeader profile={profile} assetCount={profileAssetCount} />
+    <ArchiveProfileHeader profile={profile} />
     <LibraryModeSwitch active="all" />
     <section className="timeline-hero">
       <div className="timeline-hero__utility"><label className="timeline-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm trong toàn bộ thiết kế</span><input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleItemCount(LOAD_SIZE); }} placeholder="Tìm Mùa, Tuần, Lễ hoặc thiết kế" />{query.trim() && query !== debouncedQuery && <span className="search-feedback">Đang tìm</span>}</label><details className={`archive-options timeline-options${hasActiveOptions ? " has-active-options" : ""}`}><summary><SlidersHorizontal size={16} strokeWidth={1.8} /> Lọc</summary><div className="archive-options__panel"><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}</span></button><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setVisibleItemCount(LOAD_SIZE); }} /></div></details></div>

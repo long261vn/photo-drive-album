@@ -772,3 +772,29 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .album-content-toolbar .gallery-actions { gap: 6px; }
   .gallery-selection-trigger, .gallery-view-switch button { min-height: 32px; padding-inline: 8px; font-size: 8px; }
 }
+
+/* Design: the cover introduces the archive; avatar and owner information form one calm row, while download stays with the content controls. */
+.profile-summary { grid-template-columns: 76px minmax(0, 1fr); align-items: center; }
+.profile-avatar { margin-top: 0; align-self: center; }
+.profile-copy { padding-top: 0; }
+.album-toolbar__download { display: inline-flex; min-height: 36px; align-items: center; gap: 6px; border: 1px solid var(--cobalt); padding: 0 11px; background: var(--cobalt); color: #fff; font-family: "Noto Sans", sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.045em; text-transform: uppercase; cursor: pointer; transition: background 180ms var(--ease-out), border-color 180ms var(--ease-out), transform 160ms var(--ease-out); }
+.album-toolbar__download:hover { border-color: var(--ink); background: var(--ink); }
+.album-toolbar__download:active { transform: scale(0.97); }
+.album-toolbar__download:disabled { cursor: wait; opacity: 0.7; }
+@media (min-width: 580px) {
+  .profile-summary { grid-template-columns: 92px minmax(0, 1fr); }
+  .profile-avatar { margin-top: 0; }
+}
+@media (min-width: 850px) {
+  .profile-summary { grid-template-columns: 100px minmax(0, 1fr); }
+  .profile-avatar { margin-top: 0; }
+}
+@media (max-width: 579px) {
+  .profile-summary { grid-template-columns: 66px minmax(0, 1fr); grid-template-areas: none; align-items: center; padding: 10px 14px 12px; }
+  .profile-avatar { grid-area: auto; margin-top: 0; align-self: center; }
+  .profile-copy { grid-area: auto; padding-top: 0; }
+  .album-content-toolbar .gallery-actions { display: grid; width: 100%; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 7px; }
+  .album-toolbar__download { grid-column: 1 / -1; justify-self: start; min-height: 34px; font-size: 8px; }
+  .gallery-selection-trigger { justify-self: start; }
+  .gallery-view-switch { justify-self: end; }
+}

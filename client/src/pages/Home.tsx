@@ -75,7 +75,6 @@ export default function Home() {
   const searchResults = useMemo(() => normalizedQuery ? searchArchive(albums, normalizedQuery, showBackgrounds, liturgicalFilters) : [], [albums, normalizedQuery, showBackgrounds, liturgicalFilters]);
   const searchPhotos = useMemo(() => searchResults.flatMap((result) => result.kind === "photo" ? [result.photo] : []), [searchResults]);
   const isSearching = normalizedQuery.length > 0;
-  const profileAssetCount = useMemo(() => flattenAlbums(albums).reduce((total, album) => total + album.photos.filter((photo) => !photo.isBackground).length, 0), [albums]);
   const pageSize = isSearching ? SEARCH_PAGE_SIZE : PAGE_SIZE;
   const pageCount = Math.max(1, Math.ceil((isSearching ? searchResults.length : sortedAlbums.length) / pageSize));
   const currentPage = Math.min(page, pageCount);
@@ -87,7 +86,7 @@ export default function Home() {
   const moveSearchPhoto = (offset: number) => setSelectedSearchPhoto(searchPhotos[(selectedSearchIndex + offset + searchPhotos.length) % searchPhotos.length]);
 
   return <main className="archive-home">
-    <ArchiveProfileHeader profile={profile} assetCount={profileAssetCount} />
+    <ArchiveProfileHeader profile={profile} />
     <LibraryModeSwitch active="albums" />
     <section className="archive-toolbar archive-toolbar--profile folder-browser-toolbar" id="folders">
       <div className="archive-toolbar__controls">
