@@ -255,3 +255,11 @@
 - [x] Bổ sung alias cho chức danh Thánh, Lễ, Mùa, ngày trong tuần và hậu tố mới được cung cấp.
 - [x] Mở rộng kiểm thử hồi quy để xác nhận tên hiển thị, metadata và tìm kiếm.
 - [x] Đối chiếu manifest thật, kiểm tra build và phát hành GitHub Pages.
+
+## Đồng bộ hai cách xem và lưới Xem tất cả
+
+- [x] Rà soát cấu trúc Home, Xem tất cả và điều hướng để xác định các nhãn giới thiệu/phân loại dư.
+- [x] Dùng chung cụm cover-avatar-hồ sơ cho cả hai cách xem.
+- [x] Đặt Xem tất cả là trang mở đầu, giữ Theo thư mục là lựa chọn chuyển đổi rõ ràng.
+- [x] Đưa mọi ô ảnh Xem tất cả về một kích thước đồng đều, không còn ảnh neo phóng lớn.
+- [x] Kiểm thử desktop, Galaxy S20, điều hướng, build và phát hành GitHub Pages.

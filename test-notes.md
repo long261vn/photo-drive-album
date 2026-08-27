@@ -256,3 +256,9 @@ Script `scripts/verify-liturgical-names.ts` kiểm thử thành công 15 mẫu, 
 Cover trang chủ ở breakpoint desktop đã điều chỉnh từ 365px xuống đúng 340px. Tiêu đề nhận diện chính là `Thư Viện Hình Công Giáo`; `Long Nguyen` được giữ ở cấp phụ. Các trường handle/bio vẫn render nguyên văn từ manifest Google Drive, không bị giao diện thay thế hoặc diễn giải.
 
 Đã chụp kiểm tra trang chủ ở desktop 1280×720 và Galaxy S20 360×800 sau bản chỉnh cuối. Cover dùng `object-fit: contain`, ảnh không bị cắt; không có tràn ngang. Kiểm tra bổ sung Trang chủ, Xem Tất Cả và trang Album cho thấy luồng duyệt, bộ lọc Background, tìm kiếm, ảnh không crop và các placeholder thiếu URL vẫn ổn định. Console gần đây không có lỗi ứng dụng; network log không ghi nhận yêu cầu 4xx/5xx.
+
+## 2026-08-27 — Đồng bộ hai cách xem và lưới Xem tất cả
+
+Đường dẫn gốc nay mở ngay **Xem tất cả**; link `/timeline` cũ vẫn hiển thị cùng trang để không làm hỏng bookmark trước đây. Cả Xem tất cả và **Theo thư mục** dùng cùng cover, avatar, tên, mô tả và thống kê 1.993 hình; thao tác chuyển đổi hai chiều giữ cụm hồ sơ không đổi.
+
+Tiêu đề giới thiệu “Thư mục” / “Xem Tất Cả” đã gỡ khỏi vùng ngay sau bộ chuyển cách xem. Trong Thư mục chi tiết, phần Thư mục và phần ảnh vẫn được cách nhau rõ bằng đường phân cách, nhưng không còn nhãn chữ “Thư mục con” hoặc “File hình”. Trên Xem tất cả, mọi ô ảnh trong cùng lưới dùng chung số cột và tỷ lệ khung; ảnh đầu không còn được phóng lớn. Đã kiểm tra route gốc, chuyển sang `/folders`, trang Thư mục chi tiết, desktop 1280×720 và Galaxy S20 360×800; console mới không có lỗi ứng dụng.

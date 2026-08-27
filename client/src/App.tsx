@@ -16,8 +16,9 @@ function Router() {
   return (
     <WouterRouter base={base}>
       <Switch>
-        <Route path="/" component={Home} />
+        <Route path="/" component={TimelinePage} />
         <Route path="/timeline" component={TimelinePage} />
+        <Route path="/folders" component={Home} />
         <Route path="/album/:slug" component={AlbumPage} />
         <Route path="/404" component={NotFound} />
         <Route component={NotFound} />

@@ -4,8 +4,9 @@
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
-import { ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, FolderTree, Grid2X2, ImageIcon, List, Search, SlidersHorizontal } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, Grid2X2, ImageIcon, List, Search, SlidersHorizontal } from "lucide-react";
 import { AlbumList, type FolderBrowserView } from "@/components/AlbumList";
+import { ArchiveProfileHeader } from "@/components/ArchiveProfileHeader";
 import { ExplorerFolderPreview } from "@/components/ExplorerFolderPreview";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { Lightbox } from "@/components/Lightbox";
@@ -57,8 +58,6 @@ export default function Home() {
   const [selectedSearchPhoto, setSelectedSearchPhoto] = useState<Photo | null>(null);
   const { registerTap } = useSyncWorkflowShortcut();
   const { albums, profile } = useArchiveManifest();
-  const profileCover = profile.cover?.trim();
-  const profileAvatar = profile.avatar?.trim();
   const debouncedQuery = useDebouncedValue(query);
   const normalizedQuery = useMemo(() => normalizeSearch(debouncedQuery.trim()), [debouncedQuery]);
   const allPhotos = useMemo(() => flattenAlbums(albums).flatMap((album) => album.photos), [albums]);
@@ -76,7 +75,7 @@ export default function Home() {
   const searchResults = useMemo(() => normalizedQuery ? searchArchive(albums, normalizedQuery, showBackgrounds, liturgicalFilters) : [], [albums, normalizedQuery, showBackgrounds, liturgicalFilters]);
   const searchPhotos = useMemo(() => searchResults.flatMap((result) => result.kind === "photo" ? [result.photo] : []), [searchResults]);
   const isSearching = normalizedQuery.length > 0;
-  const assetCount = useMemo(() => flattenAlbums(albums).reduce((total, album) => total + album.photos.filter((photo) => showBackgrounds || !photo.isBackground).length, 0), [albums, showBackgrounds]);
+  const profileAssetCount = useMemo(() => flattenAlbums(albums).reduce((total, album) => total + album.photos.filter((photo) => !photo.isBackground).length, 0), [albums]);
   const pageSize = isSearching ? SEARCH_PAGE_SIZE : PAGE_SIZE;
   const pageCount = Math.max(1, Math.ceil((isSearching ? searchResults.length : sortedAlbums.length) / pageSize));
   const currentPage = Math.min(page, pageCount);
@@ -88,17 +87,9 @@ export default function Home() {
   const moveSearchPhoto = (offset: number) => setSelectedSearchPhoto(searchPhotos[(selectedSearchIndex + offset + searchPhotos.length) % searchPhotos.length]);
 
   return <main className="archive-home">
-    <section className="profile-shell" aria-label={`Thông tin cá nhân của ${profile.name}`}>
-      <div className="profile-cover">{profileCover && <img src={profileCover} alt={`Ảnh bìa của ${profile.name}`} fetchPriority="high" />}</div>
-      <div className="profile-summary">
-        <div className="profile-avatar">{profileAvatar && <img src={profileAvatar} alt={`Avatar ${profile.name}`} />}</div>
-        <div className="profile-copy"><h1>{profile.name}</h1>{profile.handle && <p className="profile-handle">{profile.handle}</p>}{profile.bio && <p className="profile-bio">{profile.bio}</p>}</div>
-        <div className="profile-stats" aria-label="Thống kê hình ảnh"><span><strong>{assetCount}</strong> Hình</span></div>
-      </div>
-    </section>
+    <ArchiveProfileHeader profile={profile} assetCount={profileAssetCount} />
     <LibraryModeSwitch active="albums" />
     <section className="archive-toolbar archive-toolbar--profile" id="folders">
-      <div><p className="eyebrow">Duyệt tệp · Thư mục</p><h2>Thư mục</h2></div>
       <div className="archive-toolbar__controls">
         <label className="archive-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm Thư mục hoặc tên hình</span><input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Tìm Thư mục hoặc tên hình" />{query.trim() && query !== debouncedQuery && <span className="search-feedback">Đang tìm</span>}</label>
         <details className={`archive-options${hasActiveOptions ? " has-active-options" : ""}`}><summary><SlidersHorizontal size={16} strokeWidth={1.8} /> Tùy chọn</summary><div className="archive-options__panel"><button className={`background-toggle archive-background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => { setShowBackgrounds((visible) => !visible); setPage(1); }} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}</span></button><label className="archive-sort"><span>Sắp xếp</span><select value={sort} onChange={(event) => { setSort(event.target.value as typeof sort); setPage(1); }}><option value="created-desc">Mới nhất</option><option value="created-asc">Cũ nhất</option><option value="name">Tên A - Z</option></select><ChevronDown size={15} strokeWidth={1.8} /></label><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setPage(1); }} /></div></details>

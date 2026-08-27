@@ -46,7 +46,7 @@ export default function AlbumPage() {
   const weeks = useMemo(() => Array.from(new Set(albumPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location)).filter((metadata) => !liturgicalFilters.season || metadata.season === liturgicalFilters.season).map((metadata) => metadata.week).filter((week): week is number => Number.isFinite(week)))).sort((first, second) => first - second), [albumPhotos, liturgicalFilters.season]);
 
   if (isLoading) return <main className="folder-page-loading" aria-busy="true" aria-live="polite"><p className="eyebrow">Đang mở Thư mục</p><h1>Đang chuẩn bị nội dung…</h1><span /><span /><span /></main>;
-  if (!album) return <main className="not-found-page"><p className="eyebrow">Không tìm thấy</p><h1>Thư mục này chưa có trong danh mục.</h1><Link href="/" className="text-link">Quay về Thư mục gốc</Link></main>;
+  if (!album) return <main className="not-found-page"><p className="eyebrow">Không tìm thấy</p><h1>Thư mục này chưa có trong danh mục.</h1><Link href="/folders" className="text-link">Quay về Thư mục gốc</Link></main>;
 
   const parentAlbum = album.parentSlug ? findAlbum(albums, album.parentSlug) : undefined;
   const childAlbums = album.children ?? [];
@@ -57,7 +57,6 @@ export default function AlbumPage() {
   const visibleAssetCount = (entry: Album): number => entry.photos.filter(isVisiblePhoto).length + (entry.children ?? []).reduce((total, child) => total + visibleAssetCount(child), 0);
   const visibleDesignCount = visibleAssetCount(album);
   const contentItemCount = visibleChildAlbums.length + visiblePhotos.length;
-  const hasFoldersAndPhotos = visibleChildAlbums.length > 0 && visiblePhotos.length > 0;
   const albumAvatar = profile.avatar?.trim();
   const selectedIndex = selectedPhoto ? visiblePhotos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
   const selectOffset = (offset: number) => setSelectedPhoto(visiblePhotos[(selectedIndex + offset + visiblePhotos.length) % visiblePhotos.length]);
@@ -123,14 +122,12 @@ export default function AlbumPage() {
 
   return (
     <main className="album-page">
-      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay lại" : "Thư mục gốc"}</button>{albumAvatar ? <span className="album-page__avatar"><img src={albumAvatar} alt={`Avatar ${profile.name}`} /></span> : <span className="header-mark brand-symbol" aria-hidden="true" />}</header>
+      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/folders")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay lại" : "Thư mục gốc"}</button>{albumAvatar ? <span className="album-page__avatar"><img src={albumAvatar} alt={`Avatar ${profile.name}`} /></span> : <span className="header-mark brand-symbol" aria-hidden="true" />}</header>
       <section className="album-intro"><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} hình</span></div></div>{albumPhotos.length > 0 ? <button className="album-intro__download" type="button" onClick={downloadFolder} disabled={isDownloading}><Download size={16} strokeWidth={1.8} /> {isDownloading ? `Đã gửi ${downloadProgress?.completed ?? 0}/${downloadProgress?.total ?? albumPhotos.length}` : `Tải Thư mục (${albumPhotos.length})`}</button> : null}</section>
       {isDownloading && downloadProgress && <section className="direct-download-progress" aria-live="polite" aria-label="Tiến trình gửi yêu cầu tải"><div className="direct-download-progress__heading"><span>{downloadProgressMessage}</span><strong>{downloadProgress.completed}/{downloadProgress.total}</strong></div><progress value={downloadProgress.completed} max={Math.max(downloadProgress.total, 1)} /><p>Mỗi hình được tải trực tiếp từ Google Drive. Nếu được hỏi, hãy cho phép trình duyệt tải nhiều tệp.</p></section>}
       {contentItemCount > 0 && <section className="contact-sheet" aria-label={`Nội dung trong Thư mục ${formatAlbumTitle(album.title)}`}>
         <div className="contact-sheet__rule">
-          <span>Nội dung Thư mục</span>
           <div className="gallery-actions">
-            <span>{String(contentItemCount).padStart(2, "0")} Mục</span>
             <button className={`gallery-selection-trigger ${selectionMode ? "is-active" : ""}`} type="button" onClick={() => selectionMode ? closeSelection() : setSelectionMode(true)} disabled={!visiblePhotos.length || isDownloading} aria-pressed={selectionMode}><Square size={15} strokeWidth={1.8} /><span>{selectionMode ? "Hủy chọn" : "Chọn nhiều hình"}</span></button>
             <button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds} title={showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn nền" : "Hiện nền"}</span></button>
             <div className="gallery-view-switch" role="group" aria-label="Kiểu hiển thị nội dung">
@@ -147,15 +144,15 @@ export default function AlbumPage() {
         {downloadNotice && <p className="batch-download-notice" role="status">{downloadNotice}</p>}
 
         {galleryView === "details" ? <div className="folder-content-groups">
-          {visibleChildAlbums.length > 0 && <section className="folder-content-group"><h2 className="folder-content-group__heading">Thư mục con</h2><div className="photo-list" role="list">{visibleChildAlbums.map(renderCollectionDetail)}</div></section>}
-          {visiblePhotos.length > 0 && <section className="folder-content-group"><h2 className={`folder-content-group__heading ${hasFoldersAndPhotos ? "" : "is-visually-hidden"}`}>File hình</h2><div className="photo-list" role="list">{visiblePhotos.map(renderPhotoDetail)}</div></section>}
+          {visibleChildAlbums.length > 0 && <section className="folder-content-group" aria-label="Thư mục con"><h2 className="folder-content-group__heading is-visually-hidden">Thư mục con</h2><div className="photo-list" role="list">{visibleChildAlbums.map(renderCollectionDetail)}</div></section>}
+          {visiblePhotos.length > 0 && <section className="folder-content-group" aria-label="File hình"><h2 className="folder-content-group__heading is-visually-hidden">File hình</h2><div className="photo-list" role="list">{visiblePhotos.map(renderPhotoDetail)}</div></section>}
         </div> : <div className="folder-content-groups">
-          {visibleChildAlbums.length > 0 && <section className="folder-content-group"><h2 className="folder-content-group__heading">Thư mục con</h2><div className={`photo-grid photo-grid--${galleryView}`}>{visibleChildAlbums.map(renderCollectionTile)}</div></section>}
-          {visiblePhotos.length > 0 && <section className="folder-content-group"><h2 className={`folder-content-group__heading ${hasFoldersAndPhotos ? "" : "is-visually-hidden"}`}>File hình</h2><div className={`photo-grid photo-grid--${galleryView}`}>{visiblePhotos.map(renderPhotoTile)}</div></section>}
+          {visibleChildAlbums.length > 0 && <section className="folder-content-group" aria-label="Thư mục con"><h2 className="folder-content-group__heading is-visually-hidden">Thư mục con</h2><div className={`photo-grid photo-grid--${galleryView}`}>{visibleChildAlbums.map(renderCollectionTile)}</div></section>}
+          {visiblePhotos.length > 0 && <section className="folder-content-group" aria-label="File hình"><h2 className="folder-content-group__heading is-visually-hidden">File hình</h2><div className={`photo-grid photo-grid--${galleryView}`}>{visiblePhotos.map(renderPhotoTile)}</div></section>}
         </div>}
       </section>}
       {contentItemCount === 0 && <section className="contact-sheet"><p className="empty-assets">Thư mục này chưa có hình ảnh hoặc Thư mục con công khai.</p></section>}
-      <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/">Về Thư mục gốc</Link></footer>
+      <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/folders">Về Thư mục gốc</Link></footer>
     {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={visiblePhotos.length} folderPath={formatAlbumTitle(album.title)} onOpenFolder={() => setSelectedPhoto(null)} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
     </main>
   );

@@ -4,7 +4,8 @@
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, CalendarDays, Eye, EyeOff, FolderOpen, Images, Plus, Search, SlidersHorizontal } from "lucide-react";
+import { CalendarDays, Eye, EyeOff, FolderOpen, Images, Plus, Search, SlidersHorizontal } from "lucide-react";
+import { ArchiveProfileHeader } from "@/components/ArchiveProfileHeader";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { Lightbox } from "@/components/Lightbox";
 import { LiturgicalFilters } from "@/components/LiturgicalFilters";
@@ -90,15 +91,13 @@ export default function TimelinePage() {
   const hasMoreItems = timelinePhotos.length > visibleItemCount;
   const selectedIndex = selectedPhoto ? timelinePhotos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
   const selectOffset = (offset: number) => setSelectedPhoto(timelinePhotos[(selectedIndex + offset + timelinePhotos.length) % timelinePhotos.length]);
-  const avatar = profile.avatar?.trim();
+  const profileAssetCount = useMemo(() => allPhotos.filter((photo) => !photo.isBackground).length, [allPhotos]);
   const hasActiveOptions = showBackgrounds || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly);
 
   return <main className="timeline-page">
-    <header className="timeline-page__header"><button className="back-link" type="button" onClick={() => setLocation("/")}><ArrowLeft size={18} strokeWidth={1.8} /> Theo thư mục</button>{avatar && <span className="album-page__avatar"><img src={avatar} alt={`Avatar ${profile.name}`} /></span>}</header>
+    <ArchiveProfileHeader profile={profile} assetCount={profileAssetCount} />
     <LibraryModeSwitch active="all" />
     <section className="timeline-hero">
-      <p className="eyebrow">Xem ảnh · Toàn bộ thư viện</p>
-      <div className="timeline-hero__copy"><h1>Xem Tất Cả</h1></div>
       <div className="timeline-hero__utility"><label className="timeline-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm trong toàn bộ thiết kế</span><input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleItemCount(LOAD_SIZE); }} placeholder="Tìm Mùa, Tuần, Lễ hoặc thiết kế" />{query.trim() && query !== debouncedQuery && <span className="search-feedback">Đang tìm</span>}</label><details className={`archive-options timeline-options${hasActiveOptions ? " has-active-options" : ""}`}><summary><SlidersHorizontal size={16} strokeWidth={1.8} /> Lọc</summary><div className="archive-options__panel"><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}</span></button><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setVisibleItemCount(LOAD_SIZE); }} /></div></details></div>
       <div className="timeline-hero__stats"><span><Images size={17} strokeWidth={1.7} /> {timelinePhotos.length} hình</span><span><CalendarDays size={17} strokeWidth={1.7} /> {groups.length} tháng lưu trữ</span>{normalizedQuery && <span>Kết quả cho “{query.trim()}”</span>}</div>
     </section>
@@ -107,7 +106,7 @@ export default function TimelinePage() {
       {visibleGroups.map((group) => <section className="timeline-group" key={group.key} aria-label={`Hình ảnh ${group.label}`}>
         <div className="timeline-group__heading"><span className="timeline-group__marker" aria-hidden="true" /><div><p className="eyebrow">Mốc lưu trữ · {group.key}</p><h2>{group.label}</h2></div><span>{String(group.photos.length).padStart(2, "0")} hình</span></div>
         <div className="timeline-grid">
-          {group.photos.map((photo, photoIndex) => <article className={`timeline-tile ${photoIndex === 0 ? "timeline-tile--anchor" : ""}${photoIndex > 0 && photoIndex % 11 === 0 ? " timeline-tile--secondary" : ""}`} key={photo.id}>
+          {group.photos.map((photo, photoIndex) => <article className="timeline-tile" key={photo.id}>
             <button type="button" className="timeline-tile__media" onClick={() => setSelectedPhoto(photo)} aria-label={`Mở thiết kế ${formatPhotoTitle(photo.title)}`}>
               {photo.src?.trim() ? <img src={photo.src} alt={formatPhotoTitle(photo.title)} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}
               <span className="timeline-tile__index" aria-hidden="true">{String(photoIndex + 1).padStart(2, "0")}</span>
