@@ -704,3 +704,21 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .album-content-toolbar .archive-search { flex: 1 1 220px; }
   .album-content-toolbar .gallery-actions { width: 100%; justify-content: space-between; }
 }
+
+/* Design: the folder title is a wide editorial label; the header uses clear text destinations instead of a decorative cross mark. */
+.album-page__home-link { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; border: 1px solid var(--border); padding: 0 10px; background: var(--paper); color: var(--cobalt); font-family: "Noto Sans", sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.065em; text-transform: uppercase; cursor: pointer; transition: border-color 180ms var(--ease-out), background 180ms var(--ease-out), color 180ms var(--ease-out), transform 160ms var(--ease-out); }
+.album-page__home-link:hover { border-color: var(--cobalt); background: var(--cobalt); color: #fff; transform: translateY(-1px); }
+.album-page__home-link:active { transform: scale(0.97); }
+.album-page .album-intro { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 20px; padding: 26px 0 24px; }
+.album-page .album-intro__copy { width: 100%; max-width: none; }
+.album-page .album-intro h1 { max-width: none; margin: 5px 0 10px; font-size: clamp(31px, 4.5vw, 60px); line-height: 1.03; letter-spacing: -0.052em; }
+.album-page .album-intro__meta { margin-top: 8px; }
+.album-page .album-intro__download { align-self: end; margin-bottom: 1px; }
+@media (max-width: 579px) {
+  .album-page__header { min-height: 54px; }
+  .album-page__home-link { min-height: 32px; padding-inline: 8px; font-size: 8px; }
+  .album-page__home-link svg { display: none; }
+  .album-page .album-intro { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 20px 0 22px; }
+  .album-page .album-intro h1 { margin: 5px 0 8px; font-size: clamp(30px, 10vw, 43px); line-height: 1.04; }
+  .album-page .album-intro__download { justify-self: start; }
+}

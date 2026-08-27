@@ -268,3 +268,9 @@ Tiêu đề giới thiệu “Thư mục” / “Xem Tất Cả” đã gỡ kh�
 Đã kiểm tra Thư mục “Rước Lễ Lần Đầu”: cover–avatar dùng đúng cụm chung ở đầu trang; thanh tìm kiếm, bộ lọc và kiểu xem hiển thị gọn trên cùng một vùng. Khi gõ `File In Bat`, nhãn “Đang tìm” hiện trong lúc chờ và sau độ trễ chỉ còn Thư mục con phù hợp, không còn các hình không liên quan. Chế độ chi tiết không còn cột Kích thước và vùng tên rộng hơn. Đã phát hiện lỗi thứ tự hook trong lần xem đầu, di chuyển phép tính thống kê hồ sơ lên trước nhánh tải và kiểm tra lại thành công; log mới sau khi sửa không có lỗi ứng dụng.
 
 Sau cùng, đã điều chỉnh flex ở breakpoint Galaxy S20 để ô tìm kiếm Theo thư mục không bị kéo cao. Ở 360×800, nút hai cách xem đúng thứ tự Xem tất cả → Theo thư mục, ô tìm kiếm và Tùy chọn nằm gọn ở một hàng, ba nút kiểu xem nằm ngay dưới, và danh sách chi tiết chỉ còn cột Tên / Ngày / Loại.
+
+## 2026-08-27 — Tinh gọn đầu trang Thư mục
+
+Phần đầu Thư mục nay dùng tiêu đề biên tập rộng hết khu vực nội dung, không còn giới hạn `max-width` làm tên dài bị bó hẹp; kích thước và khoảng cách đã được cân lại cho desktop 1280×720 và Galaxy S20 360×800. Biểu tượng Thánh Giá ở thanh quay lại đã thay bằng nút rõ ràng **Trở về Trang Chủ**. Bản dựng TypeScript, GitHub Pages và kiểm tra định dạng diff đều thành công.
+
+Đã mở trực tiếp Thư mục Rước Lễ Lần Đầu và thử nút **Trở về Trang Chủ**; trang điều hướng đúng về Xem tất cả tại `/`. Console sau lượt kiểm tra mới không ghi nhận lỗi ứng dụng.

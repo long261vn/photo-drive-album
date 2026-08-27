@@ -271,3 +271,10 @@
 - [x] Bỏ cột Kích thước khỏi chế độ Chi tiết để ưu tiên tên Thư mục.
 - [x] Dùng chung cover–avatar trên các trang Thư mục con và tinh gọn thanh thao tác ở đó.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Tinh gọn đầu trang Thư mục
+
+- [x] Rà soát phần tiêu đề Thư mục đang giới hạn chiều rộng và biểu tượng điều hướng dư.
+- [x] Mở rộng tiêu đề theo chiều ngang, cân lại phân cấp nội dung và nút tải.
+- [x] Thay biểu tượng Thánh Giá bằng lối “Trở về Trang Chủ”.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.

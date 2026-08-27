@@ -4,7 +4,7 @@
  */
 import { useMemo, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
-import { ArrowLeft, CalendarDays, Check, Download, Eye, EyeOff, FolderOpen, Grid2X2, ImageIcon, List, Search, SlidersHorizontal, Square, X } from "lucide-react";
+import { ArrowLeft, CalendarDays, Check, Download, Eye, EyeOff, FolderOpen, Grid2X2, Home, ImageIcon, List, Search, SlidersHorizontal, Square, X } from "lucide-react";
 import { findAlbum, flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
 import { ArchiveProfileHeader } from "@/components/ArchiveProfileHeader";
 import { ExplorerFolderPreview } from "@/components/ExplorerFolderPreview";
@@ -136,7 +136,7 @@ export default function AlbumPage() {
   return (
     <main className="album-page">
       <ArchiveProfileHeader profile={profile} assetCount={profileAssetCount} />
-      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/folders")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay lại" : "Thư mục gốc"}</button><span className="header-mark brand-symbol" aria-hidden="true" /></header>
+      <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/folders")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay lại" : "Thư mục gốc"}</button><button className="album-page__home-link" type="button" onClick={() => setLocation("/")}><Home size={16} strokeWidth={1.8} /> Trở về Trang Chủ</button></header>
       <section className="album-intro"><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} hình</span></div></div>{albumPhotos.length > 0 ? <button className="album-intro__download" type="button" onClick={downloadFolder} disabled={isDownloading}><Download size={16} strokeWidth={1.8} /> {isDownloading ? `Đã gửi ${downloadProgress?.completed ?? 0}/${downloadProgress?.total ?? albumPhotos.length}` : `Tải Thư mục (${albumPhotos.length})`}</button> : null}</section>
       {isDownloading && downloadProgress && <section className="direct-download-progress" aria-live="polite" aria-label="Tiến trình gửi yêu cầu tải"><div className="direct-download-progress__heading"><span>{downloadProgressMessage}</span><strong>{downloadProgress.completed}/{downloadProgress.total}</strong></div><progress value={downloadProgress.completed} max={Math.max(downloadProgress.total, 1)} /><p>Mỗi hình được tải trực tiếp từ Google Drive. Nếu được hỏi, hãy cho phép trình duyệt tải nhiều tệp.</p></section>}
       {hasAlbumContent && <section className="contact-sheet" aria-label={`Nội dung trong Thư mục ${formatAlbumTitle(album.title)}`}>
