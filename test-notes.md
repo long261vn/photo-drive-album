@@ -262,3 +262,9 @@ Cover trang chủ ở breakpoint desktop đã điều chỉnh từ 365px xuống
 Đường dẫn gốc nay mở ngay **Xem tất cả**; link `/timeline` cũ vẫn hiển thị cùng trang để không làm hỏng bookmark trước đây. Cả Xem tất cả và **Theo thư mục** dùng cùng cover, avatar, tên, mô tả và thống kê 1.993 hình; thao tác chuyển đổi hai chiều giữ cụm hồ sơ không đổi.
 
 Tiêu đề giới thiệu “Thư mục” / “Xem Tất Cả” đã gỡ khỏi vùng ngay sau bộ chuyển cách xem. Trong Thư mục chi tiết, phần Thư mục và phần ảnh vẫn được cách nhau rõ bằng đường phân cách, nhưng không còn nhãn chữ “Thư mục con” hoặc “File hình”. Trên Xem tất cả, mọi ô ảnh trong cùng lưới dùng chung số cột và tỷ lệ khung; ảnh đầu không còn được phóng lớn. Đã kiểm tra route gốc, chuyển sang `/folders`, trang Thư mục chi tiết, desktop 1280×720 và Galaxy S20 360×800; console mới không có lỗi ứng dụng.
+
+## 2026-08-27 — Thanh công cụ thống nhất cho Thư mục
+
+Đã kiểm tra Thư mục “Rước Lễ Lần Đầu”: cover–avatar dùng đúng cụm chung ở đầu trang; thanh tìm kiếm, bộ lọc và kiểu xem hiển thị gọn trên cùng một vùng. Khi gõ `File In Bat`, nhãn “Đang tìm” hiện trong lúc chờ và sau độ trễ chỉ còn Thư mục con phù hợp, không còn các hình không liên quan. Chế độ chi tiết không còn cột Kích thước và vùng tên rộng hơn. Đã phát hiện lỗi thứ tự hook trong lần xem đầu, di chuyển phép tính thống kê hồ sơ lên trước nhánh tải và kiểm tra lại thành công; log mới sau khi sửa không có lỗi ứng dụng.
+
+Sau cùng, đã điều chỉnh flex ở breakpoint Galaxy S20 để ô tìm kiếm Theo thư mục không bị kéo cao. Ở 360×800, nút hai cách xem đúng thứ tự Xem tất cả → Theo thư mục, ô tìm kiếm và Tùy chọn nằm gọn ở một hàng, ba nút kiểu xem nằm ngay dưới, và danh sách chi tiết chỉ còn cột Tên / Ngày / Loại.

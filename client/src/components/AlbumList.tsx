@@ -19,14 +19,13 @@ export function AlbumList({ albums, startIndex = 0, onOpen, view = "details" }: 
   </div>;
 
   return <div className="folder-detail-list" role="list" aria-label="Chi tiết Thư mục">
-    <div className="folder-detail-list__heading" aria-hidden="true"><span>Tên</span><span>Ngày</span><span>Loại</span><span>Kích thước</span></div>
+    <div className="folder-detail-list__heading" aria-hidden="true"><span>Tên</span><span>Ngày</span><span>Loại</span></div>
     {albums.map((album, index) => {
       return <button key={album.id} className="folder-detail-row" type="button" role="listitem" onClick={() => onOpen(album.slug)} aria-label={`Mở Thư mục ${formatAlbumTitle(album.title)}`}>
         <ExplorerFolderPreview album={album} size="detail" />
         <span className="folder-detail-row__name"><i>{String(startIndex + index + 1).padStart(2, "0")}</i><strong>{formatAlbumTitle(album.title)}</strong></span>
         <span className="folder-detail-row__date"><Clock3 size={14} strokeWidth={1.65} /> {album.date}</span>
         <span className="folder-detail-row__type"><FolderTree size={14} strokeWidth={1.65} /> Thư mục</span>
-        <span className="folder-detail-row__size">Thư mục</span>
         <ChevronRight className="folder-detail-row__arrow" size={18} strokeWidth={1.75} />
       </button>;
     })}

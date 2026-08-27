@@ -683,3 +683,24 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .lightbox__position { order: 1; margin-left: auto; }
   .lightbox__folder-button, .download-button { padding: 0 10px; font-size: 10px; }
 }
+
+/* Design: all folder routes retain the same compact archive controls, with search and views placed together before content. */
+.folder-browser-toolbar { flex-direction: row; align-items: center; gap: 8px; margin-bottom: 14px; }
+.folder-browser-toolbar .archive-toolbar__controls { width: auto; flex: 1 1 260px; min-width: 0; }
+.folder-browser-toolbar .folder-view-toolbar { flex: 0 0 auto; margin: 0; padding: 0; border: 0; }
+.folder-browser-toolbar .folder-view-toolbar > span { display: none; }
+.album-content-toolbar { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+.album-content-toolbar .archive-search { width: auto; flex: 1 1 240px; min-width: 0; }
+.album-content-toolbar .gallery-actions { flex: 0 0 auto; }
+.album-content-toolbar .gallery-view-switch { flex: 0 0 auto; }
+@media (min-width: 580px) {
+  .folder-detail-list__heading, .folder-detail-row { grid-template-columns: 52px minmax(0, 1fr) minmax(96px, 0.65fr) minmax(112px, 0.74fr) 28px; gap: 12px; }
+}
+@media (max-width: 579px) {
+  .folder-browser-toolbar { flex-direction: column; align-items: stretch; }
+  .folder-browser-toolbar .archive-toolbar__controls { width: 100%; flex: 0 0 auto; }
+  .folder-browser-toolbar .folder-view-toolbar { justify-content: flex-end; }
+  .album-content-toolbar { flex-wrap: wrap; }
+  .album-content-toolbar .archive-search { flex: 1 1 220px; }
+  .album-content-toolbar .gallery-actions { width: 100%; justify-content: space-between; }
+}

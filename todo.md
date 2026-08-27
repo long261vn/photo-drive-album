@@ -263,3 +263,11 @@
 - [x] Đặt Xem tất cả là trang mở đầu, giữ Theo thư mục là lựa chọn chuyển đổi rõ ràng.
 - [x] Đưa mọi ô ảnh Xem tất cả về một kích thước đồng đều, không còn ảnh neo phóng lớn.
 - [x] Kiểm thử desktop, Galaxy S20, điều hướng, build và phát hành GitHub Pages.
+
+## Đồng nhất cụm hồ sơ, điều hướng và chi tiết Thư mục
+
+- [x] Đảo vị trí nút hai cách xem để Xem tất cả mặc định xuất hiện trước.
+- [x] Gom tìm kiếm và kiểu xem của Theo thư mục trên một hàng, bỏ nhãn “Kiểu xem”.
+- [x] Bỏ cột Kích thước khỏi chế độ Chi tiết để ưu tiên tên Thư mục.
+- [x] Dùng chung cover–avatar trên các trang Thư mục con và tinh gọn thanh thao tác ở đó.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
