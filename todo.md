@@ -306,3 +306,9 @@
 - [x] Dùng chung nhịp chữ, biểu tượng, khoảng cách và nút mở cho mọi cấp Thư mục.
 - [x] Giảm thêm tỷ lệ tiêu đề Thư mục trên điện thoại.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Căn lại cover, avatar và thông tin hồ sơ
+
+- [x] Giữ nguyên chiều cao cover hiện tại, tăng avatar và tạo overlap nhẹ.
+- [x] Kéo tên và nội dung `info` lên cùng nhịp với avatar lớn hơn.
+- [x] Kiểm thử Galaxy S20, desktop, build và phát hành GitHub Pages.

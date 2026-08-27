@@ -801,3 +801,22 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 
 /* Design: a nested folder is still a folder—not an image record—so every level shares the same concise Explorer detail row. */
 .folder-content-group .folder-detail-row { width: 100%; }
+
+/* Design: keep the owner portrait as a deliberate bridge between artwork and information—larger, lightly overlapping the cover, with the name aligned on its center. */
+.profile-summary { position: relative; z-index: 1; margin-top: -32px; padding-top: 12px; }
+.profile-avatar { width: 108px; height: 108px; flex-basis: 108px; border-width: 4px; }
+@media (min-width: 580px) {
+  .profile-summary { grid-template-columns: 122px minmax(0, 1fr); margin-top: -36px; padding-top: 14px; }
+  .profile-avatar { width: 122px; height: 122px; flex-basis: 122px; }
+}
+@media (min-width: 850px) {
+  .profile-summary { grid-template-columns: 138px minmax(0, 1fr); margin-top: -42px; padding-top: 16px; }
+  .profile-avatar { width: 138px; height: 138px; flex-basis: 138px; }
+}
+@media (max-width: 579px) {
+  .profile-summary { grid-template-columns: 82px minmax(0, 1fr); margin-top: -24px; gap: 10px; padding: 8px 14px 12px; }
+  .profile-avatar { width: 82px; height: 82px; flex-basis: 82px; border-width: 3px; }
+  .profile-copy h1 { font-size: clamp(26px, 7.2vw, 31px); }
+  .profile-handle { font-size: 10px; }
+  .profile-bio { margin-top: 3px; }
+}

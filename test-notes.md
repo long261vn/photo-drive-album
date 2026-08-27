@@ -292,3 +292,7 @@ Sau phản hồi owner, tiêu đề Thư mục ở Galaxy S20 giảm tiếp còn
 ## 2026-08-27 — Đồng nhất Thư mục con
 
 Trong chế độ Chi tiết, Thư mục con nay dùng đúng hàng `folder-detail-row` như Thư mục mẹ: biểu tượng folder đóng 28px, số thứ tự xanh, tên Noto Sans đậm tối đa hai dòng, ngày/loại ở desktop và mũi tên mở ở cuối. Nền màu, thumbnail lớn, tên serif và nút Mở riêng của hàng cũ đã được gỡ. Trên Galaxy S20, hàng Thư mục con có cùng chiều cao 68px và khoảng cách với danh sách Thư mục mẹ; tiêu đề Thư mục dài giảm tiếp còn 20–23px để toàn bộ tên hiển thị gọn. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.
+
+## 2026-08-27 — Avatar chồng nhẹ lên Cover
+
+Theo phản hồi owner, chiều cao cover được giữ nguyên. Avatar tăng lên 82px trên Galaxy S20, 122px ở tablet và 138px trên desktop; toàn bộ cụm hồ sơ được kéo lên để avatar chồng nhẹ, có chủ đích lên mép cover. Tên **Long Nguyen** và nội dung nguyên văn từ `info` căn giữa cùng hàng với avatar, tạo một nhịp ngang rõ ràng hơn. Không có phần tử tràn hoặc chồng chữ ở 360×800 và 1280×720; TypeScript, build Pages và diff đều thành công.
