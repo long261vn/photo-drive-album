@@ -50,7 +50,10 @@
     "MuaChay": "Mùa Chay",
     "MuaVong": "Mùa Vọng",
     "PhucSinh": "Phục Sinh",
-    "ThuongNien": "Thường Niên"
+    "ThuongNien": "Thường Niên",
+    "VongPS": "Phục Sinh",
+    "LeTro": "Mùa Chay",
+    "SauLeTro": "Mùa Chay"
   },
   "weekdayAliases": {
     "T2": "Thứ Hai",
@@ -275,6 +278,62 @@
     {
       "aliases": ["letro muachay"],
       "label": "Lễ Tro, Mùa Chay"
+    },
+    {
+      "aliases": ["baidoc vongps"],
+      "label": "Bài Đọc Vọng Phục Sinh"
+    },
+    {
+      "aliases": ["vongps baidoc 3b"],
+      "label": "Vọng Phục Sinh Bài Đọc 3 (b)"
+    },
+    {
+      "aliases": ["vongps baidoc 3"],
+      "label": "Vọng Phục Sinh Bài Đọc 3"
+    },
+    {
+      "aliases": ["vongps exsultet"],
+      "label": "Vọng Phục Sinh Exsultet"
+    },
+    {
+      "aliases": ["vongps thanh thu"],
+      "label": "Vọng Phục Sinh Thánh Thư"
+    },
+    {
+      "aliases": ["vongps"],
+      "label": "Vọng Phục Sinh"
+    },
+    {
+      "aliases": ["cn lela a tin mung kieu la"],
+      "label": "Chúa Nhật Lễ Lá Năm A, Tin Mừng Kiệu Lá"
+    },
+    {
+      "aliases": ["ngay trong tuan"],
+      "label": "Ngày trong tuần"
+    },
+    {
+      "aliases": ["t7 sau le tro"],
+      "label": "Thứ Bảy Sau Lễ Tro"
+    },
+    {
+      "aliases": ["giaothua"],
+      "label": "Giao Thừa"
+    },
+    {
+      "aliases": ["tatnien"],
+      "label": "Tất Niên"
+    },
+    {
+      "aliases": ["tannien"],
+      "label": "Tân Niên"
+    },
+    {
+      "aliases": ["ruoclelandau ln 2025"],
+      "label": "Rước Lễ Lần Đầu LN 2025"
+    },
+    {
+      "aliases": ["ruoclelandau"],
+      "label": "Rước Lễ Lần Đầu"
     }
   ],
   "calendar": {

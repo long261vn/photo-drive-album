@@ -30,15 +30,6 @@ function sourceText(value: string) {
 function peelTechnicalSuffixes(value: string) {
   const suffixes: string[] = [];
   let text = value;
-  text = text.replace(/\bLN\s*(\d{4})\b/gi, (_match: string, year: string, offset: number, original: string) => {
-    if (normalizeRuleKey(original).includes("ruoclelandau")) return ` ${year}`;
-    suffixes.push(`Long Nguyen ${year}`);
-    return " ";
-  });
-  text = text.replace(/\bLN\s*(\d+[A-Za-z]?)?\b/gi, (_match: string, version?: string) => {
-    suffixes.push(`Long Nguyen${version ? ` ${version.toUpperCase()}` : ""}`);
-    return " ";
-  });
   text = text.replace(/\bBG\b/gi, () => {
     suffixes.push("Background");
     return " ";
@@ -88,6 +79,7 @@ export function formatLiturgicalTitle(value = "") {
     .replace(/\bT([2-7])\s*Tuan\s*(\d{1,2})\s*(TN|MC|PS|MV|Thuong\s*Nien|Mua\s*Chay|Phuc\s*Sinh|Mua\s*Vong)\b/gi, (_match: string, day: string, week: string, season: string) => `Thứ ${weekdayNames[day]} Tuần ${padNumber(week)} ${seasonLabel(season)}`)
     .replace(/\bTuan\s*(\d{1,2})\s*(TN|MC|PS|MV|Thuong\s*Nien|Mua\s*Chay|Phuc\s*Sinh|Mua\s*Vong)\b/gi, (_match: string, week: string, season: string) => `Tuần ${padNumber(week)} ${seasonLabel(season)}`)
     .replace(/\bBai\s*Doc\s*(\d+)?\b/gi, (_match: string, order?: string) => `Bài Đọc${order ? ` ${order}` : ""}`)
+    .replace(/\bMong\s*([1-9])\b/gi, (_match: string, day: string) => `Mồng ${day} Tết`)
     .replace(/\bTin\s*Mung\b/gi, "Tin Mừng")
     .replace(/\bMua\s*Vong\b|\bMV\b/gi, "Mùa Vọng")
     .replace(/\bMua\s*Chay\b|\bMC\b/gi, "Mùa Chay")
@@ -102,6 +94,8 @@ export function formatLiturgicalTitle(value = "") {
     .replace(/(từ|đến)\s*(\d{1,2})\s+(\d{1,2})/gi, (_match: string, marker: string, day: string, month: string) => `${marker} ${padNumber(day)}/${padNumber(month)}`)
     .replace(/^(\d{1,2})\s+(\d{1,2})(?=\s+(?:Thánh|Lễ)\b)/i, (_match: string, month: string, day: string) => `${padNumber(day)}/${padNumber(month)}`)
     .replace(/\s+(Bài Đọc(?:\s*\d+)?|Tin Mừng)\b/g, " - $1")
+    .replace(/Vọng Phục Sinh - Bài Đọc/g, "Vọng Phục Sinh Bài Đọc")
+    .replace(/Năm A, - Tin Mừng/g, "Năm A, Tin Mừng")
     .replace(/\s+/g, " ")
     .trim();
 

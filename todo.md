@@ -232,3 +232,11 @@
 - [x] Áp dụng phân nhóm trong biểu tượng lớn, biểu tượng nhỏ và chi tiết.
 - [x] Kiểm thử Thư mục có cả thư mục con lẫn hình trên desktop và Galaxy S20.
 - [x] Build và phát hành GitHub Pages.
+
+## Chuẩn hóa hậu tố LN và quy ước mới
+
+- [x] Đổi hậu tố `_LN`, `_LN1`, `_LN2`… thành LN, LN1, LN2… trong tên hiển thị.
+- [x] Bổ sung quy ước Vọng Phục Sinh, Bài Đọc, Lễ Lá, ngày trong tuần và các tên Tết.
+- [x] Quét manifest để thống kê các từ viết tắt/tên viết liền chưa có quy ước.
+- [x] Kiểm thử chuẩn hóa tên, tìm kiếm và giao diện.
+- [x] Phát hành GitHub Pages và bàn giao danh sách cần xác nhận.

@@ -188,6 +188,12 @@ Workflow **Sync Google Drive albums** đã hoàn tất thành công; manifest th
 
 Đã chuyển sang **Biểu tượng nhỏ** và xác nhận hai tiêu đề nhóm vẫn được giữ. Kiểm tra Galaxy S20 360 × 800 với cả Thư mục hỗn hợp và Thư mục mẹ: tên dài xuống hàng tự nhiên, phần Thư mục con nằm trước, File hình được tách sau đường phân cách và không còn số mờ trang trí.
 
+## 2026-08-27 — Hậu tố LN và quy ước Vọng Phục Sinh/Tết
+
+Đã xác nhận 74 mẫu chuẩn hóa, bao gồm hậu tố `LN`, `LN1`, `LN2`… giữ nguyên dạng ngắn và không tự chèn “Long Nguyen”. Thử tìm `LN1` trên bản xem trước trả về 506 kết quả; tiêu đề hiển thị `LN1`/`LN10` đúng dạng gọn. Các quy ước Vọng Phục Sinh, Bài Đọc 3/3b, Exsultet, Thánh Thư, Lễ Lá, ngày trong tuần và Tết đều được kiểm thử bằng mẫu tên độc lập.
+
+Công cụ rà soát đã gom các biến thể `LN`/`BG`/`Eng` và lập báo cáo gồm **178 nhóm tên** còn có mã viết tắt hoặc chữ viết liền cần xác nhận thêm. TypeScript và kiểm tra diff đã hoàn tất thành công.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.
