@@ -722,3 +722,52 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .album-page .album-intro h1 { margin: 5px 0 8px; font-size: clamp(30px, 10vw, 43px); line-height: 1.04; }
   .album-page .album-intro__download { justify-self: start; }
 }
+
+/* Design: Mobile is a calm personal archive—never a poster. Titles remain complete, while cover, controls, and metadata take only the space they earn. */
+.profile-shell { margin-bottom: 24px; }
+.timeline-hero { padding-top: 20px; padding-bottom: 18px; }
+.timeline-rail { padding-top: 16px; padding-bottom: 30px; }
+.timeline-group { padding-bottom: 26px; }
+.timeline-group__heading { margin-bottom: 10px; }
+.timeline-grid { gap: 16px 10px; }
+.timeline-tile__copy { gap: 2px; padding-top: 6px; }
+.timeline-tile__copy strong { font-size: 14px; }
+.timeline-tile__copy button { display: none; }
+@media (max-width: 579px) {
+  .profile-shell { margin-bottom: 18px; }
+  .profile-cover { height: 112px; }
+  .profile-summary { grid-template-columns: 66px minmax(0, 1fr); gap: 8px 10px; padding: 0 14px 12px; }
+  .profile-avatar { width: 66px; height: 66px; margin-top: -33px; border-width: 3px; }
+  .profile-copy { padding-top: 4px; }
+  .profile-copy h1 { margin-bottom: 1px; font-size: clamp(25px, 7vw, 30px); line-height: 1.05; }
+  .profile-handle { font-size: 10px; line-height: 1.2; }
+  .profile-stats { margin-top: -2px; font-size: 8px; }
+  .profile-stats strong { font-size: 14px; }
+  .library-mode-switch { gap: 7px; margin: 12px 0 3px; }
+  .library-mode-switch__option { min-height: 40px; padding: 8px 9px; }
+  .timeline-hero { gap: 10px; padding: 16px 0 16px; }
+  .timeline-hero__stats { gap: 6px 12px; font-size: 8px; }
+  .timeline-rail { padding: 14px 0 26px 15px; }
+  .timeline-rail::before { top: 15px; bottom: 26px; }
+  .timeline-group { padding-bottom: 23px; }
+  .timeline-group__heading h2 { font-size: 22px; line-height: 1.05; }
+  .timeline-group__heading > span:last-child { font-size: 8px; }
+  .timeline-group__marker { top: 7px; left: -21px; width: 11px; height: 11px; }
+  .timeline-grid { gap: 14px 9px; }
+  .timeline-tile__media { aspect-ratio: 1.04; }
+  .timeline-tile__index { width: 22px; height: 22px; font-size: 7px; }
+  .timeline-tile__date { right: 5px; bottom: 5px; padding: 3px 4px; font-size: 7px; }
+  .timeline-tile__date svg { width: 10px; height: 10px; }
+  .timeline-tile__copy strong { display: -webkit-box; min-height: 2.28em; font-size: 13px; line-height: 1.14; text-overflow: clip; white-space: normal; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+  .timeline-tile__metadata { font-size: 7px; letter-spacing: 0.035em; }
+  .album-page__header { min-height: 48px; }
+  .back-link { min-height: 40px; font-size: 10px; }
+  .album-page__home-link { min-height: 31px; font-size: 7.5px; letter-spacing: 0.055em; }
+  .album-page .album-intro { gap: 8px; padding: 14px 0 18px; }
+  .album-page .album-intro h1 { margin: 3px 0 7px; font-size: clamp(27px, 8vw, 34px); line-height: 1.09; letter-spacing: -0.043em; }
+  .album-page .album-intro__meta { gap: 5px 10px; margin-top: 6px; font-size: 8px; letter-spacing: 0.055em; }
+  .album-page .album-intro__download { min-height: 36px; padding: 0 11px; font-size: 9px; }
+  .album-content-toolbar { gap: 7px; margin-bottom: 10px; padding-bottom: 10px; }
+  .album-content-toolbar .gallery-actions { gap: 6px; }
+  .gallery-selection-trigger, .gallery-view-switch button { min-height: 32px; padding-inline: 8px; font-size: 8px; }
+}

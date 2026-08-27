@@ -278,3 +278,11 @@
 - [x] Mở rộng tiêu đề theo chiều ngang, cân lại phân cấp nội dung và nút tải.
 - [x] Thay biểu tượng Thánh Giá bằng lối “Trở về Trang Chủ”.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Rà soát và hoàn thiện giao diện ưu tiên điện thoại
+
+- [x] Kiểm kê các luồng Xem tất cả, Theo thư mục, Thư mục con, Lightbox và tải ảnh.
+- [x] Rà soát trực quan desktop và Galaxy S20, ghi nhận các điểm quá lớn, thô, chật hoặc khó chạm.
+- [x] Lập danh sách ưu tiên cải tiến giao diện có thể thực hiện trong một lượt nhất quán.
+- [x] Tái cân bằng kích thước, khoảng cách, thanh điều khiển, tiêu đề và hình ảnh trên toàn website.
+- [x] Kiểm thử lại tương tác, khả năng truy cập, TypeScript, build và GitHub Pages.

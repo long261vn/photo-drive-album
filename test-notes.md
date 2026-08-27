@@ -274,3 +274,9 @@ Sau cùng, đã điều chỉnh flex ở breakpoint Galaxy S20 để ô tìm ki�
 Phần đầu Thư mục nay dùng tiêu đề biên tập rộng hết khu vực nội dung, không còn giới hạn `max-width` làm tên dài bị bó hẹp; kích thước và khoảng cách đã được cân lại cho desktop 1280×720 và Galaxy S20 360×800. Biểu tượng Thánh Giá ở thanh quay lại đã thay bằng nút rõ ràng **Trở về Trang Chủ**. Bản dựng TypeScript, GitHub Pages và kiểm tra định dạng diff đều thành công.
 
 Đã mở trực tiếp Thư mục Rước Lễ Lần Đầu và thử nút **Trở về Trang Chủ**; trang điều hướng đúng về Xem tất cả tại `/`. Console sau lượt kiểm tra mới không ghi nhận lỗi ứng dụng.
+
+## 2026-08-27 — Rà soát và hoàn thiện giao diện ưu tiên điện thoại
+
+Đã rà soát ba luồng chính trên desktop 1280×720 và Galaxy S20 360×800: **Xem tất cả**, **Theo thư mục** và Thư mục có tên dài. Báo cáo chi tiết `BAO_CAO_RAO_SOAT_GIAO_DIEN_2026-08-27.md` ghi sáu nhóm ưu tiên về tiêu đề dài, cover–avatar, nhịp dọc, thanh thao tác, caption ảnh và danh sách Chi tiết.
+
+Lượt hoàn thiện giảm cover mobile còn 112px, avatar còn 66px, tên hồ sơ còn 25–30px và giảm khoảng trống giữa các khối. Tiêu đề Thư mục dài sử dụng 27–34px, line-height 1.09, giữ nguyên toàn bộ nội dung nhưng không còn chiếm gần nửa màn hình. Ở Xem tất cả, caption được giới hạn hai dòng, metadata được nén và đường dẫn Thư mục nguồn được ẩn trong tile để nhường chỗ cho ảnh; grid hai cột đồng đều vẫn giữ theo yêu cầu owner. Đã kiểm tra lại không có tràn ngang; TypeScript, build Pages và diff đều thành công.

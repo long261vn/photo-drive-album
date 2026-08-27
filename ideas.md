@@ -111,3 +111,9 @@ Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metad
 - Chế độ **Theo thư mục** dùng ngôn ngữ quen thuộc của Windows Explorer: thư mục và thư mục con trước file hình, biểu tượng thư mục mở hé các hình bên trong ở hai chế độ biểu tượng, còn chế độ Chi tiết dùng folder đóng cùng tên, ngày, loại và số lượng nội dung.
 - Chế độ **Xem tất cả** giữ vai trò trải nghiệm ảnh: dòng thời gian, lưới ảnh và mở ảnh trực tiếp. Hai chế độ phải có vai trò khác nhau, tránh dùng ảnh bên trong làm “cover Album” trên trang Theo thư mục.
 - Mỗi mốc tháng ở **Xem tất cả** dùng một ảnh neo lớn và các khung nhịp phụ có tỷ lệ khác nhau; dấu góc khung và nhãn “Mốc lưu trữ” giữ cho trang có cảm giác contact sheet biên tập thay vì lưới ảnh đồng đều.
+
+## Điều chỉnh ưu tiên điện thoại — 27/08/2026
+
+- Trên màn hình 360px, mọi tiêu đề dài phải giữ nguyên nội dung nhưng không được chiếm quá mức như một poster: cỡ chữ, line-height và khoảng cách metadata được nén trước khi cắt hoặc ẩn chữ.
+- Cụm cover–avatar tiếp tục hiện ở mọi trang theo yêu cầu owner, nhưng dùng tỷ lệ gọn để phần ảnh và Thư mục được thấy sớm hơn; ảnh cover là tài sản do owner cung cấp nên không bị thay hoặc cắt.
+- Owner yêu cầu các ô ảnh Xem tất cả đồng đều; vì vậy lưới hai cột thống nhất được ưu tiên hơn đề xuất ảnh neo phóng lớn. Nhịp archive được giữ bằng mốc tháng, index tab, metadata và frame marker.
