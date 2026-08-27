@@ -196,3 +196,23 @@
 - [x] Cho tên Thư mục dài hiển thị tối đa hai hàng thay vì cắt một hàng.
 - [x] Rà soát và cải thiện trạng thái tải khi mở Thư mục để tránh khoảng trống chờ khó hiểu.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Phản hồi tiến trình tải ZIP
+
+- [x] Rà soát thông báo khi tải nhiều ảnh và tải Thư mục.
+- [x] Hiển thị rõ trạng thái chuẩn bị và số yêu cầu tải đã gửi/tổng số.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Cơ chế tải nhiều ảnh đáng tin cậy
+
+- [x] Xác minh giới hạn CORS của Google Drive khi ghép ZIP trực tiếp trong trình duyệt.
+- [x] Chọn phương án tải nhiều ảnh/Thư mục tương thích GitHub Pages.
+- [x] Thay luồng tải ZIP không hoạt động và kiểm thử tải thật trên trình duyệt.
+
+## Tải nhiều hình trực tiếp từ Drive
+
+- [x] Bỏ luồng ZIP và tải từng hình theo hàng đợi trực tiếp từ Drive.
+- [x] Hiển thị số ảnh đã gửi tải/tổng số, trạng thái trình duyệt và thông báo hoàn tất.
+- [x] Chỉ cho phép chọn nhiều hình; Thư mục chỉ có thao tác tải lần lượt toàn bộ hình.
+- [x] Đổi nhãn thành “Chọn nhiều hình” và bỏ số lượng Thư mục ở các màn hình duyệt.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.

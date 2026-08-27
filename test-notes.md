@@ -162,6 +162,20 @@ Chế độ **Chi tiết** hiện được chọn mặc định tại Thư mục
 
 Đã mở trang gốc rồi mở Thư mục đầu tiên: nội dung Thư mục xuất hiện ngay với hai Thư mục con ở chế độ Chi tiết, thay vì hiện phần giới thiệu trống rồi mới xuất hiện danh sách. Manifest được giữ trong bộ nhớ trong lúc người xem duyệt nội bộ; khi tải thẳng một URL Thư mục, màn hình “Đang chuẩn bị nội dung…” có chủ đích sẽ thay phần danh sách không hoàn chỉnh cho đến khi dữ liệu thật sẵn sàng.
 
+## 2026-08-27 — Tiến trình tải ZIP
+
+Trong Thư mục có 11 hình, đã bật **Chọn nhiều** và xác nhận thanh thao tác hiển thị rõ số hình đã chọn, **Chọn tất cả**, **Bỏ chọn** và nút **Tải xuống (0)** đang vô hiệu khi chưa chọn ảnh. Luồng ZIP hiện được cập nhật để thông báo rõ các bước chuẩn bị, tải lần lượt từng hình từ Drive, đóng gói ZIP và tạo tệp tải về.
+
+## 2026-08-27 — Tải nhiều hình trực tiếp
+
+Đã thay hoàn toàn cơ chế ZIP không tương thích CORS bằng hàng đợi tải trực tiếp từ Drive. Trong Thư mục thử nghiệm, nút chính hiện ghi **Tải Thư mục (17)** vì gồm cả ảnh ở Thư mục con; chế độ **Chọn nhiều hình** chỉ đặt dấu chọn trên 11 file ảnh trực tiếp, không đặt trên Thư mục. Khi chưa chọn, nút **Tải từng hình (0)** bị vô hiệu; điều này xác nhận giới hạn chọn nhiều chỉ áp dụng cho ảnh.
+
+Đã chọn một hình, bấm **Tải từng hình (1)** và xác nhận trang giữ nguyên vị trí, thoát chế độ chọn, đồng thời thông báo **“Đã gửi yêu cầu tải 1 hình. Hãy kiểm tra danh sách tải xuống của trình duyệt.”**. Không còn lỗi CORS do đọc file để ghép ZIP.
+
+Đã kiểm tra `chrome://downloads`: file **`CN22_TN_A_LN1_Eng.jpg`** xuất hiện trong lịch sử tải xuống. Điều này xác nhận yêu cầu tải trực tiếp được trình duyệt nhận mà không điều hướng rời trang Thư mục.
+
+Trên desktop 1280 × 720 và Galaxy S20 360 × 800, nút **Tải Thư mục (17)**, **Chọn nhiều hình**, trạng thái tải và các hàng file đều hiển thị không tràn ngang. Số Thư mục đã được gỡ khỏi phần thống kê trang chủ, thẻ Thư mục và phần giới thiệu Thư mục; số lượng hình vẫn giữ ở nơi phục vụ thao tác tải.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.

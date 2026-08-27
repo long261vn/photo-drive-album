@@ -69,13 +69,13 @@ File cấu hình nằm tại **`client/src/data/liturgical-rules.json`**. Đây 
 
 File JSON được gộp vào JavaScript lúc build, không tạo thêm request mạng khi người xem mở thư viện. Quy mô danh sách Lễ hiện chỉ tăng rất nhỏ kích thước tải ban đầu; đổi lại, tên được chuẩn hóa và tìm kiếm được các Lễ theo ngày/alias. Khi sửa, luôn giữ dấu phẩy giữa các dòng, ngoặc kép quanh nội dung chữ và dấu ngoặc `{ }`, `[ ]` cân bằng. Các ghi chú đầu file kèm mẫu để đối chiếu.
 
-## Tải ảnh và Folder
+## Tải ảnh và Thư mục
 
-Khi mở ảnh, người xem vẫn có nút **Tải xuống** cho một ảnh. Trong trang Album, nút **Chọn nhiều** cho phép chọn các ảnh đang hiển thị trực tiếp trong Album, sau đó tải tất cả vào một file ZIP. Dùng **Chọn tất cả**, **Bỏ chọn** hoặc **Hủy chọn** để thao tác nhanh. Các Bộ Sưu Tập là lối dẫn vào Album con nên không được chọn như ảnh.
+Khi mở ảnh, người xem vẫn có nút **Tải xuống** cho một ảnh. Trong một Thư mục, nút **Chọn nhiều hình** chỉ dùng để chọn các file hình đang hiển thị trực tiếp; không thể chọn nhiều Thư mục. Dùng **Chọn tất cả**, **Bỏ chọn** hoặc **Hủy chọn** để thao tác nhanh.
 
-Nút **Tải Folder** tạo một file ZIP gồm toàn bộ ảnh của Album đang mở, bao gồm cả ảnh trong các Bộ Sưu Tập lồng nhau. Đây là phương án dự phòng được tạo trên thiết bị của người xem; với Folder lớn, trang sẽ hỏi xác nhận trước và người xem nên giữ trang mở đến khi trình duyệt bắt đầu tải file.
+Nút **Tải Thư mục** lần lượt gửi yêu cầu tải tất cả file hình trong Thư mục đang mở, bao gồm cả ảnh trong Thư mục con. Mỗi hình vẫn là một file gốc riêng. Website hiển thị số file đã gửi tải trên tổng số; khi trình duyệt hỏi, hãy cho phép tải nhiều tệp và xem biểu tượng/danh sách tải xuống của trình duyệt để theo dõi phần còn lại.
 
-Nếu muốn một gói lớn được chuẩn bị sẵn, hãy tự nén ảnh thành file `.zip` và đặt file đó vào **cùng folder** trên Drive, ví dụ `mua-chay-2026.zip`. Sau lần đồng bộ kế tiếp, website ưu tiên nút **Tải Folder (.ZIP)** và mở gói ZIP có sẵn này thay vì tạo lại trên thiết bị. File ZIP không xuất hiện trong gallery ảnh.
+Website không ghép ZIP trực tiếp trên trình duyệt vì Google Drive không cho trang web công khai đọc dữ liệu file qua CORS. File `.zip` trong Drive vẫn không xuất hiện ở gallery ảnh.
 
 ## Hồ sơ thư viện
 

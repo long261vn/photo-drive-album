@@ -1,6 +1,6 @@
 /**
  * Design: Long Nguyen personal image archive — an Explorer-inspired folder page.
- * Folder children use the same closed symbol at every level, while Details is the default practical view for files and folders.
+ * Folder children use the same closed symbol at every level, while batch downloads send original files directly from Drive.
  */
 import { useMemo, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
@@ -12,7 +12,7 @@ import { LiturgicalFilters } from "@/components/LiturgicalFilters";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
 import { emptyLiturgicalFilters, getLiturgicalMetadata, liturgicalDetailLabels, matchesLiturgicalFilters, type LiturgicalFilters as LiturgicalFiltersState } from "@/lib/liturgicalMetadata";
-import { downloadPhotosAsZip } from "@/lib/photoDownload";
+import { downloadPhotosIndividually, type DirectDownloadProgress } from "@/lib/photoDownload";
 
 type GalleryView = "large" | "small" | "details";
 
@@ -37,7 +37,7 @@ export default function AlbumPage() {
   const [liturgicalFilters, setLiturgicalFilters] = useState<LiturgicalFiltersState>(emptyLiturgicalFilters);
   const [selectionMode, setSelectionMode] = useState(false);
   const [selectedPhotoIds, setSelectedPhotoIds] = useState<Set<string>>(new Set());
-  const [downloadProgress, setDownloadProgress] = useState<{ completed: number; total: number } | null>(null);
+  const [downloadProgress, setDownloadProgress] = useState<DirectDownloadProgress | null>(null);
   const [downloadNotice, setDownloadNotice] = useState("");
   const { registerTap } = useSyncWorkflowShortcut();
   const albumPhotos = useMemo(() => album ? flattenAlbums([album]).flatMap((entry) => entry.photos) : [], [album]);
@@ -65,7 +65,9 @@ export default function AlbumPage() {
   const selectOffset = (offset: number) => setSelectedPhoto(visiblePhotos[(selectedIndex + offset + visiblePhotos.length) % visiblePhotos.length]);
   const selectedPhotos = visiblePhotos.filter((photo) => selectedPhotoIds.has(photo.id));
   const isDownloading = Boolean(downloadProgress);
-  const archiveName = (suffix: string) => `${formatAlbumTitle(album.title)} - ${suffix}`;
+  const downloadProgressMessage = !downloadProgress ? "" : downloadProgress.phase === "preparing"
+    ? "Đang chuẩn bị gửi yêu cầu tải…"
+    : `Đã gửi tải ${downloadProgress.completed}/${downloadProgress.total} hình từ Drive…`;
   const togglePhotoSelection = (photo: Photo) => setSelectedPhotoIds((current) => {
     const next = new Set(current);
     if (next.has(photo.id)) next.delete(photo.id);
@@ -73,34 +75,35 @@ export default function AlbumPage() {
     return next;
   });
   const closeSelection = () => { setSelectionMode(false); setSelectedPhotoIds(new Set()); };
-  const downloadZip = async (photos: Photo[], suffix: string) => {
+  const downloadPhotos = async (photos: Photo[], source: "selection" | "folder") => {
     if (!photos.length || isDownloading) return;
     setDownloadNotice("");
     try {
-      const result = await downloadPhotosAsZip(photos, archiveName(suffix), setDownloadProgress);
-      setDownloadNotice(result.failed ? `Đã tải ${result.downloaded} hình; ${result.failed} hình chưa tải được.` : `Đã tải ${result.downloaded} hình.`);
-      if (suffix === "Hình đã chọn") closeSelection();
+      const result = await downloadPhotosIndividually(photos, setDownloadProgress);
+      setDownloadNotice(`Đã gửi yêu cầu tải ${result.requested} hình. Hãy kiểm tra danh sách tải xuống của trình duyệt.`);
+      if (source === "selection") closeSelection();
     } catch {
-      setDownloadNotice("Chưa thể tải các hình đã chọn.");
+      setDownloadNotice("Chưa thể gửi yêu cầu tải các hình. Vui lòng thử lại.");
     } finally {
       setDownloadProgress(null);
     }
   };
   const downloadFolder = () => {
-    if (albumPhotos.length > 75 && !window.confirm(`Folder này có ${albumPhotos.length} hình. Việc tạo ZIP có thể mất thời gian; vui lòng giữ trang đang mở. Bạn muốn tiếp tục?`)) return;
-    void downloadZip(albumPhotos, "Toàn Bộ Folder");
+    if (albumPhotos.length > 20 && !window.confirm(`Thư mục này có ${albumPhotos.length} hình. Trình duyệt sẽ tải từng file và có thể hỏi cho phép tải nhiều tệp. Bạn muốn tiếp tục?`)) return;
+    void downloadPhotos(albumPhotos, "folder");
   };
 
   return (
     <main className="album-page">
       <header className="album-page__header"><button className="back-link" type="button" onClick={() => setLocation(parentAlbum ? `/album/${parentAlbum.slug}` : "/")}><ArrowLeft size={18} strokeWidth={1.8} /> {parentAlbum ? "Quay lại" : "Thư mục gốc"}</button>{albumAvatar ? <span className="album-page__avatar"><img src={albumAvatar} alt={`Avatar ${profile.name}`} /></span> : <span className="header-mark brand-symbol" aria-hidden="true" />}</header>
-      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} hình</span>{visibleChildAlbums.length > 0 && <span>{visibleChildAlbums.length} Thư mục con</span>}</div></div>{album.downloadAll ? <a className="album-intro__download" href={album.downloadAll.url} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải Thư mục (.ZIP)</a> : albumPhotos.length > 0 ? <button className="album-intro__download" type="button" onClick={downloadFolder} disabled={isDownloading}><Download size={16} strokeWidth={1.8} /> Tải Thư mục</button> : null}</section>
+      <section className="album-intro"><div className="album-intro__index" aria-hidden="true">{album.id}</div><div className="album-intro__copy"><p className="eyebrow">{album.subtitle}</p><h1>{formatAlbumTitle(album.title)}</h1><div className="album-intro__meta"><span><CalendarDays size={15} strokeWidth={1.7} /> {album.location}</span><span>{album.date}</span><span>{visibleDesignCount} hình</span></div></div>{albumPhotos.length > 0 ? <button className="album-intro__download" type="button" onClick={downloadFolder} disabled={isDownloading}><Download size={16} strokeWidth={1.8} /> {isDownloading ? `Đã gửi ${downloadProgress?.completed ?? 0}/${downloadProgress?.total ?? albumPhotos.length}` : `Tải Thư mục (${albumPhotos.length})`}</button> : null}</section>
+      {isDownloading && downloadProgress && <section className="direct-download-progress" aria-live="polite" aria-label="Tiến trình gửi yêu cầu tải"><div className="direct-download-progress__heading"><span>{downloadProgressMessage}</span><strong>{downloadProgress.completed}/{downloadProgress.total}</strong></div><progress value={downloadProgress.completed} max={Math.max(downloadProgress.total, 1)} /><p>Mỗi hình được tải trực tiếp từ Google Drive. Nếu được hỏi, hãy cho phép trình duyệt tải nhiều tệp.</p></section>}
       {contentItems.length > 0 && <section className="contact-sheet" aria-label={`Nội dung trong Thư mục ${formatAlbumTitle(album.title)}`}>
         <div className="contact-sheet__rule">
           <span>Nội dung Thư mục</span>
           <div className="gallery-actions">
             <span>{String(contentItems.length).padStart(2, "0")} Mục</span>
-            <button className={`gallery-selection-trigger ${selectionMode ? "is-active" : ""}`} type="button" onClick={() => selectionMode ? closeSelection() : setSelectionMode(true)} disabled={!visiblePhotos.length || isDownloading} aria-pressed={selectionMode}><Square size={15} strokeWidth={1.8} /><span>{selectionMode ? "Hủy chọn" : "Chọn nhiều"}</span></button>
+            <button className={`gallery-selection-trigger ${selectionMode ? "is-active" : ""}`} type="button" onClick={() => selectionMode ? closeSelection() : setSelectionMode(true)} disabled={!visiblePhotos.length || isDownloading} aria-pressed={selectionMode}><Square size={15} strokeWidth={1.8} /><span>{selectionMode ? "Hủy chọn" : "Chọn nhiều hình"}</span></button>
             <button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds} title={showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn nền" : "Hiện nền"}</span></button>
             <div className="gallery-view-switch" role="group" aria-label="Kiểu hiển thị nội dung">
               {galleryViews.map(({ id, label, icon: Icon }) => (
@@ -112,7 +115,7 @@ export default function AlbumPage() {
           </div>
         </div>
         <LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={setLiturgicalFilters} />
-        {selectionMode && <div className="batch-download-bar" aria-live="polite"><span>{selectedPhotos.length} hình đã chọn</span><div><button type="button" onClick={() => setSelectedPhotoIds(new Set(visiblePhotos.map((photo) => photo.id)))} disabled={!visiblePhotos.length || isDownloading}>Chọn tất cả</button><button type="button" onClick={() => setSelectedPhotoIds(new Set())} disabled={!selectedPhotos.length || isDownloading}>Bỏ chọn</button><button className="batch-download-bar__primary" type="button" onClick={() => downloadZip(selectedPhotos, "Hình đã chọn")} disabled={!selectedPhotos.length || isDownloading}><Download size={15} strokeWidth={1.8} /> {downloadProgress ? `Đang tải ${downloadProgress.completed}/${downloadProgress.total}` : `Tải xuống (${selectedPhotos.length})`}</button><button className="batch-download-bar__close" type="button" onClick={closeSelection} disabled={isDownloading} aria-label="Đóng chọn nhiều"><X size={16} strokeWidth={1.8} /></button></div></div>}
+        {selectionMode && <div className="batch-download-bar" aria-live="polite"><span>{selectedPhotos.length} hình đã chọn</span><div><button type="button" onClick={() => setSelectedPhotoIds(new Set(visiblePhotos.map((photo) => photo.id)))} disabled={!visiblePhotos.length || isDownloading}>Chọn tất cả</button><button type="button" onClick={() => setSelectedPhotoIds(new Set())} disabled={!selectedPhotos.length || isDownloading}>Bỏ chọn</button><button className="batch-download-bar__primary" type="button" onClick={() => downloadPhotos(selectedPhotos, "selection")} disabled={!selectedPhotos.length || isDownloading}><Download size={15} strokeWidth={1.8} /> {downloadProgress ? `Đã gửi ${downloadProgress.completed}/${downloadProgress.total}` : `Tải từng hình (${selectedPhotos.length})`}</button><button className="batch-download-bar__close" type="button" onClick={closeSelection} disabled={isDownloading} aria-label="Đóng chọn nhiều hình"><X size={16} strokeWidth={1.8} /></button></div></div>}
         {downloadNotice && <p className="batch-download-notice" role="status">{downloadNotice}</p>}
 
         {galleryView === "details" ? (
@@ -120,8 +123,8 @@ export default function AlbumPage() {
             {contentItems.map((item, index) => item.kind === "collection" ? (
               <article className="photo-list__row photo-list__row--collection" key={item.album.id} role="listitem">
                 <button type="button" className="photo-list__preview photo-list__preview--collection" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(item.album.title)}`}><ExplorerFolderPreview album={item.album} size="detail" /></button>
-                <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(item.album.title)}</strong><span>Thư mục · {item.album.count} hình</span></div>
-                <div className="photo-list__type"><span>{item.album.count} hình</span><span>Thư mục</span></div>
+                <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(item.album.title)}</strong><span>Thư mục</span></div>
+                <div className="photo-list__type"><span>Thư mục</span></div>
                 <button type="button" className="photo-list__open" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(item.album.title)}`}><FolderOpen size={16} strokeWidth={1.8} /><span>Mở</span></button>
               </article>
             ) : (
@@ -140,7 +143,7 @@ export default function AlbumPage() {
             {contentItems.map((item, index) => item.kind === "collection" ? (
               <button key={item.album.id} className="photo-tile photo-tile--collection explorer-content-folder" type="button" onClick={() => setLocation(`/album/${item.album.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(item.album.title)}`}>
                 <ExplorerFolderPreview album={item.album} size={galleryView === "small" ? "small" : "large"} />
-                <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(item.album.title)}</strong><em>{item.album.count} hình · Thư mục</em></span>
+                <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(item.album.title)}</strong><em>Thư mục</em></span>
               </button>
             ) : (
               <button key={item.photo.id} className={`photo-tile photo-tile--${item.photo.orientation}${selectionMode ? " is-selectable" : ""}${selectedPhotoIds.has(item.photo.id) ? " is-selected" : ""}`} type="button" onClick={() => selectionMode ? togglePhotoSelection(item.photo) : setSelectedPhoto(item.photo)} aria-label={selectionMode ? `${selectedPhotoIds.has(item.photo.id) ? "Bỏ chọn" : "Chọn"} ${formatPhotoTitle(item.photo.title)}` : `Mở hình ${formatPhotoTitle(item.photo.title)}`}>

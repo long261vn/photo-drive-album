@@ -10,10 +10,9 @@ type AlbumListProps = { albums: Album[]; startIndex?: number; onOpen: (slug: str
 export function AlbumList({ albums, startIndex = 0, onOpen, view = "details" }: AlbumListProps) {
   if (view !== "details") return <div className={`folder-browser-grid folder-browser-grid--${view}`} aria-label="Danh sách Thư mục">
     {albums.map((album, index) => {
-      const childCount = album.children?.length ?? 0;
       return <button key={album.id} className="folder-browser-card" type="button" onClick={() => onOpen(album.slug)} aria-label={`Mở Thư mục ${formatAlbumTitle(album.title)}`}>
         <ExplorerFolderPreview album={album} size={view} />
-        <span className="folder-browser-card__copy"><span className="folder-browser-card__index">{String(startIndex + index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(album.title)}</strong><em>{childCount ? `${childCount} Thư mục con · ` : ""}{album.count} hình</em></span>
+        <span className="folder-browser-card__copy"><span className="folder-browser-card__index">{String(startIndex + index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(album.title)}</strong><em>Thư mục</em></span>
       </button>;
     })}
     {albums.length === 0 && <div className="empty-archive"><p>Chưa tìm thấy Thư mục phù hợp.</p></div>}
@@ -22,13 +21,12 @@ export function AlbumList({ albums, startIndex = 0, onOpen, view = "details" }: 
   return <div className="folder-detail-list" role="list" aria-label="Chi tiết Thư mục">
     <div className="folder-detail-list__heading" aria-hidden="true"><span>Tên</span><span>Ngày</span><span>Loại</span><span>Kích thước</span></div>
     {albums.map((album, index) => {
-      const childCount = album.children?.length ?? 0;
       return <button key={album.id} className="folder-detail-row" type="button" role="listitem" onClick={() => onOpen(album.slug)} aria-label={`Mở Thư mục ${formatAlbumTitle(album.title)}`}>
         <ExplorerFolderPreview album={album} size="detail" />
         <span className="folder-detail-row__name"><i>{String(startIndex + index + 1).padStart(2, "0")}</i><strong>{formatAlbumTitle(album.title)}</strong></span>
         <span className="folder-detail-row__date"><Clock3 size={14} strokeWidth={1.65} /> {album.date}</span>
         <span className="folder-detail-row__type"><FolderTree size={14} strokeWidth={1.65} /> Thư mục</span>
-        <span className="folder-detail-row__size">{childCount ? `${childCount} thư mục con · ` : ""}{album.count} hình</span>
+        <span className="folder-detail-row__size">Thư mục</span>
         <ChevronRight className="folder-detail-row__arrow" size={18} strokeWidth={1.75} />
       </button>;
     })}

@@ -230,6 +230,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .album-intro__download:active { transform: translateY(0) scale(0.97); }
 .album-intro__download svg { transition: transform 180ms var(--ease-out); }
 .album-intro__download:hover svg { transform: translateY(2px); }
+.album-intro__download:disabled { cursor: wait; opacity: 0.84; transform: none; }
 .parent-album { padding: 22px 0 36px; border-bottom: 1px solid var(--border); }
 .parent-album__rule { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; color: var(--muted-ink); font-size: 10px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
 .parent-album__rule span:first-child { color: var(--cobalt); }
@@ -247,6 +248,14 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 .batch-download-bar .batch-download-bar__primary { border-color: var(--cobalt); background: var(--cobalt); color: #fff; }
 .batch-download-bar .batch-download-bar__close { margin-left: auto; min-width: 34px; padding: 0; }
 .batch-download-notice { margin: -4px 0 14px; color: var(--cobalt); font-size: 11px; font-weight: 700; }
+.direct-download-progress { display: grid; gap: 8px; margin: 0 0 16px; border: 1px solid rgba(40, 90, 64, 0.48); padding: 11px 12px; background: rgba(226,232,223,0.34); color: var(--ink); }
+.direct-download-progress__heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 11px; font-weight: 800; }
+.direct-download-progress__heading strong { flex: 0 0 auto; color: var(--cobalt); font-size: 10px; letter-spacing: 0.06em; }
+.direct-download-progress progress { width: 100%; height: 7px; overflow: hidden; appearance: none; border: 0; background: #d8ddd5; color: var(--cobalt); }
+.direct-download-progress progress::-webkit-progress-bar { background: #d8ddd5; }
+.direct-download-progress progress::-webkit-progress-value { background: var(--cobalt); }
+.direct-download-progress progress::-moz-progress-bar { background: var(--cobalt); }
+.direct-download-progress p { margin: 0; color: var(--muted-ink); font-size: 10px; font-weight: 600; line-height: 1.4; }
 .gallery-view-switch { display: inline-flex; overflow: hidden; border: 1px solid var(--border); background: var(--paper); transition: border-color 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
   .gallery-view-switch button { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; border: 0; border-right: 1px solid var(--border); padding: 0 9px; background: transparent; color: var(--muted-ink); font-family: "Noto Sans", sans-serif; font-size: 9px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; transition: background 180ms var(--ease-out), color 180ms var(--ease-out), transform 160ms var(--ease-out); }
 .gallery-view-switch button:last-child { border-right: 0; }
