@@ -240,3 +240,11 @@
 - [x] Quét manifest để thống kê các từ viết tắt/tên viết liền chưa có quy ước.
 - [x] Kiểm thử chuẩn hóa tên, tìm kiếm và giao diện.
 - [x] Phát hành GitHub Pages và bàn giao danh sách cần xác nhận.
+
+## Tối ưu tìm kiếm, Lightbox và hồ sơ trang đầu
+
+- [x] Rà soát vị trí tìm kiếm/bộ lọc, xử lý truy vấn và phần chân Lightbox.
+- [x] Gộp bộ lọc vào giao diện gọn, thêm độ trễ tìm kiếm khi gõ.
+- [x] Hiển thị đường dẫn và nút Xem Thư mục trong Lightbox.
+- [x] Tái bố cục cover-avatar-tên trang đầu, tăng khoảng thở và giảm chiều cao chiếm chỗ.
+- [x] Kiểm thử desktop, Galaxy S20, tìm kiếm, Lightbox, build và phát hành.

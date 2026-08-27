@@ -4,13 +4,14 @@
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
-import { ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, FolderTree, Grid2X2, ImageIcon, List, Search } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, Eye, EyeOff, FolderOpen, FolderTree, Grid2X2, ImageIcon, List, Search, SlidersHorizontal } from "lucide-react";
 import { AlbumList, type FolderBrowserView } from "@/components/AlbumList";
 import { ExplorerFolderPreview } from "@/components/ExplorerFolderPreview";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { Lightbox } from "@/components/Lightbox";
 import { LiturgicalFilters } from "@/components/LiturgicalFilters";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
+import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
 import { emptyLiturgicalFilters, getLiturgicalMetadata, liturgicalDetailLabels, liturgicalMetadataSearchText, matchesLiturgicalFilters, type LiturgicalFilters as LiturgicalFiltersState } from "@/lib/liturgicalMetadata";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
@@ -58,7 +59,8 @@ export default function Home() {
   const { albums, profile } = useArchiveManifest();
   const profileCover = profile.cover?.trim();
   const profileAvatar = profile.avatar?.trim();
-  const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query]);
+  const debouncedQuery = useDebouncedValue(query);
+  const normalizedQuery = useMemo(() => normalizeSearch(debouncedQuery.trim()), [debouncedQuery]);
   const allPhotos = useMemo(() => flattenAlbums(albums).flatMap((album) => album.photos), [albums]);
   const seasons = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).season).filter((season): season is string => Boolean(season)))), [allPhotos]);
   const years = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).liturgicalYear).filter((year): year is "A" | "B" | "C" => Boolean(year)))).sort(), [allPhotos]);
@@ -81,6 +83,8 @@ export default function Home() {
   const pageAlbums = sortedAlbums.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
   const pageResults = searchResults.slice((currentPage - 1) * SEARCH_PAGE_SIZE, currentPage * SEARCH_PAGE_SIZE);
   const selectedSearchIndex = selectedSearchPhoto ? searchPhotos.findIndex((photo) => photo.id === selectedSearchPhoto.id) : -1;
+  const selectedSearchResult = selectedSearchPhoto ? searchResults.find((result): result is Extract<SearchResult, { kind: "photo" }> => result.kind === "photo" && result.photo.id === selectedSearchPhoto.id) : undefined;
+  const hasActiveOptions = showBackgrounds || sort !== "created-desc" || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly);
   const moveSearchPhoto = (offset: number) => setSelectedSearchPhoto(searchPhotos[(selectedSearchIndex + offset + searchPhotos.length) % searchPhotos.length]);
 
   return <main className="archive-home">
@@ -96,13 +100,11 @@ export default function Home() {
     <section className="archive-toolbar archive-toolbar--profile" id="folders">
       <div><p className="eyebrow">Duyệt tệp · Thư mục</p><h2>Thư mục</h2></div>
       <div className="archive-toolbar__controls">
-        <label className="archive-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm Thư mục hoặc tên hình</span><input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Tìm Thư mục hoặc tên hình" /></label>
-        <button className={`background-toggle archive-background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => { setShowBackgrounds((visible) => !visible); setPage(1); }} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}</span></button>
-        <label className="archive-sort"><span>Sắp xếp</span><select value={sort} onChange={(event) => { setSort(event.target.value as typeof sort); setPage(1); }}><option value="created-desc">Mới nhất</option><option value="created-asc">Cũ nhất</option><option value="name">Tên A - Z</option></select><ChevronDown size={15} strokeWidth={1.8} /></label>
+        <label className="archive-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm Thư mục hoặc tên hình</span><input value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Tìm Thư mục hoặc tên hình" />{query.trim() && query !== debouncedQuery && <span className="search-feedback">Đang tìm</span>}</label>
+        <details className={`archive-options${hasActiveOptions ? " has-active-options" : ""}`}><summary><SlidersHorizontal size={16} strokeWidth={1.8} /> Tùy chọn</summary><div className="archive-options__panel"><button className={`background-toggle archive-background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => { setShowBackgrounds((visible) => !visible); setPage(1); }} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}</span></button><label className="archive-sort"><span>Sắp xếp</span><select value={sort} onChange={(event) => { setSort(event.target.value as typeof sort); setPage(1); }}><option value="created-desc">Mới nhất</option><option value="created-asc">Cũ nhất</option><option value="name">Tên A - Z</option></select><ChevronDown size={15} strokeWidth={1.8} /></label><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setPage(1); }} /></div></details>
       </div>
     </section>
     {!isSearching && <div className="folder-view-toolbar" role="group" aria-label="Kiểu hiển thị Thư mục"><span>Kiểu xem</span>{folderViews.map(({ id, label, icon: Icon }) => <button key={id} type="button" className={folderView === id ? "is-active" : ""} onClick={() => setFolderView(id)} aria-pressed={folderView === id} title={label}><Icon size={16} strokeWidth={1.8} /><span>{label}</span></button>)}</div>}
-    <section className="archive-liturgical-controls"><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setPage(1); }} /></section>
     {isSearching ? <section className="search-results" aria-label="Kết quả tìm kiếm"><div className="search-results__rule"><span>{searchResults.length} Kết quả</span><span>Thư mục và hình ảnh</span></div><div className="search-results__list">{pageResults.map((result, index) => {
       const isPhoto = result.kind === "photo";
       const title = isPhoto ? formatPhotoTitle(result.photo.title) : formatAlbumTitle(result.album.title);
@@ -113,6 +115,6 @@ export default function Home() {
     })}{pageResults.length === 0 && <div className="empty-archive"><p>Chưa tìm thấy Thư mục hoặc hình phù hợp.</p></div>}</div></section> : <AlbumList albums={pageAlbums} startIndex={(currentPage - 1) * PAGE_SIZE} onOpen={(slug) => setLocation(`/album/${slug}`)} view={folderView} />}
     {pageCount > 1 && <nav className="album-pagination" aria-label={isSearching ? "Phân trang kết quả" : "Phân trang Thư mục"}><button type="button" onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={currentPage === 1}><ChevronLeft size={16} /> Trước</button><span>{isSearching ? "Kết quả" : "Trang"} {currentPage} / {pageCount}</span><button type="button" onClick={() => setPage((current) => Math.min(pageCount, current + 1))} disabled={currentPage === pageCount}>Sau <ChevronRight size={16} /></button></nav>}
     <footer className="site-footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>
-    {selectedSearchPhoto && <Lightbox photo={selectedSearchPhoto} index={selectedSearchIndex} count={searchPhotos.length} onClose={() => setSelectedSearchPhoto(null)} onPrevious={() => moveSearchPhoto(-1)} onNext={() => moveSearchPhoto(1)} />}
+    {selectedSearchPhoto && <Lightbox photo={selectedSearchPhoto} index={selectedSearchIndex} count={searchPhotos.length} folderPath={selectedSearchResult ? formatAlbumTitle(selectedSearchResult.album.title) : formatAlbumTitle(selectedSearchPhoto.location)} onOpenFolder={() => { setSelectedSearchPhoto(null); if (selectedSearchResult) setLocation(`/album/${selectedSearchResult.album.slug}`); }} onClose={() => setSelectedSearchPhoto(null)} onPrevious={() => moveSearchPhoto(-1)} onNext={() => moveSearchPhoto(1)} />}
   </main>;
 }

@@ -110,3 +110,4 @@ Typography dùng **Noto Serif** cho tiêu đề và **Be Vietnam Pro** cho metad
 - Bộ lọc Mùa, Tuần, Các Thánh và Đức Mẹ dùng hairline controls cùng nhãn archive, đồng thời metadata phụng vụ tạo nhịp đọc cho Dòng Thời Gian và Danh Sách thay vì biến thư viện thành bảng dữ liệu thuần túy.
 - Chế độ **Theo thư mục** dùng ngôn ngữ quen thuộc của Windows Explorer: thư mục và thư mục con trước file hình, biểu tượng thư mục mở hé các hình bên trong ở hai chế độ biểu tượng, còn chế độ Chi tiết dùng folder đóng cùng tên, ngày, loại và số lượng nội dung.
 - Chế độ **Xem tất cả** giữ vai trò trải nghiệm ảnh: dòng thời gian, lưới ảnh và mở ảnh trực tiếp. Hai chế độ phải có vai trò khác nhau, tránh dùng ảnh bên trong làm “cover Album” trên trang Theo thư mục.
+- Mỗi mốc tháng ở **Xem tất cả** dùng một ảnh neo lớn và các khung nhịp phụ có tỷ lệ khác nhau; dấu góc khung và nhãn “Mốc lưu trữ” giữ cho trang có cảm giác contact sheet biên tập thay vì lưới ảnh đồng đều.

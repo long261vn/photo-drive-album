@@ -194,6 +194,18 @@ Workflow **Sync Google Drive albums** đã hoàn tất thành công; manifest th
 
 Công cụ rà soát đã gom các biến thể `LN`/`BG`/`Eng` và lập báo cáo gồm **178 nhóm tên** còn có mã viết tắt hoặc chữ viết liền cần xác nhận thêm. TypeScript và kiểm tra diff đã hoàn tất thành công.
 
+## 2026-08-27 — Tìm kiếm gọn, hồ sơ và đường dẫn ảnh
+
+Trang đầu desktop nay đặt ô tìm kiếm lớn và nút **Tùy chọn** cạnh nhau; sắp xếp, nền và bộ lọc phụng vụ nằm trong bảng mở rộng thay vì chiếm nhiều dòng mặc định. Trên Galaxy S20, cover-avatar-tên-thống kê không còn chồng lên nhau; số hình được đưa xuống hàng riêng, còn ô tìm kiếm và nút Tùy chọn vừa đủ vùng chạm.
+
+Trong Lightbox của Thư mục `Rước Lễ Lần Đầu`, phần chân hiển thị nhãn **Đường dẫn**, tên Thư mục, tháng/năm và hai nút **Xem Thư mục** / **Tải xuống**. Bấm **Xem Thư mục** đã đóng Lightbox, giữ người xem tại danh sách ảnh của Thư mục hiện tại. Tìm kiếm có độ trễ 260 ms trước khi lọc kho dữ liệu nhằm tránh tính lại kết quả ở từng ký tự.
+
+Khi nhập `Lòng Chúa Thương Xót`, ô tìm hiện nhãn **Đang tìm** trong lúc dữ liệu còn giữ danh sách cũ, sau đó thay bằng kết quả phù hợp sau khoảng dừng gõ. Nhờ vậy, việc nhập không tạo cảm giác giao diện nhảy theo từng ký tự.
+
+Từ kết quả tìm kiếm, Lightbox của ảnh **Chúa Nhật Thứ 02 Phục Sinh - Năm A - Bài Đọc 1** ghi đúng Thư mục nguồn là **Chúa Nhật Thứ 02 Phục Sinh Lòng Chúa Thương Xót — 04.2026**. Nút **Xem Thư mục** đóng lớp xem ảnh và mở đúng danh sách 13 file hình của Thư mục con tương ứng.
+
+Trang **Xem tất cả** giữ một ô tìm kiếm và chỉ một nút **Lọc**, còn Background và bộ lọc phụng vụ nằm trong panel gọn. Lightbox của hình đầu tiên trên Dòng thời gian hiển thị đủ đường dẫn; nút **Xem Thư mục** đóng ảnh và chuyển đúng tới Thư mục `Chúa Nhật Thứ 22 Thường Niên - Năm A và Tuần 22 Thường Niên từ 30/08 đến 05/09`.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.

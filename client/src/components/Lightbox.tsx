@@ -3,12 +3,12 @@
  * A reverent full-viewport viewing surface with staged loading and a gentle, interruptible transition.
  */
 import { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, Download, Expand, Minimize, Minus, Plus, RotateCcw, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Expand, FolderOpen, Minimize, Minus, Plus, RotateCcw, X } from "lucide-react";
 import { formatAlbumTitle, formatPhotoTitle, type Photo } from "@/lib/albumData";
 
-type LightboxProps = { photo: Photo; index: number; count: number; onClose: () => void; onPrevious: () => void; onNext: () => void };
+type LightboxProps = { photo: Photo; index: number; count: number; folderPath?: string; onOpenFolder?: () => void; onClose: () => void; onPrevious: () => void; onNext: () => void };
 
-export function Lightbox({ photo, index, count, onClose, onPrevious, onNext }: LightboxProps) {
+export function Lightbox({ photo, index, count, folderPath, onOpenFolder, onClose, onPrevious, onNext }: LightboxProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [zoom, setZoom] = useState(1);
@@ -74,7 +74,7 @@ export function Lightbox({ photo, index, count, onClose, onPrevious, onNext }: L
         <div className="lightbox__canvas" style={{ transform: `translate3d(${pan.x}px, ${pan.y}px, 0) scale(${zoom})` }}><img key={photo.id} src={photo.src} alt={photoTitle} draggable={false} decoding="async" onLoad={() => setImageLoaded(true)} /></div>
         <button className="lightbox__nav lightbox__nav--next" type="button" onClick={onNext} aria-label="Thiết kế tiếp theo"><ChevronRight size={28} strokeWidth={1.65} /></button>
       </div>
-      <div className="lightbox__footer"><p>{formatAlbumTitle(photo.location)} <span>—</span> {photo.date}</p><a className="download-button" href={photo.downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải xuống</a><span className="lightbox__position">{index + 1} / {count}</span></div>
+      <div className="lightbox__footer"><div className="lightbox__location"><span>Đường dẫn</span><p title={folderPath ?? formatAlbumTitle(photo.location)}>{folderPath ?? formatAlbumTitle(photo.location)} <i>—</i> {photo.date}</p></div><div className="lightbox__actions">{onOpenFolder && <button className="lightbox__folder-button" type="button" onClick={onOpenFolder}><FolderOpen size={16} strokeWidth={1.8} /> Xem Thư mục</button>}<a className="download-button" href={photo.downloadUrl} target="_blank" rel="noreferrer"><Download size={16} strokeWidth={1.8} /> Tải xuống</a></div><span className="lightbox__position">{index + 1} / {count}</span></div>
     </div>
   );
 }

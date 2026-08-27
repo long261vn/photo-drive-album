@@ -4,13 +4,14 @@
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, CalendarDays, Eye, EyeOff, FolderOpen, Images, Plus, Search } from "lucide-react";
+import { ArrowLeft, CalendarDays, Eye, EyeOff, FolderOpen, Images, Plus, Search, SlidersHorizontal } from "lucide-react";
 import { LibraryModeSwitch } from "@/components/LibraryModeSwitch";
 import { Lightbox } from "@/components/Lightbox";
 import { LiturgicalFilters } from "@/components/LiturgicalFilters";
 import { flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
 import { emptyLiturgicalFilters, getLiturgicalMetadata, liturgicalDetailLabels, liturgicalMetadataSearchText, matchesLiturgicalFilters, type LiturgicalFilters as LiturgicalFiltersState } from "@/lib/liturgicalMetadata";
 import { useArchiveManifest } from "@/hooks/useArchiveManifest";
+import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { useSyncWorkflowShortcut } from "@/hooks/useSyncWorkflowShortcut";
 
 type TimelinePhoto = Photo & {
@@ -70,7 +71,8 @@ export default function TimelinePage() {
   const [showBackgrounds, setShowBackgrounds] = useState(false);
   const [query, setQuery] = useState("");
   const [liturgicalFilters, setLiturgicalFilters] = useState<LiturgicalFiltersState>(emptyLiturgicalFilters);
-  const normalizedQuery = useMemo(() => normalizeSearch(query.trim()), [query]);
+  const debouncedQuery = useDebouncedValue(query);
+  const normalizedQuery = useMemo(() => normalizeSearch(debouncedQuery.trim()), [debouncedQuery]);
   const allPhotos = useMemo(() => flattenAlbums(albums).flatMap((album) => album.photos), [albums]);
   const seasons = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).season).filter((season): season is string => Boolean(season)))), [allPhotos]);
   const years = useMemo(() => Array.from(new Set(allPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).liturgicalYear).filter((year): year is "A" | "B" | "C" => Boolean(year)))).sort(), [allPhotos]);
@@ -89,6 +91,7 @@ export default function TimelinePage() {
   const selectedIndex = selectedPhoto ? timelinePhotos.findIndex((photo) => photo.id === selectedPhoto.id) : -1;
   const selectOffset = (offset: number) => setSelectedPhoto(timelinePhotos[(selectedIndex + offset + timelinePhotos.length) % timelinePhotos.length]);
   const avatar = profile.avatar?.trim();
+  const hasActiveOptions = showBackgrounds || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly);
 
   return <main className="timeline-page">
     <header className="timeline-page__header"><button className="back-link" type="button" onClick={() => setLocation("/")}><ArrowLeft size={18} strokeWidth={1.8} /> Theo thư mục</button>{avatar && <span className="album-page__avatar"><img src={avatar} alt={`Avatar ${profile.name}`} /></span>}</header>
@@ -96,16 +99,15 @@ export default function TimelinePage() {
     <section className="timeline-hero">
       <p className="eyebrow">Xem ảnh · Toàn bộ thư viện</p>
       <div className="timeline-hero__copy"><h1>Xem Tất Cả</h1></div>
-      <div className="timeline-hero__utility"><label className="timeline-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm trong toàn bộ thiết kế</span><input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleItemCount(LOAD_SIZE); }} placeholder="Tìm Mùa, Tuần, Lễ hoặc thiết kế" /></label><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn BG" : "Hiện BG"}</span></button></div>
-      <LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setVisibleItemCount(LOAD_SIZE); }} />
+      <div className="timeline-hero__utility"><label className="timeline-search"><Search size={17} strokeWidth={1.75} /><span className="sr-only">Tìm trong toàn bộ thiết kế</span><input value={query} onChange={(event) => { setQuery(event.target.value); setVisibleItemCount(LOAD_SIZE); }} placeholder="Tìm Mùa, Tuần, Lễ hoặc thiết kế" />{query.trim() && query !== debouncedQuery && <span className="search-feedback">Đang tìm</span>}</label><details className={`archive-options timeline-options${hasActiveOptions ? " has-active-options" : ""}`}><summary><SlidersHorizontal size={16} strokeWidth={1.8} /> Lọc</summary><div className="archive-options__panel"><button className={`background-toggle ${showBackgrounds ? "is-active" : ""}`} type="button" onClick={() => setShowBackgrounds((visible) => !visible)} aria-pressed={showBackgrounds}>{showBackgrounds ? <EyeOff size={15} strokeWidth={1.8} /> : <Eye size={15} strokeWidth={1.8} />}<span>{showBackgrounds ? "Ẩn hình nền" : "Hiện hình nền"}</span></button><LiturgicalFilters filters={liturgicalFilters} seasons={seasons} years={years} weeks={weeks} onChange={(next) => { setLiturgicalFilters(next); setVisibleItemCount(LOAD_SIZE); }} /></div></details></div>
       <div className="timeline-hero__stats"><span><Images size={17} strokeWidth={1.7} /> {timelinePhotos.length} hình</span><span><CalendarDays size={17} strokeWidth={1.7} /> {groups.length} tháng lưu trữ</span>{normalizedQuery && <span>Kết quả cho “{query.trim()}”</span>}</div>
     </section>
 
     {visibleGroups.length > 0 ? <div className="timeline-rail">
       {visibleGroups.map((group) => <section className="timeline-group" key={group.key} aria-label={`Hình ảnh ${group.label}`}>
-        <div className="timeline-group__heading"><span className="timeline-group__marker" aria-hidden="true" /><div><p className="eyebrow">{group.key}</p><h2>{group.label}</h2></div><span>{String(group.photos.length).padStart(2, "0")} hình</span></div>
+        <div className="timeline-group__heading"><span className="timeline-group__marker" aria-hidden="true" /><div><p className="eyebrow">Mốc lưu trữ · {group.key}</p><h2>{group.label}</h2></div><span>{String(group.photos.length).padStart(2, "0")} hình</span></div>
         <div className="timeline-grid">
-          {group.photos.map((photo, photoIndex) => <article className={`timeline-tile ${photoIndex === 0 ? "timeline-tile--anchor" : ""}`} key={photo.id}>
+          {group.photos.map((photo, photoIndex) => <article className={`timeline-tile ${photoIndex === 0 ? "timeline-tile--anchor" : ""}${photoIndex > 0 && photoIndex % 11 === 0 ? " timeline-tile--secondary" : ""}`} key={photo.id}>
             <button type="button" className="timeline-tile__media" onClick={() => setSelectedPhoto(photo)} aria-label={`Mở thiết kế ${formatPhotoTitle(photo.title)}`}>
               {photo.src?.trim() ? <img src={photo.src} alt={formatPhotoTitle(photo.title)} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}
               <span className="timeline-tile__index" aria-hidden="true">{String(photoIndex + 1).padStart(2, "0")}</span>
@@ -119,6 +121,6 @@ export default function TimelinePage() {
 
     {hasMoreItems && <div className="timeline-load-more"><button type="button" onClick={() => setVisibleItemCount((count) => count + LOAD_SIZE)}><Plus size={16} strokeWidth={1.8} /> Tải thêm {LOAD_SIZE} hình</button><span>Đã hiển thị {Math.min(visibleItemCount, timelinePhotos.length)} / {timelinePhotos.length} hình</span></div>}
     <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>
-    {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={timelinePhotos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
+    {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={timelinePhotos.length} folderPath={formatAlbumTitle(selectedPhoto.albumTitle)} onOpenFolder={() => { setSelectedPhoto(null); setLocation(`/album/${selectedPhoto.albumSlug}`); }} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
   </main>;
 }

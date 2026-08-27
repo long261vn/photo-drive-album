@@ -156,7 +156,7 @@ export default function AlbumPage() {
       </section>}
       {contentItemCount === 0 && <section className="contact-sheet"><p className="empty-assets">Thư mục này chưa có hình ảnh hoặc Thư mục con công khai.</p></section>}
       <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/">Về Thư mục gốc</Link></footer>
-    {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={visiblePhotos.length} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
+    {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={visiblePhotos.length} folderPath={formatAlbumTitle(album.title)} onOpenFolder={() => setSelectedPhoto(null)} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
     </main>
   );
 }
