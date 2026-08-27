@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T05:21:31.197Z",
+  "generatedAt": "2026-08-27T11:58:40.758Z",
   "source": {
     "rootFolderId": "1A50RPh0VKKkc2nmOrNzw5GwTawKNVyRn",
     "rootFolderName": "Website_LHN",
@@ -9,14 +9,14 @@
   "profile": {
     "name": "Long Nguyen",
     "handle": "",
-    "bio": "abcdefgabcdefgabcdefgabcdefg",
+    "bio": "Hình mới sẽ được cập nhật vào T4-T5 hàng tuần.",
     "details": [],
     "avatar": "https://drive.google.com/thumbnail?id=17eLg1nJEv29PWSzwUAqMH_OWCjSYZmXT&sz=w700",
     "cover": "https://drive.google.com/thumbnail?id=1RpKeNmR75emXvFPOR4GSgpe_rVBNVsIQ&sz=w1800",
     "infoSource": {
       "id": "1dUwrUI6TIpeVQbppX2MZ5xD4XyGJPp2awOeeqM7ISnM",
       "name": "info",
-      "modifiedAt": "2026-08-24T07:36:35.087Z"
+      "modifiedAt": "2026-08-27T11:54:38.661Z"
     }
   },
   "albums": [
@@ -29539,38 +29539,11 @@
       "date": "08.2026",
       "location": "Thiết kế phụng vụ",
       "createdAt": "2026-08-25T06:25:11.407Z",
-      "count": 35,
-      "cover": "https://drive.google.com/thumbnail?id=1ctWrxz-Ud3zsq8D0YhxVBWBM4uIIjb-b&sz=w1600",
+      "count": 33,
+      "cover": "https://drive.google.com/thumbnail?id=1iFIxnYrckizNtOBIqj0x7W95PytCNZjr&sz=w1600",
       "accent": "green",
       "description": "Album CN22 TN A va Tuan22TN tu 30 08 den 05 09.",
-      "photos": [
-        {
-          "id": "1ctWrxz-Ud3zsq8D0YhxVBWBM4uIIjb-b",
-          "title": "divine sacrifice jesus carrying cross calvary generative ai",
-          "location": "CN22 TN A va Tuan22TN tu 30 08 den 05 09",
-          "date": "08.2023",
-          "createdAt": "2026-08-27T03:16:06.572Z",
-          "modifiedAt": "2023-08-28T07:40:53.000Z",
-          "src": "https://drive.google.com/thumbnail?id=1ctWrxz-Ud3zsq8D0YhxVBWBM4uIIjb-b&sz=w1600",
-          "downloadUrl": "https://drive.google.com/uc?export=download&id=1ctWrxz-Ud3zsq8D0YhxVBWBM4uIIjb-b",
-          "orientation": "landscape",
-          "mimeType": "image/jpeg",
-          "isBackground": false
-        },
-        {
-          "id": "13n2QqKoFW41zSvHewKDs5XrcXWc-oX7K",
-          "title": "lightstock 788 full yung jin lai",
-          "location": "CN22 TN A va Tuan22TN tu 30 08 den 05 09",
-          "date": "08.2020",
-          "createdAt": "2026-08-27T03:16:11.918Z",
-          "modifiedAt": "2020-08-27T07:40:48.000Z",
-          "src": "https://drive.google.com/thumbnail?id=13n2QqKoFW41zSvHewKDs5XrcXWc-oX7K&sz=w1600",
-          "downloadUrl": "https://drive.google.com/uc?export=download&id=13n2QqKoFW41zSvHewKDs5XrcXWc-oX7K",
-          "orientation": "landscape",
-          "mimeType": "image/jpeg",
-          "isBackground": false
-        }
-      ],
+      "photos": [],
       "children": [
         {
           "id": "83.01",
