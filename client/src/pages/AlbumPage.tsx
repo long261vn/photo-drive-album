@@ -100,35 +100,35 @@ export default function AlbumPage() {
     void downloadPhotos(albumPhotos, "folder");
   };
   const hasActiveOptions = showBackgrounds || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly || liturgicalFilters.childrenOnly);
-  const renderCollectionDetail = (child: Album, index: number) => (
+  const renderCollectionDetail = (child: Album) => (
     <button className="folder-detail-row folder-detail-row--nested" key={child.id} type="button" role="listitem" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}>
       <ExplorerFolderPreview album={child} size="detail" />
-      <span className="folder-detail-row__name"><i>{String(index + 1).padStart(2, "0")}</i><strong>{formatAlbumTitle(child.title)}</strong></span>
+      <span className="folder-detail-row__name"><strong>{formatAlbumTitle(child.title)}</strong></span>
       <span className="folder-detail-row__date"><CalendarDays size={14} strokeWidth={1.65} /> {child.date}</span>
       <span className="folder-detail-row__type"><FolderTree size={14} strokeWidth={1.65} /> Thư mục</span>
       <ChevronRight className="folder-detail-row__arrow" size={18} strokeWidth={1.75} />
     </button>
   );
-  const renderPhotoDetail = (photo: Photo, index: number) => (
+  const renderPhotoDetail = (photo: Photo) => (
     <article className={`photo-list__row ${selectionMode && selectedPhotoIds.has(photo.id) ? "is-selected" : ""}`} key={photo.id} role="listitem">
       <button type="button" className="photo-list__preview" onClick={() => selectionMode ? togglePhotoSelection(photo) : setSelectedPhoto(photo)} aria-label={selectionMode ? `${selectedPhotoIds.has(photo.id) ? "Bỏ chọn" : "Chọn"} ${formatPhotoTitle(photo.title)}` : `Mở hình ${formatPhotoTitle(photo.title)}`}>
         {photo.src?.trim() ? <img src={photo.src} alt={formatPhotoTitle(photo.title)} loading="lazy" decoding="async" /> : <span className="photo-list__placeholder" aria-hidden="true" />}{selectionMode && <span className="photo-select-indicator" aria-hidden="true">{selectedPhotoIds.has(photo.id) ? <Check size={15} strokeWidth={2.2} /> : <Square size={15} strokeWidth={1.8} />}</span>}
       </button>
-      <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(photo.title)}</strong><span>{formatAlbumTitle(photo.location)} · {photo.date}</span><span className="photo-list__liturgical">{liturgicalDetailLabels(getLiturgicalMetadata(photo.title, photo.location)).join(" · ") || "Chưa phân loại"}</span>{getLiturgicalMetadata(photo.title, photo.location).celebrations[0] && <span className="photo-list__feast">{getLiturgicalMetadata(photo.title, photo.location).celebrations[0]}</span>}</div>
+      <div className="photo-list__metadata"><strong>{formatPhotoTitle(photo.title)}</strong><span>{formatAlbumTitle(photo.location)} · {photo.date}</span><span className="photo-list__liturgical">{liturgicalDetailLabels(getLiturgicalMetadata(photo.title, photo.location)).join(" · ") || "Chưa phân loại"}</span>{getLiturgicalMetadata(photo.title, photo.location).celebrations[0] && <span className="photo-list__feast">{getLiturgicalMetadata(photo.title, photo.location).celebrations[0]}</span>}</div>
       <div className="photo-list__type"><span>{photo.mimeType?.replace("image/", "").toUpperCase() ?? "HÌNH ẢNH"}</span><span>Hình ảnh</span></div>
       <a href={photo.downloadUrl} target="_blank" rel="noreferrer" className="photo-list__download" aria-label={`Tải ${formatPhotoTitle(photo.title)}`}><Download size={16} strokeWidth={1.8} /><span>Tải</span></a>
     </article>
   );
-  const renderCollectionTile = (child: Album, index: number) => (
+  const renderCollectionTile = (child: Album) => (
     <button key={child.id} className="photo-tile photo-tile--collection explorer-content-folder" type="button" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}>
       <ExplorerFolderPreview album={child} size={galleryView === "small" ? "small" : "large"} />
-      <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(child.title)}</strong><em>Thư mục</em></span>
+      <span className="photo-tile__caption"><strong>{formatAlbumTitle(child.title)}</strong><em>Thư mục</em></span>
     </button>
   );
-  const renderPhotoTile = (photo: Photo, index: number) => (
+  const renderPhotoTile = (photo: Photo) => (
     <button key={photo.id} className={`photo-tile photo-tile--${photo.orientation}${selectionMode ? " is-selectable" : ""}${selectedPhotoIds.has(photo.id) ? " is-selected" : ""}`} type="button" onClick={() => selectionMode ? togglePhotoSelection(photo) : setSelectedPhoto(photo)} aria-label={selectionMode ? `${selectedPhotoIds.has(photo.id) ? "Bỏ chọn" : "Chọn"} ${formatPhotoTitle(photo.title)}` : `Mở hình ${formatPhotoTitle(photo.title)}`}>
       <span className="photo-tile__media">{photo.src?.trim() ? <img src={photo.src} alt={formatPhotoTitle(photo.title)} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}{selectionMode && <span className="photo-select-indicator" aria-hidden="true">{selectedPhotoIds.has(photo.id) ? <Check size={15} strokeWidth={2.2} /> : <Square size={15} strokeWidth={1.8} />}</span>}<span className="photo-tile__corner photo-tile__corner--one" aria-hidden="true" /><span className="photo-tile__corner photo-tile__corner--two" aria-hidden="true" /></span>
-      <span className="photo-tile__caption"><span className="photo-tile__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatPhotoTitle(photo.title)}</strong><em>{formatAlbumTitle(photo.location)} · {photo.date}</em></span>
+      <span className="photo-tile__caption"><strong>{formatPhotoTitle(photo.title)}</strong><em>{formatAlbumTitle(photo.location)} · {photo.date}</em></span>
     </button>
   );
 
@@ -167,7 +167,7 @@ export default function AlbumPage() {
       </section>}
       {!hasAlbumContent && <section className="contact-sheet"><p className="empty-assets">Thư mục này chưa có hình ảnh hoặc Thư mục con công khai.</p></section>}
       <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button><Link href="/folders">Về Thư mục gốc</Link></footer>
-    {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={visiblePhotos.length} folderPath={formatAlbumTitle(album.title)} onOpenFolder={() => setSelectedPhoto(null)} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
+    {selectedPhoto && <Lightbox photo={selectedPhoto} folderPath={formatAlbumTitle(album.title)} onOpenFolder={() => setSelectedPhoto(null)} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
     </main>
   );
 }

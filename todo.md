@@ -336,3 +336,9 @@
 - [x] Rà soát metadata và quy ước nhận diện hình Thiếu Nhi.
 - [x] Thêm nút Thiếu Nhi cạnh Các Thánh và Đức Mẹ trên mọi trang duyệt ảnh.
 - [x] Kiểm thử kết quả lọc, Galaxy S20, build và phát hành GitHub Pages.
+
+## Bỏ số thứ tự trên Thư mục và hình
+
+- [x] Xác định toàn bộ nhãn số thứ tự trên các chế độ xem Thư mục và hình.
+- [x] Gỡ nhãn số thứ tự, giữ nguyên thao tác mở Thư mục và xem hình.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.

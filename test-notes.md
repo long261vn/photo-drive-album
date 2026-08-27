@@ -310,9 +310,8 @@ Trên Galaxy S20, phần kết thúc của cover–avatar–info được cách 
 Cụm chữ hồ sơ được hạ nhẹ 5px trên Galaxy S20, 7px ở tablet và 9px desktop để có đường thở rõ với mép cover. Dòng **Long Nguyen** bắt đầu tại tâm dọc của avatar và nội dung `info` nằm gọn ngay dưới theo cùng một khối, không bị chạm vào cover. Đã kiểm tra trang Xem tất cả và Thư mục có tên dài ở 360×800 lẫn 1280×720; TypeScript, build Pages và diff thành công.
 
 ## 2026-08-27 — Bộ lọc Thiếu Nhi
-
 Đã thêm nút **Thiếu Nhi** ngay sau **Các Thánh** và **Đức Mẹ** trong bảng Lọc của Xem tất cả, Theo thư mục và mọi Thư mục con. Quy tắc nhận diện dùng cả tên file và tên Thư mục chứa ảnh: `ThieuNhi`, `Thiếu Nhi` và hậu tố `_TN` đã được lớp chuẩn hóa đổi thành Thiếu Nhi. Thử trực tiếp ở Xem tất cả trả về **153 hình** chỉ có nhãn Thiếu Nhi, gồm cả ảnh tiếng Anh. Bộ kiểm thử quy ước 112 mẫu, TypeScript, build Pages, Galaxy S20 và diff đều thành công.
 
-## 2026-08-27 — Bộ lọc Thiếu Nhi
+## 2026-08-27 — Bỏ số thứ tự trên Thư mục và hình
 
-Đã thêm nút **Thiếu Nhi** ngay sau **Các Thánh** và **Đức Mẹ** trong bảng Lọc của Xem tất cả, Theo thư mục và mọi Thư mục con. Quy tắc nhận diện dùng cả tên file và tên Thư mục chứa ảnh: `ThieuNhi`, `Thiếu Nhi` và hậu tố `_TN` đã được lớp chuẩn hóa đổi thành Thiếu Nhi. Thử trực tiếp ở Xem tất cả trả về **153 hình** chỉ có nhãn Thiếu Nhi, gồm cả ảnh tiếng Anh. Bộ kiểm thử quy ước 112 mẫu, TypeScript, build Pages, Galaxy S20 và diff đều thành công.
+Đã gỡ nhãn số thứ tự ở ô Thư mục trong ba kiểu xem, thẻ hình của Xem tất cả, kết quả tìm kiếm, danh sách chi tiết và Thư mục con. Trình xem ảnh cũng không còn hiển thị vị trí số trong phần đầu hoặc chân trang. Kiểm tra desktop 1280×720 và Galaxy S20 360×800 cho ba route Xem tất cả, Theo thư mục và Thư mục chi tiết xác nhận tên có thêm không gian, không tràn ngang; TypeScript, build Pages và diff đều thành công.

@@ -105,10 +105,9 @@ export default function TimelinePage() {
       {visibleGroups.map((group) => <section className="timeline-group" key={group.key} aria-label={`Hình ảnh ${group.label}`}>
         <div className="timeline-group__heading"><span className="timeline-group__marker" aria-hidden="true" /><div><p className="eyebrow">Mốc lưu trữ · {group.key}</p><h2>{group.label}</h2></div><span>{String(group.photos.length).padStart(2, "0")} hình</span></div>
         <div className="timeline-grid">
-          {group.photos.map((photo, photoIndex) => <article className="timeline-tile" key={photo.id}>
+          {group.photos.map((photo) => <article className="timeline-tile" key={photo.id}>
             <button type="button" className="timeline-tile__media" onClick={() => setSelectedPhoto(photo)} aria-label={`Mở thiết kế ${formatPhotoTitle(photo.title)}`}>
               {photo.src?.trim() ? <img src={photo.src} alt={formatPhotoTitle(photo.title)} loading="lazy" decoding="async" /> : <span className="photo-tile__placeholder" aria-hidden="true" />}
-              <span className="timeline-tile__index" aria-hidden="true">{String(photoIndex + 1).padStart(2, "0")}</span>
               <span className="timeline-tile__date"><CalendarDays size={12} strokeWidth={1.8} /> {dateFormatter.format(photo.timelineDate)}</span>
             </button>
             <div className="timeline-tile__copy"><strong title={formatPhotoTitle(photo.title)}>{formatPhotoTitle(photo.title)}</strong><span className="timeline-tile__metadata">{liturgicalDetailLabels(getLiturgicalMetadata(photo.title, photo.location)).slice(0, 2).join(" · ")}</span><button type="button" onClick={() => setLocation(`/album/${photo.albumSlug}`)}><FolderOpen size={13} strokeWidth={1.8} /> {formatAlbumTitle(photo.albumTitle)}</button></div>
@@ -119,6 +118,6 @@ export default function TimelinePage() {
 
     {hasMoreItems && <div className="timeline-load-more"><button type="button" onClick={() => setVisibleItemCount((count) => count + LOAD_SIZE)}><Plus size={16} strokeWidth={1.8} /> Tải thêm {LOAD_SIZE} hình</button><span>Đã hiển thị {Math.min(visibleItemCount, timelinePhotos.length)} / {timelinePhotos.length} hình</span></div>}
     <footer className="album-page__footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>
-    {selectedPhoto && <Lightbox photo={selectedPhoto} index={selectedIndex} count={timelinePhotos.length} folderPath={formatAlbumTitle(selectedPhoto.albumTitle)} onOpenFolder={() => { setSelectedPhoto(null); setLocation(`/album/${selectedPhoto.albumSlug}`); }} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
+    {selectedPhoto && <Lightbox photo={selectedPhoto} folderPath={formatAlbumTitle(selectedPhoto.albumTitle)} onOpenFolder={() => { setSelectedPhoto(null); setLocation(`/album/${selectedPhoto.albumSlug}`); }} onClose={() => setSelectedPhoto(null)} onPrevious={() => selectOffset(-1)} onNext={() => selectOffset(1)} />}
   </main>;
 }
