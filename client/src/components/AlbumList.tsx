@@ -1,4 +1,4 @@
-/** Design: Windows Explorer-inspired folder browser for Long Nguyen's archive; large/small icons reveal contained files, details uses a closed folder. */
+/** Design: Long Nguyen folder browser keeps one compact folder symbol and allows important folder names to occupy two calm lines. */
 import { ChevronRight, Clock3, FolderTree } from "lucide-react";
 import { formatAlbumTitle, type Album } from "@/lib/albumData";
 import { ExplorerFolderPreview } from "@/components/ExplorerFolderPreview";
@@ -7,7 +7,7 @@ export type FolderBrowserView = "large" | "small" | "details";
 
 type AlbumListProps = { albums: Album[]; startIndex?: number; onOpen: (slug: string) => void; view?: FolderBrowserView };
 
-export function AlbumList({ albums, startIndex = 0, onOpen, view = "large" }: AlbumListProps) {
+export function AlbumList({ albums, startIndex = 0, onOpen, view = "details" }: AlbumListProps) {
   if (view !== "details") return <div className={`folder-browser-grid folder-browser-grid--${view}`} aria-label="Danh sách Thư mục">
     {albums.map((album, index) => {
       const childCount = album.children?.length ?? 0;

@@ -1,6 +1,6 @@
 /**
  * Design: Long Nguyen personal image archive — an Explorer-inspired folder page.
- * Folder children are visually distinct from image files, while three view modes retain a coherent file-browser hierarchy.
+ * Folder children use the same closed symbol at every level, while Details is the default practical view for files and folders.
  */
 import { useMemo, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
@@ -29,10 +29,10 @@ type AlbumContentItem =
 export default function AlbumPage() {
   const [, params] = useRoute("/album/:slug");
   const [, setLocation] = useLocation();
-  const { albums, profile } = useArchiveManifest();
+  const { albums, profile, isLoading } = useArchiveManifest();
   const album = findAlbum(albums, params?.slug ?? "");
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-  const [galleryView, setGalleryView] = useState<GalleryView>("large");
+  const [galleryView, setGalleryView] = useState<GalleryView>("details");
   const [showBackgrounds, setShowBackgrounds] = useState(false);
   const [liturgicalFilters, setLiturgicalFilters] = useState<LiturgicalFiltersState>(emptyLiturgicalFilters);
   const [selectionMode, setSelectionMode] = useState(false);
@@ -45,6 +45,7 @@ export default function AlbumPage() {
   const years = useMemo(() => Array.from(new Set(albumPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location).liturgicalYear).filter((year): year is "A" | "B" | "C" => Boolean(year)))).sort(), [albumPhotos]);
   const weeks = useMemo(() => Array.from(new Set(albumPhotos.map((photo) => getLiturgicalMetadata(photo.title, photo.location)).filter((metadata) => !liturgicalFilters.season || metadata.season === liturgicalFilters.season).map((metadata) => metadata.week).filter((week): week is number => Number.isFinite(week)))).sort((first, second) => first - second), [albumPhotos, liturgicalFilters.season]);
 
+  if (isLoading) return <main className="folder-page-loading" aria-busy="true" aria-live="polite"><p className="eyebrow">Đang mở Thư mục</p><h1>Đang chuẩn bị nội dung…</h1><span /><span /><span /></main>;
   if (!album) return <main className="not-found-page"><p className="eyebrow">Không tìm thấy</p><h1>Thư mục này chưa có trong danh mục.</h1><Link href="/" className="text-link">Quay về Thư mục gốc</Link></main>;
 
   const parentAlbum = album.parentSlug ? findAlbum(albums, album.parentSlug) : undefined;

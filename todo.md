@@ -188,3 +188,11 @@
 - [x] Rà soát tỷ lệ biểu tượng và lớp ảnh xem trước đang gây cảm giác thô/rối.
 - [x] Chuyển biểu tượng Thư mục sang dạng gọn, tĩnh, không xoay hoặc dịch chuyển ảnh bên trong.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành bản tinh chỉnh.
+
+## Hoàn thiện trải nghiệm duyệt Thư mục
+
+- [x] Đặt chế độ Chi tiết làm mặc định tại trang gốc và mọi cấp Thư mục.
+- [x] Dùng một biểu tượng folder cân đối, không hiển thị ảnh xem trước, ở mọi kiểu xem và mọi cấp.
+- [x] Cho tên Thư mục dài hiển thị tối đa hai hàng thay vì cắt một hàng.
+- [x] Rà soát và cải thiện trạng thái tải khi mở Thư mục để tránh khoảng trống chờ khó hiểu.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.

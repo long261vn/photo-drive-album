@@ -1,6 +1,6 @@
 /**
  * Design: Long Nguyen personal image archive — the home is a Windows Explorer-inspired folder browser.
- * Folder navigation is intentionally distinct from the visual “Xem tất cả” timeline; controls remain clear and compact on mobile.
+ * Folder navigation is intentionally distinct from the visual “Xem tất cả” timeline; it opens in a practical Details view by default.
  */
 import { useMemo, useState } from "react";
 import { useLocation } from "wouter";
@@ -50,7 +50,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<"created-desc" | "created-asc" | "name">("created-desc");
   const [page, setPage] = useState(1);
-  const [folderView, setFolderView] = useState<FolderBrowserView>("large");
+  const [folderView, setFolderView] = useState<FolderBrowserView>("details");
   const [showBackgrounds, setShowBackgrounds] = useState(false);
   const [liturgicalFilters, setLiturgicalFilters] = useState<LiturgicalFiltersState>(emptyLiturgicalFilters);
   const [selectedSearchPhoto, setSelectedSearchPhoto] = useState<Photo | null>(null);
@@ -109,7 +109,7 @@ export default function Home() {
       const image = isPhoto ? result.photo.src : result.album.cover;
       const typeLabel = isPhoto ? "Hình ảnh" : result.album.parentSlug ? "Thư mục con" : "Thư mục";
       const details = isPhoto ? liturgicalDetailLabels(getLiturgicalMetadata(result.photo.title, result.photo.location)).join(" · ") : "";
-      return <article className="search-result" key={isPhoto ? result.photo.id : result.album.id}><button className="search-result__thumbnail" type="button" onClick={() => isPhoto ? setSelectedSearchPhoto(result.photo) : setLocation(`/album/${result.album.slug}`)} aria-label={isPhoto ? `Xem ảnh ${title}` : `Mở Thư mục ${title}`}>{isPhoto && image?.trim() ? <img src={image} alt="" loading="lazy" decoding="async" /> : isPhoto ? <span className="album-list__thumbnail-placeholder" aria-hidden="true" /> : <ExplorerFolderPreview album={result.album} size="detail" />}{isPhoto ? <ImageIcon size={15} strokeWidth={1.8} /> : null}</button><div className="search-result__copy"><span>{String((currentPage - 1) * SEARCH_PAGE_SIZE + index + 1).padStart(2, "0")} · {typeLabel}</span><h3>{title}</h3><p>Trong {formatAlbumTitle(result.album.title)} · {details || result.album.date}</p></div><button className="search-result__open" type="button" onClick={() => isPhoto ? setSelectedSearchPhoto(result.photo) : setLocation(`/album/${result.album.slug}`)}>{isPhoto ? "Xem ảnh" : "Mở thư mục"}<ChevronRight size={16} strokeWidth={1.8} /></button></article>;
+      return <article className={`search-result ${isPhoto ? "search-result--photo" : "search-result--folder"}`} key={isPhoto ? result.photo.id : result.album.id}><button className="search-result__thumbnail" type="button" onClick={() => isPhoto ? setSelectedSearchPhoto(result.photo) : setLocation(`/album/${result.album.slug}`)} aria-label={isPhoto ? `Xem ảnh ${title}` : `Mở Thư mục ${title}`}>{isPhoto && image?.trim() ? <img src={image} alt="" loading="lazy" decoding="async" /> : isPhoto ? <span className="album-list__thumbnail-placeholder" aria-hidden="true" /> : <ExplorerFolderPreview album={result.album} size="detail" />}{isPhoto ? <ImageIcon size={15} strokeWidth={1.8} /> : null}</button><div className="search-result__copy"><span>{String((currentPage - 1) * SEARCH_PAGE_SIZE + index + 1).padStart(2, "0")} · {typeLabel}</span><h3>{title}</h3><p>Trong {formatAlbumTitle(result.album.title)} · {details || result.album.date}</p></div><button className="search-result__open" type="button" onClick={() => isPhoto ? setSelectedSearchPhoto(result.photo) : setLocation(`/album/${result.album.slug}`)}>{isPhoto ? "Xem ảnh" : "Mở thư mục"}<ChevronRight size={16} strokeWidth={1.8} /></button></article>;
     })}{pageResults.length === 0 && <div className="empty-archive"><p>Chưa tìm thấy Thư mục hoặc hình phù hợp.</p></div>}</div></section> : <AlbumList albums={pageAlbums} startIndex={(currentPage - 1) * PAGE_SIZE} onOpen={(slug) => setLocation(`/album/${slug}`)} view={folderView} />}
     {pageCount > 1 && <nav className="album-pagination" aria-label={isSearching ? "Phân trang kết quả" : "Phân trang Thư mục"}><button type="button" onClick={() => setPage((current) => Math.max(1, current - 1))} disabled={currentPage === 1}><ChevronLeft size={16} /> Trước</button><span>{isSearching ? "Kết quả" : "Trang"} {currentPage} / {pageCount}</span><button type="button" onClick={() => setPage((current) => Math.min(pageCount, current + 1))} disabled={currentPage === pageCount}>Sau <ChevronRight size={16} /></button></nav>}
     <footer className="site-footer"><button className="site-footer__sync-shortcut" type="button" onClick={registerTap} aria-label="Long Nguyen © 2026"><span>Long Nguyen © 2026</span></button></footer>

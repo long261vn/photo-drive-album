@@ -1,9 +1,9 @@
 /**
- * Design: Windows Explorer-inspired folder visual for Long Nguyen's archive.
- * Open folder previews reveal two still thumbnails; detail mode is deliberately a closed folder icon.
+ * Design: Long Nguyen folder browser uses one compact, closed folder symbol at every level and in every view.
+ * Folder artwork never appears inside this symbol, so the hierarchy stays calm and easy to scan.
  */
-import { Folder, FolderOpen } from "lucide-react";
-import { type Album, type Photo } from "@/lib/albumData";
+import { Folder } from "lucide-react";
+import { type Album } from "@/lib/albumData";
 
 type FolderPreviewSize = "large" | "small" | "detail";
 
@@ -12,19 +12,7 @@ type ExplorerFolderPreviewProps = {
   size?: FolderPreviewSize;
 };
 
-const previewPhotos = (album: Album): Photo[] => [
-  ...album.photos.filter((photo) => !photo.isBackground),
-  ...(album.children ?? []).flatMap(previewPhotos),
-].slice(0, 2);
-
 export function ExplorerFolderPreview({ album, size = "large" }: ExplorerFolderPreviewProps) {
-  if (size === "detail") return <span className="explorer-folder-detail-icon" aria-hidden="true"><Folder size={25} strokeWidth={1.55} /></span>;
-
-  const previews = previewPhotos(album);
-  return <span className={`explorer-folder-preview explorer-folder-preview--${size}`} aria-hidden="true">
-    <span className="explorer-folder-preview__tab" />
-    <span className="explorer-folder-preview__body">
-      {previews.length ? previews.map((photo, index) => <img key={photo.id} className={`explorer-folder-preview__file explorer-folder-preview__file--${index + 1}`} src={photo.src} alt="" loading="lazy" decoding="async" />) : <FolderOpen className="explorer-folder-preview__empty" strokeWidth={1.45} />}
-    </span>
-  </span>;
+  const iconSize = size === "large" ? 80 : size === "small" ? 48 : 28;
+  return <span className={`explorer-folder-icon explorer-folder-icon--${size}`} data-folder-id={album.id} aria-hidden="true"><Folder size={iconSize} strokeWidth={1.45} /></span>;
 }

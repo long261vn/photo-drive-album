@@ -156,6 +156,12 @@ Thư mục con `CN22...` có 11 file hình trực tiếp vẫn hiển thị đú
 
 Theo phản hồi trực tiếp, biểu tượng Thư mục đã được thu gọn, bỏ hoàn toàn thumbnail thứ ba và mọi phép xoay/dịch chuyển. Biểu tượng chỉ còn hai ảnh đứng yên nằm ngay ngắn trong folder, không có animation; khung folder gọn hơn ở desktop lẫn Galaxy S20. Kiểm tra TypeScript, `git diff --check`, desktop 1280 × 720 và Galaxy S20 360 × 800 đều thành công.
 
+## 2026-08-27 — Chi tiết mặc định và mở Thư mục
+
+Chế độ **Chi tiết** hiện được chọn mặc định tại Thư mục gốc, Thư mục mẹ và Thư mục con. Biểu tượng folder đóng thống nhất được dùng trong mọi ngữ cảnh, không còn đưa hình ảnh bên trong vào biểu tượng. Tên Thư mục dài hiển thị tối đa hai hàng trong danh sách gốc, Thư mục con, biểu tượng thay thế và kết quả tìm kiếm.
+
+Đã mở trang gốc rồi mở Thư mục đầu tiên: nội dung Thư mục xuất hiện ngay với hai Thư mục con ở chế độ Chi tiết, thay vì hiện phần giới thiệu trống rồi mới xuất hiện danh sách. Manifest được giữ trong bộ nhớ trong lúc người xem duyệt nội bộ; khi tải thẳng một URL Thư mục, màn hình “Đang chuẩn bị nội dung…” có chủ đích sẽ thay phần danh sách không hoàn chỉnh cho đến khi dữ liệu thật sẵn sàng.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.
