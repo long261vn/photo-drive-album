@@ -288,3 +288,7 @@ Sau phản hồi owner, tiêu đề Thư mục ở Galaxy S20 giảm tiếp còn
 ## 2026-08-27 — Cụm hồ sơ và thanh tải Thư mục
 
 Đã gỡ hoàn toàn thống kê tổng số hình khỏi cover–avatar–info ở Xem tất cả, Theo thư mục và mọi trang Thư mục con. Avatar nay nằm cùng hàng với tên **Long Nguyen** và nội dung nguyên văn từ `info`, không còn chồng lấn lên cover. Nút **Tải Thư mục** đã rời khỏi khối tiêu đề; nó nằm cạnh các thao tác nội dung sau thanh tìm kiếm/lọc, giữ phần đầu trang nhẹ và tên Thư mục được ưu tiên. Đã chụp kiểm tra desktop 1280×720 và Galaxy S20 360×800, không có tràn ngang; TypeScript, build Pages và diff đều thành công.
+
+## 2026-08-27 — Đồng nhất Thư mục con
+
+Trong chế độ Chi tiết, Thư mục con nay dùng đúng hàng `folder-detail-row` như Thư mục mẹ: biểu tượng folder đóng 28px, số thứ tự xanh, tên Noto Sans đậm tối đa hai dòng, ngày/loại ở desktop và mũi tên mở ở cuối. Nền màu, thumbnail lớn, tên serif và nút Mở riêng của hàng cũ đã được gỡ. Trên Galaxy S20, hàng Thư mục con có cùng chiều cao 68px và khoảng cách với danh sách Thư mục mẹ; tiêu đề Thư mục dài giảm tiếp còn 20–23px để toàn bộ tên hiển thị gọn. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.

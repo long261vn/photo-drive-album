@@ -299,3 +299,10 @@
 - [x] Căn avatar cùng hàng với tên và nội dung hồ sơ lấy từ `info`.
 - [x] Đưa Tải Thư mục xuống thanh thao tác nội dung để giảm tải phần tiêu đề.
 - [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.
+
+## Đồng nhất Thư mục con và tiêu đề dài
+
+- [x] Đối chiếu hàng Chi tiết của Thư mục mẹ với hàng Thư mục con trong trang nội dung.
+- [x] Dùng chung nhịp chữ, biểu tượng, khoảng cách và nút mở cho mọi cấp Thư mục.
+- [x] Giảm thêm tỷ lệ tiêu đề Thư mục trên điện thoại.
+- [x] Kiểm thử desktop, Galaxy S20, build và phát hành GitHub Pages.

@@ -764,7 +764,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .back-link { min-height: 40px; font-size: 10px; }
   .album-page__home-link { min-height: 31px; font-size: 7.5px; letter-spacing: 0.055em; }
   .album-page .album-intro { gap: 7px; padding: 11px 0 14px; }
-  .album-page .album-intro h1 { margin: 2px 0 5px; font-size: clamp(23px, 6.4vw, 27px); line-height: 1.12; letter-spacing: -0.038em; }
+  .album-page .album-intro h1 { margin: 2px 0 5px; font-size: clamp(20px, 5.8vw, 23px); line-height: 1.15; letter-spacing: -0.032em; }
   .album-page .album-intro__meta { gap: 4px 8px; margin-top: 5px; font-size: 7px; letter-spacing: 0.05em; }
   .album-page .album-intro__meta svg { width: 12px; height: 12px; }
   .album-page .album-intro__download { min-height: 34px; padding: 0 10px; font-size: 8px; }
@@ -798,3 +798,6 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .gallery-selection-trigger { justify-self: start; }
   .gallery-view-switch { justify-self: end; }
 }
+
+/* Design: a nested folder is still a folder—not an image record—so every level shares the same concise Explorer detail row. */
+.folder-content-group .folder-detail-row { width: 100%; }

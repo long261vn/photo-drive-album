@@ -4,7 +4,7 @@
  */
 import { useMemo, useState } from "react";
 import { Link, useLocation, useRoute } from "wouter";
-import { ArrowLeft, CalendarDays, Check, Download, Eye, EyeOff, FolderOpen, Grid2X2, Home, ImageIcon, List, Search, SlidersHorizontal, Square, X } from "lucide-react";
+import { ArrowLeft, CalendarDays, Check, ChevronRight, Download, Eye, EyeOff, FolderOpen, FolderTree, Grid2X2, Home, ImageIcon, List, Search, SlidersHorizontal, Square, X } from "lucide-react";
 import { findAlbum, flattenAlbums, formatAlbumTitle, formatPhotoTitle, titleSearchText, type Album, type Photo } from "@/lib/albumData";
 import { ArchiveProfileHeader } from "@/components/ArchiveProfileHeader";
 import { ExplorerFolderPreview } from "@/components/ExplorerFolderPreview";
@@ -101,12 +101,13 @@ export default function AlbumPage() {
   };
   const hasActiveOptions = showBackgrounds || Boolean(liturgicalFilters.season || liturgicalFilters.liturgicalYear || liturgicalFilters.week || liturgicalFilters.saintsOnly || liturgicalFilters.marianOnly);
   const renderCollectionDetail = (child: Album, index: number) => (
-    <article className="photo-list__row photo-list__row--collection" key={child.id} role="listitem">
-      <button type="button" className="photo-list__preview photo-list__preview--collection" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}><ExplorerFolderPreview album={child} size="detail" /></button>
-      <div className="photo-list__metadata"><span className="photo-list__index">{String(index + 1).padStart(2, "0")}</span><strong>{formatAlbumTitle(child.title)}</strong><span>Thư mục</span></div>
-      <div className="photo-list__type"><span>Thư mục</span></div>
-      <button type="button" className="photo-list__open" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}><FolderOpen size={16} strokeWidth={1.8} /><span>Mở</span></button>
-    </article>
+    <button className="folder-detail-row folder-detail-row--nested" key={child.id} type="button" role="listitem" onClick={() => setLocation(`/album/${child.slug}`)} aria-label={`Mở Thư mục ${formatAlbumTitle(child.title)}`}>
+      <ExplorerFolderPreview album={child} size="detail" />
+      <span className="folder-detail-row__name"><i>{String(index + 1).padStart(2, "0")}</i><strong>{formatAlbumTitle(child.title)}</strong></span>
+      <span className="folder-detail-row__date"><CalendarDays size={14} strokeWidth={1.65} /> {child.date}</span>
+      <span className="folder-detail-row__type"><FolderTree size={14} strokeWidth={1.65} /> Thư mục</span>
+      <ChevronRight className="folder-detail-row__arrow" size={18} strokeWidth={1.75} />
+    </button>
   );
   const renderPhotoDetail = (photo: Photo, index: number) => (
     <article className={`photo-list__row ${selectionMode && selectedPhotoIds.has(photo.id) ? "is-selected" : ""}`} key={photo.id} role="listitem">
