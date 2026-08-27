@@ -248,3 +248,10 @@
 - [x] Hiển thị đường dẫn và nút Xem Thư mục trong Lightbox.
 - [x] Tái bố cục cover-avatar-tên trang đầu, tăng khoảng thở và giảm chiều cao chiếm chỗ.
 - [x] Kiểm thử desktop, Galaxy S20, tìm kiếm, Lightbox, build và phát hành.
+
+## Bổ sung quy ước tên Lễ, Thánh và ngày tháng
+
+- [x] Rà soát quy tắc ngày đầu tên file dạng `MM/DD` và biến thể `MM_DD_Thanh`.
+- [x] Bổ sung alias cho chức danh Thánh, Lễ, Mùa, ngày trong tuần và hậu tố mới được cung cấp.
+- [x] Mở rộng kiểm thử hồi quy để xác nhận tên hiển thị, metadata và tìm kiếm.
+- [x] Đối chiếu manifest thật, kiểm tra build và phát hành GitHub Pages.

@@ -77,6 +77,44 @@ const cases: Array<[string, string]> = [
   ["GiaoThua", "Giao Thừa"],
   ["TatNien", "Tất Niên"],
   ["TanNien", "Tân Niên"],
+  ["03/06_Thanh_Carolo", "06/03 Thánh Carolo"],
+  ["03_09_Thanh_Gregorio", "09/03 Thánh Gregorio"],
+  ["Thanh_Phero_TongDo", "Thánh Phero Tông Đồ"],
+  ["Thanh_Benedicto_TuSi", "Thánh Benedicto Tu Sĩ"],
+  ["CacThanhTuDaoTienKhoi", "Các Thánh Tử Đạo Tiên Khởi"],
+  ["Thanh_ELISABETH_BoDaoNha", "Thánh ELISABETH Bồ Đào Nha"],
+  ["ChanPhuoc_Anre", "Chân Phước Anre"],
+  ["Thanh_Louis_VuaNuocPhap", "Thánh Louis Vua Nước Pháp"],
+  ["CungHien_TD", "Cung Hiến Thánh Đường"],
+  ["Cung_Hien_Thanh_Duong", "Cung Hiến Thánh Đường"],
+  ["GiangSinh", "Giáng Sinh"],
+  ["CacThanhTuDaoVN", "Các Thánh Tử Đạo Việt Nam"],
+  ["LeVong", "Lễ Vọng"],
+  ["CN02_TN_A_ThieuNhi", "Chúa Nhật Thứ 02 Thường Niên - Năm A Thiếu Nhi"],
+  ["CN02_TN_A_LN2_TN", "Chúa Nhật Thứ 02 Thường Niên - Năm A LN2 Thiếu Nhi"],
+  ["LongChuaThuongXot", "Lòng Chúa Thương Xót"],
+  ["DucMeManCoi", "Đức Mẹ Mân Côi"],
+  ["Chua_Chiu_Phep_Rua", "Chúa Chịu Phép Rửa"],
+  ["CN_CungHien_TD", "Chúa Nhật Cung Hiến Thánh Đường"],
+  ["CTTHienXuong", "Chúa Thánh Thần Hiện Xuống"],
+  ["LeLa", "Lễ Lá"],
+  ["CN22_TN_NamA", "Chúa Nhật Thứ 22 Thường Niên - Năm A"],
+  ["Minh_Mau_Chua", "Mình Máu Chúa"],
+  ["ChuaNhat_ThanhGia", "Chúa Nhật Thánh Gia"],
+  ["ThangManCoi", "Tháng Mân Côi"],
+  ["ThangMC", "Tháng Mân Côi"],
+  ["KhanhNhatTruyenGiao", "Khánh Nhật Truyền Giáo"],
+  ["LeTro", "Lễ Tro"],
+  ["HienXuong", "Hiện Xuống"],
+  ["TuanThanh", "Tuần Thánh"],
+  ["LeTruyenDau", "Lễ Truyền Dầu"],
+  ["DoThai", "Do Thái"],
+  ["Bia_CS", "Bia Chia Sẻ"],
+  ["Thanh_ClementeDCCT_15_03", "15/03 Thánh Clemente, DCCT"],
+  ["T2", "Thứ Hai"],
+  ["Thu_2_Tuan_06_TN", "Thứ Hai Tuần 06 Thường Niên"],
+  ["TuanBatNhatPS", "Tuần Bát Nhật Phục Sinh"],
+  ["TrungThu", "Trung Thu"],
 ];
 
 const failures = cases.flatMap(([source, expected]) => {
@@ -110,8 +148,11 @@ const yearAMetadata = getLiturgicalMetadata("CN22_TN_A_LN1");
 const yearBMetadata = getLiturgicalMetadata("CN03_MuaChay_B");
 const yearCMetadata = getLiturgicalMetadata("CN05_PS_C");
 const dateFirstSaintMetadata = getLiturgicalMetadata("09_03_Thánh_Grêgôriô_Cả_LN");
-if (yearAMetadata.liturgicalYear !== "A" || yearBMetadata.liturgicalYear !== "B" || yearCMetadata.liturgicalYear !== "C" || !dateFirstSaintMetadata.categories.includes("saints") || dateFirstSaintMetadata.feastDate !== "03/09" || !matchesLiturgicalFilters(yearAMetadata, { season: "", liturgicalYear: "A", week: "", saintsOnly: false, marianOnly: false })) {
-  throw new Error("Năm A/B/C hoặc quy ước Các Thánh bắt đầu bằng tháng-ngày không được nhận diện đúng.");
+const slashDateSaintMetadata = getLiturgicalMetadata("03/09_Thanh_Gregorio");
+const namedYearMetadata = getLiturgicalMetadata("CN22_TN_NamA");
+const weekdayWordMetadata = getLiturgicalMetadata("Thu_2_Tuan_06_TN");
+if (yearAMetadata.liturgicalYear !== "A" || yearBMetadata.liturgicalYear !== "B" || yearCMetadata.liturgicalYear !== "C" || namedYearMetadata.liturgicalYear !== "A" || weekdayWordMetadata.week !== 6 || !dateFirstSaintMetadata.categories.includes("saints") || dateFirstSaintMetadata.feastDate !== "03/09" || slashDateSaintMetadata.feastDate !== "09/03" || !matchesLiturgicalFilters(yearAMetadata, { season: "", liturgicalYear: "A", week: "", saintsOnly: false, marianOnly: false })) {
+  throw new Error(`Năm A/B/C hoặc quy ước Các Thánh bắt đầu bằng tháng-ngày không được nhận diện đúng: ${JSON.stringify({ yearAMetadata, yearBMetadata, yearCMetadata, namedYearMetadata, weekdayWordMetadata, dateFirstSaintMetadata, slashDateSaintMetadata })}`);
 }
 
 const saintMariaTitles = [

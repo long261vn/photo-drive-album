@@ -48,7 +48,8 @@ function seasonFor(value: string) {
 }
 
 function weekFor(value: string) {
-  const match = value.match(/(?:\bCN\s*|\bT[2-7]\s*)?(?:Tuan\s*)?([0-9]{1,2}|[IVXLCDM]+)\s*(TN|MC|PS|MV|Thuong\s*Nien|Mua\s*Chay|Phuc\s*Sinh|Mua\s*Vong)\b/i);
+  const source = value.replace(/[_-]+/g, " ");
+  const match = source.match(/(?:\bCN\s*|\bT[2-7]\s*|\bThu\s*[2-7]\s*)?(?:Tuan\s*)?([0-9]{1,2}|[IVXLCDM]+)\s*(TN|MC|PS|MV|Thuong\s*Nien|Mua\s*Chay|Phuc\s*Sinh|Mua\s*Vong)\b/i);
   if (!match) return null;
   const rawNumber = match[1].toUpperCase();
   const number = /^\d+$/.test(rawNumber) ? Number(rawNumber) : romanNumerals[rawNumber];
@@ -56,7 +57,8 @@ function weekFor(value: string) {
 }
 
 function liturgicalYearFor(value: string): LiturgicalYear | null {
-  const explicit = value.match(/\b(?:Nam|Năm)\s*([ABC])\b/i)?.[1]?.toUpperCase();
+  const source = value.replace(/[_-]+/g, " ");
+  const explicit = source.match(/(?:^|\s)(?:Nam|Năm)\s*([ABC])(?:\s|$)/i)?.[1]?.toUpperCase();
   if (explicit && liturgicalRules.liturgicalYears.includes(explicit as LiturgicalYear)) return explicit as LiturgicalYear;
   const sundayShortCode = value.match(/(?:^|[\s_-])CN(?:\d{1,2})?(?:[\s_-][^\s_-]+)*[\s_-]([ABC])(?:[\s_-]|$)/i)?.[1]?.toUpperCase();
   if (sundayShortCode && liturgicalRules.liturgicalYears.includes(sundayShortCode as LiturgicalYear)) return sundayShortCode as LiturgicalYear;

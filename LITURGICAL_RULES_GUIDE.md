@@ -38,17 +38,17 @@ Ví dụ, để thêm Lễ vào ngày 19/03, thêm object dưới đây vào `fi
 }
 ```
 
-> `date` luôn dùng **tháng-ngày**: `03-19` là ngày 19 tháng 03. Với tên Drive mở đầu bằng `03_19_...`, website hiểu đúng thứ tự này.
+> `date` luôn dùng **tháng-ngày**: `03-19` là ngày 19 tháng 03. Với tên Drive mở đầu bằng `03_19_...` hoặc `03/19_...`, website hiểu đây là **tháng 03, ngày 19** và hiển thị `19/03`.
 
 ## Quy tắc cho bộ lọc mới
 
-Ảnh **Các Thánh** được nhận diện khi có dấu hiệu Thánh/Tử Đạo, kèm ngày theo dạng `MM_DD` hoặc cụm rõ như `Các Thánh`, `Tử Đạo`. Ảnh **Đức Mẹ** dùng các cụm trực tiếp `Duc_Me`, `Duc_Maria`, `Me_Maria`, `DMMC` (có hoặc không dấu). Không thêm `Maria` hay `Ma-ri-a` đứng một mình vào `categoryKeywords.marian`, vì đây cũng là tên của nhiều vị Thánh. Ảnh Tiếng Anh dùng `_Eng` hoặc `_ENG`.
+Ảnh **Các Thánh** được nhận diện khi có dấu hiệu Thánh/Tử Đạo, kèm ngày theo dạng `MM_DD`, `MM/DD` hoặc cụm rõ như `Các Thánh`, `Tử Đạo`. Ảnh **Đức Mẹ** dùng các cụm trực tiếp `Duc_Me`, `Duc_Maria`, `Me_Maria`, `DMMC` (có hoặc không dấu). Không thêm `Maria` hay `Ma-ri-a` đứng một mình vào `categoryKeywords.marian`, vì đây cũng là tên của nhiều vị Thánh. Ảnh Tiếng Anh dùng `_Eng` hoặc `_ENG`.
 
 Trong website, người xem chọn **Mùa Phụng Vụ** trước rồi chọn **Tuần**; các tuần trong menu sẽ thu hẹp theo Mùa đã chọn. Hai nút **Các Thánh** và **Đức Mẹ** có thể dùng cùng nhau để tìm hợp các nhóm. Ô tìm kiếm cũng hiểu mã mùa, viết tắt, tên nhóm và các alias đã khai báo trong `smartSearchAliases`.
 
 ## Năm A/B/C và Các Thánh theo ngày
 
-Website nhận `CN22_TN_A`, `CN03_MuaChay_B`, `CN05_PS_C` cũng như dạng chữ `Năm A`, `Năm B`, `Năm C`. Nút **Năm A/B/C** trên thư viện chỉ lọc ảnh mang đúng metadata đó. Đối với Các Thánh, giữ định dạng `MM_DD_Thánh...` hoặc `MM_DD_Thanh...`; website dùng phần tháng-ngày này để vừa xếp nhóm **Các Thánh**, vừa đối chiếu Danh Sách Lễ cố định.
+Website nhận `CN22_TN_A`, `CN22_TN_NamA`, `CN03_MuaChay_B`, `CN05_PS_C` cũng như dạng chữ `Năm A`, `Năm B`, `Năm C`. Mã ngày trong tuần có thể là `T2`–`T7` hoặc `Thu_2`–`Thu_7`. Nút **Năm A/B/C** trên thư viện chỉ lọc ảnh mang đúng metadata đó. Đối với Các Thánh, giữ định dạng `MM_DD_Thánh...`, `MM/DD_Thanh...` hoặc biến thể tương tự; website dùng phần tháng-ngày này để vừa xếp nhóm **Các Thánh**, vừa đối chiếu Danh Sách Lễ cố định.
 
 ## Cách phát hành sau khi sửa
 

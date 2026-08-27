@@ -334,6 +334,126 @@
     {
       "aliases": ["ruoclelandau"],
       "label": "Rước Lễ Lần Đầu"
+    },
+    {
+      "aliases": ["tongdo"],
+      "label": "Tông Đồ"
+    },
+    {
+      "aliases": ["tusi"],
+      "label": "Tu Sĩ"
+    },
+    {
+      "aliases": ["cacthanhtudaotienkhoi"],
+      "label": "Các Thánh Tử Đạo Tiên Khởi"
+    },
+    {
+      "aliases": ["thanh elisabeth bodaonha"],
+      "label": "Thánh ELISABETH Bồ Đào Nha"
+    },
+    {
+      "aliases": ["chanphuoc"],
+      "label": "Chân Phước"
+    },
+    {
+      "aliases": ["vuanuocphap"],
+      "label": "Vua Nước Pháp"
+    },
+    {
+      "aliases": ["cunghien td", "cung hien thanh duong"],
+      "label": "Cung Hiến Thánh Đường"
+    },
+    {
+      "aliases": ["giangsinh"],
+      "label": "Giáng Sinh"
+    },
+    {
+      "aliases": ["cacthanhtudaovn"],
+      "label": "Các Thánh Tử Đạo Việt Nam"
+    },
+    {
+      "aliases": ["levong", "le vong"],
+      "label": "Lễ Vọng"
+    },
+    {
+      "aliases": ["thieunhi"],
+      "label": "Thiếu Nhi"
+    },
+    {
+      "aliases": ["longchualthuongxot", "longchuathuongxot"],
+      "label": "Lòng Chúa Thương Xót"
+    },
+    {
+      "aliases": ["ducmemancoi"],
+      "label": "Đức Mẹ Mân Côi"
+    },
+    {
+      "aliases": ["chua chiu phep rua"],
+      "label": "Chúa Chịu Phép Rửa"
+    },
+    {
+      "aliases": ["ctthienxuong", "ctt hienxuong"],
+      "label": "Chúa Thánh Thần Hiện Xuống"
+    },
+    {
+      "aliases": ["lela"],
+      "label": "Lễ Lá"
+    },
+    {
+      "aliases": ["minh mau chua"],
+      "label": "Mình Máu Chúa"
+    },
+    {
+      "aliases": ["chuanhat"],
+      "label": "Chúa Nhật"
+    },
+    {
+      "aliases": ["thanhgia"],
+      "label": "Thánh Gia"
+    },
+    {
+      "aliases": ["thangmancoi", "thangmc"],
+      "label": "Tháng Mân Côi"
+    },
+    {
+      "aliases": ["khanhnhattruyengiao", "khanh nhat truyen giao"],
+      "label": "Khánh Nhật Truyền Giáo"
+    },
+    {
+      "aliases": ["letro", "le tro"],
+      "label": "Lễ Tro"
+    },
+    {
+      "aliases": ["hienxuong", "hien xuong"],
+      "label": "Hiện Xuống"
+    },
+    {
+      "aliases": ["tuanthanh", "tuan thanh"],
+      "label": "Tuần Thánh"
+    },
+    {
+      "aliases": ["letruyendau", "le truyen dau"],
+      "label": "Lễ Truyền Dầu"
+    },
+    {
+      "aliases": ["dothai"],
+      "label": "Do Thái"
+    },
+    {
+      "aliases": ["cs"],
+      "label": "Chia Sẻ"
+    },
+    {
+      "aliases": ["thanh clementedcct 15 03"],
+      "label": "15/03 Thánh Clemente, DCCT"
+    },
+    {
+      "aliases": ["tuanbatnhatps"],
+      "label": "Tuần Bát Nhật Phục Sinh"
+    },
+    {
+      "aliases": ["trungthu", "trung thu"],
+      "label": "Trung Thu"
     }
   ],
   "calendar": {

@@ -56,7 +56,7 @@ function applyConfiguredAliases(value: string) {
 }
 
 function fixedFeastSearchText(value: string) {
-  const match = sourceText(value).match(/^(\d{1,2})\s+(\d{1,2})(?:\s|$)/);
+  const match = sourceText(value).match(/^(\d{1,2})[\s/.-]+(\d{1,2})(?:\s|$)/);
   if (!match) return "";
   return (fixedFeastsByDate.get(`${padNumber(match[1])}-${padNumber(match[2])}`) ?? []).join(" ");
 }
@@ -70,11 +70,11 @@ export function formatLiturgicalTitle(value = "") {
   let title = source
     .replace(/\bCN\s*Phuc\s*Sinh\b|\bCNPS\b/gi, "Chúa Nhật Phục Sinh")
     .replace(/\bCN\s*Chua\s*Ba\s*Ngoi\s*([ABC])?\b/gi, (_match: string, year?: string) => `Chúa Nhật Chúa Ba Ngôi${year ? ` - Năm ${year.toUpperCase()}` : ""}`)
-    .replace(/\bCN\s*(\d{1,2})\s*(?:TN|Thuong\s*Nien)\s*([ABC])\b/gi, (_match: string, week: string, year: string) => `Chúa Nhật Thứ ${padNumber(week)} Thường Niên - Năm ${year.toUpperCase()}`)
+    .replace(/\bCN\s*(\d{1,2})\s*(?:TN|Thuong\s*Nien)\s*(?:Nam\s*)?([ABC])\b/gi, (_match: string, week: string, year: string) => `Chúa Nhật Thứ ${padNumber(week)} Thường Niên - Năm ${year.toUpperCase()}`)
     .replace(/\bCN\s*(\d{1,2})\s*(?:TN|Thuong\s*Nien)\b/gi, (_match: string, week: string) => `Chúa Nhật Thứ ${padNumber(week)} Thường Niên`)
-    .replace(/\bCN\s*(\d{1,2})\s*(?:PS|Phuc\s*Sinh)\s*([ABC])\b/gi, (_match: string, week: string, year: string) => `Chúa Nhật Thứ ${padNumber(week)} Phục Sinh - Năm ${year.toUpperCase()}`)
+    .replace(/\bCN\s*(\d{1,2})\s*(?:PS|Phuc\s*Sinh)\s*(?:Nam\s*)?([ABC])\b/gi, (_match: string, week: string, year: string) => `Chúa Nhật Thứ ${padNumber(week)} Phục Sinh - Năm ${year.toUpperCase()}`)
     .replace(/\bCN\s*(\d{1,2})\s*(?:PS|Phuc\s*Sinh)\b/gi, (_match: string, week: string) => `Chúa Nhật Thứ ${padNumber(week)} Phục Sinh`)
-    .replace(/\bCN\s*(\d{1,2})\s*(?:MC|Mua\s*Chay)\s*([ABC])\b/gi, (_match: string, week: string, year: string) => `Chúa Nhật Thứ ${padNumber(week)} Mùa Chay - Năm ${year.toUpperCase()}`)
+    .replace(/\bCN\s*(\d{1,2})\s*(?:MC|Mua\s*Chay)\s*(?:Nam\s*)?([ABC])\b/gi, (_match: string, week: string, year: string) => `Chúa Nhật Thứ ${padNumber(week)} Mùa Chay - Năm ${year.toUpperCase()}`)
     .replace(/\bCN\s*(\d{1,2})\s*(?:MC|Mua\s*Chay)\b/gi, (_match: string, week: string) => `Chúa Nhật Thứ ${padNumber(week)} Mùa Chay`)
     .replace(/\bT([2-7])\s*Tuan\s*(\d{1,2})\s*(TN|MC|PS|MV|Thuong\s*Nien|Mua\s*Chay|Phuc\s*Sinh|Mua\s*Vong)\b/gi, (_match: string, day: string, week: string, season: string) => `Thứ ${weekdayNames[day]} Tuần ${padNumber(week)} ${seasonLabel(season)}`)
     .replace(/\bTuan\s*(\d{1,2})\s*(TN|MC|PS|MV|Thuong\s*Nien|Mua\s*Chay|Phuc\s*Sinh|Mua\s*Vong)\b/gi, (_match: string, week: string, season: string) => `Tuần ${padNumber(week)} ${seasonLabel(season)}`)
@@ -84,20 +84,29 @@ export function formatLiturgicalTitle(value = "") {
     .replace(/\bMua\s*Vong\b|\bMV\b/gi, "Mùa Vọng")
     .replace(/\bMua\s*Chay\b|\bMC\b/gi, "Mùa Chay")
     .replace(/\bPhuc\s*Sinh\b|\bPS\b/gi, "Phục Sinh")
+    .replace(/\bTN\b(?=\s*$)/gi, "Thiếu Nhi")
     .replace(/\bThuong\s*Nien\b|\bTN\b/gi, "Thường Niên")
     .replace(/\bLe\b/gi, "Lễ")
+    .replace(/\bNam\s*([ABC])\b/gi, (_match: string, year: string) => `Năm ${year.toUpperCase()}`)
+    .replace(/\bThu\s*([2-7])\b/gi, (_match: string, day: string) => `Thứ ${weekdayNames[day]}`)
+    .replace(/\bT([2-7])\b/gi, (_match: string, day: string) => `Thứ ${weekdayNames[day]}`)
+    .replace(/\bCN\b/gi, "Chúa Nhật")
+    .replace(/\bThanh\b/gi, "Thánh")
     .replace(/(^|\s)va(?=\s|$)/gi, "$1và")
-    .replace(/(^|\s)tu(?=\s|$)/gi, "$1từ")
+    .replace(/(^|\s)tu(?!\s+Sĩ(?=\s|$))(?=\s|$)/gi, "$1từ")
     .replace(/(^|\s)den(?=\s|$)/gi, "$1đến")
     .replace(/\bTHÁNH\b/g, "Thánh")
     .replace(/\btử đạo\b/gi, "Tử Đạo")
     .replace(/(từ|đến)\s*(\d{1,2})\s+(\d{1,2})/gi, (_match: string, marker: string, day: string, month: string) => `${marker} ${padNumber(day)}/${padNumber(month)}`)
-    .replace(/^(\d{1,2})\s+(\d{1,2})(?=\s+(?:Thánh|Lễ)\b)/i, (_match: string, month: string, day: string) => `${padNumber(day)}/${padNumber(month)}`)
     .replace(/\s+(Bài Đọc(?:\s*\d+)?|Tin Mừng)\b/g, " - $1")
     .replace(/Vọng Phục Sinh - Bài Đọc/g, "Vọng Phục Sinh Bài Đọc")
     .replace(/Năm A, - Tin Mừng/g, "Năm A, Tin Mừng")
     .replace(/\s+/g, " ")
     .trim();
+
+  if (/^\d{1,2}[\s/.-]+\d{1,2}(?:\s|$)/.test(rawSource)) {
+    title = title.replace(/^(\d{1,2})[\s/.-]+(\d{1,2})(?=\s|$)/, (_match: string, month: string, day: string) => `${padNumber(day)}/${padNumber(month)}`);
+  }
 
   if (suffixes.length) title = `${title} · ${suffixes.join(" · ")}`;
   return title;

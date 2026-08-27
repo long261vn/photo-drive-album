@@ -206,6 +206,12 @@ Từ kết quả tìm kiếm, Lightbox của ảnh **Chúa Nhật Thứ 02 Phụ
 
 Trang **Xem tất cả** giữ một ô tìm kiếm và chỉ một nút **Lọc**, còn Background và bộ lọc phụng vụ nằm trong panel gọn. Lightbox của hình đầu tiên trên Dòng thời gian hiển thị đủ đường dẫn; nút **Xem Thư mục** đóng ảnh và chuyển đúng tới Thư mục `Chúa Nhật Thứ 22 Thường Niên - Năm A và Tuần 22 Thường Niên từ 30/08 đến 05/09`.
 
+## 2026-08-27 — Quy ước tên Lễ, Thánh và ngày tháng bổ sung
+
+Đã bổ sung các alias mới cho chức danh Thánh, Cung Hiến Thánh Đường, Lễ Vọng, Thiếu Nhi, Lòng Chúa Thương Xót, Đức Mẹ Mân Côi, Chúa Chịu Phép Rửa, Chúa Thánh Thần Hiện Xuống, Lễ Lá, Tháng Mân Côi, Khánh Nhật Truyền Giáo, Lễ Tro, Tuần Thánh, Lễ Truyền Dầu, Chia Sẻ, Tuần Bát Nhật Phục Sinh và Trung Thu. Tên ngày đầu file nay nhận cả dạng `MM_DD` lẫn `MM/DD` và hiển thị theo `DD/MM`; mã `Thu_2`–`Thu_7` cùng `_NamA`–`_NamC` cũng tạo metadata đúng.
+
+Bộ kiểm thử hồi quy đã xác nhận **112** mẫu tên. Tìm `CungHien` trực tiếp trên manifest Drive cho **16** kết quả, trong đó các tên hiển thị là **Cung Hiến Thánh Đường** và ngày được hiển thị đúng `09/11`, `09/12`. Báo cáo tên còn cần xác nhận giảm từ 178 xuống **42 nhóm** sau khi loại các quy ước vừa hoàn tất.
+
 ## 2026-08-26 — Trang hình cá nhân Long Nguyen
 
 Trang đầu nay dùng **Long Nguyen** làm tiêu đề chính, giữ avatar/cover/nội dung profile từ Drive và không còn nhãn “Thư Viện Hình Công Giáo”. Tiêu đề trình duyệt cùng mô tả trang cũng đổi thành album hình ảnh cá nhân. Trang Xem Tất Cả đã bỏ dòng giải thích về ngày tạo Google Drive và liên kết “Mở Album Khác” ở cuối trang; empty state không còn nhắc cơ chế đồng bộ. Đã kiểm tra desktop 1280×720, Galaxy S20 360×800, TypeScript, build Pages và diff thành công.
