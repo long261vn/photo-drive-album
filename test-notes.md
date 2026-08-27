@@ -280,3 +280,7 @@ Phần đầu Thư mục nay dùng tiêu đề biên tập rộng hết khu vự
 Đã rà soát ba luồng chính trên desktop 1280×720 và Galaxy S20 360×800: **Xem tất cả**, **Theo thư mục** và Thư mục có tên dài. Báo cáo chi tiết `BAO_CAO_RAO_SOAT_GIAO_DIEN_2026-08-27.md` ghi sáu nhóm ưu tiên về tiêu đề dài, cover–avatar, nhịp dọc, thanh thao tác, caption ảnh và danh sách Chi tiết.
 
 Lượt hoàn thiện giảm cover mobile còn 112px, avatar còn 66px, tên hồ sơ còn 25–30px và giảm khoảng trống giữa các khối. Tiêu đề Thư mục dài sử dụng 27–34px, line-height 1.09, giữ nguyên toàn bộ nội dung nhưng không còn chiếm gần nửa màn hình. Ở Xem tất cả, caption được giới hạn hai dòng, metadata được nén và đường dẫn Thư mục nguồn được ẩn trong tile để nhường chỗ cho ảnh; grid hai cột đồng đều vẫn giữ theo yêu cầu owner. Đã kiểm tra lại không có tràn ngang; TypeScript, build Pages và diff đều thành công.
+
+## 2026-08-27 — Nén thêm tiêu đề Thư mục theo phản hồi trực tiếp
+
+Sau phản hồi owner, tiêu đề Thư mục ở Galaxy S20 giảm tiếp còn **23–27px**, line-height **1.12**. Padding đầu khối giảm còn 11px trên/dưới 14px; metadata và nút tải giảm tương ứng nhưng giữ vùng chạm rõ ràng. Tên Thư mục dài “Chúa Nhật Thứ 22 Thường Niên - Năm A và Tuần 22 Thường Niên từ 30/08 đến 05/09” vẫn hiện đầy đủ trong bốn dòng vừa phải, ngay sau đó đã thấy vùng tìm kiếm và danh sách Thư mục. Kiểm tra 360×800, TypeScript, build GitHub Pages và diff đều thành công.

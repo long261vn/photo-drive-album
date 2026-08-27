@@ -286,3 +286,9 @@
 - [x] Lập danh sách ưu tiên cải tiến giao diện có thể thực hiện trong một lượt nhất quán.
 - [x] Tái cân bằng kích thước, khoảng cách, thanh điều khiển, tiêu đề và hình ảnh trên toàn website.
 - [x] Kiểm thử lại tương tác, khả năng truy cập, TypeScript, build và GitHub Pages.
+
+## Giảm chiều cao tiêu đề Thư mục trên điện thoại
+
+- [x] Đo lại phần tiêu đề dài, metadata và nút tải trên Galaxy S20.
+- [x] Giảm cỡ chữ, padding và khoảng cách dọc của phần đầu Thư mục.
+- [x] Kiểm thử tên Thư mục dài, desktop, Galaxy S20, build và phát hành GitHub Pages.

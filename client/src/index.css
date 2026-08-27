@@ -763,10 +763,11 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .album-page__header { min-height: 48px; }
   .back-link { min-height: 40px; font-size: 10px; }
   .album-page__home-link { min-height: 31px; font-size: 7.5px; letter-spacing: 0.055em; }
-  .album-page .album-intro { gap: 8px; padding: 14px 0 18px; }
-  .album-page .album-intro h1 { margin: 3px 0 7px; font-size: clamp(27px, 8vw, 34px); line-height: 1.09; letter-spacing: -0.043em; }
-  .album-page .album-intro__meta { gap: 5px 10px; margin-top: 6px; font-size: 8px; letter-spacing: 0.055em; }
-  .album-page .album-intro__download { min-height: 36px; padding: 0 11px; font-size: 9px; }
+  .album-page .album-intro { gap: 7px; padding: 11px 0 14px; }
+  .album-page .album-intro h1 { margin: 2px 0 5px; font-size: clamp(23px, 6.4vw, 27px); line-height: 1.12; letter-spacing: -0.038em; }
+  .album-page .album-intro__meta { gap: 4px 8px; margin-top: 5px; font-size: 7px; letter-spacing: 0.05em; }
+  .album-page .album-intro__meta svg { width: 12px; height: 12px; }
+  .album-page .album-intro__download { min-height: 34px; padding: 0 10px; font-size: 8px; }
   .album-content-toolbar { gap: 7px; margin-bottom: 10px; padding-bottom: 10px; }
   .album-content-toolbar .gallery-actions { gap: 6px; }
   .gallery-selection-trigger, .gallery-view-switch button { min-height: 32px; padding-inline: 8px; font-size: 8px; }
