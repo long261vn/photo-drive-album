@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T03:12:12.091Z",
+  "generatedAt": "2026-10-07T07:50:53.981Z",
   "source": {
     "rootFolderId": "1A50RPh0VKKkc2nmOrNzw5GwTawKNVyRn",
     "rootFolderName": "Website_LHN",
@@ -37032,6 +37032,574 @@
     },
     {
       "id": "101",
+      "slug": "cn28-tn-a-va-tuan28tn-tu-11-10-den-17-10",
+      "title": "CN28 TN A va Tuan28TN tu 11 10 den 17 10",
+      "subtitle": "Thiết kế phụng vụ",
+      "date": "10.2026",
+      "location": "Thiết kế phụng vụ",
+      "createdAt": "2026-10-07T07:20:00.728Z",
+      "count": 40,
+      "cover": "https://drive.google.com/thumbnail?id=1knbOMuzBH4h79uZjXxHw7kpH0tUsifqf&sz=w1600",
+      "accent": "green",
+      "description": "Album CN28 TN A va Tuan28TN tu 11 10 den 17 10.",
+      "photos": [],
+      "children": [
+        {
+          "id": "101.01",
+          "slug": "cn28-tn-a-va-tuan28tn-tu-11-10-den-17-10--cn28-tn-a",
+          "parentSlug": "cn28-tn-a-va-tuan28tn-tu-11-10-den-17-10",
+          "title": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+          "subtitle": "Mùa Thường Niên / Năm A",
+          "date": "10.2026",
+          "location": "Thiết kế phụng vụ",
+          "createdAt": "2026-10-07T07:20:14.296Z",
+          "count": 16,
+          "cover": "https://drive.google.com/thumbnail?id=1knbOMuzBH4h79uZjXxHw7kpH0tUsifqf&sz=w1600",
+          "accent": "green",
+          "description": "Album Chúa Nhật Thứ 28 Thường Niên - Năm A.",
+          "photos": [
+            {
+              "id": "1Fq6gV96wrV34zIEaP57ul0j-WCpuFc0i",
+              "title": "CN28 TN A LN1b BG",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:53.431Z",
+              "modifiedAt": "2026-10-07T06:40:18.563Z",
+              "src": "https://drive.google.com/thumbnail?id=1Fq6gV96wrV34zIEaP57ul0j-WCpuFc0i&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Fq6gV96wrV34zIEaP57ul0j-WCpuFc0i",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1knbOMuzBH4h79uZjXxHw7kpH0tUsifqf",
+              "title": "CN28 TN A LN1b Eng",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:37.671Z",
+              "modifiedAt": "2026-10-07T06:40:34.049Z",
+              "src": "https://drive.google.com/thumbnail?id=1knbOMuzBH4h79uZjXxHw7kpH0tUsifqf&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1knbOMuzBH4h79uZjXxHw7kpH0tUsifqf",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1nsjGgBNHLlq_fyX6VVtZr6dH3sUeAa2b",
+              "title": "CN28 TN A LN1b TN BG",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:25.900Z",
+              "modifiedAt": "2026-10-07T06:44:58.098Z",
+              "src": "https://drive.google.com/thumbnail?id=1nsjGgBNHLlq_fyX6VVtZr6dH3sUeAa2b&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1nsjGgBNHLlq_fyX6VVtZr6dH3sUeAa2b",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1PjxTXb4tfDCF_whqqhSaoflupPaS7FI_",
+              "title": "CN28 TN A LN1b TN Eng",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:29.819Z",
+              "modifiedAt": "2026-10-07T06:45:15.423Z",
+              "src": "https://drive.google.com/thumbnail?id=1PjxTXb4tfDCF_whqqhSaoflupPaS7FI_&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1PjxTXb4tfDCF_whqqhSaoflupPaS7FI_",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1ocjLHhACxPTzQ-dziuGPl63cpwaAL5l-",
+              "title": "CN28 TN A LN1b TN",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:41.695Z",
+              "modifiedAt": "2026-10-07T06:45:30.462Z",
+              "src": "https://drive.google.com/thumbnail?id=1ocjLHhACxPTzQ-dziuGPl63cpwaAL5l-&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1ocjLHhACxPTzQ-dziuGPl63cpwaAL5l-",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1dD9mYZmyNpfBpvsOTWIok5I_5HMknZ9R",
+              "title": "CN28 TN A LN1b",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:33.800Z",
+              "modifiedAt": "2026-10-07T06:40:48.596Z",
+              "src": "https://drive.google.com/thumbnail?id=1dD9mYZmyNpfBpvsOTWIok5I_5HMknZ9R&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1dD9mYZmyNpfBpvsOTWIok5I_5HMknZ9R",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1CIOmTCcI8xP_qFRQ1vilkzv8neeE-TuL",
+              "title": "CN28 TN A LN2 BG",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:45.577Z",
+              "modifiedAt": "2026-10-07T07:12:56.032Z",
+              "src": "https://drive.google.com/thumbnail?id=1CIOmTCcI8xP_qFRQ1vilkzv8neeE-TuL&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1CIOmTCcI8xP_qFRQ1vilkzv8neeE-TuL",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1XFEesTrGsV-YYZXwh6xhkGwIiyHwxMYk",
+              "title": "CN28 TN A LN2 Eng",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:49.808Z",
+              "modifiedAt": "2026-10-07T07:13:09.822Z",
+              "src": "https://drive.google.com/thumbnail?id=1XFEesTrGsV-YYZXwh6xhkGwIiyHwxMYk&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1XFEesTrGsV-YYZXwh6xhkGwIiyHwxMYk",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1s6K8wx7IfcNx6CyhtTXC21hEJWwW6z0g",
+              "title": "CN28 TN A LN2 TN BG",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:31:06.120Z",
+              "modifiedAt": "2026-10-07T07:17:09.720Z",
+              "src": "https://drive.google.com/thumbnail?id=1s6K8wx7IfcNx6CyhtTXC21hEJWwW6z0g&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1s6K8wx7IfcNx6CyhtTXC21hEJWwW6z0g",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1oanM9crDqeS8EVd3Pk8jLgUq52IQKfyO",
+              "title": "CN28 TN A LN2 TN Eng",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:31:02.217Z",
+              "modifiedAt": "2026-10-07T07:17:27.492Z",
+              "src": "https://drive.google.com/thumbnail?id=1oanM9crDqeS8EVd3Pk8jLgUq52IQKfyO&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1oanM9crDqeS8EVd3Pk8jLgUq52IQKfyO",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1MCqpEL-8TMnpWmc0CCmMyyxz5Iz5EWfQ",
+              "title": "CN28 TN A LN2 TN",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:57.459Z",
+              "modifiedAt": "2026-10-07T07:17:39.353Z",
+              "src": "https://drive.google.com/thumbnail?id=1MCqpEL-8TMnpWmc0CCmMyyxz5Iz5EWfQ&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1MCqpEL-8TMnpWmc0CCmMyyxz5Iz5EWfQ",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1D4Bt5LWT7C_4spkwTIK74w95nyOVnH8x",
+              "title": "CN28 TN A LN2",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:30:22.007Z",
+              "modifiedAt": "2026-10-07T07:13:20.951Z",
+              "src": "https://drive.google.com/thumbnail?id=1D4Bt5LWT7C_4spkwTIK74w95nyOVnH8x&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1D4Bt5LWT7C_4spkwTIK74w95nyOVnH8x",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1XauQWM1EHT7xLptG3_fh1sBsNDSfPAJA",
+              "title": "CN28 TNA BaiDoc1",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:27:15.674Z",
+              "modifiedAt": "2026-10-06T08:05:43.553Z",
+              "src": "https://drive.google.com/thumbnail?id=1XauQWM1EHT7xLptG3_fh1sBsNDSfPAJA&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1XauQWM1EHT7xLptG3_fh1sBsNDSfPAJA",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1qcXp5_uUBHlHWqj5mc6__Ln858eYraqL",
+              "title": "CN28 TNA BaiDoc2",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:27:12.111Z",
+              "modifiedAt": "2026-10-06T08:07:06.775Z",
+              "src": "https://drive.google.com/thumbnail?id=1qcXp5_uUBHlHWqj5mc6__Ln858eYraqL&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1qcXp5_uUBHlHWqj5mc6__Ln858eYraqL",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1KsXV8tBAmYhA1X_t9pwrcneB4v19lPG0",
+              "title": "CN28 TNA Tin Mung BG",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:27:08.928Z",
+              "modifiedAt": "2026-10-06T08:31:51.562Z",
+              "src": "https://drive.google.com/thumbnail?id=1KsXV8tBAmYhA1X_t9pwrcneB4v19lPG0&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1KsXV8tBAmYhA1X_t9pwrcneB4v19lPG0",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "14E0FZi54yIqE-vUnT4AuizHb9wrqBi6r",
+              "title": "CN28 TNA Tin Mung",
+              "location": "Chúa Nhật Thứ 28 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:27:19.324Z",
+              "modifiedAt": "2026-10-06T08:32:06.136Z",
+              "src": "https://drive.google.com/thumbnail?id=14E0FZi54yIqE-vUnT4AuizHb9wrqBi6r&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=14E0FZi54yIqE-vUnT4AuizHb9wrqBi6r",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            }
+          ]
+        },
+        {
+          "id": "101.02",
+          "slug": "cn28-tn-a-va-tuan28tn-tu-11-10-den-17-10--tuan28tn-tu-11-10-den-17-10",
+          "parentSlug": "cn28-tn-a-va-tuan28tn-tu-11-10-den-17-10",
+          "title": "Tuan28TN tu 11 10 den 17 10",
+          "subtitle": "Thiết kế phụng vụ",
+          "date": "10.2026",
+          "location": "Thiết kế phụng vụ",
+          "createdAt": "2026-10-07T07:20:08.868Z",
+          "count": 24,
+          "cover": "https://drive.google.com/thumbnail?id=1dsWkll5TFYnnMid015iHOf8_NqvXrbpJ&sz=w1600",
+          "accent": "green",
+          "description": "Album Tuan28TN tu 11 10 den 17 10.",
+          "photos": [
+            {
+              "id": "1B0-GuX21vgFvB0SceZW8I3S_ITDHQfm3",
+              "title": "10 14 Thanh Callistô I GH LN1 BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:55.989Z",
+              "modifiedAt": "2025-10-06T12:47:21.080Z",
+              "src": "https://drive.google.com/thumbnail?id=1B0-GuX21vgFvB0SceZW8I3S_ITDHQfm3&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1B0-GuX21vgFvB0SceZW8I3S_ITDHQfm3",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1dsWkll5TFYnnMid015iHOf8_NqvXrbpJ",
+              "title": "10 14 Thanh Callistô I GH LN1",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:59.572Z",
+              "modifiedAt": "2025-10-06T12:47:30.446Z",
+              "src": "https://drive.google.com/thumbnail?id=1dsWkll5TFYnnMid015iHOf8_NqvXrbpJ&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1dsWkll5TFYnnMid015iHOf8_NqvXrbpJ",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1Q32X739HaSGEMknpKgy5zAZgU6KoY997",
+              "title": "10 15 Thánh TêrêsaAvila LN1 BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:52.145Z",
+              "modifiedAt": "2025-10-06T12:59:52.821Z",
+              "src": "https://drive.google.com/thumbnail?id=1Q32X739HaSGEMknpKgy5zAZgU6KoY997&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Q32X739HaSGEMknpKgy5zAZgU6KoY997",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1uvCv5K1dk-JyiOjTbF5d_rc_CgqjHMbh",
+              "title": "10 15 Thánh TêrêsaAvila LN1",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:21:07.004Z",
+              "modifiedAt": "2025-10-06T13:00:10.098Z",
+              "src": "https://drive.google.com/thumbnail?id=1uvCv5K1dk-JyiOjTbF5d_rc_CgqjHMbh&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1uvCv5K1dk-JyiOjTbF5d_rc_CgqjHMbh",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1w1SPfv9YrJURLYq6atDKpXPggpAmN6iO",
+              "title": "10 16 Thánh Hedviges LN1 BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:22:19.833Z",
+              "modifiedAt": "2025-10-07T03:08:34.142Z",
+              "src": "https://drive.google.com/thumbnail?id=1w1SPfv9YrJURLYq6atDKpXPggpAmN6iO&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1w1SPfv9YrJURLYq6atDKpXPggpAmN6iO",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1dbFwpkyv4gELTHOua31NC9L_JNLGIhZn",
+              "title": "10 16 Thánh Hedviges LN1",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:21:10.859Z",
+              "modifiedAt": "2025-10-07T03:08:43.639Z",
+              "src": "https://drive.google.com/thumbnail?id=1dbFwpkyv4gELTHOua31NC9L_JNLGIhZn&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1dbFwpkyv4gELTHOua31NC9L_JNLGIhZn",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "19th_diTGj_StRyA4qUJTkqCiWVl8WzLQ",
+              "title": "10 16 Thánh MARGARITA ALACOQUE LN1 BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:21:19.192Z",
+              "modifiedAt": "2025-10-07T03:31:36.216Z",
+              "src": "https://drive.google.com/thumbnail?id=19th_diTGj_StRyA4qUJTkqCiWVl8WzLQ&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=19th_diTGj_StRyA4qUJTkqCiWVl8WzLQ",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1TqkbMtt6aPfTmZeJ4X9yeFTRAEZ8K7Wd",
+              "title": "10 16 Thánh MARGARITA ALACOQUE LN1",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:21:22.684Z",
+              "modifiedAt": "2025-10-07T03:31:46.673Z",
+              "src": "https://drive.google.com/thumbnail?id=1TqkbMtt6aPfTmZeJ4X9yeFTRAEZ8K7Wd&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1TqkbMtt6aPfTmZeJ4X9yeFTRAEZ8K7Wd",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1bemBWE3sdMN5Yz9im2bk38Ig36fGLAdv",
+              "title": "10 17 Thánh Ignatio Antiochia LN1 BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:21:15.770Z",
+              "modifiedAt": "2025-10-06T13:16:30.385Z",
+              "src": "https://drive.google.com/thumbnail?id=1bemBWE3sdMN5Yz9im2bk38Ig36fGLAdv&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1bemBWE3sdMN5Yz9im2bk38Ig36fGLAdv",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1N76Yu28ZBdIEaj6SHYwOpw7G3tu1Re3L",
+              "title": "10 17 Thánh Ignatio Antiochia LN1",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:21:03.536Z",
+              "modifiedAt": "2025-10-06T13:16:41.497Z",
+              "src": "https://drive.google.com/thumbnail?id=1N76Yu28ZBdIEaj6SHYwOpw7G3tu1Re3L&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1N76Yu28ZBdIEaj6SHYwOpw7G3tu1Re3L",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1_5QWieb-hG6ecFhTXGbPsxDbDksD3Pl1",
+              "title": "10 18 Thanh Luca LN1 BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:22:14.576Z",
+              "modifiedAt": "2025-10-06T08:52:39.873Z",
+              "src": "https://drive.google.com/thumbnail?id=1_5QWieb-hG6ecFhTXGbPsxDbDksD3Pl1&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1_5QWieb-hG6ecFhTXGbPsxDbDksD3Pl1",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1zSwHNSZ0hGqM28gMnxjVSFEjKXQwymcO",
+              "title": "10 18 Thanh Luca LN1",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:22:35.236Z",
+              "modifiedAt": "2025-10-06T08:52:51.754Z",
+              "src": "https://drive.google.com/thumbnail?id=1zSwHNSZ0hGqM28gMnxjVSFEjKXQwymcO&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1zSwHNSZ0hGqM28gMnxjVSFEjKXQwymcO",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1DSG9fZmMrLteb0x7DCsdjL0wNP9Ysh-U",
+              "title": "T2 Tuan 28 TN LN BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:51.534Z",
+              "modifiedAt": "2025-10-03T07:53:49.477Z",
+              "src": "https://drive.google.com/thumbnail?id=1DSG9fZmMrLteb0x7DCsdjL0wNP9Ysh-U&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1DSG9fZmMrLteb0x7DCsdjL0wNP9Ysh-U",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1RooZ1W8uvFDkQf-uWyR5p-FwGcfPR7sq",
+              "title": "T2 Tuan 28 TN LN",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:21:29.720Z",
+              "modifiedAt": "2025-10-03T07:54:05.716Z",
+              "src": "https://drive.google.com/thumbnail?id=1RooZ1W8uvFDkQf-uWyR5p-FwGcfPR7sq&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1RooZ1W8uvFDkQf-uWyR5p-FwGcfPR7sq",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "13UHQZiWYkjHFt4G7D2oqnzVCBMuQPo2W",
+              "title": "T3 Tuan 28 TN LN BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:51.396Z",
+              "modifiedAt": "2025-10-05T03:33:04.482Z",
+              "src": "https://drive.google.com/thumbnail?id=13UHQZiWYkjHFt4G7D2oqnzVCBMuQPo2W&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=13UHQZiWYkjHFt4G7D2oqnzVCBMuQPo2W",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1On1Mh8kJzX5oiIxudyxsWkYmx_SzkJmS",
+              "title": "T3 Tuan 28 TN LN",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:52.024Z",
+              "modifiedAt": "2025-10-05T03:33:18.227Z",
+              "src": "https://drive.google.com/thumbnail?id=1On1Mh8kJzX5oiIxudyxsWkYmx_SzkJmS&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1On1Mh8kJzX5oiIxudyxsWkYmx_SzkJmS",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1of0JfseBnaMG5bgEAqF7VVobTHguAFWW",
+              "title": "T4 Tuan 28 TN LN BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:51.508Z",
+              "modifiedAt": "2025-10-06T07:58:01.329Z",
+              "src": "https://drive.google.com/thumbnail?id=1of0JfseBnaMG5bgEAqF7VVobTHguAFWW&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1of0JfseBnaMG5bgEAqF7VVobTHguAFWW",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1lfohY97zrjZGfa67gDQsWftN3-tOCptq",
+              "title": "T4 Tuan 28 TN LN",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:22:10.433Z",
+              "modifiedAt": "2025-10-06T07:58:09.150Z",
+              "src": "https://drive.google.com/thumbnail?id=1lfohY97zrjZGfa67gDQsWftN3-tOCptq&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1lfohY97zrjZGfa67gDQsWftN3-tOCptq",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1l4_c24wZ8Iz3JcFwSkggkVLQhVM2sVsi",
+              "title": "T5 Tuan 28 TN LN BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:51.818Z",
+              "modifiedAt": "2025-10-06T08:05:35.772Z",
+              "src": "https://drive.google.com/thumbnail?id=1l4_c24wZ8Iz3JcFwSkggkVLQhVM2sVsi&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1l4_c24wZ8Iz3JcFwSkggkVLQhVM2sVsi",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1jc0SYSD6LFtHvlQik33fM349pOaQAUKK",
+              "title": "T5 Tuan 28 TN LN",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:21:25.940Z",
+              "modifiedAt": "2025-10-06T08:05:47.189Z",
+              "src": "https://drive.google.com/thumbnail?id=1jc0SYSD6LFtHvlQik33fM349pOaQAUKK&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1jc0SYSD6LFtHvlQik33fM349pOaQAUKK",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "18e7K8iiUBCP3aueNGx8ZYvXVDEqraY--",
+              "title": "T6 Tuan 28 TN LN BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:20:51.385Z",
+              "modifiedAt": "2025-10-06T08:23:39.080Z",
+              "src": "https://drive.google.com/thumbnail?id=18e7K8iiUBCP3aueNGx8ZYvXVDEqraY--&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=18e7K8iiUBCP3aueNGx8ZYvXVDEqraY--",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1JByO_c8UNCigUr_EZZ4_yqcCN_1wJxzL",
+              "title": "T6 Tuan 28 TN LN",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-07T07:22:26.765Z",
+              "modifiedAt": "2025-10-06T08:23:54.285Z",
+              "src": "https://drive.google.com/thumbnail?id=1JByO_c8UNCigUr_EZZ4_yqcCN_1wJxzL&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1JByO_c8UNCigUr_EZZ4_yqcCN_1wJxzL",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1uwRQrF2vNj7-4mOsKefXQYoQ8S_UTGXT",
+              "title": "T7 Tuan 28 TN LN BG",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:22:31.006Z",
+              "modifiedAt": "2026-10-06T08:00:14.881Z",
+              "src": "https://drive.google.com/thumbnail?id=1uwRQrF2vNj7-4mOsKefXQYoQ8S_UTGXT&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1uwRQrF2vNj7-4mOsKefXQYoQ8S_UTGXT",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1DGP8r3kmuxnmeRfR5BNfDF9MYZU8x1C-",
+              "title": "T7 Tuan 28 TN LN",
+              "location": "Tuan28TN tu 11 10 den 17 10",
+              "date": "10.2026",
+              "createdAt": "2026-10-07T07:22:23.353Z",
+              "modifiedAt": "2026-10-06T08:00:28.034Z",
+              "src": "https://drive.google.com/thumbnail?id=1DGP8r3kmuxnmeRfR5BNfDF9MYZU8x1C-&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1DGP8r3kmuxnmeRfR5BNfDF9MYZU8x1C-",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "102",
       "slug": "cn28-tn-b",
       "title": "Chúa Nhật Thứ 28 Thường Niên - Năm B",
       "subtitle": "Mùa Thường Niên / Năm B",
@@ -37163,7 +37731,7 @@
       ]
     },
     {
-      "id": "102",
+      "id": "103",
       "slug": "cn28-tn-c-va-tuan28tn-tu-13-10-den-18-10",
       "title": "CN28 TN C va Tuan28TN tu 13 10 den 18 10",
       "subtitle": "Thiết kế phụng vụ",
@@ -37177,7 +37745,7 @@
       "photos": [],
       "children": [
         {
-          "id": "102.01",
+          "id": "103.01",
           "slug": "cn28-tn-c-va-tuan28tn-tu-13-10-den-18-10--cn28-tn-c",
           "parentSlug": "cn28-tn-c-va-tuan28tn-tu-13-10-den-18-10",
           "title": "Chúa Nhật Thứ 28 Thường Niên - Năm C",
@@ -37310,7 +37878,7 @@
           ]
         },
         {
-          "id": "102.02",
+          "id": "103.02",
           "slug": "cn28-tn-c-va-tuan28tn-tu-13-10-den-18-10--cn28-tn-c-thieunhi",
           "parentSlug": "cn28-tn-c-va-tuan28tn-tu-13-10-den-18-10",
           "title": "CN28 TN C ThieuNhi",
@@ -37443,7 +38011,7 @@
           ]
         },
         {
-          "id": "102.03",
+          "id": "103.03",
           "slug": "cn28-tn-c-va-tuan28tn-tu-13-10-den-18-10--tuan28tn-tu-13-10-den-18-10",
           "parentSlug": "cn28-tn-c-va-tuan28tn-tu-13-10-den-18-10",
           "title": "Tuan28TN tu 13 10 den 18 10",
@@ -37747,7 +38315,7 @@
       ]
     },
     {
-      "id": "103",
+      "id": "104",
       "slug": "cn29-tn-b-cn-truyen-giao-2024",
       "title": "CN29 TN B CN Truyen Giao 2024",
       "subtitle": "Thiết kế phụng vụ",
@@ -37879,7 +38447,7 @@
       ]
     },
     {
-      "id": "104",
+      "id": "105",
       "slug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10",
       "title": "CN29 TN C va Tuan29TN tu 20 10 den 25 10",
       "subtitle": "Thiết kế phụng vụ",
@@ -37893,7 +38461,7 @@
       "photos": [],
       "children": [
         {
-          "id": "104.01",
+          "id": "105.01",
           "slug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10--cn29-tn-c",
           "parentSlug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10",
           "title": "Chúa Nhật Thứ 29 Thường Niên - Năm C",
@@ -38026,7 +38594,7 @@
           ]
         },
         {
-          "id": "104.02",
+          "id": "105.02",
           "slug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10--cn29-tn-c-thieunhi",
           "parentSlug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10",
           "title": "CN29 TN C ThieuNhi",
@@ -38081,7 +38649,7 @@
           ]
         },
         {
-          "id": "104.03",
+          "id": "105.03",
           "slug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10--khanhnhattruyengiao",
           "parentSlug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10",
           "title": "KhanhNhatTruyenGiao",
@@ -38253,7 +38821,7 @@
           ]
         },
         {
-          "id": "104.04",
+          "id": "105.04",
           "slug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10--khanhnhattruyengiao-thieunhi",
           "parentSlug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10",
           "title": "KhanhNhatTruyenGiao ThieuNhi",
@@ -38295,7 +38863,7 @@
           ]
         },
         {
-          "id": "104.05",
+          "id": "105.05",
           "slug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10--tuan29tn-tu-20-10-den-25-10",
           "parentSlug": "cn29-tn-c-va-tuan29tn-tu-20-10-den-25-10",
           "title": "Tuan29TN tu 20 10 den 25 10",
@@ -38547,7 +39115,7 @@
       ]
     },
     {
-      "id": "105",
+      "id": "106",
       "slug": "cn30-tn-b-cn",
       "title": "CN30 TN B CN",
       "subtitle": "Thiết kế phụng vụ",
@@ -38640,7 +39208,7 @@
       ]
     },
     {
-      "id": "106",
+      "id": "107",
       "slug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11",
       "title": "CN30 TN C va Tuan30TN tu 27 10 den 01 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -38654,7 +39222,7 @@
       "photos": [],
       "children": [
         {
-          "id": "106.01",
+          "id": "107.01",
           "slug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11--cn30-tn-c",
           "parentSlug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11",
           "title": "Chúa Nhật Thứ 30 Thường Niên - Năm C",
@@ -38826,7 +39394,7 @@
           ]
         },
         {
-          "id": "106.02",
+          "id": "107.02",
           "slug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11--cn30-tn-c-thieunhi",
           "parentSlug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11",
           "title": "CN30 TN C ThieuNhi",
@@ -38881,7 +39449,7 @@
           ]
         },
         {
-          "id": "106.03",
+          "id": "107.03",
           "slug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11--tuan30tn-tu-27-10-den-01-11",
           "parentSlug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11",
           "title": "Tuan30TN tu 27 10 den 01 11",
@@ -39120,7 +39688,7 @@
       ]
     },
     {
-      "id": "107",
+      "id": "108",
       "slug": "cn31-tn-b",
       "title": "Chúa Nhật Thứ 31 Thường Niên - Năm B",
       "subtitle": "Mùa Thường Niên / Năm B",
@@ -39174,7 +39742,7 @@
       ]
     },
     {
-      "id": "108",
+      "id": "109",
       "slug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11",
       "title": "CN31 TN C va Tuan31TN tu 03 11 den 08 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -39188,7 +39756,7 @@
       "photos": [],
       "children": [
         {
-          "id": "108.01",
+          "id": "109.01",
           "slug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11--cn31-tn-c",
           "parentSlug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11",
           "title": "Chúa Nhật Thứ 31 Thường Niên - Năm C",
@@ -39243,7 +39811,7 @@
           ]
         },
         {
-          "id": "108.02",
+          "id": "109.02",
           "slug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11--le-cac-dang-linh-hon",
           "parentSlug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11",
           "title": "Le Cac Dang Linh Hon",
@@ -39701,7 +40269,7 @@
           ]
         },
         {
-          "id": "108.03",
+          "id": "109.03",
           "slug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11--tuan31tn-tu-03-11-den-08-11",
           "parentSlug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11",
           "title": "Tuan31TN tu 03 11 den 08 11",
@@ -39927,7 +40495,7 @@
       ]
     },
     {
-      "id": "109",
+      "id": "110",
       "slug": "cn32-tn-b",
       "title": "Chúa Nhật Thứ 32 Thường Niên - Năm B",
       "subtitle": "Mùa Thường Niên / Năm B",
@@ -40020,7 +40588,7 @@
       ]
     },
     {
-      "id": "110",
+      "id": "111",
       "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
       "title": "CN32 TN C va Tuan32TN tu 10 11 den 15 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -40034,7 +40602,7 @@
       "photos": [],
       "children": [
         {
-          "id": "110.01",
+          "id": "111.01",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--cn32-tn-c",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "Chúa Nhật Thứ 32 Thường Niên - Năm C",
@@ -40167,7 +40735,7 @@
           ]
         },
         {
-          "id": "110.02",
+          "id": "111.02",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--cn32-tn-c-thieunhi",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "CN32 TN C ThieuNhi",
@@ -40300,7 +40868,7 @@
           ]
         },
         {
-          "id": "110.03",
+          "id": "111.03",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--cung-hien-thanh-duong-laterano",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "Cung Hien Thanh Duong Laterano",
@@ -40472,7 +41040,7 @@
           ]
         },
         {
-          "id": "110.04",
+          "id": "111.04",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--cung-hien-thanh-duong-laterano-thieunhi",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "Cung Hien Thanh Duong Laterano ThieuNhi",
@@ -40605,7 +41173,7 @@
           ]
         },
         {
-          "id": "110.05",
+          "id": "111.05",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--tuan32tn-tu-10-11-den-15-11",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "Tuan32TN tu 10 11 den 15 11",
@@ -40883,7 +41451,7 @@
       ]
     },
     {
-      "id": "111",
+      "id": "112",
       "slug": "cn33-tn-b-cac-thanh-tu-dao-vn",
       "title": "CN33 TN B Cac Thanh Tu Dao VN",
       "subtitle": "Thiết kế phụng vụ",
@@ -41093,7 +41661,7 @@
       ]
     },
     {
-      "id": "112",
+      "id": "113",
       "slug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11",
       "title": "CN33 TN C va Tuan33TN tu 17 11 den 22 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -41107,7 +41675,7 @@
       "photos": [],
       "children": [
         {
-          "id": "112.01",
+          "id": "113.01",
           "slug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11--cac-thanh-tu-dao-vn",
           "parentSlug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11",
           "title": "Cac Thanh Tu Dao VN",
@@ -41461,7 +42029,7 @@
           ]
         },
         {
-          "id": "112.02",
+          "id": "113.02",
           "slug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11--cn33-tn-c",
           "parentSlug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11",
           "title": "Chúa Nhật Thứ 33 Thường Niên - Năm C",
@@ -41581,7 +42149,7 @@
           ]
         },
         {
-          "id": "112.03",
+          "id": "113.03",
           "slug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11--tuan33tn-tu-17-11-den-22-11",
           "parentSlug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11",
           "title": "Tuan33TN tu 17 11 den 22 11",
@@ -41859,7 +42427,7 @@
       ]
     },
     {
-      "id": "113",
+      "id": "114",
       "slug": "cn34-tn-b-chua-kito-vua",
       "title": "CN34 TN B Chua Kito Vua",
       "subtitle": "Thiết kế phụng vụ",
@@ -41952,7 +42520,7 @@
       ]
     },
     {
-      "id": "114",
+      "id": "115",
       "slug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11",
       "title": "CN34 TN C va Tuan34TN tu 24 11 den 29 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -41966,7 +42534,7 @@
       "photos": [],
       "children": [
         {
-          "id": "114.01",
+          "id": "115.01",
           "slug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11--cn34-tn-c-chua-kito-vua",
           "parentSlug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11",
           "title": "CN34 TN C Chua Kito Vua",
@@ -42216,7 +42784,7 @@
           ]
         },
         {
-          "id": "114.02",
+          "id": "115.02",
           "slug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11--cn34-tn-c-chua-kito-vua-thieunhi",
           "parentSlug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11",
           "title": "CN34 TN C Chua Kito Vua ThieuNhi",
@@ -42271,7 +42839,7 @@
           ]
         },
         {
-          "id": "114.03",
+          "id": "115.03",
           "slug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11--tuan34tn-tu-24-11-den-29-11",
           "parentSlug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11",
           "title": "Tuan34TN tu 24 11 den 29 11",
@@ -42549,7 +43117,7 @@
       ]
     },
     {
-      "id": "115",
+      "id": "116",
       "slug": "dangchuatrongdenthanh",
       "title": "DangChuaTrongDenThanh",
       "subtitle": "Thiết kế phụng vụ",
@@ -42603,7 +43171,7 @@
       ]
     },
     {
-      "id": "116",
+      "id": "117",
       "slug": "duc-me-len-troi",
       "title": "Duc Me Len Troi",
       "subtitle": "Thiết kế phụng vụ",
@@ -42969,7 +43537,7 @@
       ]
     },
     {
-      "id": "117",
+      "id": "118",
       "slug": "duc-me-man-coi",
       "title": "Duc Me Man Coi",
       "subtitle": "Thiết kế phụng vụ",
@@ -43374,7 +43942,7 @@
       ]
     },
     {
-      "id": "118",
+      "id": "119",
       "slug": "ducmaria-methienchua",
       "title": "DucMaria MeThienChua",
       "subtitle": "Thiết kế phụng vụ",
@@ -43636,7 +44204,7 @@
       ]
     },
     {
-      "id": "119",
+      "id": "120",
       "slug": "giang-sinh",
       "title": "Giang Sinh",
       "subtitle": "Thiết kế phụng vụ",
@@ -43650,7 +44218,7 @@
       "photos": [],
       "children": [
         {
-          "id": "119.01",
+          "id": "120.01",
           "slug": "giang-sinh--2021",
           "parentSlug": "giang-sinh",
           "title": "2021",
@@ -43783,7 +44351,7 @@
           ]
         },
         {
-          "id": "119.02",
+          "id": "120.02",
           "slug": "giang-sinh--2022",
           "parentSlug": "giang-sinh",
           "title": "2022",
@@ -43877,7 +44445,7 @@
           ]
         },
         {
-          "id": "119.03",
+          "id": "120.03",
           "slug": "giang-sinh--2023",
           "parentSlug": "giang-sinh",
           "title": "2023",
@@ -43932,7 +44500,7 @@
           ]
         },
         {
-          "id": "119.04",
+          "id": "120.04",
           "slug": "giang-sinh--avatar-fb-cover",
           "parentSlug": "giang-sinh",
           "title": "Avatar FB Cover",
@@ -43974,7 +44542,7 @@
           ]
         },
         {
-          "id": "119.05",
+          "id": "120.05",
           "slug": "giang-sinh--bai-doc-giang-sinh",
           "parentSlug": "giang-sinh",
           "title": "Bai Doc Giang Sinh",
@@ -44276,7 +44844,7 @@
           ]
         },
         {
-          "id": "119.06",
+          "id": "120.06",
           "slug": "giang-sinh--giang-sinh-2024",
           "parentSlug": "giang-sinh",
           "title": "Giang Sinh 2024",
@@ -44331,7 +44899,7 @@
           ]
         },
         {
-          "id": "119.07",
+          "id": "120.07",
           "slug": "giang-sinh--giang-sinh-2025",
           "parentSlug": "giang-sinh",
           "title": "Giang Sinh 2025",
@@ -44386,7 +44954,7 @@
           ]
         },
         {
-          "id": "119.08",
+          "id": "120.08",
           "slug": "giang-sinh--thiep",
           "parentSlug": "giang-sinh",
           "title": "Thiệp",
@@ -44441,7 +45009,7 @@
           ]
         },
         {
-          "id": "119.09",
+          "id": "120.09",
           "slug": "giang-sinh--tuan-bat-nhat-giang-sinh-2025",
           "parentSlug": "giang-sinh",
           "title": "Tuan Bat Nhat Giang Sinh 2025",
@@ -44693,7 +45261,7 @@
       ]
     },
     {
-      "id": "120",
+      "id": "121",
       "slug": "le-cac-thanh-nam-nu",
       "title": "Le Cac Thanh Nam Nu",
       "subtitle": "Thiết kế phụng vụ",
@@ -44838,7 +45406,7 @@
       ]
     },
     {
-      "id": "121",
+      "id": "122",
       "slug": "le-chua-chiu-phep-rua-c",
       "title": "Le Chua Chiu Phep Rua C",
       "subtitle": "Thiết kế phụng vụ",
@@ -45009,7 +45577,7 @@
       ]
     },
     {
-      "id": "122",
+      "id": "123",
       "slug": "le-duc-me-len-troi-15-8",
       "title": "Le Duc Me Len Troi 15 8",
       "subtitle": "Thiết kế phụng vụ",
@@ -45258,7 +45826,7 @@
       ]
     },
     {
-      "id": "123",
+      "id": "124",
       "slug": "le-hien-linh",
       "title": "Le Hien Linh",
       "subtitle": "Thiết kế phụng vụ",
@@ -45272,7 +45840,7 @@
       "photos": [],
       "children": [
         {
-          "id": "123.01",
+          "id": "124.01",
           "slug": "le-hien-linh--cn-le-hien-linh",
           "parentSlug": "le-hien-linh",
           "title": "CN Le Hien Linh",
@@ -45496,7 +46064,7 @@
           ]
         },
         {
-          "id": "123.02",
+          "id": "124.02",
           "slug": "le-hien-linh--cn-le-hien-linh-tn",
           "parentSlug": "le-hien-linh",
           "title": "CN Le Hien Linh TN",
@@ -45551,7 +46119,7 @@
           ]
         },
         {
-          "id": "123.03",
+          "id": "124.03",
           "slug": "le-hien-linh--tuan-sau-le-hien-linh",
           "parentSlug": "le-hien-linh",
           "title": "Tuan sau Le Hien Linh",
@@ -45751,7 +46319,7 @@
       ]
     },
     {
-      "id": "124",
+      "id": "125",
       "slug": "le-phong-thanh-elena-guerra",
       "title": "Le Phong Thanh Elena Guerra",
       "subtitle": "Thiết kế phụng vụ",
@@ -45805,7 +46373,7 @@
       ],
       "children": [
         {
-          "id": "124.01",
+          "id": "125.01",
           "slug": "le-phong-thanh-elena-guerra--hinh-50x70cm",
           "parentSlug": "le-phong-thanh-elena-guerra",
           "title": "Hinh 50x70cm",
@@ -45834,7 +46402,7 @@
           ]
         },
         {
-          "id": "124.02",
+          "id": "125.02",
           "slug": "le-phong-thanh-elena-guerra--logo",
           "parentSlug": "le-phong-thanh-elena-guerra",
           "title": "logo",
@@ -45878,7 +46446,7 @@
       ]
     },
     {
-      "id": "125",
+      "id": "126",
       "slug": "le-thanh-gia-c-2024",
       "title": "Le Thanh Gia C 2024",
       "subtitle": "Thiết kế phụng vụ",
@@ -45932,7 +46500,7 @@
       ]
     },
     {
-      "id": "126",
+      "id": "127",
       "slug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01",
       "title": "Le Thanh Gia Nam A va Le tu 28 12 den 03 01",
       "subtitle": "Thiết kế phụng vụ",
@@ -45946,7 +46514,7 @@
       "photos": [],
       "children": [
         {
-          "id": "126.01",
+          "id": "127.01",
           "slug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01--le-thanh-gia-nam-a",
           "parentSlug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01",
           "title": "Le Thanh Gia Nam A",
@@ -46105,7 +46673,7 @@
           ]
         },
         {
-          "id": "126.02",
+          "id": "127.02",
           "slug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01--le-thanh-gia-nam-a-tn",
           "parentSlug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01",
           "title": "Le Thanh Gia Nam A TN",
@@ -46186,7 +46754,7 @@
           ]
         },
         {
-          "id": "126.03",
+          "id": "127.03",
           "slug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01--le-tu-28-12-den-03-01",
           "parentSlug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01",
           "title": "Le tu 28 12 den 03 01",
@@ -46490,7 +47058,7 @@
       ]
     },
     {
-      "id": "127",
+      "id": "128",
       "slug": "le-tong-lanh-thien-than",
       "title": "Le Tong Lanh Thien Than",
       "subtitle": "Thiết kế phụng vụ",
@@ -46557,7 +47125,7 @@
       ]
     },
     {
-      "id": "128",
+      "id": "129",
       "slug": "le-truyen-tin",
       "title": "Le Truyen Tin",
       "subtitle": "Thiết kế phụng vụ",
@@ -46650,7 +47218,7 @@
       ]
     },
     {
-      "id": "129",
+      "id": "130",
       "slug": "lela-tuanthanh-cnps-2025",
       "title": "LeLa TuanThanh CNPS 2025",
       "subtitle": "Thiết kế phụng vụ",
@@ -46664,7 +47232,7 @@
       "photos": [],
       "children": [
         {
-          "id": "129.01",
+          "id": "130.01",
           "slug": "lela-tuanthanh-cnps-2025--baidoc-vongps",
           "parentSlug": "lela-tuanthanh-cnps-2025",
           "title": "BaiDoc VongPS",
@@ -47070,7 +47638,7 @@
           ]
         },
         {
-          "id": "129.02",
+          "id": "130.02",
           "slug": "lela-tuanthanh-cnps-2025--cn-phucsinh",
           "parentSlug": "lela-tuanthanh-cnps-2025",
           "title": "CN PhucSinh",
@@ -47203,7 +47771,7 @@
           ]
         },
         {
-          "id": "129.03",
+          "id": "130.03",
           "slug": "lela-tuanthanh-cnps-2025--le-la",
           "parentSlug": "lela-tuanthanh-cnps-2025",
           "title": "Le La",
@@ -47297,7 +47865,7 @@
           ]
         },
         {
-          "id": "129.04",
+          "id": "130.04",
           "slug": "lela-tuanthanh-cnps-2025--tuan-thanh",
           "parentSlug": "lela-tuanthanh-cnps-2025",
           "title": "Tuan Thanh",
@@ -47432,7 +48000,7 @@
       ]
     },
     {
-      "id": "130",
+      "id": "131",
       "slug": "lela-tuanthanh-ps-2026",
       "title": "LeLa TuanThanh PS 2026",
       "subtitle": "Thiết kế phụng vụ",
@@ -47446,7 +48014,7 @@
       "photos": [],
       "children": [
         {
-          "id": "130.01",
+          "id": "131.01",
           "slug": "lela-tuanthanh-ps-2026--cn-phucsinh",
           "parentSlug": "lela-tuanthanh-ps-2026",
           "title": "CN PhucSinh",
@@ -47787,7 +48355,7 @@
           ]
         },
         {
-          "id": "130.02",
+          "id": "131.02",
           "slug": "lela-tuanthanh-ps-2026--le-la-nam-a",
           "parentSlug": "lela-tuanthanh-ps-2026",
           "title": "Le La Nam A",
@@ -48024,7 +48592,7 @@
           ]
         },
         {
-          "id": "130.03",
+          "id": "131.03",
           "slug": "lela-tuanthanh-ps-2026--tuan-bat-nhat-ps",
           "parentSlug": "lela-tuanthanh-ps-2026",
           "title": "Tuan Bat Nhat PS",
@@ -48261,7 +48829,7 @@
           ]
         },
         {
-          "id": "130.04",
+          "id": "131.04",
           "slug": "lela-tuanthanh-ps-2026--tuan-thanh",
           "parentSlug": "lela-tuanthanh-ps-2026",
           "title": "Tuan Thanh",
@@ -48276,7 +48844,7 @@
           "photos": [],
           "children": [
             {
-              "id": "130.04.01",
+              "id": "131.04.01",
               "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t5-tuanthanh",
               "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh",
               "title": "T5 TuanThanh",
@@ -48487,7 +49055,7 @@
               ]
             },
             {
-              "id": "130.04.02",
+              "id": "131.04.02",
               "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t6-tuanthanh",
               "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh",
               "title": "T6 TuanThanh",
@@ -48672,7 +49240,7 @@
               ]
             },
             {
-              "id": "130.04.03",
+              "id": "131.04.03",
               "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t7-tuanthanh-nam-a",
               "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh",
               "title": "T7 TuanThanh Nam A",
@@ -48844,7 +49412,7 @@
               ],
               "children": [
                 {
-                  "id": "130.04.03.01",
+                  "id": "131.04.03.01",
                   "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t7-tuanthanh-nam-a--baidoc-vongps",
                   "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh--t7-tuanthanh-nam-a",
                   "title": "BaiDoc VongPS",
@@ -49265,7 +49833,7 @@
               ]
             },
             {
-              "id": "130.04.04",
+              "id": "131.04.04",
               "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t234-tuanthanh",
               "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh",
               "title": "T234 TuanThanh",
@@ -49363,7 +49931,7 @@
       ]
     },
     {
-      "id": "131",
+      "id": "132",
       "slug": "letro-muachay",
       "title": "LeTro MuaChay",
       "subtitle": "Thiết kế phụng vụ",
@@ -49534,7 +50102,7 @@
       ]
     },
     {
-      "id": "132",
+      "id": "133",
       "slug": "ngam-15-su-thuong-kho",
       "title": "Ngam 15 Su Thuong Kho",
       "subtitle": "Thiết kế phụng vụ",
@@ -49548,7 +50116,7 @@
       "photos": [],
       "children": [
         {
-          "id": "132.01",
+          "id": "133.01",
           "slug": "ngam-15-su-thuong-kho--hinh-hq",
           "parentSlug": "ngam-15-su-thuong-kho",
           "title": "Hinh HQ",
@@ -49774,7 +50342,7 @@
       ]
     },
     {
-      "id": "133",
+      "id": "134",
       "slug": "ngam-dau-danh-va-ngam-rang",
       "title": "Ngam Dau Danh va Ngam Rang",
       "subtitle": "Thiết kế phụng vụ",
@@ -49788,7 +50356,7 @@
       "photos": [],
       "children": [
         {
-          "id": "133.01",
+          "id": "134.01",
           "slug": "ngam-dau-danh-va-ngam-rang--ngam-dau-danh",
           "parentSlug": "ngam-dau-danh-va-ngam-rang",
           "title": "NGẮM DẤU ĐANH",
@@ -49895,7 +50463,7 @@
           ]
         },
         {
-          "id": "133.02",
+          "id": "134.02",
           "slug": "ngam-dau-danh-va-ngam-rang--ngam-rang",
           "parentSlug": "ngam-dau-danh-va-ngam-rang",
           "title": "NGẮM RẰNG",
@@ -50017,7 +50585,7 @@
       ]
     },
     {
-      "id": "134",
+      "id": "135",
       "slug": "ruoclelandau-ln-2025",
       "title": "RuocLeLanDau LN 2025",
       "subtitle": "Thiết kế phụng vụ",
@@ -50031,7 +50599,7 @@
       "photos": [],
       "children": [
         {
-          "id": "134.01",
+          "id": "135.01",
           "slug": "ruoclelandau-ln-2025--backdrop-400x250cm",
           "parentSlug": "ruoclelandau-ln-2025",
           "title": "Backdrop 400x250cm",
@@ -50060,7 +50628,7 @@
           ]
         },
         {
-          "id": "134.02",
+          "id": "135.02",
           "slug": "ruoclelandau-ln-2025--backdrop-chuphinh-140x200cm",
           "parentSlug": "ruoclelandau-ln-2025",
           "title": "Backdrop ChupHinh 140x200cm",
@@ -50089,7 +50657,7 @@
           ]
         },
         {
-          "id": "134.03",
+          "id": "135.03",
           "slug": "ruoclelandau-ln-2025--file-16x9",
           "parentSlug": "ruoclelandau-ln-2025",
           "title": "File 16x9",
@@ -50159,7 +50727,7 @@
       ]
     },
     {
-      "id": "135",
+      "id": "136",
       "slug": "sn-thanh-gioan-tay-gia",
       "title": "SN Thanh Gioan Tay Gia",
       "subtitle": "Thiết kế phụng vụ",
@@ -50226,7 +50794,7 @@
       ]
     },
     {
-      "id": "136",
+      "id": "137",
       "slug": "tet",
       "title": "TET",
       "subtitle": "Thiết kế phụng vụ",
@@ -50240,7 +50808,7 @@
       "photos": [],
       "children": [
         {
-          "id": "136.01",
+          "id": "137.01",
           "slug": "tet--avatar-2025",
           "parentSlug": "tet",
           "title": "Avatar 2025",
@@ -50269,7 +50837,7 @@
           ]
         },
         {
-          "id": "136.02",
+          "id": "137.02",
           "slug": "tet--cover-fb-2025",
           "parentSlug": "tet",
           "title": "Cover FB 2025",
@@ -50298,7 +50866,7 @@
           ]
         },
         {
-          "id": "136.03",
+          "id": "137.03",
           "slug": "tet--tatnien-giaothua-mung1234tet",
           "parentSlug": "tet",
           "title": "TatNien GiaoThua Mung1234Tet",
@@ -50498,7 +51066,7 @@
       ]
     },
     {
-      "id": "137",
+      "id": "138",
       "slug": "thanh-le-cau-cho-viec-bao-ve-cong-trinh-tao-dung",
       "title": "THÁNH LỄ CẦU CHO VIỆC BẢO VỆ CÔNG TRÌNH TẠO DỰNG",
       "subtitle": "Thiết kế phụng vụ",
@@ -50643,7 +51211,7 @@
       ]
     },
     {
-      "id": "138",
+      "id": "139",
       "slug": "thanh-cecilia",
       "title": "Thanh Cecilia",
       "subtitle": "Thiết kế phụng vụ",
@@ -50684,7 +51252,7 @@
       ]
     },
     {
-      "id": "139",
+      "id": "140",
       "slug": "thanh-clementedcct-15-03",
       "title": "Thanh ClementeDCCT 15 03",
       "subtitle": "Thiết kế phụng vụ",
@@ -50725,7 +51293,7 @@
       ]
     },
     {
-      "id": "140",
+      "id": "141",
       "slug": "thanh-giuse",
       "title": "Thanh Giuse",
       "subtitle": "Thiết kế phụng vụ",
@@ -50739,7 +51307,7 @@
       "photos": [],
       "children": [
         {
-          "id": "140.01",
+          "id": "141.01",
           "slug": "thanh-giuse--2025",
           "parentSlug": "thanh-giuse",
           "title": "2025",
@@ -50809,7 +51377,7 @@
       ]
     },
     {
-      "id": "141",
+      "id": "142",
       "slug": "thanh-maria-goretti",
       "title": "Thanh Maria Goretti",
       "subtitle": "Thiết kế phụng vụ",
@@ -50823,7 +51391,7 @@
       "photos": [],
       "children": [
         {
-          "id": "141.01",
+          "id": "142.01",
           "slug": "thanh-maria-goretti--backdrop-400x225cm",
           "parentSlug": "thanh-maria-goretti",
           "title": "Backdrop 400x225cm",
@@ -50865,7 +51433,7 @@
           ]
         },
         {
-          "id": "141.02",
+          "id": "142.02",
           "slug": "thanh-maria-goretti--hinh-16x9",
           "parentSlug": "thanh-maria-goretti",
           "title": "Hinh 16x9",
@@ -50907,7 +51475,7 @@
           ]
         },
         {
-          "id": "141.03",
+          "id": "142.03",
           "slug": "thanh-maria-goretti--hinh-60x90cm",
           "parentSlug": "thanh-maria-goretti",
           "title": "Hinh 60x90cm",
@@ -50938,7 +51506,7 @@
       ]
     },
     {
-      "id": "142",
+      "id": "143",
       "slug": "thanh-teresa",
       "title": "Thanh Teresa",
       "subtitle": "Thiết kế phụng vụ",
@@ -51005,7 +51573,7 @@
       ]
     },
     {
-      "id": "143",
+      "id": "144",
       "slug": "thanh-vinh-son",
       "title": "Thanh Vinh Son",
       "subtitle": "Thiết kế phụng vụ",
@@ -51059,7 +51627,7 @@
       ]
     },
     {
-      "id": "144",
+      "id": "145",
       "slug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07",
       "title": "ThanhPheroPhaolo va Tuan13TN tu 30 06 den 05 07",
       "subtitle": "Thiết kế phụng vụ",
@@ -51073,7 +51641,7 @@
       "photos": [],
       "children": [
         {
-          "id": "144.01",
+          "id": "145.01",
           "slug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07--thanh-phero-phaolo",
           "parentSlug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07",
           "title": "Thanh Phero Phaolo",
@@ -51323,7 +51891,7 @@
           ]
         },
         {
-          "id": "144.02",
+          "id": "145.02",
           "slug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07--tuan13tn-tu-30-06-den-05-07",
           "parentSlug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07",
           "title": "Tuan13TN tu 30 06 den 05 07",
@@ -51575,7 +52143,7 @@
       ]
     },
     {
-      "id": "145",
+      "id": "146",
       "slug": "thien-than-ho-thu",
       "title": "Thien than ho thu",
       "subtitle": "Thiết kế phụng vụ",
@@ -51642,7 +52210,7 @@
       ]
     },
     {
-      "id": "146",
+      "id": "147",
       "slug": "tuan-02-ps-va-le-tu-28-04-den-03-05",
       "title": "Tuan 02 PS va Le tu 28 04 den 03 05",
       "subtitle": "Thiết kế phụng vụ",
@@ -52021,7 +52589,7 @@
       ]
     },
     {
-      "id": "147",
+      "id": "148",
       "slug": "tuan-bat-nhat-ps-2025",
       "title": "Tuan Bat Nhat PS 2025",
       "subtitle": "Thiết kế phụng vụ",
