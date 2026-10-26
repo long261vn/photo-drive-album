@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T03:31:46.521Z",
+  "generatedAt": "2026-10-26T08:09:27.359Z",
   "source": {
     "rootFolderId": "1A50RPh0VKKkc2nmOrNzw5GwTawKNVyRn",
     "rootFolderName": "Website_LHN",
@@ -39726,6 +39726,457 @@
     },
     {
       "id": "107",
+      "slug": "cn30-tn-a-va-tuan30tn-tu-25-10-den-31-10",
+      "title": "CN30 TN A va Tuan30TN tu 25 10 den 31 10",
+      "subtitle": "Thiết kế phụng vụ",
+      "date": "10.2026",
+      "location": "Thiết kế phụng vụ",
+      "createdAt": "2026-10-20T02:34:28.569Z",
+      "count": 31,
+      "cover": "https://drive.google.com/thumbnail?id=1V052huX2PWbj_BbpkhRsmRU_pAqrCJHl&sz=w1600",
+      "accent": "green",
+      "description": "Album CN30 TN A va Tuan30TN tu 25 10 den 31 10.",
+      "photos": [],
+      "children": [
+        {
+          "id": "107.01",
+          "slug": "cn30-tn-a-va-tuan30tn-tu-25-10-den-31-10--cn30-tn-a",
+          "parentSlug": "cn30-tn-a-va-tuan30tn-tu-25-10-den-31-10",
+          "title": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+          "subtitle": "Mùa Thường Niên / Năm A",
+          "date": "10.2026",
+          "location": "Thiết kế phụng vụ",
+          "createdAt": "2026-10-20T02:34:40.830Z",
+          "count": 13,
+          "cover": "https://drive.google.com/thumbnail?id=1V052huX2PWbj_BbpkhRsmRU_pAqrCJHl&sz=w1600",
+          "accent": "green",
+          "description": "Album Chúa Nhật Thứ 30 Thường Niên - Năm A.",
+          "photos": [
+            {
+              "id": "14HddRcMfpwTuXfG0aaEDrpvq65pFVEBq",
+              "title": "CN30 TN A LN1b BG",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:45.447Z",
+              "modifiedAt": "2026-10-19T07:16:43.202Z",
+              "src": "https://drive.google.com/thumbnail?id=14HddRcMfpwTuXfG0aaEDrpvq65pFVEBq&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=14HddRcMfpwTuXfG0aaEDrpvq65pFVEBq",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1V052huX2PWbj_BbpkhRsmRU_pAqrCJHl",
+              "title": "CN30 TN A LN1b Eng",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:25.607Z",
+              "modifiedAt": "2026-10-19T07:17:02.524Z",
+              "src": "https://drive.google.com/thumbnail?id=1V052huX2PWbj_BbpkhRsmRU_pAqrCJHl&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1V052huX2PWbj_BbpkhRsmRU_pAqrCJHl",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1kXlHVSGCKlYx0P_XqnAKFLqGgWoV77qV",
+              "title": "CN30 TN A LN1b",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:14.844Z",
+              "modifiedAt": "2026-10-19T07:17:17.924Z",
+              "src": "https://drive.google.com/thumbnail?id=1kXlHVSGCKlYx0P_XqnAKFLqGgWoV77qV&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1kXlHVSGCKlYx0P_XqnAKFLqGgWoV77qV",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "18yVR1jyZWEcPzB88IYhOETXbWtbLyq7b",
+              "title": "CN30 TN A LN2 BG",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:21.961Z",
+              "modifiedAt": "2026-10-19T08:34:13.941Z",
+              "src": "https://drive.google.com/thumbnail?id=18yVR1jyZWEcPzB88IYhOETXbWtbLyq7b&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=18yVR1jyZWEcPzB88IYhOETXbWtbLyq7b",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1-5pTCKgP0ti1lge5UCAuwF0UlMoJ_GQ0",
+              "title": "CN30 TN A LN2 Eng",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:29.309Z",
+              "modifiedAt": "2026-10-19T08:34:30.180Z",
+              "src": "https://drive.google.com/thumbnail?id=1-5pTCKgP0ti1lge5UCAuwF0UlMoJ_GQ0&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1-5pTCKgP0ti1lge5UCAuwF0UlMoJ_GQ0",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "15n5OhfqhAPL1pGyBukjuFuutOkQM4gwH",
+              "title": "CN30 TN A LN2 TN BG",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:48.718Z",
+              "modifiedAt": "2026-10-19T07:59:49.708Z",
+              "src": "https://drive.google.com/thumbnail?id=15n5OhfqhAPL1pGyBukjuFuutOkQM4gwH&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=15n5OhfqhAPL1pGyBukjuFuutOkQM4gwH",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1I-QcDFsSMV9jvp3nIq_skD9XVJsidBq3",
+              "title": "CN30 TN A LN2 TN Eng",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:37.761Z",
+              "modifiedAt": "2026-10-19T08:00:04.522Z",
+              "src": "https://drive.google.com/thumbnail?id=1I-QcDFsSMV9jvp3nIq_skD9XVJsidBq3&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1I-QcDFsSMV9jvp3nIq_skD9XVJsidBq3",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1aXUeUaXi5AJdAqmz5t8dkyBD5xO_4t_I",
+              "title": "CN30 TN A LN2 TN",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:34.058Z",
+              "modifiedAt": "2026-10-19T08:00:16.870Z",
+              "src": "https://drive.google.com/thumbnail?id=1aXUeUaXi5AJdAqmz5t8dkyBD5xO_4t_I&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1aXUeUaXi5AJdAqmz5t8dkyBD5xO_4t_I",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1LezyTbrmIVCGlAEtpsJpKoK2mJ_WUBlc",
+              "title": "CN30 TN A LN2",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:44:41.884Z",
+              "modifiedAt": "2026-10-19T08:34:51.192Z",
+              "src": "https://drive.google.com/thumbnail?id=1LezyTbrmIVCGlAEtpsJpKoK2mJ_WUBlc&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1LezyTbrmIVCGlAEtpsJpKoK2mJ_WUBlc",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1eFmRzIyXK8q2rfnzsmn6faa4ydeeraXz",
+              "title": "CN30 TNA BaiDoc1",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:43:58.274Z",
+              "modifiedAt": "2026-10-19T06:22:39.752Z",
+              "src": "https://drive.google.com/thumbnail?id=1eFmRzIyXK8q2rfnzsmn6faa4ydeeraXz&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1eFmRzIyXK8q2rfnzsmn6faa4ydeeraXz",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1-zxP6TDCayzv8u1GoL2roEoyrx3WtBhf",
+              "title": "CN30 TNA BaiDoc2",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:43:58.409Z",
+              "modifiedAt": "2026-10-19T06:25:21.572Z",
+              "src": "https://drive.google.com/thumbnail?id=1-zxP6TDCayzv8u1GoL2roEoyrx3WtBhf&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1-zxP6TDCayzv8u1GoL2roEoyrx3WtBhf",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1WfKApqiQAkCRnByy-Fo_JEIIryzheMe2",
+              "title": "CN30 TNA Tin Mung BG",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:43:58.369Z",
+              "modifiedAt": "2026-10-19T06:40:01.107Z",
+              "src": "https://drive.google.com/thumbnail?id=1WfKApqiQAkCRnByy-Fo_JEIIryzheMe2&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1WfKApqiQAkCRnByy-Fo_JEIIryzheMe2",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1QId2rW1p52tdea2vN1TXvTbYjzUhyEqb",
+              "title": "CN30 TNA Tin Mung",
+              "location": "Chúa Nhật Thứ 30 Thường Niên - Năm A",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:43:59.233Z",
+              "modifiedAt": "2026-10-19T06:40:15.256Z",
+              "src": "https://drive.google.com/thumbnail?id=1QId2rW1p52tdea2vN1TXvTbYjzUhyEqb&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1QId2rW1p52tdea2vN1TXvTbYjzUhyEqb",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            }
+          ]
+        },
+        {
+          "id": "107.02",
+          "slug": "cn30-tn-a-va-tuan30tn-tu-25-10-den-31-10--tuan30tn-tu-25-10-den-31-10",
+          "parentSlug": "cn30-tn-a-va-tuan30tn-tu-25-10-den-31-10",
+          "title": "Tuan30TN tu 25 10 den 31 10",
+          "subtitle": "Thiết kế phụng vụ",
+          "date": "10.2026",
+          "location": "Thiết kế phụng vụ",
+          "createdAt": "2026-10-20T02:34:47.779Z",
+          "count": 18,
+          "cover": "https://drive.google.com/thumbnail?id=1swlbfpsuZzSIVWAKtOQRx7naD1lE5w5v&sz=w1600",
+          "accent": "green",
+          "description": "Album Tuan30TN tu 25 10 den 31 10.",
+          "photos": [
+            {
+              "id": "1ivrs2rdVZUzgOBlvS6VYlaybaJBNBSZV",
+              "title": "10 28 Thanh Simon va Giuda LN1 BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:37:03.701Z",
+              "modifiedAt": "2025-10-20T12:47:16.518Z",
+              "src": "https://drive.google.com/thumbnail?id=1ivrs2rdVZUzgOBlvS6VYlaybaJBNBSZV&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1ivrs2rdVZUzgOBlvS6VYlaybaJBNBSZV",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1swlbfpsuZzSIVWAKtOQRx7naD1lE5w5v",
+              "title": "10 28 Thanh Simon va Giuda LN1",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:36:32.356Z",
+              "modifiedAt": "2025-10-20T12:47:29.189Z",
+              "src": "https://drive.google.com/thumbnail?id=1swlbfpsuZzSIVWAKtOQRx7naD1lE5w5v&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1swlbfpsuZzSIVWAKtOQRx7naD1lE5w5v",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "16fCkg3hJ-P1lozMKkaJZbsGkhZzunECy",
+              "title": "11 01 Le Cac Thanh LN1 BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:36:59.334Z",
+              "modifiedAt": "2025-10-21T02:25:01.902Z",
+              "src": "https://drive.google.com/thumbnail?id=16fCkg3hJ-P1lozMKkaJZbsGkhZzunECy&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=16fCkg3hJ-P1lozMKkaJZbsGkhZzunECy",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1br0VUD-a6gshD2T7uu2ukJRBrH__PJAu",
+              "title": "11 01 Le Cac Thanh LN1",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:36:45.559Z",
+              "modifiedAt": "2025-10-21T02:25:15.538Z",
+              "src": "https://drive.google.com/thumbnail?id=1br0VUD-a6gshD2T7uu2ukJRBrH__PJAu&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1br0VUD-a6gshD2T7uu2ukJRBrH__PJAu",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1WMCJEEtYkD2EraXaKslFf9vFAlGNrSa9",
+              "title": "11 01 Le Cac Thanh LN2 BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:36:40.185Z",
+              "modifiedAt": "2025-10-21T02:39:32.082Z",
+              "src": "https://drive.google.com/thumbnail?id=1WMCJEEtYkD2EraXaKslFf9vFAlGNrSa9&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1WMCJEEtYkD2EraXaKslFf9vFAlGNrSa9",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1fCrPbVw6LSwYiI9kK2694CiBf2bIq6Ol",
+              "title": "11 01 Le Cac Thanh LN2",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:36:50.017Z",
+              "modifiedAt": "2025-10-21T02:39:51.614Z",
+              "src": "https://drive.google.com/thumbnail?id=1fCrPbVw6LSwYiI9kK2694CiBf2bIq6Ol&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1fCrPbVw6LSwYiI9kK2694CiBf2bIq6Ol",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1Siom8RI0gDVIFs6YufEImZ9F_ZJTPFnb",
+              "title": "T2 Tuan 30 TN LN BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:36:31.164Z",
+              "modifiedAt": "2025-10-20T07:37:39.037Z",
+              "src": "https://drive.google.com/thumbnail?id=1Siom8RI0gDVIFs6YufEImZ9F_ZJTPFnb&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Siom8RI0gDVIFs6YufEImZ9F_ZJTPFnb",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "15e1kouiW-1htD6hsKC0jnyffZICxOyKB",
+              "title": "T2 Tuan 30 TN LN",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:36:54.122Z",
+              "modifiedAt": "2025-10-20T07:38:11.863Z",
+              "src": "https://drive.google.com/thumbnail?id=15e1kouiW-1htD6hsKC0jnyffZICxOyKB&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=15e1kouiW-1htD6hsKC0jnyffZICxOyKB",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1tQ89GZ1-yciyMc-S0v3CH9ubM5SsKZFw",
+              "title": "T3 Tuan 30 TN LN BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:36:30.378Z",
+              "modifiedAt": "2026-10-18T03:35:34.622Z",
+              "src": "https://drive.google.com/thumbnail?id=1tQ89GZ1-yciyMc-S0v3CH9ubM5SsKZFw&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1tQ89GZ1-yciyMc-S0v3CH9ubM5SsKZFw",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1fcuQE1_ilQ1PN9NmAZt79crIl9gcKLQD",
+              "title": "T3 Tuan 30 TN LN",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:36:31.022Z",
+              "modifiedAt": "2026-10-18T03:35:47.900Z",
+              "src": "https://drive.google.com/thumbnail?id=1fcuQE1_ilQ1PN9NmAZt79crIl9gcKLQD&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1fcuQE1_ilQ1PN9NmAZt79crIl9gcKLQD",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1St9nkomnaFFTf1QH2kQTOGcIBL7SEz3I",
+              "title": "T4 Tuan 30 TN LN BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:37:18.715Z",
+              "modifiedAt": "2025-10-20T07:54:09.127Z",
+              "src": "https://drive.google.com/thumbnail?id=1St9nkomnaFFTf1QH2kQTOGcIBL7SEz3I&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1St9nkomnaFFTf1QH2kQTOGcIBL7SEz3I",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1s4Uy7y37vaxzik1eS7CANSHYAKaJSJYg",
+              "title": "T4 Tuan 30 TN LN",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:37:11.325Z",
+              "modifiedAt": "2025-10-20T07:54:21.904Z",
+              "src": "https://drive.google.com/thumbnail?id=1s4Uy7y37vaxzik1eS7CANSHYAKaJSJYg&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1s4Uy7y37vaxzik1eS7CANSHYAKaJSJYg",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1AdfgXxTngx-9vnT2SPV2Xn66xXGFE-N3",
+              "title": "T5 Tuan 30 TN LN BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:36:31.027Z",
+              "modifiedAt": "2025-10-20T08:12:55.726Z",
+              "src": "https://drive.google.com/thumbnail?id=1AdfgXxTngx-9vnT2SPV2Xn66xXGFE-N3&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1AdfgXxTngx-9vnT2SPV2Xn66xXGFE-N3",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1AOdXJTUAp_Z6PVl6rXbmc7tykER9IK1i",
+              "title": "T5 Tuan 30 TN LN",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:37:15.268Z",
+              "modifiedAt": "2025-10-20T08:13:13.573Z",
+              "src": "https://drive.google.com/thumbnail?id=1AOdXJTUAp_Z6PVl6rXbmc7tykER9IK1i&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1AOdXJTUAp_Z6PVl6rXbmc7tykER9IK1i",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1oAFS0rj5TwEjqHDwRiyQ99FNXoZ9nJcK",
+              "title": "T6 Tuan 30 TN LN BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:37:07.210Z",
+              "modifiedAt": "2025-10-20T08:33:02.927Z",
+              "src": "https://drive.google.com/thumbnail?id=1oAFS0rj5TwEjqHDwRiyQ99FNXoZ9nJcK&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1oAFS0rj5TwEjqHDwRiyQ99FNXoZ9nJcK",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1J9iRXHanzFB5YeUhasDpMuTDMjd44VJB",
+              "title": "T6 Tuan 30 TN LN",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2025",
+              "createdAt": "2026-10-20T02:37:22.561Z",
+              "modifiedAt": "2025-10-20T08:33:16.743Z",
+              "src": "https://drive.google.com/thumbnail?id=1J9iRXHanzFB5YeUhasDpMuTDMjd44VJB&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1J9iRXHanzFB5YeUhasDpMuTDMjd44VJB",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1_ZmGJ8ub_jbaa7OK8eguGvzqRrwWYM4P",
+              "title": "T7 Tuan 30 TN LN BG",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:36:30.055Z",
+              "modifiedAt": "2026-10-18T03:45:18.299Z",
+              "src": "https://drive.google.com/thumbnail?id=1_ZmGJ8ub_jbaa7OK8eguGvzqRrwWYM4P&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1_ZmGJ8ub_jbaa7OK8eguGvzqRrwWYM4P",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "145tUAGHMtmzrOCarcS5RbNKePMNlMCPR",
+              "title": "T7 Tuan 30 TN LN",
+              "location": "Tuan30TN tu 25 10 den 31 10",
+              "date": "10.2026",
+              "createdAt": "2026-10-20T02:36:31.012Z",
+              "modifiedAt": "2026-10-18T03:45:46.733Z",
+              "src": "https://drive.google.com/thumbnail?id=145tUAGHMtmzrOCarcS5RbNKePMNlMCPR&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=145tUAGHMtmzrOCarcS5RbNKePMNlMCPR",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "108",
       "slug": "cn30-tn-b-cn",
       "title": "CN30 TN B CN",
       "subtitle": "Thiết kế phụng vụ",
@@ -39818,7 +40269,7 @@
       ]
     },
     {
-      "id": "108",
+      "id": "109",
       "slug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11",
       "title": "CN30 TN C va Tuan30TN tu 27 10 den 01 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -39832,7 +40283,7 @@
       "photos": [],
       "children": [
         {
-          "id": "108.01",
+          "id": "109.01",
           "slug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11--cn30-tn-c",
           "parentSlug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11",
           "title": "Chúa Nhật Thứ 30 Thường Niên - Năm C",
@@ -40004,7 +40455,7 @@
           ]
         },
         {
-          "id": "108.02",
+          "id": "109.02",
           "slug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11--cn30-tn-c-thieunhi",
           "parentSlug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11",
           "title": "CN30 TN C ThieuNhi",
@@ -40059,7 +40510,7 @@
           ]
         },
         {
-          "id": "108.03",
+          "id": "109.03",
           "slug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11--tuan30tn-tu-27-10-den-01-11",
           "parentSlug": "cn30-tn-c-va-tuan30tn-tu-27-10-den-01-11",
           "title": "Tuan30TN tu 27 10 den 01 11",
@@ -40298,7 +40749,929 @@
       ]
     },
     {
-      "id": "109",
+      "id": "110",
+      "slug": "cn31-tn-a-va-tuan31tn-tu-01-11-den-07-11",
+      "title": "CN31 TN A va Tuan31TN tu 01 11 den 07 11",
+      "subtitle": "Thiết kế phụng vụ",
+      "date": "10.2026",
+      "location": "Thiết kế phụng vụ",
+      "createdAt": "2026-10-26T07:41:01.461Z",
+      "count": 66,
+      "cover": "https://drive.google.com/thumbnail?id=1VxonYUEDT4PK4TIkSQ90cnlLEm0zsc5x&sz=w1600",
+      "accent": "green",
+      "description": "Album CN31 TN A va Tuan31TN tu 01 11 den 07 11.",
+      "photos": [],
+      "children": [
+        {
+          "id": "110.01",
+          "slug": "cn31-tn-a-va-tuan31tn-tu-01-11-den-07-11--le-cac-dang-linh-hon",
+          "parentSlug": "cn31-tn-a-va-tuan31tn-tu-01-11-den-07-11",
+          "title": "Le Cac Dang Linh Hon",
+          "subtitle": "Thiết kế phụng vụ",
+          "date": "10.2026",
+          "location": "Thiết kế phụng vụ",
+          "createdAt": "2026-10-26T07:41:42.839Z",
+          "count": 34,
+          "cover": "https://drive.google.com/thumbnail?id=1VxonYUEDT4PK4TIkSQ90cnlLEm0zsc5x&sz=w1600",
+          "accent": "green",
+          "description": "Album Le Cac Dang Linh Hon.",
+          "photos": [
+            {
+              "id": "12mJdljeXRuLqRbbJ0oDEzAIx-o5Jn42P",
+              "title": "11 02 Le Cac Dang LN1b BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:26.147Z",
+              "modifiedAt": "2025-10-29T02:55:03.491Z",
+              "src": "https://drive.google.com/thumbnail?id=12mJdljeXRuLqRbbJ0oDEzAIx-o5Jn42P&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=12mJdljeXRuLqRbbJ0oDEzAIx-o5Jn42P",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1VxonYUEDT4PK4TIkSQ90cnlLEm0zsc5x",
+              "title": "11 02 Le Cac Dang LN1b Eng",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:13.171Z",
+              "modifiedAt": "2025-10-21T03:30:49.326Z",
+              "src": "https://drive.google.com/thumbnail?id=1VxonYUEDT4PK4TIkSQ90cnlLEm0zsc5x&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1VxonYUEDT4PK4TIkSQ90cnlLEm0zsc5x",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "11yfd9Yps8MKGpBPgmfs9gVnsb3i_kb6d",
+              "title": "11 02 Le Cac Dang LN1b Thang11",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:21.291Z",
+              "modifiedAt": "2025-10-21T03:31:01.738Z",
+              "src": "https://drive.google.com/thumbnail?id=11yfd9Yps8MKGpBPgmfs9gVnsb3i_kb6d&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=11yfd9Yps8MKGpBPgmfs9gVnsb3i_kb6d",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1SRdqYVwQq3ROrZlqNnwLdhhfdOLwCiXp",
+              "title": "11 02 Le Cac Dang LN1b",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:09.469Z",
+              "modifiedAt": "2025-10-21T03:31:16.931Z",
+              "src": "https://drive.google.com/thumbnail?id=1SRdqYVwQq3ROrZlqNnwLdhhfdOLwCiXp&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1SRdqYVwQq3ROrZlqNnwLdhhfdOLwCiXp",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1U4xkjiHIisFmUKi_wJ42Wbpi2PMC2ACI",
+              "title": "11 02 Le Cac Dang LN2 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:42.725Z",
+              "modifiedAt": "2025-10-29T02:51:28.451Z",
+              "src": "https://drive.google.com/thumbnail?id=1U4xkjiHIisFmUKi_wJ42Wbpi2PMC2ACI&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1U4xkjiHIisFmUKi_wJ42Wbpi2PMC2ACI",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1JMAIMyugxl1Xr-vleghYyDEGpaxrvfIg",
+              "title": "11 02 Le Cac Dang LN2 Eng",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:38.544Z",
+              "modifiedAt": "2025-10-29T04:42:00.764Z",
+              "src": "https://drive.google.com/thumbnail?id=1JMAIMyugxl1Xr-vleghYyDEGpaxrvfIg&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1JMAIMyugxl1Xr-vleghYyDEGpaxrvfIg",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1k4mQCLkQAZ20NDvvBCtHwUYMTXVTNETB",
+              "title": "11 02 Le Cac Dang LN2 Thang11",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:17.574Z",
+              "modifiedAt": "2025-10-29T02:51:13.454Z",
+              "src": "https://drive.google.com/thumbnail?id=1k4mQCLkQAZ20NDvvBCtHwUYMTXVTNETB&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1k4mQCLkQAZ20NDvvBCtHwUYMTXVTNETB",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1QmMe3TYc8dpWVLtZ_3Fm48UL-dY6v2ai",
+              "title": "11 02 Le Cac Dang LN2 TN BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:46.462Z",
+              "modifiedAt": "2025-10-29T05:27:54.643Z",
+              "src": "https://drive.google.com/thumbnail?id=1QmMe3TYc8dpWVLtZ_3Fm48UL-dY6v2ai&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1QmMe3TYc8dpWVLtZ_3Fm48UL-dY6v2ai",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1t9RsBEpHwT8AoplnBT2d_fPHZ-OodFZB",
+              "title": "11 02 Le Cac Dang LN2 TN Eng",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:01.738Z",
+              "modifiedAt": "2025-10-29T05:28:08.948Z",
+              "src": "https://drive.google.com/thumbnail?id=1t9RsBEpHwT8AoplnBT2d_fPHZ-OodFZB&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1t9RsBEpHwT8AoplnBT2d_fPHZ-OodFZB",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1QqDVejQywnP7dL32nJJ-RqBlGKmf42R-",
+              "title": "11 02 Le Cac Dang LN2 TN Thang11",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:50.796Z",
+              "modifiedAt": "2025-10-29T05:28:24.717Z",
+              "src": "https://drive.google.com/thumbnail?id=1QqDVejQywnP7dL32nJJ-RqBlGKmf42R-&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1QqDVejQywnP7dL32nJJ-RqBlGKmf42R-",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1jqrOQBOjACwAkldNEa-6gFQYJAlmL-ZO",
+              "title": "11 02 Le Cac Dang LN2 TN",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:34.312Z",
+              "modifiedAt": "2025-10-29T05:28:40.483Z",
+              "src": "https://drive.google.com/thumbnail?id=1jqrOQBOjACwAkldNEa-6gFQYJAlmL-ZO&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1jqrOQBOjACwAkldNEa-6gFQYJAlmL-ZO",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "18lcF79B1v6rcXSeEt5zD-fJVX65XkPFY",
+              "title": "11 02 Le Cac Dang LN2",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:30.056Z",
+              "modifiedAt": "2025-10-29T02:51:43.536Z",
+              "src": "https://drive.google.com/thumbnail?id=18lcF79B1v6rcXSeEt5zD-fJVX65XkPFY&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=18lcF79B1v6rcXSeEt5zD-fJVX65XkPFY",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1lK_l_swJTXX2zcJA4OAcaeZHc_OP59Nm",
+              "title": "Le Cac Dang 1 BaiDoc 1 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:08.426Z",
+              "modifiedAt": "2025-10-29T05:58:57.260Z",
+              "src": "https://drive.google.com/thumbnail?id=1lK_l_swJTXX2zcJA4OAcaeZHc_OP59Nm&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1lK_l_swJTXX2zcJA4OAcaeZHc_OP59Nm",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1Bwc9GSEK-qGEUxK_s1oEgJy-cMcSB7I9",
+              "title": "Le Cac Dang 1 BaiDoc 1",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:08.896Z",
+              "modifiedAt": "2025-10-29T05:59:09.121Z",
+              "src": "https://drive.google.com/thumbnail?id=1Bwc9GSEK-qGEUxK_s1oEgJy-cMcSB7I9&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Bwc9GSEK-qGEUxK_s1oEgJy-cMcSB7I9",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1XXJa4q31JxYP5bIArssEy29OhgDYOWx-",
+              "title": "Le Cac Dang 1 BaiDoc 2 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:08.973Z",
+              "modifiedAt": "2025-10-29T06:02:31.468Z",
+              "src": "https://drive.google.com/thumbnail?id=1XXJa4q31JxYP5bIArssEy29OhgDYOWx-&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1XXJa4q31JxYP5bIArssEy29OhgDYOWx-",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1AYuQKVzvc12eT2ysl_FdZRsnmLS18Hgu",
+              "title": "Le Cac Dang 1 BaiDoc 2",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:08.908Z",
+              "modifiedAt": "2025-10-29T06:02:42.549Z",
+              "src": "https://drive.google.com/thumbnail?id=1AYuQKVzvc12eT2ysl_FdZRsnmLS18Hgu&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1AYuQKVzvc12eT2ysl_FdZRsnmLS18Hgu",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1Uqk3juOsjb8IXN4nkKnUq1hI8FLs_Fp5",
+              "title": "Le Cac Dang 1 Tin Mung BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:09.115Z",
+              "modifiedAt": "2025-10-29T06:11:12.248Z",
+              "src": "https://drive.google.com/thumbnail?id=1Uqk3juOsjb8IXN4nkKnUq1hI8FLs_Fp5&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Uqk3juOsjb8IXN4nkKnUq1hI8FLs_Fp5",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1d3a_jZVDuuQDPtgMmgELEet8W11iBtFy",
+              "title": "Le Cac Dang 1 Tin Mung",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:05.483Z",
+              "modifiedAt": "2025-10-29T06:11:22.965Z",
+              "src": "https://drive.google.com/thumbnail?id=1d3a_jZVDuuQDPtgMmgELEet8W11iBtFy&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1d3a_jZVDuuQDPtgMmgELEet8W11iBtFy",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1L3UCIGCB2A3I_m8L8bdJzWo44WpAU0dr",
+              "title": "Le Cac Dang 2 BaiDoc 1 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:54.433Z",
+              "modifiedAt": "2025-10-29T06:22:55.196Z",
+              "src": "https://drive.google.com/thumbnail?id=1L3UCIGCB2A3I_m8L8bdJzWo44WpAU0dr&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1L3UCIGCB2A3I_m8L8bdJzWo44WpAU0dr",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1lG0JmctSnC7BrH5pchUe5N2a2Ydb_QYp",
+              "title": "Le Cac Dang 2 BaiDoc 1",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:57.607Z",
+              "modifiedAt": "2025-10-29T06:23:05.555Z",
+              "src": "https://drive.google.com/thumbnail?id=1lG0JmctSnC7BrH5pchUe5N2a2Ydb_QYp&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1lG0JmctSnC7BrH5pchUe5N2a2Ydb_QYp",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1oS_4lhM6LDS9EV2p4MhUMwDE7eL1Hyri",
+              "title": "Le Cac Dang 2 BaiDoc 2 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:09.120Z",
+              "modifiedAt": "2025-10-29T06:26:44.438Z",
+              "src": "https://drive.google.com/thumbnail?id=1oS_4lhM6LDS9EV2p4MhUMwDE7eL1Hyri&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1oS_4lhM6LDS9EV2p4MhUMwDE7eL1Hyri",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1v8xL2bSHyOYWuKOuIiuJKkWukLTYlisp",
+              "title": "Le Cac Dang 2 BaiDoc 2",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:15.571Z",
+              "modifiedAt": "2025-10-29T06:26:56.936Z",
+              "src": "https://drive.google.com/thumbnail?id=1v8xL2bSHyOYWuKOuIiuJKkWukLTYlisp&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1v8xL2bSHyOYWuKOuIiuJKkWukLTYlisp",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1otbjAMK-k8wpJNLa4QCjG1i8bHcaUsgj",
+              "title": "Le Cac Dang 2 Tin Mung BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:09.130Z",
+              "modifiedAt": "2025-10-29T06:39:36.402Z",
+              "src": "https://drive.google.com/thumbnail?id=1otbjAMK-k8wpJNLa4QCjG1i8bHcaUsgj&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1otbjAMK-k8wpJNLa4QCjG1i8bHcaUsgj",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1iqZT0gyj3-dTV8ErGY5mf7ipyo2TXXvL",
+              "title": "Le Cac Dang 2 Tin Mung",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:20.180Z",
+              "modifiedAt": "2025-10-29T06:39:49.869Z",
+              "src": "https://drive.google.com/thumbnail?id=1iqZT0gyj3-dTV8ErGY5mf7ipyo2TXXvL&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1iqZT0gyj3-dTV8ErGY5mf7ipyo2TXXvL",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1OX2LQsd0yI61yV0ngRCE5lkkLcX0wWNr",
+              "title": "Le Cac Dang 3 BaiDoc 1 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:09.107Z",
+              "modifiedAt": "2025-10-29T07:21:40.586Z",
+              "src": "https://drive.google.com/thumbnail?id=1OX2LQsd0yI61yV0ngRCE5lkkLcX0wWNr&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1OX2LQsd0yI61yV0ngRCE5lkkLcX0wWNr",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "18iMaLCsaVw1_WCe1CjuzpD5N_CVmJAP8",
+              "title": "Le Cac Dang 3 BaiDoc 1",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:27.233Z",
+              "modifiedAt": "2025-10-29T07:21:52.145Z",
+              "src": "https://drive.google.com/thumbnail?id=18iMaLCsaVw1_WCe1CjuzpD5N_CVmJAP8&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=18iMaLCsaVw1_WCe1CjuzpD5N_CVmJAP8",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1y67HdICNlekfrcg3fB99VcYu70foeRDV",
+              "title": "Le Cac Dang 3 BaiDoc 2 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:08.814Z",
+              "modifiedAt": "2025-10-29T07:11:33.130Z",
+              "src": "https://drive.google.com/thumbnail?id=1y67HdICNlekfrcg3fB99VcYu70foeRDV&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1y67HdICNlekfrcg3fB99VcYu70foeRDV",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1Yz7J0XS2UjRb-HZ4bj3udvVYqx428ba-",
+              "title": "Le Cac Dang 3 BaiDoc 2",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:12.144Z",
+              "modifiedAt": "2025-10-29T07:11:44.560Z",
+              "src": "https://drive.google.com/thumbnail?id=1Yz7J0XS2UjRb-HZ4bj3udvVYqx428ba-&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Yz7J0XS2UjRb-HZ4bj3udvVYqx428ba-",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1TU2azGrUnylzpLjpvY-vhzP6xvmPQfYG",
+              "title": "Le Cac Dang 3 Tin Mung BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:09.110Z",
+              "modifiedAt": "2025-10-29T06:52:22.326Z",
+              "src": "https://drive.google.com/thumbnail?id=1TU2azGrUnylzpLjpvY-vhzP6xvmPQfYG&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1TU2azGrUnylzpLjpvY-vhzP6xvmPQfYG",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1CUOANbdXRbs6XDIZuWICKnPmgDw4xNQa",
+              "title": "Le Cac Dang 3 Tin Mung",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:24.063Z",
+              "modifiedAt": "2025-10-29T06:52:33.217Z",
+              "src": "https://drive.google.com/thumbnail?id=1CUOANbdXRbs6XDIZuWICKnPmgDw4xNQa&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1CUOANbdXRbs6XDIZuWICKnPmgDw4xNQa",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1bQ8cySzyHIuI0plHIaGzcK_DtqO0oYes",
+              "title": "Le Cac Dang Ga 6 51 59 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:55:09.238Z",
+              "modifiedAt": "2025-10-30T05:48:36.975Z",
+              "src": "https://drive.google.com/thumbnail?id=1bQ8cySzyHIuI0plHIaGzcK_DtqO0oYes&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1bQ8cySzyHIuI0plHIaGzcK_DtqO0oYes",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1DxIpyIyRbIBTDCSnGe5JGs812PJEDHFF",
+              "title": "Le Cac Dang Ga 6 51 59",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:30.334Z",
+              "modifiedAt": "2025-10-30T05:48:49.295Z",
+              "src": "https://drive.google.com/thumbnail?id=1DxIpyIyRbIBTDCSnGe5JGs812PJEDHFF&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1DxIpyIyRbIBTDCSnGe5JGs812PJEDHFF",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "17f0WMOY_03RgMmC7qTkZNmGRbQ-Fb17F",
+              "title": "Le Cac Dang Ga 17 24 26 BG",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:33.584Z",
+              "modifiedAt": "2025-10-30T06:01:00.284Z",
+              "src": "https://drive.google.com/thumbnail?id=17f0WMOY_03RgMmC7qTkZNmGRbQ-Fb17F&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=17f0WMOY_03RgMmC7qTkZNmGRbQ-Fb17F",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1lVaD_onH48tV6jKx_SNiNkzns6mp2N6f",
+              "title": "Le Cac Dang Ga 17 24 26",
+              "location": "Le Cac Dang Linh Hon",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:56:37.202Z",
+              "modifiedAt": "2025-10-30T06:01:11.800Z",
+              "src": "https://drive.google.com/thumbnail?id=1lVaD_onH48tV6jKx_SNiNkzns6mp2N6f&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1lVaD_onH48tV6jKx_SNiNkzns6mp2N6f",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            }
+          ]
+        },
+        {
+          "id": "110.02",
+          "slug": "cn31-tn-a-va-tuan31tn-tu-01-11-den-07-11--le-cac-thanh-nam-nu",
+          "parentSlug": "cn31-tn-a-va-tuan31tn-tu-01-11-den-07-11",
+          "title": "Le Cac Thanh Nam Nu",
+          "subtitle": "Thiết kế phụng vụ",
+          "date": "10.2026",
+          "location": "Thiết kế phụng vụ",
+          "createdAt": "2026-10-26T07:41:32.846Z",
+          "count": 16,
+          "cover": "https://drive.google.com/thumbnail?id=1HkVnp8pC3srwh8zCiJjcPqDICL1R6R5C&sz=w1600",
+          "accent": "green",
+          "description": "Album Le Cac Thanh Nam Nu.",
+          "photos": [
+            {
+              "id": "1ZR3jGQ2csz1HRmMRDMjJBscHlbbrpr6V",
+              "title": "11 01 Le Cac Thanh LN1 BG",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:43.515Z",
+              "modifiedAt": "2025-10-21T02:25:01.902Z",
+              "src": "https://drive.google.com/thumbnail?id=1ZR3jGQ2csz1HRmMRDMjJBscHlbbrpr6V&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1ZR3jGQ2csz1HRmMRDMjJBscHlbbrpr6V",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1pEzayygbySM7uWtXbw604Y4EnidEdxEI",
+              "title": "11 01 Le Cac Thanh LN1 TN CS BG",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2026",
+              "createdAt": "2026-10-26T08:04:47.279Z",
+              "modifiedAt": "2026-10-26T06:00:26.032Z",
+              "src": "https://drive.google.com/thumbnail?id=1pEzayygbySM7uWtXbw604Y4EnidEdxEI&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1pEzayygbySM7uWtXbw604Y4EnidEdxEI",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1HkVnp8pC3srwh8zCiJjcPqDICL1R6R5C",
+              "title": "11 01 Le Cac Thanh LN1 TN CS",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2026",
+              "createdAt": "2026-10-26T08:04:30.296Z",
+              "modifiedAt": "2026-10-26T06:00:41.111Z",
+              "src": "https://drive.google.com/thumbnail?id=1HkVnp8pC3srwh8zCiJjcPqDICL1R6R5C&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1HkVnp8pC3srwh8zCiJjcPqDICL1R6R5C",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1EY6bxKkPns9LXhXbC7xWNGoSpGgDo86j",
+              "title": "11 01 Le Cac Thanh LN1",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:33.769Z",
+              "modifiedAt": "2025-10-21T02:25:15.538Z",
+              "src": "https://drive.google.com/thumbnail?id=1EY6bxKkPns9LXhXbC7xWNGoSpGgDo86j&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1EY6bxKkPns9LXhXbC7xWNGoSpGgDo86j",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1z1gyh4rGWWvRPvGY1PnuKhFKELrk_Xxk",
+              "title": "11 01 Le Cac Thanh LN2 BG",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:39.785Z",
+              "modifiedAt": "2025-10-21T02:39:32.082Z",
+              "src": "https://drive.google.com/thumbnail?id=1z1gyh4rGWWvRPvGY1PnuKhFKELrk_Xxk&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1z1gyh4rGWWvRPvGY1PnuKhFKELrk_Xxk",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1GC7Ow1atcBko8mYvLApcDEFf8bh9VTmG",
+              "title": "11 01 Le Cac Thanh LN2",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:36.665Z",
+              "modifiedAt": "2025-10-21T02:39:51.614Z",
+              "src": "https://drive.google.com/thumbnail?id=1GC7Ow1atcBko8mYvLApcDEFf8bh9VTmG&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1GC7Ow1atcBko8mYvLApcDEFf8bh9VTmG",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1U53tAXP-uk-_WqdN1TsJitpeCF7BCoHb",
+              "title": "11 01 Le Cac Thanh LN3 BG",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2026",
+              "createdAt": "2026-10-26T08:04:22.894Z",
+              "modifiedAt": "2026-10-26T06:42:16.938Z",
+              "src": "https://drive.google.com/thumbnail?id=1U53tAXP-uk-_WqdN1TsJitpeCF7BCoHb&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1U53tAXP-uk-_WqdN1TsJitpeCF7BCoHb",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1-4USzZVnxr1riRH7ZufEsjCH9zICzxPB",
+              "title": "11 01 Le Cac Thanh LN3",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2026",
+              "createdAt": "2026-10-26T08:04:26.690Z",
+              "modifiedAt": "2026-10-26T06:42:29.119Z",
+              "src": "https://drive.google.com/thumbnail?id=1-4USzZVnxr1riRH7ZufEsjCH9zICzxPB&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1-4USzZVnxr1riRH7ZufEsjCH9zICzxPB",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "11J3n-mFcKZGNAhtWkf9PPVGNSisnZgEa",
+              "title": "11 01 Le Cac Thanh LN4 BG",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2026",
+              "createdAt": "2026-10-26T08:04:51.202Z",
+              "modifiedAt": "2026-10-26T07:21:52.730Z",
+              "src": "https://drive.google.com/thumbnail?id=11J3n-mFcKZGNAhtWkf9PPVGNSisnZgEa&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=11J3n-mFcKZGNAhtWkf9PPVGNSisnZgEa",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1as1Yl-VxbiJAjc3teX_mZa5754B2_pk3",
+              "title": "11 01 Le Cac Thanh LN4",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2026",
+              "createdAt": "2026-10-26T08:04:19.169Z",
+              "modifiedAt": "2026-10-26T07:22:09.378Z",
+              "src": "https://drive.google.com/thumbnail?id=1as1Yl-VxbiJAjc3teX_mZa5754B2_pk3&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1as1Yl-VxbiJAjc3teX_mZa5754B2_pk3",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1mhBfdUXgaXTsrkjRwQQlfDTJHaOlN49e",
+              "title": "Le Cac Thanh BaiDoc 1 BG",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:18.647Z",
+              "modifiedAt": "2025-10-31T01:35:26.501Z",
+              "src": "https://drive.google.com/thumbnail?id=1mhBfdUXgaXTsrkjRwQQlfDTJHaOlN49e&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1mhBfdUXgaXTsrkjRwQQlfDTJHaOlN49e",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1FF6_UpQ-Jg-WWxOADXPl7rSs9mRx9x9U",
+              "title": "Le Cac Thanh BaiDoc 1",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:54.607Z",
+              "modifiedAt": "2025-10-31T01:35:38.313Z",
+              "src": "https://drive.google.com/thumbnail?id=1FF6_UpQ-Jg-WWxOADXPl7rSs9mRx9x9U&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1FF6_UpQ-Jg-WWxOADXPl7rSs9mRx9x9U",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1IEZK41XEy-7YhxEGDBkDg-12r-GWZs2P",
+              "title": "Le Cac Thanh BaiDoc 2 BG",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:18.122Z",
+              "modifiedAt": "2025-10-31T01:45:53.697Z",
+              "src": "https://drive.google.com/thumbnail?id=1IEZK41XEy-7YhxEGDBkDg-12r-GWZs2P&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1IEZK41XEy-7YhxEGDBkDg-12r-GWZs2P",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1Fabc8sJlk8W_Wqgqxzt4G-GjgFWK2oJn",
+              "title": "Le Cac Thanh BaiDoc 2",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:18.660Z",
+              "modifiedAt": "2025-10-31T01:46:05.985Z",
+              "src": "https://drive.google.com/thumbnail?id=1Fabc8sJlk8W_Wqgqxzt4G-GjgFWK2oJn&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Fabc8sJlk8W_Wqgqxzt4G-GjgFWK2oJn",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "19tlnwZzcnerlNJJZzyoNQH80fpwd-Sbm",
+              "title": "Le Cac Thanh Tin Mung BG",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:18.563Z",
+              "modifiedAt": "2025-10-31T01:55:48.166Z",
+              "src": "https://drive.google.com/thumbnail?id=19tlnwZzcnerlNJJZzyoNQH80fpwd-Sbm&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=19tlnwZzcnerlNJJZzyoNQH80fpwd-Sbm",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1JVqVFct7j1iSFacnrqT1ZkkRAT1sHcbr",
+              "title": "Le Cac Thanh Tin Mung",
+              "location": "Le Cac Thanh Nam Nu",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T08:04:18.685Z",
+              "modifiedAt": "2025-10-31T01:56:01.593Z",
+              "src": "https://drive.google.com/thumbnail?id=1JVqVFct7j1iSFacnrqT1ZkkRAT1sHcbr&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1JVqVFct7j1iSFacnrqT1ZkkRAT1sHcbr",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            }
+          ]
+        },
+        {
+          "id": "110.03",
+          "slug": "cn31-tn-a-va-tuan31tn-tu-01-11-den-07-11--tuan-31-tn",
+          "parentSlug": "cn31-tn-a-va-tuan31tn-tu-01-11-den-07-11",
+          "title": "Tuan 31 TN",
+          "subtitle": "Thiết kế phụng vụ",
+          "date": "10.2026",
+          "location": "Thiết kế phụng vụ",
+          "createdAt": "2026-10-26T07:42:04.091Z",
+          "count": 16,
+          "cover": "https://drive.google.com/thumbnail?id=12gkadn79K_9noNTRdqoLb-2nWKqJzGuE&sz=w1600",
+          "accent": "green",
+          "description": "Album Tuan 31 TN.",
+          "photos": [
+            {
+              "id": "1g-CbnoPyVJ1yI6pGJoCl2tq5uAjPbbpB",
+              "title": "11 03 Thánh Martinô Porres LN1 BG",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:49.144Z",
+              "modifiedAt": "2025-10-29T01:46:13.165Z",
+              "src": "https://drive.google.com/thumbnail?id=1g-CbnoPyVJ1yI6pGJoCl2tq5uAjPbbpB&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1g-CbnoPyVJ1yI6pGJoCl2tq5uAjPbbpB",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "12gkadn79K_9noNTRdqoLb-2nWKqJzGuE",
+              "title": "11 03 Thánh Martinô Porres LN1",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:43:01.205Z",
+              "modifiedAt": "2025-10-29T01:46:23.108Z",
+              "src": "https://drive.google.com/thumbnail?id=12gkadn79K_9noNTRdqoLb-2nWKqJzGuE&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=12gkadn79K_9noNTRdqoLb-2nWKqJzGuE",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1Ehc228iwzGFMET5Q4bz1xXlSU5473uX9",
+              "title": "11 04 Thánh Carôlô Borrômêô LN1 BG",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:53.277Z",
+              "modifiedAt": "2025-10-29T01:58:36.786Z",
+              "src": "https://drive.google.com/thumbnail?id=1Ehc228iwzGFMET5Q4bz1xXlSU5473uX9&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Ehc228iwzGFMET5Q4bz1xXlSU5473uX9",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1B8bBGQh2YDHWz48pkrUT4TgrfCnEp6ki",
+              "title": "11 04 Thánh Carôlô Borrômêô LN1",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:43:05.224Z",
+              "modifiedAt": "2025-10-29T01:58:48.269Z",
+              "src": "https://drive.google.com/thumbnail?id=1B8bBGQh2YDHWz48pkrUT4TgrfCnEp6ki&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1B8bBGQh2YDHWz48pkrUT4TgrfCnEp6ki",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1weuRsoaSQqwRnjbj4eIV060JconVTztx",
+              "title": "T2 Tuan 31 TN LN BG",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:48.507Z",
+              "modifiedAt": "2025-10-27T03:21:16.536Z",
+              "src": "https://drive.google.com/thumbnail?id=1weuRsoaSQqwRnjbj4eIV060JconVTztx&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1weuRsoaSQqwRnjbj4eIV060JconVTztx",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "155abzFO6yVOSzl9cns3YNFez-y-28Nuq",
+              "title": "T2 Tuan 31 TN LN",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:57.174Z",
+              "modifiedAt": "2025-10-27T03:22:14.233Z",
+              "src": "https://drive.google.com/thumbnail?id=155abzFO6yVOSzl9cns3YNFez-y-28Nuq&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=155abzFO6yVOSzl9cns3YNFez-y-28Nuq",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1l9QmLjvTRPk9o2RIgQCGmib2Z7S0loAl",
+              "title": "T3 Tuan 31 TN LN BG",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:47.628Z",
+              "modifiedAt": "2025-10-27T03:58:25.654Z",
+              "src": "https://drive.google.com/thumbnail?id=1l9QmLjvTRPk9o2RIgQCGmib2Z7S0loAl&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1l9QmLjvTRPk9o2RIgQCGmib2Z7S0loAl",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1Hw9OW9ncc_crIDl9vF8LMXQy4ynetP2S",
+              "title": "T3 Tuan 31 TN LN",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:48.894Z",
+              "modifiedAt": "2025-10-27T03:58:37.674Z",
+              "src": "https://drive.google.com/thumbnail?id=1Hw9OW9ncc_crIDl9vF8LMXQy4ynetP2S&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Hw9OW9ncc_crIDl9vF8LMXQy4ynetP2S",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1ku740Z_A9Ph82kEXQPynbdtM_maNHtBa",
+              "title": "T4 Tuan 31 TN LN BG",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:43:12.355Z",
+              "modifiedAt": "2025-10-27T05:41:33.136Z",
+              "src": "https://drive.google.com/thumbnail?id=1ku740Z_A9Ph82kEXQPynbdtM_maNHtBa&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1ku740Z_A9Ph82kEXQPynbdtM_maNHtBa",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1DjKcL3yDaa2ixRFK7gafbPTbhvOb3H8-",
+              "title": "T4 Tuan 31 TN LN",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:43:08.825Z",
+              "modifiedAt": "2025-10-27T05:41:46.281Z",
+              "src": "https://drive.google.com/thumbnail?id=1DjKcL3yDaa2ixRFK7gafbPTbhvOb3H8-&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1DjKcL3yDaa2ixRFK7gafbPTbhvOb3H8-",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1z7xflZlAbXxN-M9L8y9h8nkM5wIx-a4C",
+              "title": "T5 Tuan 31 TN LN BG",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:48.961Z",
+              "modifiedAt": "2025-10-27T06:28:41.792Z",
+              "src": "https://drive.google.com/thumbnail?id=1z7xflZlAbXxN-M9L8y9h8nkM5wIx-a4C&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1z7xflZlAbXxN-M9L8y9h8nkM5wIx-a4C",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1V_vXJ5W0pWp-NyDNp34p50e86o7XyWo7",
+              "title": "T5 Tuan 31 TN LN",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:43:19.848Z",
+              "modifiedAt": "2025-10-27T06:28:53.523Z",
+              "src": "https://drive.google.com/thumbnail?id=1V_vXJ5W0pWp-NyDNp34p50e86o7XyWo7&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1V_vXJ5W0pWp-NyDNp34p50e86o7XyWo7",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1Wa2l2FOP3VhOrVU1KRVlf3vdEGAes_wE",
+              "title": "T6 Tuan 31 TN LN BG",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:48.870Z",
+              "modifiedAt": "2025-10-27T06:49:13.929Z",
+              "src": "https://drive.google.com/thumbnail?id=1Wa2l2FOP3VhOrVU1KRVlf3vdEGAes_wE&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Wa2l2FOP3VhOrVU1KRVlf3vdEGAes_wE",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1mpauahry_5NTg36QTgK6fYuSRRNXjyz5",
+              "title": "T6 Tuan 31 TN LN",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:43:16.036Z",
+              "modifiedAt": "2025-10-27T06:49:37.651Z",
+              "src": "https://drive.google.com/thumbnail?id=1mpauahry_5NTg36QTgK6fYuSRRNXjyz5&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1mpauahry_5NTg36QTgK6fYuSRRNXjyz5",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1Ydn1PrCLXil0-92Fx4K4-gSLPkngHcKp",
+              "title": "T7 Tuan 31 TN LN BG",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:48.560Z",
+              "modifiedAt": "2025-10-27T07:09:03.970Z",
+              "src": "https://drive.google.com/thumbnail?id=1Ydn1PrCLXil0-92Fx4K4-gSLPkngHcKp&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1Ydn1PrCLXil0-92Fx4K4-gSLPkngHcKp",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": true
+            },
+            {
+              "id": "1PPKa6aauvtX1dCmB_WqLc3Bowj1EgtYd",
+              "title": "T7 Tuan 31 TN LN",
+              "location": "Tuan 31 TN",
+              "date": "10.2025",
+              "createdAt": "2026-10-26T07:42:49.003Z",
+              "modifiedAt": "2025-10-27T07:09:31.250Z",
+              "src": "https://drive.google.com/thumbnail?id=1PPKa6aauvtX1dCmB_WqLc3Bowj1EgtYd&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1PPKa6aauvtX1dCmB_WqLc3Bowj1EgtYd",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "111",
       "slug": "cn31-tn-b",
       "title": "Chúa Nhật Thứ 31 Thường Niên - Năm B",
       "subtitle": "Mùa Thường Niên / Năm B",
@@ -40352,7 +41725,7 @@
       ]
     },
     {
-      "id": "110",
+      "id": "112",
       "slug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11",
       "title": "CN31 TN C va Tuan31TN tu 03 11 den 08 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -40366,7 +41739,7 @@
       "photos": [],
       "children": [
         {
-          "id": "110.01",
+          "id": "112.01",
           "slug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11--cn31-tn-c",
           "parentSlug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11",
           "title": "Chúa Nhật Thứ 31 Thường Niên - Năm C",
@@ -40421,7 +41794,7 @@
           ]
         },
         {
-          "id": "110.02",
+          "id": "112.02",
           "slug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11--le-cac-dang-linh-hon",
           "parentSlug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11",
           "title": "Le Cac Dang Linh Hon",
@@ -40879,7 +42252,7 @@
           ]
         },
         {
-          "id": "110.03",
+          "id": "112.03",
           "slug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11--tuan31tn-tu-03-11-den-08-11",
           "parentSlug": "cn31-tn-c-va-tuan31tn-tu-03-11-den-08-11",
           "title": "Tuan31TN tu 03 11 den 08 11",
@@ -41105,7 +42478,7 @@
       ]
     },
     {
-      "id": "111",
+      "id": "113",
       "slug": "cn32-tn-b",
       "title": "Chúa Nhật Thứ 32 Thường Niên - Năm B",
       "subtitle": "Mùa Thường Niên / Năm B",
@@ -41198,7 +42571,7 @@
       ]
     },
     {
-      "id": "112",
+      "id": "114",
       "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
       "title": "CN32 TN C va Tuan32TN tu 10 11 den 15 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -41212,7 +42585,7 @@
       "photos": [],
       "children": [
         {
-          "id": "112.01",
+          "id": "114.01",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--cn32-tn-c",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "Chúa Nhật Thứ 32 Thường Niên - Năm C",
@@ -41345,7 +42718,7 @@
           ]
         },
         {
-          "id": "112.02",
+          "id": "114.02",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--cn32-tn-c-thieunhi",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "CN32 TN C ThieuNhi",
@@ -41478,7 +42851,7 @@
           ]
         },
         {
-          "id": "112.03",
+          "id": "114.03",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--cung-hien-thanh-duong-laterano",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "Cung Hien Thanh Duong Laterano",
@@ -41650,7 +43023,7 @@
           ]
         },
         {
-          "id": "112.04",
+          "id": "114.04",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--cung-hien-thanh-duong-laterano-thieunhi",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "Cung Hien Thanh Duong Laterano ThieuNhi",
@@ -41783,7 +43156,7 @@
           ]
         },
         {
-          "id": "112.05",
+          "id": "114.05",
           "slug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11--tuan32tn-tu-10-11-den-15-11",
           "parentSlug": "cn32-tn-c-va-tuan32tn-tu-10-11-den-15-11",
           "title": "Tuan32TN tu 10 11 den 15 11",
@@ -42061,7 +43434,7 @@
       ]
     },
     {
-      "id": "113",
+      "id": "115",
       "slug": "cn33-tn-b-cac-thanh-tu-dao-vn",
       "title": "CN33 TN B Cac Thanh Tu Dao VN",
       "subtitle": "Thiết kế phụng vụ",
@@ -42271,7 +43644,7 @@
       ]
     },
     {
-      "id": "114",
+      "id": "116",
       "slug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11",
       "title": "CN33 TN C va Tuan33TN tu 17 11 den 22 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -42285,7 +43658,7 @@
       "photos": [],
       "children": [
         {
-          "id": "114.01",
+          "id": "116.01",
           "slug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11--cac-thanh-tu-dao-vn",
           "parentSlug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11",
           "title": "Cac Thanh Tu Dao VN",
@@ -42639,7 +44012,7 @@
           ]
         },
         {
-          "id": "114.02",
+          "id": "116.02",
           "slug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11--cn33-tn-c",
           "parentSlug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11",
           "title": "Chúa Nhật Thứ 33 Thường Niên - Năm C",
@@ -42759,7 +44132,7 @@
           ]
         },
         {
-          "id": "114.03",
+          "id": "116.03",
           "slug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11--tuan33tn-tu-17-11-den-22-11",
           "parentSlug": "cn33-tn-c-va-tuan33tn-tu-17-11-den-22-11",
           "title": "Tuan33TN tu 17 11 den 22 11",
@@ -43037,7 +44410,7 @@
       ]
     },
     {
-      "id": "115",
+      "id": "117",
       "slug": "cn34-tn-b-chua-kito-vua",
       "title": "CN34 TN B Chua Kito Vua",
       "subtitle": "Thiết kế phụng vụ",
@@ -43130,7 +44503,7 @@
       ]
     },
     {
-      "id": "116",
+      "id": "118",
       "slug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11",
       "title": "CN34 TN C va Tuan34TN tu 24 11 den 29 11",
       "subtitle": "Thiết kế phụng vụ",
@@ -43144,7 +44517,7 @@
       "photos": [],
       "children": [
         {
-          "id": "116.01",
+          "id": "118.01",
           "slug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11--cn34-tn-c-chua-kito-vua",
           "parentSlug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11",
           "title": "CN34 TN C Chua Kito Vua",
@@ -43394,7 +44767,7 @@
           ]
         },
         {
-          "id": "116.02",
+          "id": "118.02",
           "slug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11--cn34-tn-c-chua-kito-vua-thieunhi",
           "parentSlug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11",
           "title": "CN34 TN C Chua Kito Vua ThieuNhi",
@@ -43449,7 +44822,7 @@
           ]
         },
         {
-          "id": "116.03",
+          "id": "118.03",
           "slug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11--tuan34tn-tu-24-11-den-29-11",
           "parentSlug": "cn34-tn-c-va-tuan34tn-tu-24-11-den-29-11",
           "title": "Tuan34TN tu 24 11 den 29 11",
@@ -43727,7 +45100,7 @@
       ]
     },
     {
-      "id": "117",
+      "id": "119",
       "slug": "dangchuatrongdenthanh",
       "title": "DangChuaTrongDenThanh",
       "subtitle": "Thiết kế phụng vụ",
@@ -43781,7 +45154,7 @@
       ]
     },
     {
-      "id": "118",
+      "id": "120",
       "slug": "duc-me-len-troi",
       "title": "Duc Me Len Troi",
       "subtitle": "Thiết kế phụng vụ",
@@ -44147,7 +45520,7 @@
       ]
     },
     {
-      "id": "119",
+      "id": "121",
       "slug": "duc-me-man-coi",
       "title": "Duc Me Man Coi",
       "subtitle": "Thiết kế phụng vụ",
@@ -44552,7 +45925,7 @@
       ]
     },
     {
-      "id": "120",
+      "id": "122",
       "slug": "ducmaria-methienchua",
       "title": "DucMaria MeThienChua",
       "subtitle": "Thiết kế phụng vụ",
@@ -44814,7 +46187,7 @@
       ]
     },
     {
-      "id": "121",
+      "id": "123",
       "slug": "giang-sinh",
       "title": "Giang Sinh",
       "subtitle": "Thiết kế phụng vụ",
@@ -44828,7 +46201,7 @@
       "photos": [],
       "children": [
         {
-          "id": "121.01",
+          "id": "123.01",
           "slug": "giang-sinh--2021",
           "parentSlug": "giang-sinh",
           "title": "2021",
@@ -44961,7 +46334,7 @@
           ]
         },
         {
-          "id": "121.02",
+          "id": "123.02",
           "slug": "giang-sinh--2022",
           "parentSlug": "giang-sinh",
           "title": "2022",
@@ -45055,7 +46428,7 @@
           ]
         },
         {
-          "id": "121.03",
+          "id": "123.03",
           "slug": "giang-sinh--2023",
           "parentSlug": "giang-sinh",
           "title": "2023",
@@ -45110,7 +46483,7 @@
           ]
         },
         {
-          "id": "121.04",
+          "id": "123.04",
           "slug": "giang-sinh--avatar-fb-cover",
           "parentSlug": "giang-sinh",
           "title": "Avatar FB Cover",
@@ -45152,7 +46525,7 @@
           ]
         },
         {
-          "id": "121.05",
+          "id": "123.05",
           "slug": "giang-sinh--bai-doc-giang-sinh",
           "parentSlug": "giang-sinh",
           "title": "Bai Doc Giang Sinh",
@@ -45454,7 +46827,7 @@
           ]
         },
         {
-          "id": "121.06",
+          "id": "123.06",
           "slug": "giang-sinh--giang-sinh-2024",
           "parentSlug": "giang-sinh",
           "title": "Giang Sinh 2024",
@@ -45509,7 +46882,7 @@
           ]
         },
         {
-          "id": "121.07",
+          "id": "123.07",
           "slug": "giang-sinh--giang-sinh-2025",
           "parentSlug": "giang-sinh",
           "title": "Giang Sinh 2025",
@@ -45564,7 +46937,7 @@
           ]
         },
         {
-          "id": "121.08",
+          "id": "123.08",
           "slug": "giang-sinh--thiep",
           "parentSlug": "giang-sinh",
           "title": "Thiệp",
@@ -45619,7 +46992,7 @@
           ]
         },
         {
-          "id": "121.09",
+          "id": "123.09",
           "slug": "giang-sinh--tuan-bat-nhat-giang-sinh-2025",
           "parentSlug": "giang-sinh",
           "title": "Tuan Bat Nhat Giang Sinh 2025",
@@ -45871,7 +47244,7 @@
       ]
     },
     {
-      "id": "122",
+      "id": "124",
       "slug": "le-cac-thanh-nam-nu",
       "title": "Le Cac Thanh Nam Nu",
       "subtitle": "Thiết kế phụng vụ",
@@ -46016,7 +47389,7 @@
       ]
     },
     {
-      "id": "123",
+      "id": "125",
       "slug": "le-chua-chiu-phep-rua-c",
       "title": "Le Chua Chiu Phep Rua C",
       "subtitle": "Thiết kế phụng vụ",
@@ -46187,7 +47560,7 @@
       ]
     },
     {
-      "id": "124",
+      "id": "126",
       "slug": "le-duc-me-len-troi-15-8",
       "title": "Le Duc Me Len Troi 15 8",
       "subtitle": "Thiết kế phụng vụ",
@@ -46436,7 +47809,7 @@
       ]
     },
     {
-      "id": "125",
+      "id": "127",
       "slug": "le-hien-linh",
       "title": "Le Hien Linh",
       "subtitle": "Thiết kế phụng vụ",
@@ -46450,7 +47823,7 @@
       "photos": [],
       "children": [
         {
-          "id": "125.01",
+          "id": "127.01",
           "slug": "le-hien-linh--cn-le-hien-linh",
           "parentSlug": "le-hien-linh",
           "title": "CN Le Hien Linh",
@@ -46674,7 +48047,7 @@
           ]
         },
         {
-          "id": "125.02",
+          "id": "127.02",
           "slug": "le-hien-linh--cn-le-hien-linh-tn",
           "parentSlug": "le-hien-linh",
           "title": "CN Le Hien Linh TN",
@@ -46729,7 +48102,7 @@
           ]
         },
         {
-          "id": "125.03",
+          "id": "127.03",
           "slug": "le-hien-linh--tuan-sau-le-hien-linh",
           "parentSlug": "le-hien-linh",
           "title": "Tuan sau Le Hien Linh",
@@ -46929,7 +48302,7 @@
       ]
     },
     {
-      "id": "126",
+      "id": "128",
       "slug": "le-phong-thanh-elena-guerra",
       "title": "Le Phong Thanh Elena Guerra",
       "subtitle": "Thiết kế phụng vụ",
@@ -46983,7 +48356,7 @@
       ],
       "children": [
         {
-          "id": "126.01",
+          "id": "128.01",
           "slug": "le-phong-thanh-elena-guerra--hinh-50x70cm",
           "parentSlug": "le-phong-thanh-elena-guerra",
           "title": "Hinh 50x70cm",
@@ -47012,7 +48385,7 @@
           ]
         },
         {
-          "id": "126.02",
+          "id": "128.02",
           "slug": "le-phong-thanh-elena-guerra--logo",
           "parentSlug": "le-phong-thanh-elena-guerra",
           "title": "logo",
@@ -47056,7 +48429,7 @@
       ]
     },
     {
-      "id": "127",
+      "id": "129",
       "slug": "le-thanh-gia-c-2024",
       "title": "Le Thanh Gia C 2024",
       "subtitle": "Thiết kế phụng vụ",
@@ -47110,7 +48483,7 @@
       ]
     },
     {
-      "id": "128",
+      "id": "130",
       "slug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01",
       "title": "Le Thanh Gia Nam A va Le tu 28 12 den 03 01",
       "subtitle": "Thiết kế phụng vụ",
@@ -47124,7 +48497,7 @@
       "photos": [],
       "children": [
         {
-          "id": "128.01",
+          "id": "130.01",
           "slug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01--le-thanh-gia-nam-a",
           "parentSlug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01",
           "title": "Le Thanh Gia Nam A",
@@ -47283,7 +48656,7 @@
           ]
         },
         {
-          "id": "128.02",
+          "id": "130.02",
           "slug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01--le-thanh-gia-nam-a-tn",
           "parentSlug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01",
           "title": "Le Thanh Gia Nam A TN",
@@ -47364,7 +48737,7 @@
           ]
         },
         {
-          "id": "128.03",
+          "id": "130.03",
           "slug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01--le-tu-28-12-den-03-01",
           "parentSlug": "le-thanh-gia-nam-a-va-le-tu-28-12-den-03-01",
           "title": "Le tu 28 12 den 03 01",
@@ -47668,7 +49041,7 @@
       ]
     },
     {
-      "id": "129",
+      "id": "131",
       "slug": "le-tong-lanh-thien-than",
       "title": "Le Tong Lanh Thien Than",
       "subtitle": "Thiết kế phụng vụ",
@@ -47735,7 +49108,7 @@
       ]
     },
     {
-      "id": "130",
+      "id": "132",
       "slug": "le-truyen-tin",
       "title": "Le Truyen Tin",
       "subtitle": "Thiết kế phụng vụ",
@@ -47828,7 +49201,7 @@
       ]
     },
     {
-      "id": "131",
+      "id": "133",
       "slug": "lela-tuanthanh-cnps-2025",
       "title": "LeLa TuanThanh CNPS 2025",
       "subtitle": "Thiết kế phụng vụ",
@@ -47842,7 +49215,7 @@
       "photos": [],
       "children": [
         {
-          "id": "131.01",
+          "id": "133.01",
           "slug": "lela-tuanthanh-cnps-2025--baidoc-vongps",
           "parentSlug": "lela-tuanthanh-cnps-2025",
           "title": "BaiDoc VongPS",
@@ -48248,7 +49621,7 @@
           ]
         },
         {
-          "id": "131.02",
+          "id": "133.02",
           "slug": "lela-tuanthanh-cnps-2025--cn-phucsinh",
           "parentSlug": "lela-tuanthanh-cnps-2025",
           "title": "CN PhucSinh",
@@ -48381,7 +49754,7 @@
           ]
         },
         {
-          "id": "131.03",
+          "id": "133.03",
           "slug": "lela-tuanthanh-cnps-2025--le-la",
           "parentSlug": "lela-tuanthanh-cnps-2025",
           "title": "Le La",
@@ -48475,7 +49848,7 @@
           ]
         },
         {
-          "id": "131.04",
+          "id": "133.04",
           "slug": "lela-tuanthanh-cnps-2025--tuan-thanh",
           "parentSlug": "lela-tuanthanh-cnps-2025",
           "title": "Tuan Thanh",
@@ -48610,7 +49983,7 @@
       ]
     },
     {
-      "id": "132",
+      "id": "134",
       "slug": "lela-tuanthanh-ps-2026",
       "title": "LeLa TuanThanh PS 2026",
       "subtitle": "Thiết kế phụng vụ",
@@ -48624,7 +49997,7 @@
       "photos": [],
       "children": [
         {
-          "id": "132.01",
+          "id": "134.01",
           "slug": "lela-tuanthanh-ps-2026--cn-phucsinh",
           "parentSlug": "lela-tuanthanh-ps-2026",
           "title": "CN PhucSinh",
@@ -48965,7 +50338,7 @@
           ]
         },
         {
-          "id": "132.02",
+          "id": "134.02",
           "slug": "lela-tuanthanh-ps-2026--le-la-nam-a",
           "parentSlug": "lela-tuanthanh-ps-2026",
           "title": "Le La Nam A",
@@ -49202,7 +50575,7 @@
           ]
         },
         {
-          "id": "132.03",
+          "id": "134.03",
           "slug": "lela-tuanthanh-ps-2026--tuan-bat-nhat-ps",
           "parentSlug": "lela-tuanthanh-ps-2026",
           "title": "Tuan Bat Nhat PS",
@@ -49439,7 +50812,7 @@
           ]
         },
         {
-          "id": "132.04",
+          "id": "134.04",
           "slug": "lela-tuanthanh-ps-2026--tuan-thanh",
           "parentSlug": "lela-tuanthanh-ps-2026",
           "title": "Tuan Thanh",
@@ -49454,7 +50827,7 @@
           "photos": [],
           "children": [
             {
-              "id": "132.04.01",
+              "id": "134.04.01",
               "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t5-tuanthanh",
               "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh",
               "title": "T5 TuanThanh",
@@ -49665,7 +51038,7 @@
               ]
             },
             {
-              "id": "132.04.02",
+              "id": "134.04.02",
               "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t6-tuanthanh",
               "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh",
               "title": "T6 TuanThanh",
@@ -49850,7 +51223,7 @@
               ]
             },
             {
-              "id": "132.04.03",
+              "id": "134.04.03",
               "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t7-tuanthanh-nam-a",
               "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh",
               "title": "T7 TuanThanh Nam A",
@@ -50022,7 +51395,7 @@
               ],
               "children": [
                 {
-                  "id": "132.04.03.01",
+                  "id": "134.04.03.01",
                   "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t7-tuanthanh-nam-a--baidoc-vongps",
                   "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh--t7-tuanthanh-nam-a",
                   "title": "BaiDoc VongPS",
@@ -50443,7 +51816,7 @@
               ]
             },
             {
-              "id": "132.04.04",
+              "id": "134.04.04",
               "slug": "lela-tuanthanh-ps-2026--tuan-thanh--t234-tuanthanh",
               "parentSlug": "lela-tuanthanh-ps-2026--tuan-thanh",
               "title": "T234 TuanThanh",
@@ -50541,7 +51914,7 @@
       ]
     },
     {
-      "id": "133",
+      "id": "135",
       "slug": "letro-muachay",
       "title": "LeTro MuaChay",
       "subtitle": "Thiết kế phụng vụ",
@@ -50712,7 +52085,7 @@
       ]
     },
     {
-      "id": "134",
+      "id": "136",
       "slug": "ngam-15-su-thuong-kho",
       "title": "Ngam 15 Su Thuong Kho",
       "subtitle": "Thiết kế phụng vụ",
@@ -50726,7 +52099,7 @@
       "photos": [],
       "children": [
         {
-          "id": "134.01",
+          "id": "136.01",
           "slug": "ngam-15-su-thuong-kho--hinh-hq",
           "parentSlug": "ngam-15-su-thuong-kho",
           "title": "Hinh HQ",
@@ -50952,7 +52325,7 @@
       ]
     },
     {
-      "id": "135",
+      "id": "137",
       "slug": "ngam-dau-danh-va-ngam-rang",
       "title": "Ngam Dau Danh va Ngam Rang",
       "subtitle": "Thiết kế phụng vụ",
@@ -50966,7 +52339,7 @@
       "photos": [],
       "children": [
         {
-          "id": "135.01",
+          "id": "137.01",
           "slug": "ngam-dau-danh-va-ngam-rang--ngam-dau-danh",
           "parentSlug": "ngam-dau-danh-va-ngam-rang",
           "title": "NGẮM DẤU ĐANH",
@@ -51073,7 +52446,7 @@
           ]
         },
         {
-          "id": "135.02",
+          "id": "137.02",
           "slug": "ngam-dau-danh-va-ngam-rang--ngam-rang",
           "parentSlug": "ngam-dau-danh-va-ngam-rang",
           "title": "NGẮM RẰNG",
@@ -51195,7 +52568,7 @@
       ]
     },
     {
-      "id": "136",
+      "id": "138",
       "slug": "ruoclelandau-ln-2025",
       "title": "RuocLeLanDau LN 2025",
       "subtitle": "Thiết kế phụng vụ",
@@ -51209,7 +52582,7 @@
       "photos": [],
       "children": [
         {
-          "id": "136.01",
+          "id": "138.01",
           "slug": "ruoclelandau-ln-2025--backdrop-400x250cm",
           "parentSlug": "ruoclelandau-ln-2025",
           "title": "Backdrop 400x250cm",
@@ -51238,7 +52611,7 @@
           ]
         },
         {
-          "id": "136.02",
+          "id": "138.02",
           "slug": "ruoclelandau-ln-2025--backdrop-chuphinh-140x200cm",
           "parentSlug": "ruoclelandau-ln-2025",
           "title": "Backdrop ChupHinh 140x200cm",
@@ -51267,7 +52640,7 @@
           ]
         },
         {
-          "id": "136.03",
+          "id": "138.03",
           "slug": "ruoclelandau-ln-2025--file-16x9",
           "parentSlug": "ruoclelandau-ln-2025",
           "title": "File 16x9",
@@ -51337,7 +52710,7 @@
       ]
     },
     {
-      "id": "137",
+      "id": "139",
       "slug": "sn-thanh-gioan-tay-gia",
       "title": "SN Thanh Gioan Tay Gia",
       "subtitle": "Thiết kế phụng vụ",
@@ -51404,7 +52777,7 @@
       ]
     },
     {
-      "id": "138",
+      "id": "140",
       "slug": "tet",
       "title": "TET",
       "subtitle": "Thiết kế phụng vụ",
@@ -51418,7 +52791,7 @@
       "photos": [],
       "children": [
         {
-          "id": "138.01",
+          "id": "140.01",
           "slug": "tet--avatar-2025",
           "parentSlug": "tet",
           "title": "Avatar 2025",
@@ -51447,7 +52820,7 @@
           ]
         },
         {
-          "id": "138.02",
+          "id": "140.02",
           "slug": "tet--cover-fb-2025",
           "parentSlug": "tet",
           "title": "Cover FB 2025",
@@ -51476,7 +52849,7 @@
           ]
         },
         {
-          "id": "138.03",
+          "id": "140.03",
           "slug": "tet--tatnien-giaothua-mung1234tet",
           "parentSlug": "tet",
           "title": "TatNien GiaoThua Mung1234Tet",
@@ -51676,7 +53049,7 @@
       ]
     },
     {
-      "id": "139",
+      "id": "141",
       "slug": "thanh-le-cau-cho-viec-bao-ve-cong-trinh-tao-dung",
       "title": "THÁNH LỄ CẦU CHO VIỆC BẢO VỆ CÔNG TRÌNH TẠO DỰNG",
       "subtitle": "Thiết kế phụng vụ",
@@ -51821,7 +53194,7 @@
       ]
     },
     {
-      "id": "140",
+      "id": "142",
       "slug": "thanh-cecilia",
       "title": "Thanh Cecilia",
       "subtitle": "Thiết kế phụng vụ",
@@ -51862,7 +53235,7 @@
       ]
     },
     {
-      "id": "141",
+      "id": "143",
       "slug": "thanh-clementedcct-15-03",
       "title": "Thanh ClementeDCCT 15 03",
       "subtitle": "Thiết kế phụng vụ",
@@ -51903,7 +53276,7 @@
       ]
     },
     {
-      "id": "142",
+      "id": "144",
       "slug": "thanh-giuse",
       "title": "Thanh Giuse",
       "subtitle": "Thiết kế phụng vụ",
@@ -51917,7 +53290,7 @@
       "photos": [],
       "children": [
         {
-          "id": "142.01",
+          "id": "144.01",
           "slug": "thanh-giuse--2025",
           "parentSlug": "thanh-giuse",
           "title": "2025",
@@ -51987,7 +53360,7 @@
       ]
     },
     {
-      "id": "143",
+      "id": "145",
       "slug": "thanh-maria-goretti",
       "title": "Thanh Maria Goretti",
       "subtitle": "Thiết kế phụng vụ",
@@ -52001,7 +53374,7 @@
       "photos": [],
       "children": [
         {
-          "id": "143.01",
+          "id": "145.01",
           "slug": "thanh-maria-goretti--backdrop-400x225cm",
           "parentSlug": "thanh-maria-goretti",
           "title": "Backdrop 400x225cm",
@@ -52043,7 +53416,7 @@
           ]
         },
         {
-          "id": "143.02",
+          "id": "145.02",
           "slug": "thanh-maria-goretti--hinh-16x9",
           "parentSlug": "thanh-maria-goretti",
           "title": "Hinh 16x9",
@@ -52085,7 +53458,7 @@
           ]
         },
         {
-          "id": "143.03",
+          "id": "145.03",
           "slug": "thanh-maria-goretti--hinh-60x90cm",
           "parentSlug": "thanh-maria-goretti",
           "title": "Hinh 60x90cm",
@@ -52116,7 +53489,7 @@
       ]
     },
     {
-      "id": "144",
+      "id": "146",
       "slug": "thanh-teresa",
       "title": "Thanh Teresa",
       "subtitle": "Thiết kế phụng vụ",
@@ -52183,7 +53556,7 @@
       ]
     },
     {
-      "id": "145",
+      "id": "147",
       "slug": "thanh-vinh-son",
       "title": "Thanh Vinh Son",
       "subtitle": "Thiết kế phụng vụ",
@@ -52237,7 +53610,7 @@
       ]
     },
     {
-      "id": "146",
+      "id": "148",
       "slug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07",
       "title": "ThanhPheroPhaolo va Tuan13TN tu 30 06 den 05 07",
       "subtitle": "Thiết kế phụng vụ",
@@ -52251,7 +53624,7 @@
       "photos": [],
       "children": [
         {
-          "id": "146.01",
+          "id": "148.01",
           "slug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07--thanh-phero-phaolo",
           "parentSlug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07",
           "title": "Thanh Phero Phaolo",
@@ -52501,7 +53874,7 @@
           ]
         },
         {
-          "id": "146.02",
+          "id": "148.02",
           "slug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07--tuan13tn-tu-30-06-den-05-07",
           "parentSlug": "thanhpherophaolo-va-tuan13tn-tu-30-06-den-05-07",
           "title": "Tuan13TN tu 30 06 den 05 07",
@@ -52753,7 +54126,7 @@
       ]
     },
     {
-      "id": "147",
+      "id": "149",
       "slug": "thien-than-ho-thu",
       "title": "Thien than ho thu",
       "subtitle": "Thiết kế phụng vụ",
@@ -52820,7 +54193,7 @@
       ]
     },
     {
-      "id": "148",
+      "id": "150",
       "slug": "tuan-02-ps-va-le-tu-28-04-den-03-05",
       "title": "Tuan 02 PS va Le tu 28 04 den 03 05",
       "subtitle": "Thiết kế phụng vụ",
@@ -53199,7 +54572,7 @@
       ]
     },
     {
-      "id": "149",
+      "id": "151",
       "slug": "tuan-bat-nhat-ps-2025",
       "title": "Tuan Bat Nhat PS 2025",
       "subtitle": "Thiết kế phụng vụ",
