@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T08:21:47.721Z",
+  "generatedAt": "2026-11-11T13:51:58.236Z",
   "source": {
     "rootFolderId": "1A50RPh0VKKkc2nmOrNzw5GwTawKNVyRn",
     "rootFolderName": "Website_LHN",
@@ -44113,7 +44113,7 @@
       "date": "11.2026",
       "location": "Thiết kế phụng vụ",
       "createdAt": "2026-11-10T06:56:26.454Z",
-      "count": 67,
+      "count": 69,
       "cover": "https://drive.google.com/thumbnail?id=1gyK-QxKhQtjSnW_YjH1677hBT59h9T8j&sz=w1600",
       "accent": "green",
       "description": "Album CN33 TN A va Tuan33TN tu 15 11 den 21 11.",
@@ -44313,7 +44313,7 @@
           "date": "11.2026",
           "location": "Thiết kế phụng vụ",
           "createdAt": "2026-11-10T06:56:59.565Z",
-          "count": 30,
+          "count": 32,
           "cover": "https://drive.google.com/thumbnail?id=10AXNxVkaQiJTphghmRo9ORxKHMywNElR&sz=w1600",
           "accent": "green",
           "description": "Album Le Cac Thanh Tu Dao VN.",
@@ -44665,6 +44665,32 @@
               "modifiedAt": "2026-11-10T05:22:41.789Z",
               "src": "https://drive.google.com/thumbnail?id=1dp0qd8zDGaBGDNkmB1W8XVGorMtmiElm&sz=w1600",
               "downloadUrl": "https://drive.google.com/uc?export=download&id=1dp0qd8zDGaBGDNkmB1W8XVGorMtmiElm",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1yP_pA9xwOXqdFkUIjF9olT8n1WqdwA1s",
+              "title": "CacThanhTuDaoVN LN4 TN CS Ga17 11b 19",
+              "location": "Le Cac Thanh Tu Dao VN",
+              "date": "11.2026",
+              "createdAt": "2026-11-11T13:51:07.451Z",
+              "modifiedAt": "2026-11-11T13:49:12.974Z",
+              "src": "https://drive.google.com/thumbnail?id=1yP_pA9xwOXqdFkUIjF9olT8n1WqdwA1s&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1yP_pA9xwOXqdFkUIjF9olT8n1WqdwA1s",
+              "orientation": "landscape",
+              "mimeType": "image/jpeg",
+              "isBackground": false
+            },
+            {
+              "id": "1MVYQsako9x47QrDGEJXoRkoCyshpEq6n",
+              "title": "CacThanhTuDaoVN LN4 TN CS Lc9 23 26",
+              "location": "Le Cac Thanh Tu Dao VN",
+              "date": "11.2026",
+              "createdAt": "2026-11-11T13:51:12.300Z",
+              "modifiedAt": "2026-11-11T13:47:14.918Z",
+              "src": "https://drive.google.com/thumbnail?id=1MVYQsako9x47QrDGEJXoRkoCyshpEq6n&sz=w1600",
+              "downloadUrl": "https://drive.google.com/uc?export=download&id=1MVYQsako9x47QrDGEJXoRkoCyshpEq6n",
               "orientation": "landscape",
               "mimeType": "image/jpeg",
               "isBackground": false
