@@ -84,7 +84,8 @@ jobs:
         run: pnpm build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
+        # v3 uses upload-artifact@v4, which is compatible with deploy-pages@v4.
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist/public
 

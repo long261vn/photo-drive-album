@@ -355,3 +355,14 @@
 - [x] Xác định vì sao Vercel phục vụ tệp `server/index.ts` thay vì website tĩnh.
 - [x] Thêm cấu hình Vercel cho build Vite, thư mục xuất bản và route ứng dụng.
 - [x] Kiểm tra build, đồng bộ GitHub và xác minh link Vercel sau triển khai.
+
+## Khắc phục lỗi GitHub Pages artifact (2026-11-25)
+
+- [ ] Kiểm tra toàn bộ workflow GitHub Actions và xác định job nào tạo/đọc artifact `github-pages`.
+- [ ] Đối chiếu cấu hình với mô hình deploy GitHub Pages hiện tại (`upload-pages-artifact` và `deploy-pages`).
+- [ ] Sửa workflow để build tạo đúng thư mục artifact và job deploy phụ thuộc đúng job build.
+- [ ] Chạy kiểm tra cục bộ: cài dependency, build production, kiểm tra `dist` và manifest dữ liệu.
+- [ ] Kiểm tra các lỗi cấu hình liên quan Node.js 24/pnpm và quyền Pages nếu có.
+- [ ] Commit/push thay đổi lên GitHub bằng kết nối đã được cấp quyền.
+- [ ] Theo dõi workflow mới, xác nhận artifact được tạo và deployment hoàn tất.
+- [ ] Kiểm tra URL GitHub Pages và ghi lại nguyên nhân, thay đổi, kết quả QA.
